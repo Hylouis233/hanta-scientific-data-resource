@@ -1,0 +1,9 @@
+{
+  "checksum_sha256": null,
+  "fetched": false,
+  "local_file": null,
+  "retrieved_at_utc": null,
+  "source_id": "hdx_north_kivu_ituri_cases_deaths_cures",
+  "status": "metadata_only",
+  "url": "https://data.humdata.org/dataset/ebola-cases-and-deaths-drc-north-kivu"
+}

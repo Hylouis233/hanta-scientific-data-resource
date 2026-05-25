@@ -1,0 +1,59 @@
+schema_version: 0.1.0
+canonical_fields:
+  source_id:
+    type: string
+    required: true
+    description: Registry source identifier.
+  outbreak_id:
+    type: string
+    required: true
+    allowed_values: [West_Africa_2014_2016, North_Kivu_Ituri_2018_2020, Global_Data]
+  report_date:
+    type: date
+    required: true
+    description: Date attached to the source report or observation.
+  country:
+    type: string
+    required: false
+  admin1:
+    type: string
+    required: false
+  admin2:
+    type: string
+    required: false
+  health_zone:
+    type: string
+    required: false
+  case_class:
+    type: string
+    required: true
+    allowed_values: [confirmed, probable, suspected, confirmed_probable, all_reported, unknown]
+  measure:
+    type: string
+    required: true
+    allowed_values: [cases, deaths, cures, survivors]
+  count_type:
+    type: string
+    required: true
+    allowed_values: [incident, cumulative]
+  value:
+    type: integer
+    required: true
+    constraints: non_negative
+  time_resolution:
+    type: string
+    required: true
+    allowed_values: [daily, weekly, monthly, report_update, final_summary]
+  geography_level:
+    type: string
+    required: true
+    allowed_values: [country, admin1, admin2, health_zone, outbreak_summary]
+  authenticity:
+    type: string
+    required: true
+  case_definition_notes:
+    type: string
+    required: true
+  source_url:
+    type: string
+    required: true

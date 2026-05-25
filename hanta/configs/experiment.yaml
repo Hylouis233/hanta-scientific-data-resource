@@ -1,0 +1,7 @@
+project: hanta
+protocol_version: 0.1.0
+random_seed: 20260525
+mode: scaffold
+outputs:
+  metrics: reports/current_metrics.json
+  table: reports/tables/main_results.csv

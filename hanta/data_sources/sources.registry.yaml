@@ -1,0 +1,18 @@
+schema_version: 0.1.0
+scope: hanta_incubator_metadata_only
+sources:
+  - source_id: genbank_hantavirus_segments
+    source_name: GenBank Hantavirus S/M/L segment sequences
+    publisher: NCBI GenBank
+    role: segment_genomics
+    status: planned_metadata_audit
+  - source_id: gbif_rodent_occurrences
+    source_name: GBIF rodent occurrence records
+    publisher: GBIF
+    role: host_occurrence_data
+    status: planned_metadata_audit
+  - source_id: cdc_hantavirus_cases_us
+    source_name: Reported Cases of Hantavirus Disease
+    publisher: CDC
+    role: surveillance_context
+    status: planned_metadata_audit

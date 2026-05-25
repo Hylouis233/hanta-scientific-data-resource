@@ -1,0 +1,5 @@
+parameter,value,unit,virus_species,outbreak,source_citation,authenticity,notes
+incubation_period,,,,,,Yellow: literature parameter,
+serial_interval,,,,,,Yellow: literature parameter,
+case_fatality_ratio,,,,,,Yellow: literature parameter,
+basic_reproduction_number,,,,,,Yellow: literature parameter,

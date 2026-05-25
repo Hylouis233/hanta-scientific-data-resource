@@ -1,0 +1,5 @@
+source_id,audit_date,auditor,status,checks_completed,open_questions,notes
+hdx_west_africa_2014_cases_deaths,2026-05-25,agent,metadata_registered,registry_fields_created;download_not_performed,license_and_schema_require_fetch_audit,Metadata-only record; not yet manuscript-ready
+hdx_north_kivu_ituri_cases_deaths_cures,2026-05-25,agent,metadata_registered,registry_fields_created;download_not_performed,license_and_schema_require_fetch_audit,Metadata-only record; not yet manuscript-ready
+who_west_africa_outbreak_anchor,2026-05-25,agent,metadata_registered,registry_fields_created;download_not_performed,final totals require cited snapshot,Anchor source only until audited
+who_north_kivu_ituri_outbreak_anchor,2026-05-25,agent,metadata_registered,registry_fields_created;download_not_performed,final totals require cited snapshot,Anchor source only until audited

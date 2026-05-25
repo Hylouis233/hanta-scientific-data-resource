@@ -1,0 +1,9 @@
+project:
+  manuscript_target: true
+  random_seed: 20260525
+  data_stage: scaffold_only
+
+evaluation:
+  protocol_version: 0.1.0
+  authenticity_required: true
+  placeholder_outputs_allowed: true

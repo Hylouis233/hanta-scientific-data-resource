@@ -1,0 +1,12 @@
+schema_version: 0.1.0
+principle: keep human cases, host occurrences, environmental rasters, and genome segments separate
+entities:
+  human_case_surveillance:
+    key_fields: [source_id, report_period, country, admin1, syndrome, cases]
+    syndrome_values: [HFRS, HCPS, unknown]
+  host_occurrence:
+    key_fields: [source_id, gbif_id, host_species, event_date, latitude, longitude, coordinate_uncertainty]
+  environmental_covariate:
+    key_fields: [covariate, source, version, resolution, crs, temporal_coverage]
+  genome_segment:
+    key_fields: [accession, virus_species, segment, host_species, country, collection_date]

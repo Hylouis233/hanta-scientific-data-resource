@@ -1,0 +1,9 @@
+[project]
+name = "autoresearch-ebola"
+version = "0.1.0"
+description = "Reproducible Ebola research workspace"
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

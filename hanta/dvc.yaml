@@ -1,0 +1,10 @@
+stages:
+  evaluate:
+    cmd: bash evaluation/evaluate.sh configs/experiment.yaml
+    deps:
+      - evaluation/evaluate.sh
+      - evaluation/run_protocol.py
+      - configs/experiment.yaml
+    outs:
+      - reports/current_metrics.json
+      - reports/tables/main_results.csv

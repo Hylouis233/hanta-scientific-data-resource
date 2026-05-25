@@ -1,0 +1,19 @@
+{
+  "all_checks_passed": true,
+  "checks": {
+    "authenticity_policy_present": true,
+    "data_sources_registered": true,
+    "evaluation_protocol_present": true,
+    "manuscript_target_declared": true
+  },
+  "generated_at_utc": "2026-05-25T16:22:30.951253+00:00",
+  "locked_metrics": [
+    "data_sources_registered",
+    "authenticity_policy_present",
+    "evaluation_protocol_present",
+    "manuscript_target_declared"
+  ],
+  "protocol_version": "0.1.0",
+  "scientific_claim": "none; scaffold validation only",
+  "stage": "scaffold_only"
+}

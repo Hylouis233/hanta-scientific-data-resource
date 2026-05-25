@@ -1,0 +1,11 @@
+rule all:
+    input:
+        "reports/current_metrics.json",
+        "reports/tables/main_results.csv"
+
+rule evaluate:
+    output:
+        metrics="reports/current_metrics.json",
+        table="reports/tables/main_results.csv"
+    shell:
+        "bash evaluation/evaluate.sh configs/experiment.yaml"

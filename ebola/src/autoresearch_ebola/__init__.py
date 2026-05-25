@@ -1,0 +1,1 @@
+"""Ebola research pipeline package."""

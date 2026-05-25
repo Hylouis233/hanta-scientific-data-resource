@@ -1,0 +1,38 @@
+{
+  "checks": [
+    {
+      "checksum_required": true,
+      "has_fetch_metadata": true,
+      "has_registry_metadata": true,
+      "passes": true,
+      "raw_file_count": 0,
+      "source_id": "hdx_west_africa_2014_cases_deaths"
+    },
+    {
+      "checksum_required": true,
+      "has_fetch_metadata": true,
+      "has_registry_metadata": true,
+      "passes": true,
+      "raw_file_count": 0,
+      "source_id": "hdx_north_kivu_ituri_cases_deaths_cures"
+    },
+    {
+      "checksum_required": false,
+      "has_fetch_metadata": true,
+      "has_registry_metadata": true,
+      "passes": true,
+      "raw_file_count": 0,
+      "source_id": "who_west_africa_outbreak_anchor"
+    },
+    {
+      "checksum_required": false,
+      "has_fetch_metadata": true,
+      "has_registry_metadata": true,
+      "passes": true,
+      "raw_file_count": 0,
+      "source_id": "who_north_kivu_ituri_outbreak_anchor"
+    }
+  ],
+  "require_data": false,
+  "validation_passed": true
+}

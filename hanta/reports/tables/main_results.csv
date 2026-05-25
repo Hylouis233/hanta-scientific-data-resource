@@ -1,0 +1,6 @@
+metric,value
+data_sources_registered,true
+authenticity_policy_present,true
+evaluation_protocol_present,true
+manuscript_target_declared,true
+all_checks_passed,true

@@ -1,0 +1,40 @@
+{
+  "sources": [
+    {
+      "checksum_sha256": null,
+      "fetched": false,
+      "local_file": null,
+      "retrieved_at_utc": null,
+      "source_id": "hdx_west_africa_2014_cases_deaths",
+      "status": "metadata_only",
+      "url": "https://data.humdata.org/dataset/ebola-cases-2014"
+    },
+    {
+      "checksum_sha256": null,
+      "fetched": false,
+      "local_file": null,
+      "retrieved_at_utc": null,
+      "source_id": "hdx_north_kivu_ituri_cases_deaths_cures",
+      "status": "metadata_only",
+      "url": "https://data.humdata.org/dataset/ebola-cases-and-deaths-drc-north-kivu"
+    },
+    {
+      "checksum_sha256": null,
+      "fetched": false,
+      "local_file": null,
+      "retrieved_at_utc": null,
+      "source_id": "who_west_africa_outbreak_anchor",
+      "status": "metadata_only",
+      "url": "https://www.who.int/emergencies/situations/ebola-outbreak-2014-2016-West-Africa"
+    },
+    {
+      "checksum_sha256": null,
+      "fetched": false,
+      "local_file": null,
+      "retrieved_at_utc": null,
+      "source_id": "who_north_kivu_ituri_outbreak_anchor",
+      "status": "metadata_only",
+      "url": "https://www.who.int/emergencies/situations/Ebola-2019-drc-"
+    }
+  ]
+}

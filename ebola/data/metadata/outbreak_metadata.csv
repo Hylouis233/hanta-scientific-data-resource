@@ -1,0 +1,3 @@
+outbreak_id,country,admin_level,start_date,end_date,cases,deaths,viral_species,source_anchor,limitations
+West_Africa_2014_2016,Guinea; Liberia; Sierra Leone; affected countries as source-defined,country,source_audit_pending,source_audit_pending,source_audit_pending,source_audit_pending,Zaire ebolavirus,who_west_africa_outbreak_anchor,Final values require source snapshot and field audit.
+North_Kivu_Ituri_2018_2020,Democratic Republic of the Congo,health_zone_or_source_defined_subnational,source_audit_pending,source_audit_pending,source_audit_pending,source_audit_pending,Zaire ebolavirus,who_north_kivu_ituri_outbreak_anchor,Conflict-zone reporting and vaccination rollout metadata require audit.

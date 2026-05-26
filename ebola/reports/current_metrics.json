@@ -15,7 +15,7 @@
   },
   "claim_guardrail_passed": true,
   "data_lock_status": "not_started",
-  "generated_at_utc": "2026-05-26T09:39:52.976578+00:00",
+  "generated_at_utc": "2026-05-26T09:40:51.181477+00:00",
   "locked_metrics": [
     "data_sources_registered",
     "authenticity_policy_present",

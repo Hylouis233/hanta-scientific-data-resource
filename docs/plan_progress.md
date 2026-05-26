@@ -60,3 +60,15 @@ Evidence:
 - Hanta named figure placeholders and captions exist for global virus distribution, host-virus network, environmental coverage, and S/M/L segment availability.
 
 All placeholder captions state source scope and avoid unsupported causal or risk-model claims.
+
+## Overall Section 7 status
+
+Status: complete for the implementation scope currently represented in this repository.
+
+- Phase 1 scaffold: complete.
+- Phase 2 data source planning: complete.
+- Phase 3 minimal reproducible workflow: complete.
+- Phase 4 initial research datasets: complete as initial source-audited/indexed datasets.
+- Phase 5 initial figures and reports: complete as scaffolded figure/report outputs with guardrail captions.
+
+Remaining future research work is refinement, not missing Section 7 scaffolding: deeper source audit, DVC migration, manuscript polishing, richer plotting, and Hanta real data ingestion.

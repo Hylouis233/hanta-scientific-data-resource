@@ -3,16 +3,65 @@ scope: hanta_incubator_metadata_only
 sources:
   - source_id: genbank_hantavirus_segments
     source_name: GenBank Hantavirus S/M/L segment sequences
+    url: https://www.ncbi.nlm.nih.gov/nuccore/
     publisher: NCBI GenBank
     role: segment_genomics
     status: planned_metadata_audit
+    required_fields: [accession, segment, virus_species, host_species, country, collection_date, download_date]
+    authenticity: Green: real data after accession audit
   - source_id: gbif_rodent_occurrences
     source_name: GBIF rodent occurrence records
+    url: https://www.gbif.org/
     publisher: GBIF
     role: host_occurrence_data
     status: planned_metadata_audit
+    required_fields: [gbif_download_doi, gbif_id, host_species, event_date, latitude, longitude, coordinate_uncertainty]
+    authenticity: Green: real data after GBIF download audit
   - source_id: cdc_hantavirus_cases_us
     source_name: Reported Cases of Hantavirus Disease
-    publisher: CDC
+    url: https://www.cdc.gov/hantavirus/data-research/cases/index.html
+    publisher: Centers for Disease Control and Prevention
     role: surveillance_context
     status: planned_metadata_audit
+    required_fields: [url, access_date, state_or_region, reporting_period, syndrome, privacy_limitations]
+    authenticity: Green: real data after access-date audit
+  - source_id: who_hantavirus_fact_sheet
+    source_name: WHO Hantavirus fact sheet
+    url: https://www.who.int/news-room/fact-sheets/detail/hantavirus
+    publisher: World Health Organization
+    role: syndrome_and_transmission_context
+    status: planned_metadata_audit
+    required_fields: [url, access_date, syndrome_context, transmission_notes]
+    authenticity: Green: real data after access-date audit
+  - source_id: ecdc_hantavirus_surveillance
+    source_name: ECDC Hantavirus surveillance summaries
+    url: https://www.ecdc.europa.eu/
+    publisher: European Centre for Disease Prevention and Control
+    role: europe_surveillance_context
+    status: planned_metadata_audit
+    required_fields: [url, access_date, geography, reporting_period, case_definition]
+    authenticity: Green: real data after access-date audit
+  - source_id: china_hfrs_literature_public_statistics
+    source_name: China HFRS literature and public statistics
+    url: literature_registry_pending
+    publisher: peer_reviewed_literature_or_public_statistics
+    role: china_hfrs_longitudinal_context
+    status: planned_metadata_audit
+    required_fields: [citation_or_url, extraction_date, province_or_county, reporting_period, syndrome, table_id]
+    authenticity: Green for public statistics; Yellow for literature parameters
+  - source_id: worldclim_climate_covariates
+    source_name: WorldClim climate covariates
+    url: https://www.worldclim.org/
+    publisher: WorldClim
+    role: climate_covariates
+    status: planned_metadata_audit
+    required_fields: [version, variable, resolution, crs, download_date]
+    authenticity: Green: real data after version audit
+  - source_id: modis_ndvi_covariates
+    source_name: MODIS NDVI covariates
+    url: https://modis.gsfc.nasa.gov/
+    publisher: NASA MODIS
+    role: vegetation_covariates
+    status: planned_metadata_audit
+    required_fields: [product, temporal_aggregation, resolution, download_date]
+    authenticity: Green: real data after product audit

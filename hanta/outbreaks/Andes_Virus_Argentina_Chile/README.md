@@ -1,0 +1,11 @@
+# Andes_Virus_Argentina_Chile
+
+Phase 4 status: initial branch scaffold.
+
+Required before analysis:
+
+- source registry entries for human case data;
+- syndrome label: HFRS or HCPS;
+- source-defined case definition;
+- geography and time resolution;
+- separation from host occurrence and environmental covariate tables.

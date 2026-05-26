@@ -15,7 +15,7 @@
   },
   "claim_guardrail_passed": true,
   "data_lock_status": "not_started",
-  "generated_at_utc": "2026-05-26T03:21:48.110916+00:00",
+  "generated_at_utc": "2026-05-26T09:39:52.976578+00:00",
   "locked_metrics": [
     "data_sources_registered",
     "authenticity_policy_present",
@@ -32,10 +32,10 @@
   ],
   "processed_rows": 23613,
   "protocol_version": "0.2.0",
-  "raw_checksum_coverage": 1.0,
+  "raw_checksum_coverage": 0.5,
   "rt_pipeline_passed": true,
   "scientific_claim": "none; scaffold validation only",
-  "source_count": 4,
+  "source_count": 8,
   "stage": "scaffold",
   "unverified_claim_count": 0,
   "validation_passed": true

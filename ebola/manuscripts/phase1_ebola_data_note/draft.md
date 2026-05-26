@@ -1,4 +1,4 @@
-# Reproducible Ebola outbreak time-series curation and descriptive transmission baseline
+# Reproducible Ebola outbreak time-series curation and descriptive transmission baseline: manuscript v0.1
 
 ## Abstract
 
@@ -121,3 +121,15 @@ Raw data are derived from publicly listed HDX resources and source metadata is r
 ## Figure availability statement draft
 
 Initial figures are available under `reports/figures/phase5/` and are tracked via DVC. Captions state data source scope and non-causal limitations. The current figure set is suitable for internal review, not final journal submission.
+
+
+## Manuscript v0.1 checklist
+
+- Abstract: present and scoped to reproducible data curation.
+- Methods: source registry, checksum, validation, normalization, and Rt proxy described.
+- Results: local closeout artifacts and row-level outputs summarized.
+- Figures: initial figure outputs and availability statement present.
+- Data availability: DVC-tracked artifacts and credential-free Git state described.
+- Limitations: field audit, license, WHO snapshots, and non-causal Rt caveats stated.
+
+This v0.1 is suitable for internal review and technical reproducibility review. It is not yet a journal-submission manuscript.

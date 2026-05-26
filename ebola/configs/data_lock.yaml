@@ -1,0 +1,18 @@
+mode: data_lock
+required_sources:
+  - hdx_west_africa_2014_cases_deaths
+  - hdx_north_kivu_ituri_cases_deaths_cures
+anchor_sources:
+  - who_west_africa_outbreak_anchor
+  - who_north_kivu_ituri_outbreak_anchor
+raw_data_policy:
+  checksum_required: true
+  manual_raw_edits_allowed: false
+processed_policy:
+  provenance_required: true
+  authenticity_required: true
+  case_definition_required: true
+outputs:
+  validation_report_json: reports/data_validation_report.json
+  validation_report_md: reports/data_validation_report.md
+  metrics: reports/current_metrics.json

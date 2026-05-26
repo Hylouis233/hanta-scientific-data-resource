@@ -85,13 +85,19 @@ def main() -> int:
     processed_outputs_present = all(path.exists() for path in processed_paths)
     processed_rows = sum(_csv_row_count(path) for path in processed_paths)
 
+    rt_estimates = project_root / "results" / "rt_estimates.csv"
+    rt_summary = project_root / "reports" / "tables" / "rt_summary.csv"
+    rt_figure = project_root / "reports" / "figures" / "rt_over_time.png"
+    rt_caption = project_root / "reports" / "figures" / "rt_over_time.caption.md"
+    rt_pipeline_passed = all(path.exists() for path in [rt_estimates, rt_summary, rt_figure, rt_caption])
+
     checks = {
         "check_repo_structure": all((project_root / path).exists() for path in ["README.md", "AGENTS.md", "CLAUDE.md", "Snakefile", "dvc.yaml"]),
         "check_data_sources": source_provenance_ok,
         "check_raw_checksums": (raw_checksum_coverage == 1.0) if data_lock_enabled else True,
         "check_schema": (project_root / "data_sources" / "field_dictionary.yaml").exists(),
         "check_processed_outputs": processed_outputs_present if data_lock_enabled else True,
-        "check_figures": True if mode == "scaffold" else (project_root / "reports" / "figures").exists(),
+        "check_figures": True if mode == "scaffold" else ((project_root / "reports" / "figures").exists() and rt_caption.exists()),
         "check_no_unverified_claims": True,
         "check_reproducibility": (project_root / "configs" / "experiment.yaml").exists() and (project_root / "params.yaml").exists(),
         "authenticity_policy_present": (project_root / "docs" / "data_authenticity_policy.md").exists(),
@@ -117,7 +123,7 @@ def main() -> int:
         "data_lock_status": data_lock_status,
         "source_count": len(sources),
         "validation_passed": all(checks.values()),
-        "rt_pipeline_passed": False,
+        "rt_pipeline_passed": rt_pipeline_passed,
         "claim_guardrail_passed": checks["check_no_unverified_claims"],
         "raw_checksum_coverage": raw_checksum_coverage,
         "processed_rows": processed_rows,

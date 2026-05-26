@@ -4,6 +4,9 @@ sources:
   - source_id: hdx_west_africa_2014_cases_deaths
     source_name: Number of Ebola Cases and Deaths in Affected Countries
     url: https://data.humdata.org/dataset/ebola-cases-2014
+    api_url: https://data.humdata.org/api/3/action/package_show?id=ebola-cases-2014
+    preferred_resource_url: https://data.humdata.org/dataset/0d089fa0-3567-4b01-9c03-39d340ff34e3/resource/c59b5722-ca4b-41ca-a446-472d6d824d01/download/ebola_data_db_format.csv
+    preferred_resource_format: CSV
     publisher: Humanitarian Data Exchange
     retrieval_date: null
     outbreak: West_Africa_2014_2016
@@ -22,6 +25,9 @@ sources:
   - source_id: hdx_north_kivu_ituri_cases_deaths_cures
     source_name: Ebola Cases and Deaths in the North Kivu outbreak
     url: https://data.humdata.org/dataset/ebola-cases-and-deaths-drc-north-kivu
+    api_url: https://data.humdata.org/api/3/action/package_show?id=ebola-cases-and-deaths-drc-north-kivu
+    preferred_resource_url: https://docs.google.com/spreadsheets/d/e/2PACX-1vSrr9DRaC2fXzPdmOxLW-egSYtxmEp_RKoYGggt-zOKYXSx4RjPsM4EO19H7OJVX1esTtIoFvlKFWcn/pub?gid=0&single=true&output=csv
+    preferred_resource_format: CSV
     publisher: Humanitarian Data Exchange
     retrieval_date: null
     outbreak: North_Kivu_Ituri_2018_2020
@@ -33,7 +39,7 @@ sources:
     suspected_definition: source_defined_or_not_available
     missing_value_rules: preserve_source_missing_values_until_field_audit
     revision_history: source_may_have_updates; capture download timestamp and checksum at fetch
-    license_or_terms: see license_and_terms.md
+    license_or_terms: CC BY-IGO, verify on resource page at retrieval
     checksum_required: true
     authenticity: Green: real data after retrieval and checksum
     role: primary_time_series_candidate
@@ -73,3 +79,75 @@ sources:
     checksum_required: false
     authenticity: Green: real data after source audit
     role: final_total_cross_check_anchor
+  - source_id: cdc_ebola_outbreak_summaries
+    source_name: CDC Ebola outbreak summaries
+    url: https://www.cdc.gov/ebola/outbreaks/index.html
+    publisher: Centers for Disease Control and Prevention
+    retrieval_date: null
+    outbreak: Global_Data
+    geography_level: outbreak_summary
+    time_resolution: final_summary
+    case_definition: CDC outbreak summaries as published
+    confirmed_definition: source_defined
+    probable_definition: source_defined
+    suspected_definition: source_defined
+    missing_value_rules: not_applicable_for_summary
+    revision_history: capture access date and page snapshot hash if archived
+    license_or_terms: see license_and_terms.md
+    checksum_required: false
+    authenticity: Green: real data after source audit
+    role: cross_check_summary_source
+  - source_id: genbank_ebola_genomes
+    source_name: GenBank Ebola virus genome accessions
+    url: https://www.ncbi.nlm.nih.gov/nuccore/
+    publisher: NCBI GenBank
+    retrieval_date: null
+    outbreak: Global_Data
+    geography_level: sequence_metadata
+    time_resolution: accession_level
+    case_definition: not_applicable_genomic_metadata
+    confirmed_definition: not_applicable
+    probable_definition: not_applicable
+    suspected_definition: not_applicable
+    missing_value_rules: preserve_missing_accession_metadata
+    revision_history: record accession download date and query
+    license_or_terms: see license_and_terms.md
+    checksum_required: true
+    authenticity: Green: real data after accession audit
+    role: genomic_source_candidate
+  - source_id: nextstrain_ebola_builds
+    source_name: Nextstrain Ebola builds and metadata
+    url: https://nextstrain.org/ebola
+    publisher: Nextstrain
+    retrieval_date: null
+    outbreak: Global_Data
+    geography_level: sequence_metadata_or_tree
+    time_resolution: build_version
+    case_definition: not_applicable_genomic_metadata
+    confirmed_definition: not_applicable
+    probable_definition: not_applicable
+    suspected_definition: not_applicable
+    missing_value_rules: preserve_build_metadata_missingness
+    revision_history: record build URL, build date, and commit/version where available
+    license_or_terms: see license_and_terms.md
+    checksum_required: true
+    authenticity: Green only when source-traceable
+    role: genomic_context_source_candidate
+  - source_id: peer_reviewed_ebola_timeseries_literature
+    source_name: Peer-reviewed Ebola linelist and time-series literature
+    url: literature_registry_pending
+    publisher: peer_reviewed_literature
+    retrieval_date: null
+    outbreak: Global_Data
+    geography_level: article_defined
+    time_resolution: article_defined
+    case_definition: article_defined
+    confirmed_definition: article_defined
+    probable_definition: article_defined
+    suspected_definition: article_defined
+    missing_value_rules: preserve_article_defined_missingness
+    revision_history: record DOI, table ID, extraction date, and extractor
+    license_or_terms: see license_and_terms.md
+    checksum_required: false
+    authenticity: Green for extracted data; Yellow for literature parameters
+    role: literature_source_candidate

@@ -1,0 +1,4 @@
+outbreak_id,display_name,primary_countries,start_year,end_year,status,primary_source_id,data_authenticity,use_in_manuscript,notes
+West_Africa_2014_2016,West Africa Ebola outbreak,Guinea; Liberia; Sierra Leone,2014,2016,initial_processed,hdx_west_africa_2014_cases_deaths,Green: real data after retrieval and checksum,conditional,Field-level audit and final WHO cross-check pending
+North_Kivu_Ituri_2018_2020,North Kivu/Ituri Ebola outbreak,Democratic Republic of the Congo,2018,2020,initial_processed,hdx_north_kivu_ituri_cases_deaths_cures,Green: real data after retrieval and checksum,conditional,National resource processed; health-zone resource pending
+Global_Data,Global Ebola outbreak index,global,1976,,metadata_scaffold,cdc_ebola_outbreak_summaries,Green after source audit,conditional,Historical finalized rows only; current surveillance excluded

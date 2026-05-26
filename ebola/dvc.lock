@@ -1,0 +1,27 @@
+schema: '2.0'
+stages:
+  evaluate:
+    cmd: bash evaluation/evaluate.sh configs/experiment.yaml
+    deps:
+    - path: configs/experiment.yaml
+      hash: md5
+      md5: 0e3f8a9b2ca377caa7046cc1e14f904c
+      size: 166
+    - path: evaluation/evaluate.sh
+      hash: md5
+      md5: 8dac60ebf34baea42333fa5f6b3268ec
+      size: 122
+      isexec: true
+    - path: evaluation/run_protocol.py
+      hash: md5
+      md5: d4b088fa350a8247e5c342d488e17dcd
+      size: 6372
+    outs:
+    - path: reports/current_metrics.json
+      hash: md5
+      md5: 3c497231a9499bc32a85edf59024fb26
+      size: 1212
+    - path: reports/tables/main_results.csv
+      hash: md5
+      md5: 4c0179f879f12b5c533bc89714b79060
+      size: 396

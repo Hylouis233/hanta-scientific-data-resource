@@ -2,9 +2,18 @@
 
 Purpose: cross-outbreak index for comparing R0/Rt, CFR, viral species, geography, and intervention context.
 
-Data authenticity: pending source ingestion
-Source: WHO, CDC, peer-reviewed outbreak reviews
-Download date: pending
-Processing script: pending
-Known limitations: historical outbreaks have heterogeneous case definitions and incomplete time series
-Use in manuscript: conditional after source audit
+Current Phase 1 status: historical metadata scaffold only. Do not merge rapidly evolving current surveillance data into this directory.
+
+Allowed content:
+
+- finalized historical outbreak metadata;
+- source-audited global outbreak rows;
+- references to immutable source snapshots.
+
+Disallowed content:
+
+- live current situation counts;
+- unfinalized rapidly evolving surveillance rows;
+- rows without source IDs and authenticity labels.
+
+Current surveillance belongs under `surveillance-current/` and should use a separate branch/workflow.

@@ -1,0 +1,4 @@
+dataset,output_path,status,rows_or_scope,source_ids,notes
+west_africa_timeseries,data/processed/cumulative_cases_deaths.csv,initial_processed,source-derived rows,hdx_west_africa_2014_cases_deaths,Includes source-defined cumulative cases/deaths rows
+north_kivu_ituri_timeseries,data/processed/incidence_timeseries.csv;data/processed/cumulative_cases_deaths.csv,initial_processed,source-derived rows,hdx_north_kivu_ituri_cases_deaths_cures,Includes national incident change rows and cumulative rows
+global_outbreak_index,outbreaks/Global_Data/global_outbreak_index.csv,metadata_scaffold,3 rows,cdc_ebola_outbreak_summaries;who_* anchors,Historical index scaffold only

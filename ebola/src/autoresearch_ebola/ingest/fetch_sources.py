@@ -19,15 +19,17 @@ def fetch_sources(fetch: bool = False) -> int:
         record = {
             "source_id": source_id,
             "url": source.get("url"),
+            "resource_url": source.get("preferred_resource_url") or source.get("url"),
             "retrieved_at_utc": None,
             "fetched": False,
             "checksum_sha256": None,
             "local_file": None,
             "status": "metadata_only",
         }
-        if fetch and source.get("checksum_required") is True:
-            local_file = raw_dir / "source_download"
-            urlretrieve(source["url"], local_file)
+        if fetch and str(source.get("checksum_required", "false")).lower() == "true":
+            suffix = ".csv" if str(source.get("preferred_resource_format", "")).upper() == "CSV" else ""
+            local_file = raw_dir / f"{source_id}{suffix}"
+            urlretrieve(record["resource_url"], local_file)
             record.update({
                 "retrieved_at_utc": datetime.now(timezone.utc).isoformat(),
                 "fetched": True,

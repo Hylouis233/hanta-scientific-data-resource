@@ -1,0 +1,6 @@
+target_group,gbif_query_scope,required_fields,source_id,status,notes
+Apodemus agrarius,species occurrence download,gbif_id;species;event_date;decimalLatitude;decimalLongitude;coordinateUncertaintyInMeters;basisOfRecord,gbif_rodent_occurrences,planned,Do not treat host occurrence as human case
+Myodes glareolus,species occurrence download,gbif_id;species;event_date;decimalLatitude;decimalLongitude;coordinateUncertaintyInMeters;basisOfRecord,gbif_rodent_occurrences,planned,Reservoir context for PUUV
+Rattus norvegicus,species occurrence download,gbif_id;species;event_date;decimalLatitude;decimalLongitude;coordinateUncertaintyInMeters;basisOfRecord,gbif_rodent_occurrences,planned,Reservoir context for SEOV
+Peromyscus maniculatus,species occurrence download,gbif_id;species;event_date;decimalLatitude;decimalLongitude;coordinateUncertaintyInMeters;basisOfRecord,gbif_rodent_occurrences,planned,Reservoir context for Sin Nombre
+Oligoryzomys longicaudatus,species occurrence download,gbif_id;species;event_date;decimalLatitude;decimalLongitude;coordinateUncertaintyInMeters;basisOfRecord,gbif_rodent_occurrences,planned,Reservoir context for Andes virus

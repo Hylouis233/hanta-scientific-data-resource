@@ -1,0 +1,6 @@
+dataset,output_path,status,source_ids,notes
+virus_host_region_index,outbreaks/Global_Data/virus_host_region_index.csv,planning,genbank_hantavirus_segments;cdc_hantavirus_cases_us;who_hantavirus_fact_sheet,Global index scaffold only
+gbif_rodent_occurrence_plan,host_data/gbif_rodent_occurrence_plan.csv,planning,gbif_rodent_occurrences,Download strategy only; no occurrence records fetched
+china_hfrs_branch,outbreaks/China_HFRS_Longitudinal/README.md,branch_scaffold,china_hfrs_literature_public_statistics,Human case data branch scaffold
+four_corners_branch,outbreaks/Four_Corners_USA_1993/README.md,branch_scaffold,cdc_hantavirus_cases_us,HCPS branch scaffold
+andes_branch,outbreaks/Andes_Virus_Argentina_Chile/README.md,branch_scaffold,who_hantavirus_fact_sheet,Special transmission context branch scaffold

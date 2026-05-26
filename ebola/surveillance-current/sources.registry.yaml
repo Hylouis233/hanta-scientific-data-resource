@@ -1,0 +1,16 @@
+schema_version: 0.1.0
+scope: current_surveillance_isolated_from_historical_analysis
+status: no_current_sources_registered
+sources: []
+requirements:
+  - source_id
+  - publisher
+  - url
+  - retrieval_date
+  - situation_date
+  - outbreak_or_event_name
+  - geography_level
+  - case_definition
+  - revision_policy
+  - checksum_or_snapshot_hash
+  - rapidly_evolving_label

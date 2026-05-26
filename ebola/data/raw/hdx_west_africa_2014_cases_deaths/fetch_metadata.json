@@ -1,9 +1,0 @@
-{
-  "checksum_sha256": null,
-  "fetched": false,
-  "local_file": null,
-  "retrieved_at_utc": null,
-  "source_id": "hdx_west_africa_2014_cases_deaths",
-  "status": "metadata_only",
-  "url": "https://data.humdata.org/dataset/ebola-cases-2014"
-}

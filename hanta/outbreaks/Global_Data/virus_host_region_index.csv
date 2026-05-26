@@ -1,0 +1,6 @@
+virus_or_group,syndrome,primary_host_or_context,region,source_id,status,authenticity,notes
+Hantaan orthohantavirus,HFRS,Apodemus agrarius,East Asia,genbank_hantavirus_segments,planning,Green after source audit,Classic HFRS branch; verify host taxonomy and region records
+Puumala orthohantavirus,HFRS,Myodes glareolus,Europe,genbank_hantavirus_segments,planning,Green after source audit,Europe PUUV branch; integrate ECDC context later
+Seoul orthohantavirus,HFRS,Rattus norvegicus; Rattus rattus,global,genbank_hantavirus_segments,planning,Green after source audit,Urban rodent reservoir context
+Sin Nombre orthohantavirus,HCPS,Peromyscus maniculatus,North America,cdc_hantavirus_cases_us,planning,Green after source audit,Four Corners / USA branch context
+Andes orthohantavirus,HCPS,Oligoryzomys longicaudatus,South America,who_hantavirus_fact_sheet,planning,Green after source audit,Special subcase with limited person-to-person transmission reports

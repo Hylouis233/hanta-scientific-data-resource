@@ -1,0 +1,37 @@
+{
+  "M0": {
+    "evidence": "baseline commit exists on main",
+    "status": "complete"
+  },
+  "M1": {
+    "evidence": "Ebola source registry has HDX West Africa, HDX North Kivu/Ituri, and WHO anchor records",
+    "not_yet_done": "source download, checksum, schema mapping, license audit",
+    "status": "complete_metadata_only"
+  },
+  "M2": {
+    "evidence": "West Africa HDX CSV fetched with checksum and normalized; cumulative/coverage processed outputs generated",
+    "limitations": "Field-level epidemiological audit and license confirmation still required before manuscript claims",
+    "processed_rows_note": "See reports/current_metrics.json processed_rows",
+    "status": "complete_initial_data_lock"
+  },
+  "M3": {
+    "evidence": "North Kivu/Ituri HDX national CSV fetched with checksum and normalized; cumulative/incidence/coverage processed outputs generated",
+    "limitations": "Health-zone resource and field-level audit remain future improvements",
+    "status": "complete_initial_data_lock"
+  },
+  "M4": {
+    "evidence": "analysis.rt.estimate_rt and analysis.rt.summarize_rt generated rt_estimates.csv, rt_summary.csv, rt_over_time.png, and a non-causal caption; evaluation reports rt_pipeline_passed true",
+    "limitations": "Current Rt backend is a descriptive growth proxy, not EpiEstim and not causal intervention analysis",
+    "status": "complete_descriptive_rt_pipeline"
+  },
+  "M5": {
+    "evidence": "phase1_ebola_data_note contains draft.md, methods.md, limitations.md, README.md, outline.md, figures.md, and reproducibility.md",
+    "limitations": "Draft remains pre-submission and requires field-level source audit plus human scientific review",
+    "status": "complete_draft"
+  },
+  "M6": {
+    "evidence": "surveillance-current workspace, current surveillance policy, Global_Data README separation rules, and docs/global_data_policy.md created",
+    "limitations": "No live current surveillance source is registered or downloaded; this milestone implements separation governance only",
+    "status": "complete_surveillance_isolation_scaffold"
+  }
+}

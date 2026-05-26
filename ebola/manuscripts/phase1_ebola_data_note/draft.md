@@ -54,6 +54,15 @@ Current outputs:
 - `reports/figures/rt_over_time.png`
 - `reports/figures/rt_over_time.caption.md`
 
+
+## Field audit update
+
+A field inventory is now available at `reports/field_audit_report.md` and `reports/field_audit_report.json`. The reports enumerate raw source columns, non-empty counts, and preliminary semantic notes for date, case, death, and auxiliary fields. This improves auditability but does not replace expert epidemiological review.
+
+## Data versioning update
+
+Raw Ebola data, processed outputs, figures, and Rt result artifacts are now tracked with DVC pointer files. Git retains source registries, reports, scripts, manuscript text, and metadata needed to verify dataset identity. DVC remote configuration remains pending and must not include credentials in Git.
+
 ## Limitations
 
 1. Field-level epidemiological audit is incomplete.

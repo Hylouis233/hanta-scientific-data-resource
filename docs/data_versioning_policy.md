@@ -28,3 +28,14 @@ Keep in Git:
 2. Processed rows must retain source IDs and authenticity labels.
 3. DVC credentials must only live in local config, never in Git.
 4. If raw files are later moved to DVC, keep enough metadata in Git to verify the expected dataset identity.
+
+## Implemented DVC checkpoint
+
+Ebola data and generated artifacts are now DVC-tracked at the subproject level:
+
+- `ebola/data/raw.dvc`
+- `ebola/data/processed.dvc`
+- `ebola/reports/figures.dvc`
+- `ebola/results.dvc`
+
+The actual raw/processed/figure/result files remain in the working tree for local reproducibility, but Git tracks DVC pointer files instead of the large artifacts. DVC remote configuration is still pending and must not include credentials in Git.

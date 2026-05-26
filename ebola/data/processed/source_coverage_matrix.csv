@@ -1,5 +1,0 @@
-source_id,outbreak_id,has_raw_data,status,incidence_rows,cumulative_rows
-hdx_west_africa_2014_cases_deaths,West_Africa_2014_2016,True,normalized,0,16730
-hdx_north_kivu_ituri_cases_deaths_cures,North_Kivu_Ituri_2018_2020,True,normalized,3407,3472
-who_west_africa_outbreak_anchor,West_Africa_2014_2016,False,metadata_only_not_normalized,0,0
-who_north_kivu_ituri_outbreak_anchor,North_Kivu_Ituri_2018_2020,False,metadata_only_not_normalized,0,0

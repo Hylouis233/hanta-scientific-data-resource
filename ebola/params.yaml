@@ -7,3 +7,10 @@ evaluation:
   protocol_version: 0.1.0
   authenticity_required: true
   placeholder_outputs_allowed: true
+rt_proxy:
+  method: descriptive_growth_proxy
+  window_days: 7
+  serial_interval_mean_days: 15.3
+  low_case_threshold: 1
+  claim_scope: descriptive_not_causal
+  not_epiestim: true

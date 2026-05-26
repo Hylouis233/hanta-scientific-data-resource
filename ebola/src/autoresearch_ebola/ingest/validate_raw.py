@@ -16,13 +16,16 @@ def validate_raw(require_data: bool = False) -> dict:
         raw_files = [p for p in raw_dir.glob("*") if p.name != "fetch_metadata.json"] if raw_dir.exists() else []
         checksum_required = str(source.get("checksum_required", "false")).lower() == "true"
         has_required_registry_fields = all(source.get(field) for field in ["source_name", "url", "publisher", "outbreak", "geography_level", "time_resolution", "case_definition"])
+        source_role = source.get("role", "")
+        requires_raw_file = checksum_required or source_role == "primary_time_series_candidate"
         check = {
             "source_id": source_id,
             "has_registry_metadata": has_required_registry_fields,
             "has_fetch_metadata": metadata_path.exists(),
             "raw_file_count": len(raw_files),
             "checksum_required": checksum_required,
-            "passes": has_required_registry_fields and (not require_data or (metadata_path.exists() and len(raw_files) > 0)),
+            "requires_raw_file": requires_raw_file,
+            "passes": has_required_registry_fields and (not require_data or not requires_raw_file or (metadata_path.exists() and len(raw_files) > 0)),
         }
         checks.append(check)
     passed = all(item["passes"] for item in checks)

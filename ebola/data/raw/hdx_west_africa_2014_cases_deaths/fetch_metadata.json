@@ -1,9 +1,10 @@
 {
-  "checksum_sha256": null,
-  "fetched": false,
-  "local_file": null,
-  "retrieved_at_utc": null,
+  "checksum_sha256": "053c325038b419619162482b8ab1e98bed66d80cc1929ed7862367fc9bf4b2fa",
+  "fetched": true,
+  "local_file": "data/raw/hdx_west_africa_2014_cases_deaths/hdx_west_africa_2014_cases_deaths.csv",
+  "resource_url": "https://data.humdata.org/dataset/0d089fa0-3567-4b01-9c03-39d340ff34e3/resource/c59b5722-ca4b-41ca-a446-472d6d824d01/download/ebola_data_db_format.csv",
+  "retrieved_at_utc": "2026-05-25T16:28:03.749753+00:00",
   "source_id": "hdx_west_africa_2014_cases_deaths",
-  "status": "metadata_only",
+  "status": "downloaded",
   "url": "https://data.humdata.org/dataset/ebola-cases-2014"
 }

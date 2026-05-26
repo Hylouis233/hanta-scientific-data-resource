@@ -31,7 +31,13 @@ def _minimal_registry_parse(text: str) -> dict[str, Any]:
             current = {"source_id": stripped.split(":", 1)[1].strip()}
         elif current is not None and ":" in stripped:
             key, value = stripped.split(":", 1)
-            current[key.strip()] = value.strip() or None
+            parsed_value = value.strip() or None
+            if isinstance(parsed_value, str):
+                if parsed_value.lower() == "true":
+                    parsed_value = "true"
+                elif parsed_value.lower() == "false":
+                    parsed_value = "false"
+            current[key.strip()] = parsed_value
     if current:
         sources.append(current)
     return {"sources": sources}

@@ -1,0 +1,3 @@
+outbreak_id,case_class,n,mean_rt,min_rt,max_rt,claim_scope
+North_Kivu_Ituri_2018_2020,all_reported,495,4.452064,0.003675,153.360772,descriptive_not_causal
+North_Kivu_Ituri_2018_2020,confirmed,493,4.760202,0.003675,153.360772,descriptive_not_causal

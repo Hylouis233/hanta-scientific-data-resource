@@ -1,9 +1,10 @@
 {
-  "checksum_sha256": null,
-  "fetched": false,
-  "local_file": null,
-  "retrieved_at_utc": null,
+  "checksum_sha256": "23406e88f6555e0f97c47db8c8c6a14423b81461b286f881ca53ad2e8078aa84",
+  "fetched": true,
+  "local_file": "data/raw/hdx_north_kivu_ituri_cases_deaths_cures/hdx_north_kivu_ituri_cases_deaths_cures.csv",
+  "resource_url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSrr9DRaC2fXzPdmOxLW-egSYtxmEp_RKoYGggt-zOKYXSx4RjPsM4EO19H7OJVX1esTtIoFvlKFWcn/pub?gid=0&single=true&output=csv",
+  "retrieved_at_utc": "2026-05-25T16:28:09.933794+00:00",
   "source_id": "hdx_north_kivu_ituri_cases_deaths_cures",
-  "status": "metadata_only",
+  "status": "downloaded",
   "url": "https://data.humdata.org/dataset/ebola-cases-and-deaths-drc-north-kivu"
 }

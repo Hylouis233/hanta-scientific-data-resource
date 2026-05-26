@@ -39,3 +39,15 @@ Ebola data and generated artifacts are now DVC-tracked at the subproject level:
 - `ebola/results.dvc`
 
 The actual raw/processed/figure/result files remain in the working tree for local reproducibility, but Git tracks DVC pointer files instead of the large artifacts. DVC remote configuration is still pending and must not include credentials in Git.
+
+## Remote configuration checkpoint
+
+Ebola DVC now has a credential-free default remote in `ebola/.dvc/config`:
+
+```text
+['remote "research-s3"']
+url = s3://dvc-store/ebola
+endpointurl = http://127.0.0.1:9000
+```
+
+Access keys and secrets must be configured only in `ebola/.dvc/config.local`, which must remain untracked.

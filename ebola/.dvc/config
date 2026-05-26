@@ -1,0 +1,5 @@
+[core]
+    remote = research-s3
+['remote "research-s3"']
+    url = s3://dvc-store/ebola
+    endpointurl = http://127.0.0.1:9000

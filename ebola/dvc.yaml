@@ -5,6 +5,9 @@ stages:
       - evaluation/evaluate.sh
       - evaluation/run_protocol.py
       - configs/experiment.yaml
+    metrics:
+      - reports/current_metrics.json:
+          cache: false
     outs:
-      - reports/current_metrics.json
-      - reports/tables/main_results.csv
+      - reports/tables/main_results.csv:
+          cache: false

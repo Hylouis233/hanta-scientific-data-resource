@@ -101,3 +101,23 @@ This project is currently local to `/home/lh/d/autoresearch`. The monorepo is st
 ## Conclusion
 
 The Phase 1 pipeline establishes a traceable foundation for Ebola outbreak time-series research. It has moved beyond scaffold validation by locking initial HDX raw resources, generating processed canonical tables, and producing a descriptive Rt baseline with explicit non-causal guardrails. The next scientific step is deeper field-level audit and source cross-checking, not stronger causal claims.
+
+## Results summary for local closeout
+
+The local Phase 1 closeout produced the following auditable artifacts:
+
+- Two HDX primary time-series resources are fetched and checksummed under DVC tracking.
+- `data/processed/cumulative_cases_deaths.csv` and `data/processed/incidence_timeseries.csv` provide canonical processed tables with source IDs and authenticity labels.
+- `reports/field_audit_report.md` records column-level source inventories and preliminary semantic notes.
+- `results/rt_estimates.csv` and `reports/tables/rt_summary.csv` provide descriptive growth-proxy outputs with `claim_scope=descriptive_not_causal`.
+- `reports/figures/phase5/` contains initial figure outputs with guardrail captions.
+
+These are sufficient for a reproducible local research checkpoint. They are not sufficient for final submission without expert source review, license confirmation, and figure polish.
+
+## Data availability statement draft
+
+Raw data are derived from publicly listed HDX resources and source metadata is recorded in `data_sources/sources.registry.yaml`. Local raw and generated artifacts are tracked with DVC pointer files. DVC remote access requires local credentials and is not encoded in Git. Manuscript use remains conditional on final license/terms confirmation and source citation review.
+
+## Figure availability statement draft
+
+Initial figures are available under `reports/figures/phase5/` and are tracked via DVC. Captions state data source scope and non-causal limitations. The current figure set is suitable for internal review, not final journal submission.

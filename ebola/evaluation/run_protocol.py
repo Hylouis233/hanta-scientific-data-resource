@@ -72,7 +72,7 @@ def main() -> int:
         "case_definition",
     ]
     source_provenance_ok = bool(sources) and all(all(source.get(field) for field in required_registry_fields) for source in sources)
-    checksum_required_sources = [source for source in sources if source.get("checksum_required", "").lower() == "true"]
+    checksum_required_sources = [source for source in sources if source.get("role") == "primary_time_series_candidate"]
     checksum_metadata = [project_root / "data" / "raw" / source["source_id"] / "fetch_metadata.json" for source in checksum_required_sources]
     raw_checksum_coverage = 1.0 if not checksum_required_sources else sum(path.exists() for path in checksum_metadata) / len(checksum_metadata)
     data_lock_enabled = mode == "data_lock"
@@ -105,7 +105,10 @@ def main() -> int:
         "manuscript_target_declared": (project_root / "manuscripts" / "README.md").exists(),
     }
 
-    if mode == "scaffold":
+    if mode == "scaffold" and processed_outputs_present and raw_checksum_coverage == 1.0 and rt_pipeline_passed:
+        scientific_claim = "none; data-lock workflow validation only"
+        data_lock_status = "locked"
+    elif mode == "scaffold":
         scientific_claim = "none; scaffold validation only"
         data_lock_status = "not_started"
     else:

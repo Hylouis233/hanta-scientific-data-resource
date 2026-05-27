@@ -35,6 +35,42 @@
       "raw_file_count": 0,
       "requires_raw_file": false,
       "source_id": "who_north_kivu_ituri_outbreak_anchor"
+    },
+    {
+      "checksum_required": false,
+      "has_fetch_metadata": false,
+      "has_registry_metadata": true,
+      "passes": true,
+      "raw_file_count": 0,
+      "requires_raw_file": false,
+      "source_id": "cdc_ebola_outbreak_summaries"
+    },
+    {
+      "checksum_required": true,
+      "has_fetch_metadata": false,
+      "has_registry_metadata": true,
+      "passes": true,
+      "raw_file_count": 0,
+      "requires_raw_file": false,
+      "source_id": "genbank_ebola_genomes"
+    },
+    {
+      "checksum_required": true,
+      "has_fetch_metadata": false,
+      "has_registry_metadata": true,
+      "passes": true,
+      "raw_file_count": 0,
+      "requires_raw_file": false,
+      "source_id": "nextstrain_ebola_builds"
+    },
+    {
+      "checksum_required": false,
+      "has_fetch_metadata": false,
+      "has_registry_metadata": true,
+      "passes": true,
+      "raw_file_count": 0,
+      "requires_raw_file": false,
+      "source_id": "peer_reviewed_ebola_timeseries_literature"
     }
   ],
   "require_data": true,

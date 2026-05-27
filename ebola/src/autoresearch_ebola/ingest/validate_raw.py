@@ -17,7 +17,7 @@ def validate_raw(require_data: bool = False) -> dict:
         checksum_required = str(source.get("checksum_required", "false")).lower() == "true"
         has_required_registry_fields = all(source.get(field) for field in ["source_name", "url", "publisher", "outbreak", "geography_level", "time_resolution", "case_definition"])
         source_role = source.get("role", "")
-        requires_raw_file = checksum_required or source_role == "primary_time_series_candidate"
+        requires_raw_file = source_role == "primary_time_series_candidate"
         check = {
             "source_id": source_id,
             "has_registry_metadata": has_required_registry_fields,

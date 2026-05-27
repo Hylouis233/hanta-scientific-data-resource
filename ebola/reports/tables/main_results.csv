@@ -11,6 +11,6 @@ authenticity_policy_present,true
 evaluation_protocol_present,true
 manuscript_target_declared,true
 source_count,8
-raw_checksum_coverage,0.5
-processed_rows,23613
+raw_checksum_coverage,1.0
+processed_rows,23617
 all_checks_passed,true

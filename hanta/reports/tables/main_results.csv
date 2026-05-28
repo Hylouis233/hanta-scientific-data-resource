@@ -3,4 +3,11 @@ data_sources_registered,true
 authenticity_policy_present,true
 evaluation_protocol_present,true
 manuscript_target_declared,true
+genbank_metadata_present,true
+gbif_query_metadata_present,true
+metadata_validation_passed,true
+no_modeling_guardrail_passed,true
+genbank_metadata_records,24
+gbif_query_metadata_records,5
+metadata_validation_passed,true
 all_checks_passed,true

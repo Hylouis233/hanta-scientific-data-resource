@@ -1,0 +1,64 @@
+{
+  "complete_record_count": 18,
+  "incomplete_record_count": 6,
+  "missing_field_examples": [
+    {
+      "accession": "NC_077671",
+      "missing_fields": [
+        "country",
+        "collection_date"
+      ]
+    },
+    {
+      "accession": "NC_077670",
+      "missing_fields": [
+        "country",
+        "collection_date"
+      ]
+    },
+    {
+      "accession": "NC_077669",
+      "missing_fields": [
+        "country",
+        "collection_date"
+      ]
+    },
+    {
+      "accession": "NC_077668",
+      "missing_fields": [
+        "host_species",
+        "country",
+        "collection_date"
+      ]
+    },
+    {
+      "accession": "NC_077667",
+      "missing_fields": [
+        "host_species",
+        "country",
+        "collection_date"
+      ]
+    },
+    {
+      "accession": "NC_077666",
+      "missing_fields": [
+        "host_species",
+        "country",
+        "collection_date"
+      ]
+    }
+  ],
+  "record_count": 24,
+  "required_fields": [
+    "accession",
+    "segment",
+    "virus_species",
+    "host_species",
+    "country",
+    "collection_date",
+    "download_date"
+  ],
+  "source_id": "genbank_hantavirus_segments",
+  "status": "metadata_ingested_needs_accession_audit",
+  "validation_passed": false
+}

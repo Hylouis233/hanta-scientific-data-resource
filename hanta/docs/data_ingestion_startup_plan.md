@@ -89,3 +89,15 @@ The first Hanta ingestion pass is ready only when:
 - raw download locations are separated by source family,
 - no human-case and host-occurrence tables are merged,
 - no modeling outputs are produced prematurely.
+
+## First metadata intake status
+
+The first metadata-only intake now records:
+
+- GenBank accession metadata manifest: `data/metadata/genbank_hantavirus_segments_manifest.json`
+- GenBank accession metadata table: `data/metadata/genbank_hantavirus_segments_manifest.csv`
+- GBIF rodent query metadata manifest: `data/metadata/gbif_rodent_occurrences_manifest.json`
+- GBIF rodent query metadata table: `data/metadata/gbif_rodent_occurrences_manifest.csv`
+- Validation reports: `reports/genbank_metadata_validation.*` and `reports/gbif_metadata_validation.*`
+
+This remains metadata/provenance intake only. GBIF occurrence rows require an official GBIF download DOI before manuscript use, and GenBank sequence bodies are not downloaded in this pass.

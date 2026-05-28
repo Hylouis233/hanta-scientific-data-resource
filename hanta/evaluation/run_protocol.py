@@ -8,6 +8,12 @@ from pathlib import Path
 from locked_metrics import LOCKED_METRICS
 
 
+def _load_json(path: Path) -> dict:
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
 def main() -> int:
     if len(sys.argv) != 2:
         print("usage: python evaluation/run_protocol.py <config>", file=sys.stderr)
@@ -24,28 +30,59 @@ def main() -> int:
     reports.mkdir(parents=True, exist_ok=True)
     tables.mkdir(parents=True, exist_ok=True)
 
+    genbank_manifest = _load_json(project_root / "data" / "metadata" / "genbank_hantavirus_segments_manifest.json")
+    gbif_manifest = _load_json(project_root / "data" / "metadata" / "gbif_rodent_occurrences_manifest.json")
+    genbank_validation = _load_json(reports / "genbank_metadata_validation.json")
+    gbif_validation = _load_json(reports / "gbif_metadata_validation.json")
+
+    genbank_records = int(genbank_manifest.get("record_count", 0) or 0)
+    gbif_records = int(gbif_manifest.get("record_count", 0) or 0)
+    metadata_present = genbank_records > 0 and gbif_records > 0
+    genbank_metadata_accepted = genbank_validation.get("status") in {"metadata_ingested_needs_accession_audit", "metadata_ingested_complete"}
+    gbif_metadata_accepted = gbif_validation.get("status") in {"query_metadata_ingested_download_doi_pending", "query_metadata_ingested_complete"}
+    metadata_validation_passed = genbank_metadata_accepted and gbif_metadata_accepted
+    no_modeling_guardrail_passed = not any((project_root / path).exists() for path in ["analysis/rt", "results/rt_estimates.csv"])
+
     checks = {
         "data_sources_registered": (project_root / "docs" / "data_sources.md").exists(),
         "authenticity_policy_present": (project_root / "docs" / "data_authenticity_policy.md").exists(),
         "evaluation_protocol_present": (project_root / "evaluation" / "evaluate.sh").exists(),
         "manuscript_target_declared": (project_root / "manuscripts" / "README.md").exists(),
+        "genbank_metadata_present": genbank_records > 0,
+        "gbif_query_metadata_present": gbif_records > 0,
+        "metadata_validation_passed": metadata_validation_passed,
+        "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
 
+    stage = "metadata_ingested" if metadata_present else "scaffold_only"
+    scientific_claim = "none; Hanta metadata/provenance intake only" if metadata_present else "none; scaffold validation only"
+
     metrics = {
-        "protocol_version": "0.1.0",
+        "protocol_version": "0.2.0",
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
-        "stage": "scaffold_only",
+        "stage": stage,
         "locked_metrics": LOCKED_METRICS,
         "checks": checks,
         "all_checks_passed": all(checks.values()),
-        "scientific_claim": "none; scaffold validation only",
+        "scientific_claim": scientific_claim,
+        "genbank_metadata_records": genbank_records,
+        "gbif_query_metadata_records": gbif_records,
+        "metadata_validation_passed": metadata_validation_passed,
+        "genbank_accession_audit_needed": genbank_validation.get("status") == "metadata_ingested_needs_accession_audit",
+        "gbif_download_doi_pending": gbif_validation.get("status") == "query_metadata_ingested_download_doi_pending",
+        "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
 
     (reports / "current_metrics.json").write_text(json.dumps(metrics, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
     rows = ["metric,value"]
     rows.extend(f"{name},{str(value).lower()}" for name, value in checks.items())
-    rows.append(f"all_checks_passed,{str(all(checks.values())).lower()}")
+    rows.extend([
+        f"genbank_metadata_records,{genbank_records}",
+        f"gbif_query_metadata_records,{gbif_records}",
+        f"metadata_validation_passed,{str(metadata_validation_passed).lower()}",
+        f"all_checks_passed,{str(all(checks.values())).lower()}",
+    ])
     (tables / "main_results.csv").write_text("\n".join(rows) + "\n", encoding="utf-8")
 
     return 0 if all(checks.values()) else 1

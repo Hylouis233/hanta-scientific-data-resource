@@ -1,0 +1,107 @@
+{
+  "guardrails": [
+    "query metadata only; occurrence rows are not downloaded in this first pass",
+    "rodent host occurrences are not human cases",
+    "do not merge with human surveillance or genome segment data in this phase"
+  ],
+  "query_metadata_fields": [
+    "host_species",
+    "gbif_usage_key",
+    "gbif_scientific_name",
+    "match_confidence",
+    "occurrence_count",
+    "query_url",
+    "download_date"
+  ],
+  "record_count": 5,
+  "records": [
+    {
+      "authenticity": "Green: real data after GBIF download audit",
+      "download_date": "2026-05-28",
+      "download_doi": "",
+      "gbif_scientific_name": "Apodemus agrarius (Pallas, 1771)",
+      "gbif_usage_key": 2437761,
+      "host_species": "Apodemus agrarius",
+      "manuscript_use": "metadata_only_until_gbif_download_doi_exists",
+      "match_confidence": 99,
+      "match_status": "EXACT",
+      "occurrence_count": 33988,
+      "planned_download": true,
+      "query_url": "https://api.gbif.org/v1/occurrence/search?taxon_key=2437761&limit=0",
+      "source_id": "gbif_rodent_occurrences"
+    },
+    {
+      "authenticity": "Green: real data after GBIF download audit",
+      "download_date": "2026-05-28",
+      "download_doi": "",
+      "gbif_scientific_name": "Myodes glareolus (Schreber, 1780)",
+      "gbif_usage_key": 5706764,
+      "host_species": "Myodes glareolus",
+      "manuscript_use": "metadata_only_until_gbif_download_doi_exists",
+      "match_confidence": 99,
+      "match_status": "EXACT",
+      "occurrence_count": 232429,
+      "planned_download": true,
+      "query_url": "https://api.gbif.org/v1/occurrence/search?taxon_key=5706764&limit=0",
+      "source_id": "gbif_rodent_occurrences"
+    },
+    {
+      "authenticity": "Green: real data after GBIF download audit",
+      "download_date": "2026-05-28",
+      "download_doi": "",
+      "gbif_scientific_name": "Rattus norvegicus (Berkenhout, 1769)",
+      "gbif_usage_key": 2439261,
+      "host_species": "Rattus norvegicus",
+      "manuscript_use": "metadata_only_until_gbif_download_doi_exists",
+      "match_confidence": 99,
+      "match_status": "EXACT",
+      "occurrence_count": 251270,
+      "planned_download": true,
+      "query_url": "https://api.gbif.org/v1/occurrence/search?taxon_key=2439261&limit=0",
+      "source_id": "gbif_rodent_occurrences"
+    },
+    {
+      "authenticity": "Green: real data after GBIF download audit",
+      "download_date": "2026-05-28",
+      "download_doi": "",
+      "gbif_scientific_name": "Peromyscus maniculatus (Wagner, 1845)",
+      "gbif_usage_key": 2437967,
+      "host_species": "Peromyscus maniculatus",
+      "manuscript_use": "metadata_only_until_gbif_download_doi_exists",
+      "match_confidence": 99,
+      "match_status": "EXACT",
+      "occurrence_count": 321274,
+      "planned_download": true,
+      "query_url": "https://api.gbif.org/v1/occurrence/search?taxon_key=2437967&limit=0",
+      "source_id": "gbif_rodent_occurrences"
+    },
+    {
+      "authenticity": "Green: real data after GBIF download audit",
+      "download_date": "2026-05-28",
+      "download_doi": "",
+      "gbif_scientific_name": "Oligoryzomys longicaudatus (Bennett, 1832)",
+      "gbif_usage_key": 2438272,
+      "host_species": "Oligoryzomys longicaudatus",
+      "manuscript_use": "metadata_only_until_gbif_download_doi_exists",
+      "match_confidence": 99,
+      "match_status": "EXACT",
+      "occurrence_count": 6383,
+      "planned_download": true,
+      "query_url": "https://api.gbif.org/v1/occurrence/search?taxon_key=2438272&limit=0",
+      "source_id": "gbif_rodent_occurrences"
+    }
+  ],
+  "required_fields": [
+    "gbif_download_doi",
+    "gbif_id",
+    "host_species",
+    "event_date",
+    "latitude",
+    "longitude",
+    "coordinate_uncertainty",
+    "basis_of_record"
+  ],
+  "retrieved_at_utc": "2026-05-28T11:01:21.741565+00:00",
+  "schema_version": "0.1.0",
+  "source_id": "gbif_rodent_occurrences"
+}

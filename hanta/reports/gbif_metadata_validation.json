@@ -1,0 +1,10 @@
+{
+  "download_doi_present": false,
+  "missing_field_examples": [],
+  "query_metadata_complete_count": 5,
+  "query_metadata_incomplete_count": 0,
+  "record_count": 5,
+  "source_id": "gbif_rodent_occurrences",
+  "status": "query_metadata_ingested_download_doi_pending",
+  "validation_passed": true
+}

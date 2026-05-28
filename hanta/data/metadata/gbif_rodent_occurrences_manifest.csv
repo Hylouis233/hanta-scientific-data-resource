@@ -1,0 +1,6 @@
+source_id,host_species,gbif_usage_key,gbif_scientific_name,match_confidence,match_status,occurrence_count,query_url,download_date,download_doi,manuscript_use
+gbif_rodent_occurrences,Apodemus agrarius,2437761,"Apodemus agrarius (Pallas, 1771)",99,EXACT,33988,https://api.gbif.org/v1/occurrence/search?taxon_key=2437761&limit=0,2026-05-28,,metadata_only_until_gbif_download_doi_exists
+gbif_rodent_occurrences,Myodes glareolus,5706764,"Myodes glareolus (Schreber, 1780)",99,EXACT,232429,https://api.gbif.org/v1/occurrence/search?taxon_key=5706764&limit=0,2026-05-28,,metadata_only_until_gbif_download_doi_exists
+gbif_rodent_occurrences,Rattus norvegicus,2439261,"Rattus norvegicus (Berkenhout, 1769)",99,EXACT,251270,https://api.gbif.org/v1/occurrence/search?taxon_key=2439261&limit=0,2026-05-28,,metadata_only_until_gbif_download_doi_exists
+gbif_rodent_occurrences,Peromyscus maniculatus,2437967,"Peromyscus maniculatus (Wagner, 1845)",99,EXACT,321274,https://api.gbif.org/v1/occurrence/search?taxon_key=2437967&limit=0,2026-05-28,,metadata_only_until_gbif_download_doi_exists
+gbif_rodent_occurrences,Oligoryzomys longicaudatus,2438272,"Oligoryzomys longicaudatus (Bennett, 1832)",99,EXACT,6383,https://api.gbif.org/v1/occurrence/search?taxon_key=2438272&limit=0,2026-05-28,,metadata_only_until_gbif_download_doi_exists

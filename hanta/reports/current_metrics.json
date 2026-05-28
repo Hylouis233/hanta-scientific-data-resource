@@ -4,16 +4,30 @@
     "authenticity_policy_present": true,
     "data_sources_registered": true,
     "evaluation_protocol_present": true,
-    "manuscript_target_declared": true
+    "gbif_query_metadata_present": true,
+    "genbank_metadata_present": true,
+    "manuscript_target_declared": true,
+    "metadata_validation_passed": true,
+    "no_modeling_guardrail_passed": true
   },
-  "generated_at_utc": "2026-05-28T09:55:51.195790+00:00",
+  "gbif_download_doi_pending": true,
+  "gbif_query_metadata_records": 5,
+  "genbank_accession_audit_needed": true,
+  "genbank_metadata_records": 24,
+  "generated_at_utc": "2026-05-28T11:06:36.963536+00:00",
   "locked_metrics": [
     "data_sources_registered",
     "authenticity_policy_present",
     "evaluation_protocol_present",
-    "manuscript_target_declared"
+    "manuscript_target_declared",
+    "genbank_metadata_records",
+    "gbif_query_metadata_records",
+    "metadata_validation_passed",
+    "no_modeling_guardrail_passed"
   ],
-  "protocol_version": "0.1.0",
-  "scientific_claim": "none; scaffold validation only",
-  "stage": "scaffold_only"
+  "metadata_validation_passed": true,
+  "no_modeling_guardrail_passed": true,
+  "protocol_version": "0.2.0",
+  "scientific_claim": "none; Hanta metadata/provenance intake only",
+  "stage": "metadata_ingested"
 }

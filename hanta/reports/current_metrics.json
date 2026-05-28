@@ -14,7 +14,7 @@
   "gbif_query_metadata_records": 5,
   "genbank_accession_audit_needed": true,
   "genbank_metadata_records": 24,
-  "generated_at_utc": "2026-05-28T11:06:36.963536+00:00",
+  "generated_at_utc": "2026-05-28T11:08:35.177334+00:00",
   "locked_metrics": [
     "data_sources_registered",
     "authenticity_policy_present",

@@ -52,6 +52,8 @@ def main() -> int:
     gbif_download_manifest_present = bool(gbif_download_manifest)
     gbif_official_download_identified = bool(gbif_download_manifest.get("doi") or gbif_download_manifest.get("download_key"))
     gbif_raw_occurrence_path_ready = (project_root / "data" / "raw.dvc").exists() and (project_root / "data" / "raw").exists()
+    gbif_archive_validation = _load_json(reports / "gbif_occurrence_archive_validation.json")
+    gbif_occurrence_archive_validated = gbif_archive_validation.get("validation_passed") is True
     third_layer_closeout_present = (reports / "third_layer_real_data_closeout.md").exists()
 
     checks = {
@@ -73,6 +75,7 @@ def main() -> int:
         "gbif_download_manifest_gate_ready": gbif_download_manifest_present or gbif_download_request_present,
         "gbif_official_download_gate_ready": gbif_official_download_identified or gbif_download_request_present,
         "gbif_raw_occurrence_path_ready": gbif_raw_occurrence_path_ready,
+        "gbif_occurrence_archive_validated": gbif_occurrence_archive_validated,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -97,6 +100,7 @@ def main() -> int:
         "scientific_claim": scientific_claim,
         "genbank_metadata_records": genbank_records,
         "gbif_query_metadata_records": gbif_records,
+        "gbif_occurrence_archive_rows": int(gbif_archive_validation.get("row_count", 0) or 0),
         "metadata_validation_passed": metadata_validation_passed,
         "genbank_accession_audit_needed": genbank_validation.get("status") == "metadata_ingested_needs_accession_audit",
         "gbif_download_doi_pending": gbif_validation.get("status") == "query_metadata_ingested_download_doi_pending",
@@ -111,6 +115,7 @@ def main() -> int:
         "gbif_download_manifest_gate_ready": gbif_download_manifest_present or gbif_download_request_present,
         "gbif_official_download_gate_ready": gbif_official_download_identified or gbif_download_request_present,
         "gbif_raw_occurrence_path_ready": gbif_raw_occurrence_path_ready,
+        "gbif_occurrence_archive_validated": gbif_occurrence_archive_validated,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -122,6 +127,7 @@ def main() -> int:
     rows.extend([
         f"genbank_metadata_records,{genbank_records}",
         f"gbif_query_metadata_records,{gbif_records}",
+        f"gbif_occurrence_archive_rows,{int(gbif_archive_validation.get('row_count', 0) or 0)}",
         f"metadata_validation_passed,{str(metadata_validation_passed).lower()}",
         f"genbank_accession_audit_present,{str(genbank_accession_audit_present).lower()}",
         f"gbif_second_layer_plan_present,{str(gbif_second_layer_plan_present).lower()}",

@@ -17,10 +17,12 @@ gbif_official_download_identified,true
 gbif_download_manifest_gate_ready,true
 gbif_official_download_gate_ready,true
 gbif_raw_occurrence_path_ready,true
+gbif_occurrence_archive_validated,true
 third_layer_closeout_present,true
 no_modeling_guardrail_passed,true
 genbank_metadata_records,24
 gbif_query_metadata_records,5
+gbif_occurrence_archive_rows,740758
 metadata_validation_passed,true
 genbank_accession_audit_present,true
 gbif_second_layer_plan_present,true

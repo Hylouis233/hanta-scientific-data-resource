@@ -1,0 +1,49 @@
+{
+  "archive_path": "data/raw/gbif_rodent_occurrences/0021747-260519110011954.zip",
+  "archive_size_bytes": 59165715,
+  "basis_of_record_counts_first_10000_rows": {
+    "HUMAN_OBSERVATION": 8793,
+    "MATERIAL_SAMPLE": 257,
+    "PRESERVED_SPECIMEN": 950
+  },
+  "csv_member": "0021747-260519110011954.csv",
+  "csv_size_bytes": 433320219,
+  "doi": "10.15468/dl.t7u3zm",
+  "download_key": "0021747-260519110011954",
+  "gbif_status": "SUCCEEDED",
+  "generated_at_utc": "2026-05-28T18:27:47.516008+00:00",
+  "guardrails": [
+    "GBIF host occurrence rows are not human cases",
+    "archive is stored only under the DVC-managed raw boundary",
+    "no Hanta modeling or surveillance integration is performed by this validation"
+  ],
+  "missing_required_fields": [],
+  "required_fields": [
+    "gbifID",
+    "species",
+    "eventDate",
+    "decimalLatitude",
+    "decimalLongitude",
+    "coordinateUncertaintyInMeters",
+    "basisOfRecord"
+  ],
+  "row_count": 740758,
+  "sampled_missing_required_counts_first_10000_rows": {
+    "basisOfRecord": 0,
+    "coordinateUncertaintyInMeters": 1417,
+    "decimalLatitude": 0,
+    "decimalLongitude": 0,
+    "eventDate": 103,
+    "gbifID": 0,
+    "species": 0
+  },
+  "schema_version": "0.1.0",
+  "species_counts_first_10000_rows": {
+    "Apodemus agrarius": 437,
+    "Myodes glareolus": 1878,
+    "Oligoryzomys longicaudatus": 24,
+    "Peromyscus maniculatus": 486,
+    "Rattus norvegicus": 7175
+  },
+  "validation_passed": true
+}

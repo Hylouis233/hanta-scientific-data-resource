@@ -1,0 +1,5 @@
+outs:
+- md5: ee1ad719663327d40fe082a29bea66cf
+  size: 1183
+  hash: md5
+  path: who_snapshot_manifest.json

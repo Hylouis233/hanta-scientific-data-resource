@@ -15,8 +15,8 @@ Status: internal-review complete; journal submission requires external review an
 
 - Target journal format still needs final selection, but submission metadata templates are drafted in `submission_metadata.md`.
 - Author list, acknowledgements, funding, conflicts of interest, and ethics statement templates are drafted in `submission_metadata.md`.
-- HDX license and citation language need final confirmation against target journal requirements; source snapshot tasks are enumerated in `source_snapshot_checklist.md`.
-- WHO anchor pages need immutable snapshots or archived access-date evidence.
+- HDX license and citation evidence is recorded in `source_snapshot_checklist.md`; final wording still depends on target journal requirements.
+- WHO anchor snapshots are archived locally and listed in `source_snapshot_checklist.md`; final manuscript-critical quantitative use still needs source review.
 - External epidemiological review is still required for case-definition semantics and field interpretation.
 - Final figure polish is pending; current figures support internal review, not final production layout.
 - Row-level source URL retention in processed outputs is not yet implemented.

@@ -1,0 +1,6 @@
+outs:
+- md5: 5f6d5277194e37317f3c9b380110adeb.dir
+  size: 687302
+  nfiles: 2
+  hash: md5
+  path: who_snapshots

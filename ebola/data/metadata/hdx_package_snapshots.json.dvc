@@ -1,0 +1,5 @@
+outs:
+- md5: 17fdabb1dbdcc12457eb43662b36bcd6
+  size: 3995
+  hash: md5
+  path: hdx_package_snapshots.json

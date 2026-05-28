@@ -132,4 +132,4 @@ Initial figures are available under `reports/figures/phase5/` and are tracked vi
 - Data availability: DVC-tracked artifacts and credential-free Git state described.
 - Limitations: license, WHO snapshots, row-level provenance, and non-causal Rt caveats stated.
 
-This v0.1 is suitable for internal review and technical reproducibility review. It is not yet a journal-submission manuscript.
+This v0.1 is suitable for internal review and technical reproducibility review. Submission-specific blockers are tracked in `submission_readiness.md`.

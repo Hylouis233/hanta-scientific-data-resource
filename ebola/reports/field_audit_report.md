@@ -1,6 +1,6 @@
 # Ebola field audit report
 
-Status: field inventory complete; semantic epidemiological review still pending.
+Status: field inventory complete; manuscript-ready semantic review available in `reports/field_semantics_audit.md`.
 
 ## hdx_west_africa_2014_cases_deaths
 

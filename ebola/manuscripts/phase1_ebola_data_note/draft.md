@@ -57,7 +57,7 @@ Current outputs:
 
 ## Field audit update
 
-A field inventory is now available at `reports/field_audit_report.md` and `reports/field_audit_report.json`. The reports enumerate raw source columns, non-empty counts, and preliminary semantic notes for date, case, death, and auxiliary fields. This improves auditability but does not replace expert epidemiological review.
+A field inventory is now available at `reports/field_audit_report.md` and `reports/field_audit_report.json`, with a manuscript-readiness semantic review in `reports/field_semantics_audit.md`. The semantic audit maps raw columns to canonical fields, states manuscript-usable interpretations, and lists explicit claim boundaries for date semantics, case classes, count types, and Rt inputs. This improves auditability but does not replace external epidemiological review.
 
 ## Data versioning update
 
@@ -108,7 +108,7 @@ The local Phase 1 closeout produced the following auditable artifacts:
 
 - Two HDX primary time-series resources are fetched and checksummed under DVC tracking.
 - `data/processed/cumulative_cases_deaths.csv` and `data/processed/incidence_timeseries.csv` provide canonical processed tables with source IDs and authenticity labels.
-- `reports/field_audit_report.md` records column-level source inventories and preliminary semantic notes.
+- `reports/field_audit_report.md` records column-level source inventories; `reports/field_semantics_audit.md` maps raw fields to canonical manuscript-use interpretations.
 - `results/rt_estimates.csv` and `reports/tables/rt_summary.csv` provide descriptive growth-proxy outputs with `claim_scope=descriptive_not_causal`.
 - `reports/figures/phase5/` contains initial figure outputs with guardrail captions.
 
@@ -130,6 +130,6 @@ Initial figures are available under `reports/figures/phase5/` and are tracked vi
 - Results: local closeout artifacts and row-level outputs summarized.
 - Figures: initial figure outputs and availability statement present.
 - Data availability: DVC-tracked artifacts and credential-free Git state described.
-- Limitations: field audit, license, WHO snapshots, and non-causal Rt caveats stated.
+- Limitations: license, WHO snapshots, row-level provenance, and non-causal Rt caveats stated.
 
 This v0.1 is suitable for internal review and technical reproducibility review. It is not yet a journal-submission manuscript.

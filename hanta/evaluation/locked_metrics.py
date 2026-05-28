@@ -6,5 +6,8 @@ LOCKED_METRICS = [
     "genbank_metadata_records",
     "gbif_query_metadata_records",
     "metadata_validation_passed",
+    "genbank_accession_audit_present",
+    "gbif_second_layer_plan_present",
+    "metadata_semantics_audit_present",
     "no_modeling_guardrail_passed",
 ]

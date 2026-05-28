@@ -101,3 +101,14 @@ The first metadata-only intake now records:
 - Validation reports: `reports/genbank_metadata_validation.*` and `reports/gbif_metadata_validation.*`
 
 This remains metadata/provenance intake only. GBIF occurrence rows require an official GBIF download DOI before manuscript use, and GenBank sequence bodies are not downloaded in this pass.
+
+## Second-layer audit status
+
+The second-layer audit adds:
+
+- GenBank accession usability audit: `reports/genbank_accession_audit.*`
+- GBIF DOI-backed download plan: `data/metadata/gbif_second_layer_download_plan.*`
+- GBIF second-layer report: `reports/gbif_second_layer_download_plan.md`
+- Metadata semantics audit: `reports/metadata_semantics_audit.md`
+
+The project remains in metadata/provenance mode. Missing GenBank fields and GBIF DOI status are explicit blockers for manuscript-level Hanta analyses.

@@ -1,0 +1,59 @@
+{
+  "record_count": 5,
+  "records": [
+    {
+      "download_doi_status": "pending",
+      "gbif_usage_key": 2437761,
+      "guardrail": "host_occurrence_only_not_human_case",
+      "host_species": "Apodemus agrarius",
+      "occurrence_count": 33988,
+      "query_url": "https://api.gbif.org/v1/occurrence/search?taxon_key=2437761&limit=0",
+      "required_download_fields": "gbif_download_doi;gbif_id;host_species;event_date;latitude;longitude;coordinate_uncertainty;basis_of_record",
+      "second_layer_status": "ready_for_official_gbif_download"
+    },
+    {
+      "download_doi_status": "pending",
+      "gbif_usage_key": 5706764,
+      "guardrail": "host_occurrence_only_not_human_case",
+      "host_species": "Myodes glareolus",
+      "occurrence_count": 232429,
+      "query_url": "https://api.gbif.org/v1/occurrence/search?taxon_key=5706764&limit=0",
+      "required_download_fields": "gbif_download_doi;gbif_id;host_species;event_date;latitude;longitude;coordinate_uncertainty;basis_of_record",
+      "second_layer_status": "ready_for_official_gbif_download"
+    },
+    {
+      "download_doi_status": "pending",
+      "gbif_usage_key": 2439261,
+      "guardrail": "host_occurrence_only_not_human_case",
+      "host_species": "Rattus norvegicus",
+      "occurrence_count": 251270,
+      "query_url": "https://api.gbif.org/v1/occurrence/search?taxon_key=2439261&limit=0",
+      "required_download_fields": "gbif_download_doi;gbif_id;host_species;event_date;latitude;longitude;coordinate_uncertainty;basis_of_record",
+      "second_layer_status": "ready_for_official_gbif_download"
+    },
+    {
+      "download_doi_status": "pending",
+      "gbif_usage_key": 2437967,
+      "guardrail": "host_occurrence_only_not_human_case",
+      "host_species": "Peromyscus maniculatus",
+      "occurrence_count": 321274,
+      "query_url": "https://api.gbif.org/v1/occurrence/search?taxon_key=2437967&limit=0",
+      "required_download_fields": "gbif_download_doi;gbif_id;host_species;event_date;latitude;longitude;coordinate_uncertainty;basis_of_record",
+      "second_layer_status": "ready_for_official_gbif_download"
+    },
+    {
+      "download_doi_status": "pending",
+      "gbif_usage_key": 2438272,
+      "guardrail": "host_occurrence_only_not_human_case",
+      "host_species": "Oligoryzomys longicaudatus",
+      "occurrence_count": 6383,
+      "query_url": "https://api.gbif.org/v1/occurrence/search?taxon_key=2438272&limit=0",
+      "required_download_fields": "gbif_download_doi;gbif_id;host_species;event_date;latitude;longitude;coordinate_uncertainty;basis_of_record",
+      "second_layer_status": "ready_for_official_gbif_download"
+    }
+  ],
+  "required_next_step": "create official GBIF download DOI before occurrence rows are accepted for manuscript use",
+  "source_id": "gbif_rodent_occurrences",
+  "status": "second_layer_download_plan_ready_doi_pending",
+  "total_occurrence_count": 845344
+}

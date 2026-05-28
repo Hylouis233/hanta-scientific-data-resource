@@ -1,0 +1,276 @@
+{
+  "record_count": 24,
+  "records": [
+    {
+      "accession": "NC_077671",
+      "audit_note": "missing required metadata",
+      "collection_date": "",
+      "country": "",
+      "host_species": "Peromyscus maniculatus",
+      "missing_fields": "country;collection_date",
+      "segment": "L",
+      "usability": "context_only_until_accession_review",
+      "virus_species": "Sin Nombre virus"
+    },
+    {
+      "accession": "NC_077670",
+      "audit_note": "missing required metadata",
+      "collection_date": "",
+      "country": "",
+      "host_species": "Peromyscus maniculatus",
+      "missing_fields": "country;collection_date",
+      "segment": "M",
+      "usability": "context_only_until_accession_review",
+      "virus_species": "Sin Nombre virus"
+    },
+    {
+      "accession": "NC_077669",
+      "audit_note": "missing required metadata",
+      "collection_date": "",
+      "country": "",
+      "host_species": "Peromyscus maniculatus",
+      "missing_fields": "country;collection_date",
+      "segment": "S",
+      "usability": "context_only_until_accession_review",
+      "virus_species": "Sin Nombre virus"
+    },
+    {
+      "accession": "PX401037",
+      "audit_note": "required metadata present",
+      "collection_date": "17-Jul-2023",
+      "country": "USA: Washington State",
+      "host_species": "Peromyscus sonoriensis",
+      "missing_fields": "",
+      "segment": "S",
+      "usability": "host_genome_metadata_candidate",
+      "virus_species": "Sin Nombre virus"
+    },
+    {
+      "accession": "PX401036",
+      "audit_note": "required metadata present",
+      "collection_date": "17-Jul-2023",
+      "country": "USA: Washington State",
+      "host_species": "Peromyscus sonoriensis",
+      "missing_fields": "",
+      "segment": "S",
+      "usability": "host_genome_metadata_candidate",
+      "virus_species": "Sin Nombre virus"
+    },
+    {
+      "accession": "PX401035",
+      "audit_note": "required metadata present",
+      "collection_date": "12-Jul-2023",
+      "country": "USA: Washington State",
+      "host_species": "Peromyscus sonoriensis",
+      "missing_fields": "",
+      "segment": "S",
+      "usability": "host_genome_metadata_candidate",
+      "virus_species": "Sin Nombre virus"
+    },
+    {
+      "accession": "NC_077668",
+      "audit_note": "missing required metadata",
+      "collection_date": "",
+      "country": "",
+      "host_species": "",
+      "missing_fields": "host_species;country;collection_date",
+      "segment": "S",
+      "usability": "context_only_until_accession_review",
+      "virus_species": "Puumala virus"
+    },
+    {
+      "accession": "NC_077667",
+      "audit_note": "missing required metadata",
+      "collection_date": "",
+      "country": "",
+      "host_species": "",
+      "missing_fields": "host_species;country;collection_date",
+      "segment": "L",
+      "usability": "context_only_until_accession_review",
+      "virus_species": "Puumala virus"
+    },
+    {
+      "accession": "NC_077666",
+      "audit_note": "missing required metadata",
+      "collection_date": "",
+      "country": "",
+      "host_species": "",
+      "missing_fields": "host_species;country;collection_date",
+      "segment": "M",
+      "usability": "context_only_until_accession_review",
+      "virus_species": "Puumala virus"
+    },
+    {
+      "accession": "PQ723779",
+      "audit_note": "required metadata present",
+      "collection_date": "2015",
+      "country": "Russia: The Republic of Tatarstan",
+      "host_species": "Myodes glareolus",
+      "missing_fields": "",
+      "segment": "L",
+      "usability": "host_genome_metadata_candidate",
+      "virus_species": "Puumala virus"
+    },
+    {
+      "accession": "PQ723778",
+      "audit_note": "required metadata present",
+      "collection_date": "2015",
+      "country": "Russia: The Republic of Tatarstan",
+      "host_species": "Myodes glareolus",
+      "missing_fields": "",
+      "segment": "L",
+      "usability": "host_genome_metadata_candidate",
+      "virus_species": "Puumala virus"
+    },
+    {
+      "accession": "PQ723777",
+      "audit_note": "required metadata present",
+      "collection_date": "2015",
+      "country": "Russia: The Republic of Tatarstan",
+      "host_species": "Myodes glareolus",
+      "missing_fields": "",
+      "segment": "L",
+      "usability": "host_genome_metadata_candidate",
+      "virus_species": "Puumala virus"
+    },
+    {
+      "accession": "PZ165969",
+      "audit_note": "required metadata present",
+      "collection_date": "21-Mar-2025",
+      "country": "China: Hinggan League, Inner Mongolia",
+      "host_species": "Rattus",
+      "missing_fields": "",
+      "segment": "L",
+      "usability": "host_genome_metadata_candidate",
+      "virus_species": "Seoul virus"
+    },
+    {
+      "accession": "PZ165968",
+      "audit_note": "required metadata present",
+      "collection_date": "21-Mar-2025",
+      "country": "China: Hinggan League, Inner Mongolia",
+      "host_species": "Rattus",
+      "missing_fields": "",
+      "segment": "M",
+      "usability": "host_genome_metadata_candidate",
+      "virus_species": "Seoul virus"
+    },
+    {
+      "accession": "PZ118926",
+      "audit_note": "required metadata present",
+      "collection_date": "2024-10-16",
+      "country": "China",
+      "host_species": "Rattus norvegicus",
+      "missing_fields": "",
+      "segment": "S",
+      "usability": "host_genome_metadata_candidate",
+      "virus_species": "Seoul virus"
+    },
+    {
+      "accession": "PZ118921",
+      "audit_note": "required metadata present",
+      "collection_date": "2024-10-16",
+      "country": "China",
+      "host_species": "Rattus norvegicus",
+      "missing_fields": "",
+      "segment": "M",
+      "usability": "host_genome_metadata_candidate",
+      "virus_species": "Seoul virus"
+    },
+    {
+      "accession": "PZ118916",
+      "audit_note": "required metadata present",
+      "collection_date": "2024-10-16",
+      "country": "China",
+      "host_species": "Rattus norvegicus",
+      "missing_fields": "",
+      "segment": "L",
+      "usability": "host_genome_metadata_candidate",
+      "virus_species": "Seoul virus"
+    },
+    {
+      "accession": "PZ118925",
+      "audit_note": "required metadata present",
+      "collection_date": "2024-10-02",
+      "country": "China",
+      "host_species": "Rattus norvegicus",
+      "missing_fields": "",
+      "segment": "S",
+      "usability": "host_genome_metadata_candidate",
+      "virus_species": "Seoul virus"
+    },
+    {
+      "accession": "PZ385163",
+      "audit_note": "human host; do not use as rodent host occurrence",
+      "collection_date": "2026-05-04",
+      "country": "Switzerland",
+      "host_species": "Homo sapiens",
+      "missing_fields": "",
+      "segment": "S",
+      "usability": "human_sequence_context_only",
+      "virus_species": "Andes virus"
+    },
+    {
+      "accession": "PZ385162",
+      "audit_note": "human host; do not use as rodent host occurrence",
+      "collection_date": "2026-05-04",
+      "country": "Switzerland",
+      "host_species": "Homo sapiens",
+      "missing_fields": "",
+      "segment": "M",
+      "usability": "human_sequence_context_only",
+      "virus_species": "Andes virus"
+    },
+    {
+      "accession": "PZ385161",
+      "audit_note": "human host; do not use as rodent host occurrence",
+      "collection_date": "2026-05-04",
+      "country": "Switzerland",
+      "host_species": "Homo sapiens",
+      "missing_fields": "",
+      "segment": "L",
+      "usability": "human_sequence_context_only",
+      "virus_species": "Andes virus"
+    },
+    {
+      "accession": "PV808478",
+      "audit_note": "human host; do not use as rodent host occurrence",
+      "collection_date": "30-Jul-2024",
+      "country": "Chile",
+      "host_species": "Homo sapiens",
+      "missing_fields": "",
+      "segment": "L",
+      "usability": "human_sequence_context_only",
+      "virus_species": "Andes virus"
+    },
+    {
+      "accession": "PV808475",
+      "audit_note": "human host; do not use as rodent host occurrence",
+      "collection_date": "24-Jul-2024",
+      "country": "Chile",
+      "host_species": "Homo sapiens",
+      "missing_fields": "",
+      "segment": "L",
+      "usability": "human_sequence_context_only",
+      "virus_species": "Andes virus"
+    },
+    {
+      "accession": "PV808472",
+      "audit_note": "human host; do not use as rodent host occurrence",
+      "collection_date": "1999",
+      "country": "Chile",
+      "host_species": "Homo sapiens",
+      "missing_fields": "",
+      "segment": "L",
+      "usability": "human_sequence_context_only",
+      "virus_species": "Andes virus"
+    }
+  ],
+  "source_id": "genbank_hantavirus_segments",
+  "status": "accession_audit_complete_with_caveats",
+  "usability_counts": {
+    "context_only_until_accession_review": 6,
+    "host_genome_metadata_candidate": 12,
+    "human_sequence_context_only": 6
+  }
+}

@@ -42,6 +42,9 @@ def main() -> int:
     gbif_metadata_accepted = gbif_validation.get("status") in {"query_metadata_ingested_download_doi_pending", "query_metadata_ingested_complete"}
     metadata_validation_passed = genbank_metadata_accepted and gbif_metadata_accepted
     no_modeling_guardrail_passed = not any((project_root / path).exists() for path in ["analysis/rt", "results/rt_estimates.csv"])
+    genbank_accession_audit_present = (reports / "genbank_accession_audit.json").exists() and (reports / "genbank_accession_audit.md").exists()
+    gbif_second_layer_plan_present = (project_root / "data" / "metadata" / "gbif_second_layer_download_plan.json").exists() and (reports / "gbif_second_layer_download_plan.md").exists()
+    metadata_semantics_audit_present = (reports / "metadata_semantics_audit.md").exists()
 
     checks = {
         "data_sources_registered": (project_root / "docs" / "data_sources.md").exists(),
@@ -51,6 +54,9 @@ def main() -> int:
         "genbank_metadata_present": genbank_records > 0,
         "gbif_query_metadata_present": gbif_records > 0,
         "metadata_validation_passed": metadata_validation_passed,
+        "genbank_accession_audit_present": genbank_accession_audit_present,
+        "gbif_second_layer_plan_present": gbif_second_layer_plan_present,
+        "metadata_semantics_audit_present": metadata_semantics_audit_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
 
@@ -70,6 +76,9 @@ def main() -> int:
         "metadata_validation_passed": metadata_validation_passed,
         "genbank_accession_audit_needed": genbank_validation.get("status") == "metadata_ingested_needs_accession_audit",
         "gbif_download_doi_pending": gbif_validation.get("status") == "query_metadata_ingested_download_doi_pending",
+        "genbank_accession_audit_present": genbank_accession_audit_present,
+        "gbif_second_layer_plan_present": gbif_second_layer_plan_present,
+        "metadata_semantics_audit_present": metadata_semantics_audit_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
 
@@ -81,6 +90,9 @@ def main() -> int:
         f"genbank_metadata_records,{genbank_records}",
         f"gbif_query_metadata_records,{gbif_records}",
         f"metadata_validation_passed,{str(metadata_validation_passed).lower()}",
+        f"genbank_accession_audit_present,{str(genbank_accession_audit_present).lower()}",
+        f"gbif_second_layer_plan_present,{str(gbif_second_layer_plan_present).lower()}",
+        f"metadata_semantics_audit_present,{str(metadata_semantics_audit_present).lower()}",
         f"all_checks_passed,{str(all(checks.values())).lower()}",
     ])
     (tables / "main_results.csv").write_text("\n".join(rows) + "\n", encoding="utf-8")

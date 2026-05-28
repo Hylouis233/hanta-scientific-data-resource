@@ -1,0 +1,25 @@
+accession,virus_species,segment,host_species,country,collection_date,missing_fields,usability,audit_note
+NC_077671,Sin Nombre virus,L,Peromyscus maniculatus,,,country;collection_date,context_only_until_accession_review,missing required metadata
+NC_077670,Sin Nombre virus,M,Peromyscus maniculatus,,,country;collection_date,context_only_until_accession_review,missing required metadata
+NC_077669,Sin Nombre virus,S,Peromyscus maniculatus,,,country;collection_date,context_only_until_accession_review,missing required metadata
+PX401037,Sin Nombre virus,S,Peromyscus sonoriensis,USA: Washington State,17-Jul-2023,,host_genome_metadata_candidate,required metadata present
+PX401036,Sin Nombre virus,S,Peromyscus sonoriensis,USA: Washington State,17-Jul-2023,,host_genome_metadata_candidate,required metadata present
+PX401035,Sin Nombre virus,S,Peromyscus sonoriensis,USA: Washington State,12-Jul-2023,,host_genome_metadata_candidate,required metadata present
+NC_077668,Puumala virus,S,,,,host_species;country;collection_date,context_only_until_accession_review,missing required metadata
+NC_077667,Puumala virus,L,,,,host_species;country;collection_date,context_only_until_accession_review,missing required metadata
+NC_077666,Puumala virus,M,,,,host_species;country;collection_date,context_only_until_accession_review,missing required metadata
+PQ723779,Puumala virus,L,Myodes glareolus,Russia: The Republic of Tatarstan,2015,,host_genome_metadata_candidate,required metadata present
+PQ723778,Puumala virus,L,Myodes glareolus,Russia: The Republic of Tatarstan,2015,,host_genome_metadata_candidate,required metadata present
+PQ723777,Puumala virus,L,Myodes glareolus,Russia: The Republic of Tatarstan,2015,,host_genome_metadata_candidate,required metadata present
+PZ165969,Seoul virus,L,Rattus,"China: Hinggan League, Inner Mongolia",21-Mar-2025,,host_genome_metadata_candidate,required metadata present
+PZ165968,Seoul virus,M,Rattus,"China: Hinggan League, Inner Mongolia",21-Mar-2025,,host_genome_metadata_candidate,required metadata present
+PZ118926,Seoul virus,S,Rattus norvegicus,China,2024-10-16,,host_genome_metadata_candidate,required metadata present
+PZ118921,Seoul virus,M,Rattus norvegicus,China,2024-10-16,,host_genome_metadata_candidate,required metadata present
+PZ118916,Seoul virus,L,Rattus norvegicus,China,2024-10-16,,host_genome_metadata_candidate,required metadata present
+PZ118925,Seoul virus,S,Rattus norvegicus,China,2024-10-02,,host_genome_metadata_candidate,required metadata present
+PZ385163,Andes virus,S,Homo sapiens,Switzerland,2026-05-04,,human_sequence_context_only,human host; do not use as rodent host occurrence
+PZ385162,Andes virus,M,Homo sapiens,Switzerland,2026-05-04,,human_sequence_context_only,human host; do not use as rodent host occurrence
+PZ385161,Andes virus,L,Homo sapiens,Switzerland,2026-05-04,,human_sequence_context_only,human host; do not use as rodent host occurrence
+PV808478,Andes virus,L,Homo sapiens,Chile,30-Jul-2024,,human_sequence_context_only,human host; do not use as rodent host occurrence
+PV808475,Andes virus,L,Homo sapiens,Chile,24-Jul-2024,,human_sequence_context_only,human host; do not use as rodent host occurrence
+PV808472,Andes virus,L,Homo sapiens,Chile,1999,,human_sequence_context_only,human host; do not use as rodent host occurrence

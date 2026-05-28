@@ -6,8 +6,14 @@ manuscript_target_declared,true
 genbank_metadata_present,true
 gbif_query_metadata_present,true
 metadata_validation_passed,true
+genbank_accession_audit_present,true
+gbif_second_layer_plan_present,true
+metadata_semantics_audit_present,true
 no_modeling_guardrail_passed,true
 genbank_metadata_records,24
 gbif_query_metadata_records,5
 metadata_validation_passed,true
+genbank_accession_audit_present,true
+gbif_second_layer_plan_present,true
+metadata_semantics_audit_present,true
 all_checks_passed,true

@@ -1,0 +1,52 @@
+{
+  "dvc_boundary": "data/raw/ is DVC-tracked; occurrence-row files must not be committed to Git",
+  "guardrails": [
+    "download must be created through official GBIF account/API to obtain DOI or download key",
+    "host occurrences are not human cases",
+    "do not join with human surveillance or environmental rasters in this gate"
+  ],
+  "planned_manifest": "data/metadata/gbif_rodent_occurrences_download_manifest.json",
+  "planned_raw_path": "data/raw/gbif_rodent_occurrences/",
+  "predicate": {
+    "predicates": [
+      {
+        "key": "TAXON_KEY",
+        "type": "equals",
+        "value": "2437761"
+      },
+      {
+        "key": "TAXON_KEY",
+        "type": "equals",
+        "value": "5706764"
+      },
+      {
+        "key": "TAXON_KEY",
+        "type": "equals",
+        "value": "2439261"
+      },
+      {
+        "key": "TAXON_KEY",
+        "type": "equals",
+        "value": "2437967"
+      },
+      {
+        "key": "TAXON_KEY",
+        "type": "equals",
+        "value": "2438272"
+      }
+    ],
+    "type": "or"
+  },
+  "required_fields": [
+    "gbifID",
+    "species",
+    "eventDate",
+    "decimalLatitude",
+    "decimalLongitude",
+    "coordinateUncertaintyInMeters",
+    "basisOfRecord"
+  ],
+  "schema_version": "0.1.0",
+  "source_id": "gbif_rodent_occurrences",
+  "status": "doi_request_package_ready_manual_gbif_account_step_required"
+}

@@ -1,0 +1,204 @@
+{
+  "final_use_counts": {
+    "host_genome_metadata_candidate": 12,
+    "human_sequence_context_only": 6,
+    "reference_context_only_exclude_from_analysis": 6
+  },
+  "record_count": 24,
+  "records": [
+    {
+      "accession": "NC_077671",
+      "final_use": "reference_context_only_exclude_from_analysis",
+      "missing_fields": "country;collection_date",
+      "reason": "required provenance incomplete",
+      "resolution": "reference_record_context_only_metadata_missing_in_summary",
+      "virus_species": "Sin Nombre virus"
+    },
+    {
+      "accession": "NC_077670",
+      "final_use": "reference_context_only_exclude_from_analysis",
+      "missing_fields": "country;collection_date",
+      "reason": "required provenance incomplete",
+      "resolution": "reference_record_context_only_metadata_missing_in_summary",
+      "virus_species": "Sin Nombre virus"
+    },
+    {
+      "accession": "NC_077669",
+      "final_use": "reference_context_only_exclude_from_analysis",
+      "missing_fields": "country;collection_date",
+      "reason": "required provenance incomplete",
+      "resolution": "reference_record_context_only_metadata_missing_in_summary",
+      "virus_species": "Sin Nombre virus"
+    },
+    {
+      "accession": "PX401037",
+      "final_use": "host_genome_metadata_candidate",
+      "missing_fields": "",
+      "reason": "required metadata present",
+      "resolution": "no_action_required",
+      "virus_species": "Sin Nombre virus"
+    },
+    {
+      "accession": "PX401036",
+      "final_use": "host_genome_metadata_candidate",
+      "missing_fields": "",
+      "reason": "required metadata present",
+      "resolution": "no_action_required",
+      "virus_species": "Sin Nombre virus"
+    },
+    {
+      "accession": "PX401035",
+      "final_use": "host_genome_metadata_candidate",
+      "missing_fields": "",
+      "reason": "required metadata present",
+      "resolution": "no_action_required",
+      "virus_species": "Sin Nombre virus"
+    },
+    {
+      "accession": "NC_077668",
+      "final_use": "reference_context_only_exclude_from_analysis",
+      "missing_fields": "host_species;country;collection_date",
+      "reason": "required provenance incomplete",
+      "resolution": "reference_record_context_only_metadata_missing_in_summary",
+      "virus_species": "Puumala virus"
+    },
+    {
+      "accession": "NC_077667",
+      "final_use": "reference_context_only_exclude_from_analysis",
+      "missing_fields": "host_species;country;collection_date",
+      "reason": "required provenance incomplete",
+      "resolution": "reference_record_context_only_metadata_missing_in_summary",
+      "virus_species": "Puumala virus"
+    },
+    {
+      "accession": "NC_077666",
+      "final_use": "reference_context_only_exclude_from_analysis",
+      "missing_fields": "host_species;country;collection_date",
+      "reason": "required provenance incomplete",
+      "resolution": "reference_record_context_only_metadata_missing_in_summary",
+      "virus_species": "Puumala virus"
+    },
+    {
+      "accession": "PQ723779",
+      "final_use": "host_genome_metadata_candidate",
+      "missing_fields": "",
+      "reason": "required metadata present",
+      "resolution": "no_action_required",
+      "virus_species": "Puumala virus"
+    },
+    {
+      "accession": "PQ723778",
+      "final_use": "host_genome_metadata_candidate",
+      "missing_fields": "",
+      "reason": "required metadata present",
+      "resolution": "no_action_required",
+      "virus_species": "Puumala virus"
+    },
+    {
+      "accession": "PQ723777",
+      "final_use": "host_genome_metadata_candidate",
+      "missing_fields": "",
+      "reason": "required metadata present",
+      "resolution": "no_action_required",
+      "virus_species": "Puumala virus"
+    },
+    {
+      "accession": "PZ165969",
+      "final_use": "host_genome_metadata_candidate",
+      "missing_fields": "",
+      "reason": "required metadata present",
+      "resolution": "no_action_required",
+      "virus_species": "Seoul virus"
+    },
+    {
+      "accession": "PZ165968",
+      "final_use": "host_genome_metadata_candidate",
+      "missing_fields": "",
+      "reason": "required metadata present",
+      "resolution": "no_action_required",
+      "virus_species": "Seoul virus"
+    },
+    {
+      "accession": "PZ118926",
+      "final_use": "host_genome_metadata_candidate",
+      "missing_fields": "",
+      "reason": "required metadata present",
+      "resolution": "no_action_required",
+      "virus_species": "Seoul virus"
+    },
+    {
+      "accession": "PZ118921",
+      "final_use": "host_genome_metadata_candidate",
+      "missing_fields": "",
+      "reason": "required metadata present",
+      "resolution": "no_action_required",
+      "virus_species": "Seoul virus"
+    },
+    {
+      "accession": "PZ118916",
+      "final_use": "host_genome_metadata_candidate",
+      "missing_fields": "",
+      "reason": "required metadata present",
+      "resolution": "no_action_required",
+      "virus_species": "Seoul virus"
+    },
+    {
+      "accession": "PZ118925",
+      "final_use": "host_genome_metadata_candidate",
+      "missing_fields": "",
+      "reason": "required metadata present",
+      "resolution": "no_action_required",
+      "virus_species": "Seoul virus"
+    },
+    {
+      "accession": "PZ385163",
+      "final_use": "human_sequence_context_only",
+      "missing_fields": "",
+      "reason": "human host; do not use as rodent host occurrence",
+      "resolution": "no_action_required",
+      "virus_species": "Andes virus"
+    },
+    {
+      "accession": "PZ385162",
+      "final_use": "human_sequence_context_only",
+      "missing_fields": "",
+      "reason": "human host; do not use as rodent host occurrence",
+      "resolution": "no_action_required",
+      "virus_species": "Andes virus"
+    },
+    {
+      "accession": "PZ385161",
+      "final_use": "human_sequence_context_only",
+      "missing_fields": "",
+      "reason": "human host; do not use as rodent host occurrence",
+      "resolution": "no_action_required",
+      "virus_species": "Andes virus"
+    },
+    {
+      "accession": "PV808478",
+      "final_use": "human_sequence_context_only",
+      "missing_fields": "",
+      "reason": "human host; do not use as rodent host occurrence",
+      "resolution": "no_action_required",
+      "virus_species": "Andes virus"
+    },
+    {
+      "accession": "PV808475",
+      "final_use": "human_sequence_context_only",
+      "missing_fields": "",
+      "reason": "human host; do not use as rodent host occurrence",
+      "resolution": "no_action_required",
+      "virus_species": "Andes virus"
+    },
+    {
+      "accession": "PV808472",
+      "final_use": "human_sequence_context_only",
+      "missing_fields": "",
+      "reason": "human host; do not use as rodent host occurrence",
+      "resolution": "no_action_required",
+      "virus_species": "Andes virus"
+    }
+  ],
+  "source_id": "genbank_hantavirus_segments",
+  "status": "missing_field_triage_complete"
+}

@@ -45,6 +45,10 @@ def main() -> int:
     genbank_accession_audit_present = (reports / "genbank_accession_audit.json").exists() and (reports / "genbank_accession_audit.md").exists()
     gbif_second_layer_plan_present = (project_root / "data" / "metadata" / "gbif_second_layer_download_plan.json").exists() and (reports / "gbif_second_layer_download_plan.md").exists()
     metadata_semantics_audit_present = (reports / "metadata_semantics_audit.md").exists()
+    dvc_boundary_present = all((project_root / path).exists() for path in ["data/raw.dvc", "data/processed.dvc", "genomic_data.dvc", "results.dvc", "docs/dvc_data_boundary.md"])
+    genbank_missing_triage_present = (reports / "genbank_missing_field_triage.json").exists() and (reports / "genbank_missing_field_triage.md").exists()
+    gbif_download_request_present = (project_root / "data" / "metadata" / "gbif_download_request_package.json").exists() and (reports / "gbif_download_request_package.md").exists()
+    third_layer_closeout_present = (reports / "third_layer_real_data_closeout.md").exists()
 
     checks = {
         "data_sources_registered": (project_root / "docs" / "data_sources.md").exists(),
@@ -57,6 +61,10 @@ def main() -> int:
         "genbank_accession_audit_present": genbank_accession_audit_present,
         "gbif_second_layer_plan_present": gbif_second_layer_plan_present,
         "metadata_semantics_audit_present": metadata_semantics_audit_present,
+        "dvc_boundary_present": dvc_boundary_present,
+        "genbank_missing_triage_present": genbank_missing_triage_present,
+        "gbif_download_request_present": gbif_download_request_present,
+        "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
 
@@ -79,6 +87,10 @@ def main() -> int:
         "genbank_accession_audit_present": genbank_accession_audit_present,
         "gbif_second_layer_plan_present": gbif_second_layer_plan_present,
         "metadata_semantics_audit_present": metadata_semantics_audit_present,
+        "dvc_boundary_present": dvc_boundary_present,
+        "genbank_missing_triage_present": genbank_missing_triage_present,
+        "gbif_download_request_present": gbif_download_request_present,
+        "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
 
@@ -93,6 +105,10 @@ def main() -> int:
         f"genbank_accession_audit_present,{str(genbank_accession_audit_present).lower()}",
         f"gbif_second_layer_plan_present,{str(gbif_second_layer_plan_present).lower()}",
         f"metadata_semantics_audit_present,{str(metadata_semantics_audit_present).lower()}",
+        f"dvc_boundary_present,{str(dvc_boundary_present).lower()}",
+        f"genbank_missing_triage_present,{str(genbank_missing_triage_present).lower()}",
+        f"gbif_download_request_present,{str(gbif_download_request_present).lower()}",
+        f"third_layer_closeout_present,{str(third_layer_closeout_present).lower()}",
         f"all_checks_passed,{str(all(checks.values())).lower()}",
     ])
     (tables / "main_results.csv").write_text("\n".join(rows) + "\n", encoding="utf-8")

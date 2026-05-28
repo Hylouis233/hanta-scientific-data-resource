@@ -1,0 +1,25 @@
+accession,virus_species,missing_fields,resolution,final_use,reason
+NC_077671,Sin Nombre virus,country;collection_date,reference_record_context_only_metadata_missing_in_summary,reference_context_only_exclude_from_analysis,required provenance incomplete
+NC_077670,Sin Nombre virus,country;collection_date,reference_record_context_only_metadata_missing_in_summary,reference_context_only_exclude_from_analysis,required provenance incomplete
+NC_077669,Sin Nombre virus,country;collection_date,reference_record_context_only_metadata_missing_in_summary,reference_context_only_exclude_from_analysis,required provenance incomplete
+PX401037,Sin Nombre virus,,no_action_required,host_genome_metadata_candidate,required metadata present
+PX401036,Sin Nombre virus,,no_action_required,host_genome_metadata_candidate,required metadata present
+PX401035,Sin Nombre virus,,no_action_required,host_genome_metadata_candidate,required metadata present
+NC_077668,Puumala virus,host_species;country;collection_date,reference_record_context_only_metadata_missing_in_summary,reference_context_only_exclude_from_analysis,required provenance incomplete
+NC_077667,Puumala virus,host_species;country;collection_date,reference_record_context_only_metadata_missing_in_summary,reference_context_only_exclude_from_analysis,required provenance incomplete
+NC_077666,Puumala virus,host_species;country;collection_date,reference_record_context_only_metadata_missing_in_summary,reference_context_only_exclude_from_analysis,required provenance incomplete
+PQ723779,Puumala virus,,no_action_required,host_genome_metadata_candidate,required metadata present
+PQ723778,Puumala virus,,no_action_required,host_genome_metadata_candidate,required metadata present
+PQ723777,Puumala virus,,no_action_required,host_genome_metadata_candidate,required metadata present
+PZ165969,Seoul virus,,no_action_required,host_genome_metadata_candidate,required metadata present
+PZ165968,Seoul virus,,no_action_required,host_genome_metadata_candidate,required metadata present
+PZ118926,Seoul virus,,no_action_required,host_genome_metadata_candidate,required metadata present
+PZ118921,Seoul virus,,no_action_required,host_genome_metadata_candidate,required metadata present
+PZ118916,Seoul virus,,no_action_required,host_genome_metadata_candidate,required metadata present
+PZ118925,Seoul virus,,no_action_required,host_genome_metadata_candidate,required metadata present
+PZ385163,Andes virus,,no_action_required,human_sequence_context_only,human host; do not use as rodent host occurrence
+PZ385162,Andes virus,,no_action_required,human_sequence_context_only,human host; do not use as rodent host occurrence
+PZ385161,Andes virus,,no_action_required,human_sequence_context_only,human host; do not use as rodent host occurrence
+PV808478,Andes virus,,no_action_required,human_sequence_context_only,human host; do not use as rodent host occurrence
+PV808475,Andes virus,,no_action_required,human_sequence_context_only,human host; do not use as rodent host occurrence
+PV808472,Andes virus,,no_action_required,human_sequence_context_only,human host; do not use as rodent host occurrence

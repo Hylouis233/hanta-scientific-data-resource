@@ -3,23 +3,30 @@
   "checks": {
     "authenticity_policy_present": true,
     "data_sources_registered": true,
+    "dvc_boundary_present": true,
     "evaluation_protocol_present": true,
+    "gbif_download_request_present": true,
     "gbif_query_metadata_present": true,
     "gbif_second_layer_plan_present": true,
     "genbank_accession_audit_present": true,
     "genbank_metadata_present": true,
+    "genbank_missing_triage_present": true,
     "manuscript_target_declared": true,
     "metadata_semantics_audit_present": true,
     "metadata_validation_passed": true,
-    "no_modeling_guardrail_passed": true
+    "no_modeling_guardrail_passed": true,
+    "third_layer_closeout_present": true
   },
+  "dvc_boundary_present": true,
   "gbif_download_doi_pending": true,
+  "gbif_download_request_present": true,
   "gbif_query_metadata_records": 5,
   "gbif_second_layer_plan_present": true,
   "genbank_accession_audit_needed": true,
   "genbank_accession_audit_present": true,
   "genbank_metadata_records": 24,
-  "generated_at_utc": "2026-05-28T12:36:56.896901+00:00",
+  "genbank_missing_triage_present": true,
+  "generated_at_utc": "2026-05-28T15:48:03.005269+00:00",
   "locked_metrics": [
     "data_sources_registered",
     "authenticity_policy_present",
@@ -31,6 +38,10 @@
     "genbank_accession_audit_present",
     "gbif_second_layer_plan_present",
     "metadata_semantics_audit_present",
+    "dvc_boundary_present",
+    "genbank_missing_triage_present",
+    "gbif_download_request_present",
+    "third_layer_closeout_present",
     "no_modeling_guardrail_passed"
   ],
   "metadata_semantics_audit_present": true,
@@ -38,5 +49,6 @@
   "no_modeling_guardrail_passed": true,
   "protocol_version": "0.2.0",
   "scientific_claim": "none; Hanta metadata/provenance intake only",
-  "stage": "metadata_ingested"
+  "stage": "metadata_ingested",
+  "third_layer_closeout_present": true
 }

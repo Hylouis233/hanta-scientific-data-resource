@@ -9,5 +9,9 @@ LOCKED_METRICS = [
     "genbank_accession_audit_present",
     "gbif_second_layer_plan_present",
     "metadata_semantics_audit_present",
+    "dvc_boundary_present",
+    "genbank_missing_triage_present",
+    "gbif_download_request_present",
+    "third_layer_closeout_present",
     "no_modeling_guardrail_passed",
 ]

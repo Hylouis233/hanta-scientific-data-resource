@@ -142,7 +142,8 @@ def main() -> int:
         from pygbif import occurrences as occ
 
         args.raw_dir.mkdir(parents=True, exist_ok=True)
-        raw_zip_path = str(occ.download_get(download_key, path=str(args.raw_dir)))
+        result = occ.download_get(download_key, path=str(args.raw_dir))
+        raw_zip_path = result.get("path") if isinstance(result, dict) else str(result)
 
     status = "download_requested_or_tracked" if download_key else "predicate_ready_not_submitted"
     if raw_zip_path:

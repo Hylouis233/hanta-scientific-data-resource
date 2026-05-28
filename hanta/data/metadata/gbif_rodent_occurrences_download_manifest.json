@@ -1,0 +1,50 @@
+{
+  "citation": "{\"timestamp\":\"2026-05-28T18:13:09.549+00:00\",\"status\":500,\"error\":\"Internal Server Error\",\"path\":\"/occurrence/download/0021747-260519110011954/citation\"}",
+  "created": "2026-05-28T18:10:58.388+00:00",
+  "doi": null,
+  "download_key": "0021747-260519110011954",
+  "download_link": "https://api.gbif.org/v1/occurrence/download/request/0021747-260519110011954.zip",
+  "gbif_status": "RUNNING",
+  "generated_at_utc": "2026-05-28T18:13:09.694764+00:00",
+  "guardrails": [
+    "download must be created through official GBIF account/API to obtain DOI or download key",
+    "host occurrences are not human cases",
+    "do not join with human surveillance or environmental rasters in this gate"
+  ],
+  "modified": "2026-05-28T18:11:03.552+00:00",
+  "planned_raw_path": "data/raw/gbif_rodent_occurrences/",
+  "predicate": {
+    "predicates": [
+      {
+        "key": "TAXON_KEY",
+        "type": "in",
+        "values": [
+          "2437761",
+          "5706764",
+          "2439261",
+          "2437967",
+          "2438272"
+        ]
+      },
+      {
+        "key": "HAS_COORDINATE",
+        "type": "equals",
+        "value": "true"
+      }
+    ],
+    "type": "and"
+  },
+  "raw_zip_path": null,
+  "required_fields": [
+    "gbifID",
+    "species",
+    "eventDate",
+    "decimalLatitude",
+    "decimalLongitude",
+    "coordinateUncertaintyInMeters",
+    "basisOfRecord"
+  ],
+  "schema_version": "0.1.0",
+  "source_id": "gbif_rodent_occurrences",
+  "status": "download_requested_or_tracked"
+}

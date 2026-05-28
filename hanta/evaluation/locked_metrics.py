@@ -12,6 +12,9 @@ LOCKED_METRICS = [
     "dvc_boundary_present",
     "genbank_missing_triage_present",
     "gbif_download_request_present",
+    "gbif_download_manifest_gate_ready",
+    "gbif_official_download_gate_ready",
+    "gbif_raw_occurrence_path_ready",
     "third_layer_closeout_present",
     "no_modeling_guardrail_passed",
 ]

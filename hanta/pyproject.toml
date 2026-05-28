@@ -3,7 +3,7 @@ name = "autoresearch-hanta"
 version = "0.1.0"
 description = "Reproducible Hanta research workspace"
 requires-python = ">=3.10"
-dependencies = []
+dependencies = ["pygbif>=0.6.5"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

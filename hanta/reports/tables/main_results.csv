@@ -12,6 +12,11 @@ metadata_semantics_audit_present,true
 dvc_boundary_present,true
 genbank_missing_triage_present,true
 gbif_download_request_present,true
+gbif_download_manifest_present,true
+gbif_official_download_identified,true
+gbif_download_manifest_gate_ready,true
+gbif_official_download_gate_ready,true
+gbif_raw_occurrence_path_ready,true
 third_layer_closeout_present,true
 no_modeling_guardrail_passed,true
 genbank_metadata_records,24

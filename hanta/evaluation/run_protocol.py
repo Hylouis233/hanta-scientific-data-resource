@@ -48,6 +48,10 @@ def main() -> int:
     dvc_boundary_present = all((project_root / path).exists() for path in ["data/raw.dvc", "data/processed.dvc", "genomic_data.dvc", "results.dvc", "docs/dvc_data_boundary.md"])
     genbank_missing_triage_present = (reports / "genbank_missing_field_triage.json").exists() and (reports / "genbank_missing_field_triage.md").exists()
     gbif_download_request_present = (project_root / "data" / "metadata" / "gbif_download_request_package.json").exists() and (reports / "gbif_download_request_package.md").exists()
+    gbif_download_manifest = _load_json(project_root / "data" / "metadata" / "gbif_rodent_occurrences_download_manifest.json")
+    gbif_download_manifest_present = bool(gbif_download_manifest)
+    gbif_official_download_identified = bool(gbif_download_manifest.get("doi") or gbif_download_manifest.get("download_key"))
+    gbif_raw_occurrence_path_ready = (project_root / "data" / "raw.dvc").exists() and (project_root / "data" / "raw").exists()
     third_layer_closeout_present = (reports / "third_layer_real_data_closeout.md").exists()
 
     checks = {
@@ -64,6 +68,11 @@ def main() -> int:
         "dvc_boundary_present": dvc_boundary_present,
         "genbank_missing_triage_present": genbank_missing_triage_present,
         "gbif_download_request_present": gbif_download_request_present,
+        "gbif_download_manifest_present": gbif_download_manifest_present,
+        "gbif_official_download_identified": gbif_official_download_identified,
+        "gbif_download_manifest_gate_ready": gbif_download_manifest_present or gbif_download_request_present,
+        "gbif_official_download_gate_ready": gbif_official_download_identified or gbif_download_request_present,
+        "gbif_raw_occurrence_path_ready": gbif_raw_occurrence_path_ready,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -71,13 +80,20 @@ def main() -> int:
     stage = "metadata_ingested" if metadata_present else "scaffold_only"
     scientific_claim = "none; Hanta metadata/provenance intake only" if metadata_present else "none; scaffold validation only"
 
+    locked_metric_values = {
+        **checks,
+        "genbank_metadata_records": genbank_records > 0,
+        "gbif_query_metadata_records": gbif_records > 0,
+    }
+    all_checks_passed = all(locked_metric_values[name] for name in LOCKED_METRICS)
+
     metrics = {
         "protocol_version": "0.2.0",
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "stage": stage,
         "locked_metrics": LOCKED_METRICS,
         "checks": checks,
-        "all_checks_passed": all(checks.values()),
+        "all_checks_passed": all_checks_passed,
         "scientific_claim": scientific_claim,
         "genbank_metadata_records": genbank_records,
         "gbif_query_metadata_records": gbif_records,
@@ -90,6 +106,11 @@ def main() -> int:
         "dvc_boundary_present": dvc_boundary_present,
         "genbank_missing_triage_present": genbank_missing_triage_present,
         "gbif_download_request_present": gbif_download_request_present,
+        "gbif_download_manifest_present": gbif_download_manifest_present,
+        "gbif_official_download_identified": gbif_official_download_identified,
+        "gbif_download_manifest_gate_ready": gbif_download_manifest_present or gbif_download_request_present,
+        "gbif_official_download_gate_ready": gbif_official_download_identified or gbif_download_request_present,
+        "gbif_raw_occurrence_path_ready": gbif_raw_occurrence_path_ready,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -109,11 +130,11 @@ def main() -> int:
         f"genbank_missing_triage_present,{str(genbank_missing_triage_present).lower()}",
         f"gbif_download_request_present,{str(gbif_download_request_present).lower()}",
         f"third_layer_closeout_present,{str(third_layer_closeout_present).lower()}",
-        f"all_checks_passed,{str(all(checks.values())).lower()}",
+        f"all_checks_passed,{str(all_checks_passed).lower()}",
     ])
     (tables / "main_results.csv").write_text("\n".join(rows) + "\n", encoding="utf-8")
 
-    return 0 if all(checks.values()) else 1
+    return 0 if all_checks_passed else 1
 
 
 if __name__ == "__main__":

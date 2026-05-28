@@ -1,0 +1,34 @@
+{
+  "schema_version": "0.1.0",
+  "scope": "hanta_pre_ingestion_provenance_manifest",
+  "status": "planned_no_downloads_yet",
+  "guardrails": [
+    "human surveillance, host occurrence, environmental covariate, and genome segment data remain separate",
+    "host occurrence records are not human cases",
+    "no Hanta Rt or transmission model is approved in this phase",
+    "Andes virus person-to-person transmission requires a separate analysis scope"
+  ],
+  "planned_sources": [
+    {
+      "source_id": "genbank_hantavirus_segments",
+      "raw_path": "data/raw/genbank_hantavirus_segments/",
+      "manifest_path": "data/metadata/genbank_hantavirus_segments_manifest.json",
+      "query_plan": "data/metadata/genbank_hantavirus_query_plan.csv",
+      "required_fields": ["accession", "segment", "virus_species", "host_species", "country", "collection_date", "download_date"],
+      "ready_for_download": true
+    },
+    {
+      "source_id": "gbif_rodent_occurrences",
+      "raw_path": "data/raw/gbif_rodent_occurrences/",
+      "manifest_path": "data/metadata/gbif_rodent_occurrences_manifest.json",
+      "query_plan": "host_data/gbif_rodent_occurrence_plan.csv",
+      "required_fields": ["gbif_download_doi", "gbif_id", "host_species", "event_date", "latitude", "longitude", "coordinate_uncertainty", "basis_of_record"],
+      "ready_for_download": true
+    }
+  ],
+  "first_pass_outputs": [
+    "data/raw/<source_id>/",
+    "data/metadata/<source_id>_manifest.json",
+    "data/metadata/<source_id>_readme.md"
+  ]
+}

@@ -63,6 +63,7 @@ Suggested layout for the first real Hanta download pass:
 - `data/raw/<source_id>/`
 - `data/metadata/<source_id>_manifest.json`
 - `data/metadata/<source_id>_readme.md`
+- `data/metadata/pre_ingestion_manifest.json`
 - `data/processed/` only after schema validation
 
 ## Required metadata fields

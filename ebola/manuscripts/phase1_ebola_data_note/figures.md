@@ -19,3 +19,5 @@ Initial figures:
 5. Source coverage heatmap.
 6. Missingness and revision markers.
 7. Rt over time after data lock.
+
+See `figure_package.md` for the current figure inventory, readiness status, and final polish requirements.

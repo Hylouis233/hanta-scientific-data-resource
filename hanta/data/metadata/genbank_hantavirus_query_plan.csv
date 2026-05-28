@@ -1,0 +1,8 @@
+source_id,query_name,query_type,segment_or_taxon,required_fields,status,notes
+genbank_hantavirus_segments,Hantavirus S segment,GenBank nucleotide query,S segment,accession;segment;virus_species;host_species;country;collection_date;download_date,planned,Sequence metadata only until accession audit passes
+genbank_hantavirus_segments,Hantavirus M segment,GenBank nucleotide query,M segment,accession;segment;virus_species;host_species;country;collection_date;download_date,planned,Sequence metadata only until accession audit passes
+genbank_hantavirus_segments,Hantavirus L segment,GenBank nucleotide query,L segment,accession;segment;virus_species;host_species;country;collection_date;download_date,planned,Sequence metadata only until accession audit passes
+genbank_hantavirus_segments,Sin Nombre virus segments,GenBank nucleotide query,S/M/L segments,accession;segment;virus_species;host_species;country;collection_date;download_date,planned,HCPS context; do not infer human transmission dynamics
+genbank_hantavirus_segments,Puumala virus segments,GenBank nucleotide query,S/M/L segments,accession;segment;virus_species;host_species;country;collection_date;download_date,planned,HFRS context; keep separate from host occurrence records
+genbank_hantavirus_segments,Seoul virus segments,GenBank nucleotide query,S/M/L segments,accession;segment;virus_species;host_species;country;collection_date;download_date,planned,HFRS context; keep separate from surveillance tables
+genbank_hantavirus_segments,Andes virus segments,GenBank nucleotide query,S/M/L segments,accession;segment;virus_species;host_species;country;collection_date;download_date,planned,Person-to-person transmission is special case requiring separate scope approval

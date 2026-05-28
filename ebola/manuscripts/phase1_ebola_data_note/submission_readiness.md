@@ -13,21 +13,22 @@ Status: internal-review complete; journal submission requires external review an
 
 ## Not yet journal-submission ready
 
-- HDX license and citation language need final confirmation against target journal requirements.
+- Target journal format still needs final selection, but submission metadata templates are drafted in `submission_metadata.md`.
+- Author list, acknowledgements, funding, conflicts of interest, and ethics statement templates are drafted in `submission_metadata.md`.
+- HDX license and citation language need final confirmation against target journal requirements; source snapshot tasks are enumerated in `source_snapshot_checklist.md`.
 - WHO anchor pages need immutable snapshots or archived access-date evidence.
 - External epidemiological review is still required for case-definition semantics and field interpretation.
 - Final figure polish is pending; current figures support internal review, not final production layout.
 - Row-level source URL retention in processed outputs is not yet implemented.
-- Target journal format, author list, acknowledgements, funding, conflicts of interest, and ethics statements are not yet drafted.
 
 ## Submission gate
 
 The manuscript can be treated as submission-ready only after all items below are checked:
 
-- [ ] Target journal selected.
-- [ ] Author and contribution list confirmed.
-- [ ] HDX license/citation text finalized.
-- [ ] WHO anchors archived or removed from manuscript-critical claims.
+- [ ] Target journal selected; draft metadata template exists in `submission_metadata.md`.
+- [ ] Author and contribution list confirmed using `submission_metadata.md`.
+- [ ] HDX license/citation text finalized using `source_snapshot_checklist.md`.
+- [ ] WHO anchors archived or removed from manuscript-critical claims using `source_snapshot_checklist.md`.
 - [ ] Field semantics reviewed by an epidemiology domain reviewer.
 - [ ] Final figures regenerated with publication captions.
 - [ ] Data availability statement updated with public repository or archive location.

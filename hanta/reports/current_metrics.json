@@ -19,7 +19,7 @@
   "genbank_accession_audit_needed": true,
   "genbank_accession_audit_present": true,
   "genbank_metadata_records": 24,
-  "generated_at_utc": "2026-05-28T12:35:50.274793+00:00",
+  "generated_at_utc": "2026-05-28T12:36:21.796746+00:00",
   "locked_metrics": [
     "data_sources_registered",
     "authenticity_policy_present",

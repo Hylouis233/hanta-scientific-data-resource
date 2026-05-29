@@ -1,0 +1,64 @@
+{
+  "covariate_count": 4,
+  "covariates": [
+    {
+      "crs": "confirm from GeoTIFF metadata after download",
+      "download_route": "official WorldClim GeoTIFF zip downloads",
+      "license_or_terms": "citation required; exact license text pending file/page review",
+      "resolution": "30 arc-sec, 2.5 arc-min, 5 arc-min, 10 arc-min",
+      "source_id": "worldclim_2_1",
+      "target_policy": "use as baseline climate covariates only",
+      "temporal_coverage": "1970-2000 climatology",
+      "variables": "bioclim, monthly temperature, monthly precipitation, solar radiation, wind speed, water vapor pressure, elevation",
+      "version": "2.1"
+    },
+    {
+      "crs": "EPSG:4326",
+      "download_route": "COG tiles, S3, Zenodo, WMS/WMTS, Terrascope, or Google Earth Engine",
+      "license_or_terms": "CC BY 4.0",
+      "resolution": "10 m",
+      "source_id": "esa_worldcover_2021",
+      "target_policy": "categorical nearest-neighbor resampling only",
+      "temporal_coverage": "2021 annual product",
+      "variables": "11-class global land cover",
+      "version": "2021"
+    },
+    {
+      "crs": "horizontal EPSG:4326; vertical EGM2008 EPSG:3855",
+      "download_route": "Copernicus Browser, OData API, or S3-compatible storage",
+      "license_or_terms": "free license with attribution obligations",
+      "resolution": "1 arc-sec",
+      "source_id": "copernicus_dem_glo30",
+      "target_policy": "document vertical datum before slope/aspect derivatives",
+      "temporal_coverage": "static DEM release",
+      "variables": "elevation and derived terrain variables after separate processing",
+      "version": "GLO-30 public release"
+    },
+    {
+      "crs": "confirm from product metadata",
+      "download_route": "WorldPop Hub REST catalog",
+      "license_or_terms": "open-access portal; exact product license pending endpoint review",
+      "resolution": "100 m, 1 km, or 30 arc-sec depending selected product",
+      "source_id": "worldpop_population",
+      "target_policy": "human exposure covariate only, not a human case surface",
+      "temporal_coverage": "candidate products include 2015-2030 global datasets",
+      "variables": "gridded population and demographic products",
+      "version": "product/year selected during ingestion"
+    }
+  ],
+  "generated_at_utc": "2026-05-29T15:27:51.471446+00:00",
+  "guardrails": [
+    "planning artifacts do not ingest analysis datasets",
+    "planning artifacts do not execute risk maps, abundance inference, human case maps, Rt, spillover, host-switch, or surveillance joins",
+    "each source still requires provenance, terms, field-schema, and bias review before analysis"
+  ],
+  "harmonization_policy": {
+    "missingness_policy": "record nodata, water masks, and product-specific missingness before any model design",
+    "resampling": "continuous covariates require bilinear or aggregate rules; categorical land cover requires nearest-neighbor or class fractions",
+    "target_crs": "defer until study extent and boundary layer are approved",
+    "target_resolution": "defer until analysis scale is approved"
+  },
+  "schema_version": "0.1.0",
+  "status": "static_covariate_inventory_complete",
+  "validation_passed": true
+}

@@ -1,0 +1,43 @@
+{
+  "generated_at_utc": "2026-05-29T15:27:51.471446+00:00",
+  "guardrails": [
+    "planning artifacts do not ingest analysis datasets",
+    "planning artifacts do not execute risk maps, abundance inference, human case maps, Rt, spillover, host-switch, or surveillance joins",
+    "each source still requires provenance, terms, field-schema, and bias review before analysis"
+  ],
+  "plan": {
+    "analysis_scope": "sequence-body export planning only; no phylogeny or host-switch inference",
+    "backfill_route": "Entrez ESearch/EFetch against nuccore",
+    "candidate_queries": [
+      "Hantaviridae[Organism]",
+      "hantavirus[All Fields]"
+    ],
+    "efetch_protocol": {
+      "database": "nuccore",
+      "rate_limit_policy": "respect NCBI E-utilities policy; use API key only from local environment if needed",
+      "retmode": "text",
+      "rettype": "gb and fasta"
+    },
+    "primary_route": "NCBI Virus Hantaviridae metadata export",
+    "qc_rules": [
+      "verify taxonomy before hardcoding taxon IDs",
+      "parse GenBank source qualifiers for host, country, collection date, isolate, and segment",
+      "flag submitter-provided host and geolocation as unvalidated metadata",
+      "deduplicate by isolate/segment/accession where metadata permit",
+      "exclude or flag lab strains, partials, ambiguous hosts, and missing collection dates before phylogenetic design"
+    ],
+    "required_metadata": [
+      "accession",
+      "species",
+      "segment",
+      "host",
+      "geo_location",
+      "collection_date",
+      "sequence_length",
+      "completeness"
+    ]
+  },
+  "schema_version": "0.1.0",
+  "status": "ncbi_sequence_body_export_plan_complete",
+  "validation_passed": true
+}

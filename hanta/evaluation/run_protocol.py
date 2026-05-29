@@ -108,6 +108,16 @@ def main() -> int:
     hanta_data_acquisition_plan_present = hanta_data_acquisition_plan.get("validation_passed") is True and hanta_data_acquisition_plan.get("source_count", 0) >= 10 and (reports / "hanta_data_acquisition_plan.md").exists() and (tables / "hanta_data_acquisition_plan.csv").exists()
     hanta_source_access_verification = _load_json(reports / "hanta_source_access_verification.json")
     hanta_source_access_verification_present = hanta_source_access_verification.get("validation_passed") is True and hanta_source_access_verification.get("source_count", 0) >= 10 and hanta_source_access_verification.get("status") == "source_specific_access_verification_complete" and (reports / "hanta_source_access_verification.md").exists() and (tables / "hanta_source_access_verification.csv").exists()
+    static_covariate_inventory = _load_json(reports / "static_environmental_covariate_inventory.json")
+    static_covariate_inventory_present = static_covariate_inventory.get("validation_passed") is True and static_covariate_inventory.get("status") == "static_covariate_inventory_complete" and (reports / "static_environmental_covariate_inventory.md").exists() and (tables / "static_environmental_covariate_inventory.csv").exists()
+    modis_access_plan = _load_json(reports / "modis_access_plan.json")
+    modis_access_plan_present = modis_access_plan.get("validation_passed") is True and modis_access_plan.get("status") == "modis_access_plan_complete" and (reports / "modis_access_plan.md").exists() and (project_root / "data" / "metadata" / "modis_tile_earthdata_plan.json").exists()
+    ecdc_surveillance_export_plan = _load_json(reports / "ecdc_surveillance_export_plan.json")
+    ecdc_surveillance_export_plan_present = ecdc_surveillance_export_plan.get("validation_passed") is True and ecdc_surveillance_export_plan.get("status") == "ecdc_surveillance_export_plan_complete" and (reports / "ecdc_surveillance_export_plan.md").exists() and (project_root / "data" / "metadata" / "ecdc_atlas_export_protocol.json").exists()
+    ncbi_sequence_body_export_plan = _load_json(reports / "ncbi_entrez_sequence_body_export_plan.json")
+    ncbi_sequence_body_export_plan_present = ncbi_sequence_body_export_plan.get("validation_passed") is True and ncbi_sequence_body_export_plan.get("status") == "ncbi_sequence_body_export_plan_complete" and (reports / "ncbi_entrez_sequence_body_export_plan.md").exists() and (project_root / "data" / "metadata" / "entrez_efetch_protocol.json").exists()
+    host_trapping_screening_plan = _load_json(reports / "host_trapping_screening_plan.json")
+    host_trapping_screening_plan_present = host_trapping_screening_plan.get("validation_passed") is True and host_trapping_screening_plan.get("status") == "host_trapping_screening_plan_complete" and (reports / "host_trapping_screening_plan.md").exists() and (tables / "host_trapping_screening_plan.csv").exists() and (project_root / "data" / "metadata" / "host_trapping_screening_protocol.json").exists()
     third_layer_closeout_present = (reports / "third_layer_real_data_closeout.md").exists()
 
     checks = {
@@ -146,6 +156,11 @@ def main() -> int:
         "cross_source_join_bias_review_gate_present": cross_source_join_bias_review_gate_present,
         "hanta_data_acquisition_plan_present": hanta_data_acquisition_plan_present,
         "hanta_source_access_verification_present": hanta_source_access_verification_present,
+        "static_covariate_inventory_present": static_covariate_inventory_present,
+        "modis_access_plan_present": modis_access_plan_present,
+        "ecdc_surveillance_export_plan_present": ecdc_surveillance_export_plan_present,
+        "ncbi_sequence_body_export_plan_present": ncbi_sequence_body_export_plan_present,
+        "host_trapping_screening_plan_present": host_trapping_screening_plan_present,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -218,6 +233,11 @@ def main() -> int:
         "cross_source_join_bias_review_gate_present": cross_source_join_bias_review_gate_present,
         "hanta_data_acquisition_plan_present": hanta_data_acquisition_plan_present,
         "hanta_source_access_verification_present": hanta_source_access_verification_present,
+        "static_covariate_inventory_present": static_covariate_inventory_present,
+        "modis_access_plan_present": modis_access_plan_present,
+        "ecdc_surveillance_export_plan_present": ecdc_surveillance_export_plan_present,
+        "ncbi_sequence_body_export_plan_present": ncbi_sequence_body_export_plan_present,
+        "host_trapping_screening_plan_present": host_trapping_screening_plan_present,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -249,6 +269,11 @@ def main() -> int:
         f"cross_source_join_bias_review_gate_present,{str(cross_source_join_bias_review_gate_present).lower()}",
         f"hanta_data_acquisition_plan_present,{str(hanta_data_acquisition_plan_present).lower()}",
         f"hanta_source_access_verification_present,{str(hanta_source_access_verification_present).lower()}",
+        f"static_covariate_inventory_present,{str(static_covariate_inventory_present).lower()}",
+        f"modis_access_plan_present,{str(modis_access_plan_present).lower()}",
+        f"ecdc_surveillance_export_plan_present,{str(ecdc_surveillance_export_plan_present).lower()}",
+        f"ncbi_sequence_body_export_plan_present,{str(ncbi_sequence_body_export_plan_present).lower()}",
+        f"host_trapping_screening_plan_present,{str(host_trapping_screening_plan_present).lower()}",
         f"genbank_accession_audit_present,{str(genbank_accession_audit_present).lower()}",
         f"gbif_second_layer_plan_present,{str(gbif_second_layer_plan_present).lower()}",
         f"metadata_semantics_audit_present,{str(metadata_semantics_audit_present).lower()}",

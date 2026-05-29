@@ -1,0 +1,33 @@
+{
+  "generated_at_utc": "2026-05-29T15:27:51.471446+00:00",
+  "guardrails": [
+    "planning artifacts do not ingest analysis datasets",
+    "planning artifacts do not execute risk maps, abundance inference, human case maps, Rt, spillover, host-switch, or surveillance joins",
+    "each source still requires provenance, terms, field-schema, and bias review before analysis"
+  ],
+  "plan": {
+    "access_route": "NASA Earthdata Search, LP DAAC, CMR, or cloud access",
+    "auth_route": "local NASA Earthdata credentials if required; do not commit credentials",
+    "collection": "061",
+    "doi": "https://doi.org/10.5067/MODIS/MOD13Q1.061",
+    "product": "MOD13Q1",
+    "qa_mask_rule": "retain high-quality VI observations using product QA layers before aggregation",
+    "rate_limit_policy": "use CMR/Earthdata etiquette and retry logs; no bulk scraping outside approved APIs",
+    "reprojection_rule": "reproject to the harmonized analysis grid only after QA and compositing rules are fixed",
+    "resolution": "250 m",
+    "source_crs": "MODIS Sinusoidal tiling system",
+    "temporal_aggregation_rule": "compute pre-specified seasonal or annual summaries after QA filtering",
+    "temporal_coverage": "2000-02-18 to present",
+    "temporal_resolution": "16-day composite",
+    "tile_selection_rule": "derive tiles from approved study extent before downloading granules",
+    "variables": [
+      "NDVI",
+      "EVI",
+      "pixel reliability",
+      "VI quality"
+    ]
+  },
+  "schema_version": "0.1.0",
+  "status": "modis_access_plan_complete",
+  "validation_passed": true
+}

@@ -1,0 +1,33 @@
+{
+  "generated_at_utc": "2026-05-29T15:27:51.471446+00:00",
+  "guardrails": [
+    "planning artifacts do not ingest analysis datasets",
+    "planning artifacts do not execute risk maps, abundance inference, human case maps, Rt, spillover, host-switch, or surveillance joins",
+    "each source still requires provenance, terms, field-schema, and bias review before analysis"
+  ],
+  "plan": {
+    "analysis_scope": "human surveillance export planning only; no human case map or Rt estimation",
+    "atlas_url": "https://atlas.ecdc.europa.eu/public/index.aspx?Dataset=27&HealthTopic=24",
+    "case_definition_policy": "record ECDC disease/reporting definition from source page before comparing across sources",
+    "expected_fields": [
+      "disease_or_indicator",
+      "time_period",
+      "region_or_country",
+      "case_count_or_rate_indicator",
+      "export_timestamp",
+      "source_url"
+    ],
+    "export_route": "public Atlas interface CSV export by time period, region, indicator, and current/all indicators",
+    "pending_interactive_capture": [
+      "exact CSV headers",
+      "indicator names",
+      "temporal granularity",
+      "terms/disclaimer text"
+    ],
+    "privacy_suppression_rule": "use only aggregate public exports; preserve any suppressed/missing cells as released",
+    "source_id": "ecdc_surveillance_atlas_hantavirus"
+  },
+  "schema_version": "0.1.0",
+  "status": "ecdc_surveillance_export_plan_complete",
+  "validation_passed": true
+}

@@ -54,6 +54,13 @@ def main() -> int:
     gbif_raw_occurrence_path_ready = (project_root / "data" / "raw.dvc").exists() and (project_root / "data" / "raw").exists()
     gbif_archive_validation = _load_json(reports / "gbif_occurrence_archive_validation.json")
     gbif_occurrence_archive_validated = gbif_archive_validation.get("validation_passed") is True
+    gbif_row_qc = _load_json(reports / "gbif_occurrence_row_qc.json")
+    gbif_occurrence_row_qc_present = gbif_row_qc.get("validation_passed") is True and all((project_root / path).exists() for path in [
+        "data/processed/gbif_rodent_occurrences/species_qc_summary.csv",
+        "data/processed/gbif_rodent_occurrences/basis_of_record_summary.csv",
+        "data/processed/gbif_rodent_occurrences/exclusion_reason_summary.csv",
+        "data/processed/gbif_rodent_occurrences/required_field_missingness.csv",
+    ])
     third_layer_closeout_present = (reports / "third_layer_real_data_closeout.md").exists()
 
     checks = {
@@ -76,6 +83,7 @@ def main() -> int:
         "gbif_official_download_gate_ready": gbif_official_download_identified or gbif_download_request_present,
         "gbif_raw_occurrence_path_ready": gbif_raw_occurrence_path_ready,
         "gbif_occurrence_archive_validated": gbif_occurrence_archive_validated,
+        "gbif_occurrence_row_qc_present": gbif_occurrence_row_qc_present,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -101,6 +109,8 @@ def main() -> int:
         "genbank_metadata_records": genbank_records,
         "gbif_query_metadata_records": gbif_records,
         "gbif_occurrence_archive_rows": int(gbif_archive_validation.get("row_count", 0) or 0),
+        "gbif_occurrence_qc_candidate_rows": int(gbif_row_qc.get("descriptive_mapping_candidate_rows", 0) or 0),
+        "gbif_occurrence_qc_exclude_or_review_rows": int(gbif_row_qc.get("exclude_or_review_rows", 0) or 0),
         "metadata_validation_passed": metadata_validation_passed,
         "genbank_accession_audit_needed": genbank_validation.get("status") == "metadata_ingested_needs_accession_audit",
         "gbif_download_doi_pending": gbif_validation.get("status") == "query_metadata_ingested_download_doi_pending",
@@ -116,6 +126,7 @@ def main() -> int:
         "gbif_official_download_gate_ready": gbif_official_download_identified or gbif_download_request_present,
         "gbif_raw_occurrence_path_ready": gbif_raw_occurrence_path_ready,
         "gbif_occurrence_archive_validated": gbif_occurrence_archive_validated,
+        "gbif_occurrence_row_qc_present": gbif_occurrence_row_qc_present,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -128,6 +139,8 @@ def main() -> int:
         f"genbank_metadata_records,{genbank_records}",
         f"gbif_query_metadata_records,{gbif_records}",
         f"gbif_occurrence_archive_rows,{int(gbif_archive_validation.get('row_count', 0) or 0)}",
+        f"gbif_occurrence_qc_candidate_rows,{int(gbif_row_qc.get('descriptive_mapping_candidate_rows', 0) or 0)}",
+        f"gbif_occurrence_qc_exclude_or_review_rows,{int(gbif_row_qc.get('exclude_or_review_rows', 0) or 0)}",
         f"metadata_validation_passed,{str(metadata_validation_passed).lower()}",
         f"genbank_accession_audit_present,{str(genbank_accession_audit_present).lower()}",
         f"gbif_second_layer_plan_present,{str(gbif_second_layer_plan_present).lower()}",

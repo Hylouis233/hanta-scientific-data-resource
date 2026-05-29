@@ -16,6 +16,7 @@ LOCKED_METRICS = [
     "gbif_official_download_gate_ready",
     "gbif_raw_occurrence_path_ready",
     "gbif_occurrence_archive_validated",
+    "gbif_occurrence_row_qc_present",
     "third_layer_closeout_present",
     "no_modeling_guardrail_passed",
 ]

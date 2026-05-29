@@ -24,6 +24,7 @@ LOCKED_METRICS = [
     "gbif_descriptive_mapping_package_present",
     "gbif_descriptive_choropleth_present",
     "gbif_descriptive_map_closeout_present",
+    "hanta_advanced_analysis_gate_present",
     "third_layer_closeout_present",
     "no_modeling_guardrail_passed",
 ]

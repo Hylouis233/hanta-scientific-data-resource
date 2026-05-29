@@ -92,6 +92,8 @@ def main() -> int:
     ])
     gbif_descriptive_map_closeout = _load_json(reports / "gbif_descriptive_map_closeout.json")
     gbif_descriptive_map_closeout_present = gbif_descriptive_map_closeout.get("validation_passed") is True and (reports / "gbif_descriptive_map_closeout.md").exists() and (reports / "amap_boundary_intake_gate.md").exists()
+    hanta_advanced_analysis_gate = _load_json(reports / "hanta_advanced_analysis_gate.json")
+    hanta_advanced_analysis_gate_present = hanta_advanced_analysis_gate.get("validation_passed") is True and hanta_advanced_analysis_gate.get("status") == "advanced_analysis_gate_blocked" and (reports / "hanta_advanced_analysis_gate.md").exists()
     third_layer_closeout_present = (reports / "third_layer_real_data_closeout.md").exists()
 
     checks = {
@@ -122,6 +124,7 @@ def main() -> int:
         "gbif_descriptive_mapping_package_present": gbif_descriptive_mapping_package_present,
         "gbif_descriptive_choropleth_present": gbif_descriptive_choropleth_present,
         "gbif_descriptive_map_closeout_present": gbif_descriptive_map_closeout_present,
+        "hanta_advanced_analysis_gate_present": hanta_advanced_analysis_gate_present,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -186,6 +189,7 @@ def main() -> int:
         "gbif_descriptive_mapping_package_present": gbif_descriptive_mapping_package_present,
         "gbif_descriptive_choropleth_present": gbif_descriptive_choropleth_present,
         "gbif_descriptive_map_closeout_present": gbif_descriptive_map_closeout_present,
+        "hanta_advanced_analysis_gate_present": hanta_advanced_analysis_gate_present,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }

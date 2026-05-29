@@ -24,6 +24,7 @@
     "genbank_metadata_present": true,
     "genbank_missing_triage_present": true,
     "genbank_usable_accession_subset_present": true,
+    "hanta_advanced_analysis_gate_present": true,
     "hanta_real_data_closeout_present": true,
     "manuscript_target_declared": true,
     "metadata_semantics_audit_present": true,
@@ -65,7 +66,8 @@
   "genbank_missing_triage_present": true,
   "genbank_usable_accession_count": 12,
   "genbank_usable_accession_subset_present": true,
-  "generated_at_utc": "2026-05-29T12:23:27.188991+00:00",
+  "generated_at_utc": "2026-05-29T13:37:03.779896+00:00",
+  "hanta_advanced_analysis_gate_present": true,
   "hanta_real_data_closeout_present": true,
   "locked_metrics": [
     "data_sources_registered",
@@ -93,6 +95,7 @@
     "gbif_descriptive_mapping_package_present",
     "gbif_descriptive_choropleth_present",
     "gbif_descriptive_map_closeout_present",
+    "hanta_advanced_analysis_gate_present",
     "third_layer_closeout_present",
     "no_modeling_guardrail_passed"
   ],

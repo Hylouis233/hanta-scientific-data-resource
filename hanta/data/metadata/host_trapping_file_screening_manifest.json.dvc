@@ -1,0 +1,5 @@
+outs:
+- md5: a37bb2d802fb7488995ed1b8b91765a4
+  size: 5824
+  hash: md5
+  path: host_trapping_file_screening_manifest.json

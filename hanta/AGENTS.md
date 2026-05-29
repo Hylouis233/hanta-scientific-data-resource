@@ -25,3 +25,6 @@ Scientific integrity:
 - Do not change metric formulas.
 - Do not report only the best seed.
 - Do not present placeholder or simulated outputs as real findings.
+- Do not produce Hanta risk maps, host abundance inference, human case maps, Rt estimates, spillover inference, host-switch inference, or surveillance joins unless the corresponding prerequisite gates and source-data protocols are explicitly approved.
+- Treat GBIF rows as host occurrence records, not human cases or host abundance measurements.
+- Treat GenBank metadata as accession metadata, not host occurrence data or phylogenetic evidence without sequence-body and design gates.

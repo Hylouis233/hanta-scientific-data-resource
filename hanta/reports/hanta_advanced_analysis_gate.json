@@ -11,9 +11,10 @@
   "currently_allowed": [
     "descriptive GBIF host-occurrence record-availability mapping from sealed candidate subset",
     "metadata-only GenBank accession summaries",
-    "planning documents for future gated analyses"
+    "planning documents for future gated analyses",
+    "prerequisite gate definitions for future scoped analyses"
   ],
-  "generated_at_utc": "2026-05-29T13:35:45.603167+00:00",
+  "generated_at_utc": "2026-05-29T13:49:27.407136+00:00",
   "guardrails": [
     "do not convert record availability maps into risk maps",
     "do not infer host abundance from GBIF occurrences without a sampling-bias model and approved scope",
@@ -29,7 +30,62 @@
     "disease-specific transmission analysis scope before any Rt estimation",
     "pre-specified join keys and bias review before cross-source joins"
   ],
-  "schema_version": "0.1.0",
+  "prerequisite_gates": {
+    "cross_source_join_bias_review": {
+      "metadata_path": "data/metadata/cross_source_join_bias_review_gate.json",
+      "report_path": "reports/cross_source_join_bias_review_gate.md",
+      "status": "review_template_only_no_join_executed",
+      "unblocks_planning_for": [
+        "surveillance_join",
+        "spillover_inference",
+        "risk_maps"
+      ],
+      "validation_passed": true
+    },
+    "environmental_covariates_schema": {
+      "metadata_path": "data/metadata/environmental_covariates_schema_gate.json",
+      "report_path": "reports/environmental_covariates_schema_gate.md",
+      "status": "schema_scope_only_no_covariates_ingested",
+      "unblocks_planning_for": [
+        "risk_maps",
+        "host_abundance_inference",
+        "spillover_inference",
+        "surveillance_join"
+      ],
+      "validation_passed": true
+    },
+    "human_surveillance_schema": {
+      "metadata_path": "data/metadata/human_surveillance_schema_gate.json",
+      "report_path": "reports/human_surveillance_schema_gate.md",
+      "status": "schema_scope_only_no_case_data_ingested",
+      "unblocks_planning_for": [
+        "human_case_maps",
+        "rt_estimation",
+        "surveillance_join"
+      ],
+      "validation_passed": true
+    },
+    "rt_analysis_scope": {
+      "metadata_path": "data/metadata/rt_analysis_scope_gate.json",
+      "report_path": "reports/rt_analysis_scope_gate.md",
+      "status": "scope_only_no_rt_estimation",
+      "unblocks_planning_for": [
+        "rt_estimation"
+      ],
+      "validation_passed": true
+    },
+    "sequence_body_download_plan": {
+      "metadata_path": "data/metadata/sequence_body_download_plan_gate.json",
+      "report_path": "reports/sequence_body_download_plan_gate.md",
+      "status": "plan_only_no_sequence_bodies_downloaded",
+      "unblocks_planning_for": [
+        "host_switch_inference",
+        "spillover_inference"
+      ],
+      "validation_passed": true
+    }
+  },
+  "schema_version": "0.2.0",
   "status": "advanced_analysis_gate_blocked",
   "validation_passed": true
 }

@@ -1,12 +1,13 @@
 # Hanta advanced analysis gate
 
-Status: blocked for scientific analysis; planning only.
+Status: blocked for scientific analysis; prerequisite planning gates only.
 
 ## Currently allowed
 
 - Descriptive GBIF host-occurrence record-availability mapping from the sealed candidate subset.
 - Metadata-only GenBank accession summaries.
 - Planning documents for future gated analyses.
+- Prerequisite gate definitions for future scoped analyses.
 
 ## Blocked analyses
 
@@ -17,6 +18,14 @@ Status: blocked for scientific analysis; planning only.
 - `spillover_inference`: blocked_until_joint_host_human_environment_design_is_approved
 - `host_switch_inference`: blocked_until_sequence_bodies_phylogenetic_design_and_taxonomy_review_exist
 - `surveillance_join`: blocked_until_human_surveillance_schema_environment_alignment_and_join_keys_are_approved
+
+## Prerequisite gates now defined
+
+- `human_surveillance_schema`: schema_scope_only_no_case_data_ingested
+- `environmental_covariates_schema`: schema_scope_only_no_covariates_ingested
+- `sequence_body_download_plan`: plan_only_no_sequence_bodies_downloaded
+- `rt_analysis_scope`: scope_only_no_rt_estimation
+- `cross_source_join_bias_review`: review_template_only_no_join_executed
 
 ## Minimum gates before proceeding
 
@@ -29,5 +38,5 @@ Status: blocked for scientific analysis; planning only.
 
 ## Decision
 
-The requested advanced analyses are not executed in this repository state. The safe next work item is to create scoped schema/protocol gates for human surveillance, environmental covariates, and sequence-body download planning.
+The requested advanced analyses are still not executed in this repository state. This closeout defines the prerequisite gates needed before future scoped work can request human surveillance, environmental covariates, sequence bodies, Rt estimation, or cross-source joins.
 

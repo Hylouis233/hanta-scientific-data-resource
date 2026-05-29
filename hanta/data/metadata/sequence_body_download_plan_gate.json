@@ -1,0 +1,35 @@
+{
+  "gate_id": "sequence_body_download_plan",
+  "generated_at_utc": "2026-05-29T13:49:27.407136+00:00",
+  "guardrails": [
+    "this gate defines prerequisites only and does not ingest real analysis data",
+    "this gate does not authorize risk, abundance, human-case, Rt, spillover, host-switch, or surveillance-join outputs",
+    "all real source data must pass provenance and terms review before analysis"
+  ],
+  "remaining_requirements": [
+    "sequence-body retrieval protocol",
+    "segment-specific quality control rules",
+    "taxonomy review",
+    "separate phylogenetic design before host-switch claims"
+  ],
+  "required_fields": [
+    "accession",
+    "segment",
+    "virus_species",
+    "host_species",
+    "country",
+    "collection_date",
+    "sequence_length",
+    "download_date",
+    "license_or_terms",
+    "quality_exclusion_reason"
+  ],
+  "schema_version": "0.1.0",
+  "status": "plan_only_no_sequence_bodies_downloaded",
+  "title": "Sequence-body download plan gate",
+  "unblocks_planning_for": [
+    "host_switch_inference",
+    "spillover_inference"
+  ],
+  "validation_passed": true
+}

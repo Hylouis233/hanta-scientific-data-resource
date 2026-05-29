@@ -94,6 +94,16 @@ def main() -> int:
     gbif_descriptive_map_closeout_present = gbif_descriptive_map_closeout.get("validation_passed") is True and (reports / "gbif_descriptive_map_closeout.md").exists() and (reports / "amap_boundary_intake_gate.md").exists()
     hanta_advanced_analysis_gate = _load_json(reports / "hanta_advanced_analysis_gate.json")
     hanta_advanced_analysis_gate_present = hanta_advanced_analysis_gate.get("validation_passed") is True and hanta_advanced_analysis_gate.get("status") == "advanced_analysis_gate_blocked" and (reports / "hanta_advanced_analysis_gate.md").exists()
+    human_surveillance_schema_gate = _load_json(project_root / "data" / "metadata" / "human_surveillance_schema_gate.json")
+    human_surveillance_schema_gate_present = human_surveillance_schema_gate.get("validation_passed") is True and (reports / "human_surveillance_schema_gate.md").exists()
+    environmental_covariates_schema_gate = _load_json(project_root / "data" / "metadata" / "environmental_covariates_schema_gate.json")
+    environmental_covariates_schema_gate_present = environmental_covariates_schema_gate.get("validation_passed") is True and (reports / "environmental_covariates_schema_gate.md").exists()
+    sequence_body_download_plan_gate = _load_json(project_root / "data" / "metadata" / "sequence_body_download_plan_gate.json")
+    sequence_body_download_plan_gate_present = sequence_body_download_plan_gate.get("validation_passed") is True and (reports / "sequence_body_download_plan_gate.md").exists()
+    rt_analysis_scope_gate = _load_json(project_root / "data" / "metadata" / "rt_analysis_scope_gate.json")
+    rt_analysis_scope_gate_present = rt_analysis_scope_gate.get("validation_passed") is True and (reports / "rt_analysis_scope_gate.md").exists()
+    cross_source_join_bias_review_gate = _load_json(project_root / "data" / "metadata" / "cross_source_join_bias_review_gate.json")
+    cross_source_join_bias_review_gate_present = cross_source_join_bias_review_gate.get("validation_passed") is True and (reports / "cross_source_join_bias_review_gate.md").exists()
     third_layer_closeout_present = (reports / "third_layer_real_data_closeout.md").exists()
 
     checks = {
@@ -125,6 +135,11 @@ def main() -> int:
         "gbif_descriptive_choropleth_present": gbif_descriptive_choropleth_present,
         "gbif_descriptive_map_closeout_present": gbif_descriptive_map_closeout_present,
         "hanta_advanced_analysis_gate_present": hanta_advanced_analysis_gate_present,
+        "human_surveillance_schema_gate_present": human_surveillance_schema_gate_present,
+        "environmental_covariates_schema_gate_present": environmental_covariates_schema_gate_present,
+        "sequence_body_download_plan_gate_present": sequence_body_download_plan_gate_present,
+        "rt_analysis_scope_gate_present": rt_analysis_scope_gate_present,
+        "cross_source_join_bias_review_gate_present": cross_source_join_bias_review_gate_present,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -190,6 +205,11 @@ def main() -> int:
         "gbif_descriptive_choropleth_present": gbif_descriptive_choropleth_present,
         "gbif_descriptive_map_closeout_present": gbif_descriptive_map_closeout_present,
         "hanta_advanced_analysis_gate_present": hanta_advanced_analysis_gate_present,
+        "human_surveillance_schema_gate_present": human_surveillance_schema_gate_present,
+        "environmental_covariates_schema_gate_present": environmental_covariates_schema_gate_present,
+        "sequence_body_download_plan_gate_present": sequence_body_download_plan_gate_present,
+        "rt_analysis_scope_gate_present": rt_analysis_scope_gate_present,
+        "cross_source_join_bias_review_gate_present": cross_source_join_bias_review_gate_present,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -214,6 +234,11 @@ def main() -> int:
         f"gbif_descriptive_choropleth_country_count,{int(gbif_descriptive_choropleth.get('country_count', 0) or 0)}",
         f"gbif_occurrence_qc_exclude_or_review_rows,{int(gbif_row_qc.get('exclude_or_review_rows', 0) or 0)}",
         f"metadata_validation_passed,{str(metadata_validation_passed).lower()}",
+        f"human_surveillance_schema_gate_present,{str(human_surveillance_schema_gate_present).lower()}",
+        f"environmental_covariates_schema_gate_present,{str(environmental_covariates_schema_gate_present).lower()}",
+        f"sequence_body_download_plan_gate_present,{str(sequence_body_download_plan_gate_present).lower()}",
+        f"rt_analysis_scope_gate_present,{str(rt_analysis_scope_gate_present).lower()}",
+        f"cross_source_join_bias_review_gate_present,{str(cross_source_join_bias_review_gate_present).lower()}",
         f"genbank_accession_audit_present,{str(genbank_accession_audit_present).lower()}",
         f"gbif_second_layer_plan_present,{str(gbif_second_layer_plan_present).lower()}",
         f"metadata_semantics_audit_present,{str(metadata_semantics_audit_present).lower()}",

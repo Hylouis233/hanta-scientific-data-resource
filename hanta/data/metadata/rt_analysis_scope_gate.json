@@ -1,0 +1,32 @@
+{
+  "gate_id": "rt_analysis_scope",
+  "generated_at_utc": "2026-05-29T13:49:27.407136+00:00",
+  "guardrails": [
+    "this gate defines prerequisites only and does not ingest real analysis data",
+    "this gate does not authorize risk, abundance, human-case, Rt, spillover, host-switch, or surveillance-join outputs",
+    "all real source data must pass provenance and terms review before analysis"
+  ],
+  "remaining_requirements": [
+    "disease-specific transmission justification",
+    "case time series with provenance audit",
+    "serial interval or generation interval protocol",
+    "clear statement that descriptive growth proxies are not formal Rt"
+  ],
+  "required_fields": [
+    "disease_scope",
+    "case_time_series_source",
+    "case_definition",
+    "time_unit",
+    "reporting_delay_policy",
+    "serial_interval_source",
+    "right_truncation_policy",
+    "estimation_method"
+  ],
+  "schema_version": "0.1.0",
+  "status": "scope_only_no_rt_estimation",
+  "title": "Rt analysis scope gate",
+  "unblocks_planning_for": [
+    "rt_estimation"
+  ],
+  "validation_passed": true
+}

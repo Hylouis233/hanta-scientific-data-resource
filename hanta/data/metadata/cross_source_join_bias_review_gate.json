@@ -1,0 +1,35 @@
+{
+  "gate_id": "cross_source_join_bias_review",
+  "generated_at_utc": "2026-05-29T13:49:27.407136+00:00",
+  "guardrails": [
+    "this gate defines prerequisites only and does not ingest real analysis data",
+    "this gate does not authorize risk, abundance, human-case, Rt, spillover, host-switch, or surveillance-join outputs",
+    "all real source data must pass provenance and terms review before analysis"
+  ],
+  "remaining_requirements": [
+    "pre-specified join keys",
+    "spatial and temporal alignment audit",
+    "sampling-bias assessment",
+    "explicit approval before any GBIF/GenBank/surveillance/environment join"
+  ],
+  "required_fields": [
+    "left_source_id",
+    "right_source_id",
+    "join_key",
+    "spatial_alignment_rule",
+    "temporal_alignment_rule",
+    "duplication_policy",
+    "missingness_policy",
+    "bias_risk_rating",
+    "approved_use"
+  ],
+  "schema_version": "0.1.0",
+  "status": "review_template_only_no_join_executed",
+  "title": "Cross-source join and bias review gate",
+  "unblocks_planning_for": [
+    "surveillance_join",
+    "spillover_inference",
+    "risk_maps"
+  ],
+  "validation_passed": true
+}

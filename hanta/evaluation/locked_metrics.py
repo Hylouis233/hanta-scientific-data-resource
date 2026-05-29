@@ -25,6 +25,11 @@ LOCKED_METRICS = [
     "gbif_descriptive_choropleth_present",
     "gbif_descriptive_map_closeout_present",
     "hanta_advanced_analysis_gate_present",
+    "human_surveillance_schema_gate_present",
+    "environmental_covariates_schema_gate_present",
+    "sequence_body_download_plan_gate_present",
+    "rt_analysis_scope_gate_present",
+    "cross_source_join_bias_review_gate_present",
     "third_layer_closeout_present",
     "no_modeling_guardrail_passed",
 ]

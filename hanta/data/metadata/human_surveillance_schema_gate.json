@@ -1,0 +1,38 @@
+{
+  "gate_id": "human_surveillance_schema",
+  "generated_at_utc": "2026-05-29T13:49:27.407136+00:00",
+  "guardrails": [
+    "this gate defines prerequisites only and does not ingest real analysis data",
+    "this gate does not authorize risk, abundance, human-case, Rt, spillover, host-switch, or surveillance-join outputs",
+    "all real source data must pass provenance and terms review before analysis"
+  ],
+  "remaining_requirements": [
+    "source-specific extraction protocol",
+    "privacy and aggregation review",
+    "case-definition harmonization review",
+    "real surveillance table with provenance audit"
+  ],
+  "required_fields": [
+    "source_id",
+    "source_url_or_citation",
+    "access_date",
+    "case_definition",
+    "syndrome",
+    "reporting_period_start",
+    "reporting_period_end",
+    "admin_level",
+    "admin_name",
+    "case_count",
+    "privacy_suppression_rule",
+    "license_or_terms"
+  ],
+  "schema_version": "0.1.0",
+  "status": "schema_scope_only_no_case_data_ingested",
+  "title": "Human surveillance schema gate",
+  "unblocks_planning_for": [
+    "human_case_maps",
+    "rt_estimation",
+    "surveillance_join"
+  ],
+  "validation_passed": true
+}

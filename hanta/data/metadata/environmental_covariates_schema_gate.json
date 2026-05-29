@@ -1,0 +1,38 @@
+{
+  "gate_id": "environmental_covariates_schema",
+  "generated_at_utc": "2026-05-29T13:49:27.407136+00:00",
+  "guardrails": [
+    "this gate defines prerequisites only and does not ingest real analysis data",
+    "this gate does not authorize risk, abundance, human-case, Rt, spillover, host-switch, or surveillance-join outputs",
+    "all real source data must pass provenance and terms review before analysis"
+  ],
+  "remaining_requirements": [
+    "approved covariate list",
+    "CRS and resolution alignment protocol",
+    "sampling-bias review for GBIF-derived host occurrence records",
+    "real covariate rasters or tables with provenance audit"
+  ],
+  "required_fields": [
+    "source_id",
+    "variable_name",
+    "version",
+    "download_date",
+    "crs",
+    "resolution",
+    "temporal_coverage_start",
+    "temporal_coverage_end",
+    "spatial_extent",
+    "license_or_terms",
+    "missingness_policy"
+  ],
+  "schema_version": "0.1.0",
+  "status": "schema_scope_only_no_covariates_ingested",
+  "title": "Environmental covariates schema gate",
+  "unblocks_planning_for": [
+    "risk_maps",
+    "host_abundance_inference",
+    "spillover_inference",
+    "surveillance_join"
+  ],
+  "validation_passed": true
+}

@@ -1,0 +1,120 @@
+{
+  "execution_phases": [
+    "phase_a_real_data_intake: download/verify approved covariates, surveillance exports, sequence bodies, and host trapping files into DVC boundaries",
+    "phase_b_schema_qc: validate fields, licenses, CRS, dates, taxonomies, effort, and privacy constraints",
+    "phase_c_pilot_descriptive_outputs: produce only descriptive diagnostics and publication-style figure templates",
+    "phase_d_model_gate_review: approve or skip each model module based on gate evidence",
+    "phase_e_model_execution: run only modules with passed gates and pre-registered metrics",
+    "phase_f_publication_figure_closeout: export vector/raster figures with captions, provenance, uncertainty, and limitations"
+  ],
+  "figure_specs": [
+    {
+      "caption_must_state": "whether figure is suitability, risk, or record availability; no causal language without causal design",
+      "figure_id": "fig_environmental_suitability_map",
+      "format": "PDF/SVG vector plus 600-dpi TIFF/PNG raster export",
+      "quality_requirements": "colorblind-safe palette, CRS/projection label, scale bar where geographic, uncertainty panel, data DOI/provenance in caption",
+      "status": "planned_blocked"
+    },
+    {
+      "caption_must_state": "GBIF occurrence density is not abundance; abundance requires effort-screened trapping data",
+      "figure_id": "fig_host_effort_abundance_diagnostic",
+      "format": "PDF/SVG vector for diagnostics; 600-dpi raster if heatmap",
+      "quality_requirements": "show trap effort, counts, uncertainty, and missing effort diagnostics before any abundance surface",
+      "status": "planned_blocked"
+    },
+    {
+      "caption_must_state": "aggregate public surveillance only; not individual risk or intervention effect",
+      "figure_id": "fig_human_case_map",
+      "format": "PDF/SVG vector plus 600-dpi TIFF/PNG",
+      "quality_requirements": "privacy-safe aggregation, denominator/exposure note, case definition, reporting period, suppressed cells retained",
+      "status": "planned_blocked"
+    },
+    {
+      "caption_must_state": "formal Rt only if disease-specific time-series and interval assumptions pass gates",
+      "figure_id": "fig_rt_panel",
+      "format": "PDF/SVG vector",
+      "quality_requirements": "median and uncertainty intervals, incidence panel, delay/interval sensitivity, date axis and reporting caveats",
+      "status": "planned_blocked"
+    },
+    {
+      "caption_must_state": "schematic/protocol unless real joined data and bias review pass",
+      "figure_id": "fig_spillover_join_schematic",
+      "format": "SVG/PDF vector",
+      "quality_requirements": "show source boundaries, join keys, temporal windows, bias checks, and blocked/unblocked gate states",
+      "status": "planned_design_only"
+    },
+    {
+      "caption_must_state": "host-switch inference requires sequence-body QC and phylogenetic uncertainty propagation",
+      "figure_id": "fig_host_switch_phylogeny_panel",
+      "format": "PDF/SVG vector plus publication-resolution tree export",
+      "quality_requirements": "segment labels, support values, host metadata uncertainty, outgroup/taxonomy note, sequence accession provenance",
+      "status": "planned_blocked"
+    }
+  ],
+  "generated_at_utc": "2026-05-29T18:29:34.688405+00:00",
+  "guardrails": [
+    "this plan does not execute advanced models or generate advanced scientific figures",
+    "all model modules remain blocked until their required data, schema, bias, and protocol gates pass",
+    "publication-quality means export/specification quality, not permission to overstate unsupported claims"
+  ],
+  "model_modules": [
+    {
+      "allowed_model_family": "presence-background suitability or explicitly scoped risk model after outcome approval",
+      "blocked_if_missing": "environmental covariates, target outcome, bias design, or approved analysis scope",
+      "module_id": "environmental_suitability_or_risk_map",
+      "required_inputs": "approved target outcome, environmental covariates, background/negative design, CRS/resolution/time alignment",
+      "required_qc": "covariate missingness, spatial block validation, sampling-bias diagnostics, sensitivity to background choice",
+      "status": "planned_blocked_until_gates_pass"
+    },
+    {
+      "allowed_model_family": "abundance or detection/occupancy model only after effort fields pass screening",
+      "blocked_if_missing": "trap effort or count fields; GBIF occurrence density alone is insufficient",
+      "module_id": "host_abundance_model",
+      "required_inputs": "trap nights or effort, species counts/captures, dates, locations/admin units, survey design metadata",
+      "required_qc": "effort completeness, repeated-session structure, detection heterogeneity, location disclosure review",
+      "status": "planned_blocked_until_effort_data_pass"
+    },
+    {
+      "allowed_model_family": "aggregate descriptive case maps first; no individual-level inference",
+      "blocked_if_missing": "provenance-complete human surveillance table",
+      "module_id": "human_case_mapping",
+      "required_inputs": "HFRS/HCPS case counts, case definition, geography, reporting period, privacy suppression rule",
+      "required_qc": "case-definition harmonization, privacy suppression, denominator/exposure policy, duplicate reporting review",
+      "status": "planned_blocked_until_surveillance_data_pass"
+    },
+    {
+      "allowed_model_family": "formal Rt model only after disease-specific transmission scope is approved",
+      "blocked_if_missing": "subannual incidence time series or approved transmission model scope",
+      "module_id": "rt_estimation",
+      "required_inputs": "disease-specific incidence time series, reporting delay policy, serial/generation interval source, right truncation policy",
+      "required_qc": "minimum counts, temporal resolution, censoring, delay sensitivity, interval sensitivity",
+      "status": "planned_blocked_until_case_time_series_pass"
+    },
+    {
+      "allowed_model_family": "designed cross-source association only after join approval; no post-hoc fishing",
+      "blocked_if_missing": "approved join protocol and bias review",
+      "module_id": "spillover_or_surveillance_join",
+      "required_inputs": "pre-specified spatial join keys, temporal windows, GBIF/GenBank/surveillance/environment alignment, bias review",
+      "required_qc": "join duplication, missingness, modifiable areal unit sensitivity, temporal alignment sensitivity, bias-risk rating",
+      "status": "planned_blocked_until_join_bias_review_passes"
+    },
+    {
+      "allowed_model_family": "phylogenetic/trait-transition analysis only after segment-specific design and uncertainty plan",
+      "blocked_if_missing": "sequence bodies, taxonomy review, or phylogenetic design",
+      "module_id": "host_switch_phylogenetic_inference",
+      "required_inputs": "sequence bodies, segment identity, host/location/date metadata, taxonomy review, alignment, recombination/reassortment screen",
+      "required_qc": "alignment quality, partial/duplicate exclusion, lab-strain flagging, segment consistency, posterior/bootstrap uncertainty",
+      "status": "planned_blocked_until_sequence_bodies_and_phylogeny_design_pass"
+    }
+  ],
+  "publication_quality_requirements": {
+    "captions": "must include data provenance, sample sizes, uncertainty, gate status, and claim boundaries",
+    "raster_outputs": "600 dpi TIFF/PNG for raster maps and heatmaps",
+    "reproducibility": "all figure data tables, scripts, seeds, and DVC inputs must be tracked before final publication export",
+    "vector_outputs": "SVG/PDF for maps, diagrams, diagnostics, and tree panels where possible",
+    "visual_style": "colorblind-safe palettes, consistent typography, legible legends, panel labels, and journal-safe line weights"
+  },
+  "schema_version": "0.1.0",
+  "status": "advanced_models_publication_figures_plan_complete",
+  "validation_passed": true
+}

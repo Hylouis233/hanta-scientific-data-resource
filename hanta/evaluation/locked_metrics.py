@@ -38,6 +38,7 @@ LOCKED_METRICS = [
     "ncbi_sequence_body_export_plan_present",
     "host_trapping_screening_plan_present",
     "hanta_write_ready_closeout_present",
+    "hanta_advanced_models_publication_figures_plan_present",
     "third_layer_closeout_present",
     "no_modeling_guardrail_passed",
 ]

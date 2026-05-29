@@ -7,7 +7,7 @@
     "rt_estimation": "blocked_no_subannual_incidence_time_series_or_interval_protocol",
     "spillover_or_surveillance_join": "blocked_no_approved_cross_source_join_or_bias_review_for_real_inputs"
   },
-  "generated_at_utc": "2026-05-29T18:44:53.601949+00:00",
+  "generated_at_utc": "2026-05-29T18:50:03.502664+00:00",
   "guardrails": [
     "evidence passes are limited to existing real GBIF occurrence and GenBank metadata layers",
     "advanced model gates remain blocked until their required real data and QC artifacts exist",
@@ -22,6 +22,16 @@
     "genbank_metadata_inventory": {
       "bias_risk_rating": "bounded_metadata_only",
       "decision": "pass_for_accession_inventory_not_phylogeny"
+    },
+    "sequence_body_download": {
+      "bias_risk_rating": "bounded_sequence_body_qc_only",
+      "decision": "pass_for_sequence_body_presence_not_phylogenetic_inference",
+      "remaining_biases": [
+        "submitter host/location/date metadata reliability",
+        "sampling imbalance across viruses and hosts",
+        "segment-specific coverage and reassortment uncertainty",
+        "no alignment or phylogenetic uncertainty has been assessed"
+      ]
     }
   },
   "schema_version": "0.1.0",

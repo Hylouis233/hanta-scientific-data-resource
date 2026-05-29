@@ -47,6 +47,7 @@
     "no_modeling_guardrail_passed": true,
     "rt_analysis_scope_gate_present": true,
     "sequence_body_download_plan_gate_present": true,
+    "sequence_body_download_real_data_present": true,
     "static_covariate_inventory_present": true,
     "third_layer_closeout_present": true
   },
@@ -87,7 +88,7 @@
   "genbank_missing_triage_present": true,
   "genbank_usable_accession_count": 12,
   "genbank_usable_accession_subset_present": true,
-  "generated_at_utc": "2026-05-29T18:44:54.259424+00:00",
+  "generated_at_utc": "2026-05-29T18:50:04.155065+00:00",
   "hanta_advanced_analysis_gate_present": true,
   "hanta_advanced_models_publication_figures_plan_present": true,
   "hanta_data_acquisition_plan_present": true,
@@ -139,6 +140,7 @@
     "hanta_advanced_models_publication_figures_plan_present",
     "advanced_gate_readiness_plan_present",
     "advanced_gate_existing_evidence_present",
+    "sequence_body_download_real_data_present",
     "third_layer_closeout_present",
     "no_modeling_guardrail_passed"
   ],
@@ -151,6 +153,7 @@
   "rt_analysis_scope_gate_present": true,
   "scientific_claim": "none; Hanta metadata/provenance intake only",
   "sequence_body_download_plan_gate_present": true,
+  "sequence_body_download_real_data_present": true,
   "stage": "metadata_ingested",
   "static_covariate_inventory_present": true,
   "third_layer_closeout_present": true

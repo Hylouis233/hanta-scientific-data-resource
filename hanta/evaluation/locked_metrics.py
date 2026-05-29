@@ -41,6 +41,7 @@ LOCKED_METRICS = [
     "hanta_advanced_models_publication_figures_plan_present",
     "advanced_gate_readiness_plan_present",
     "advanced_gate_existing_evidence_present",
+    "sequence_body_download_real_data_present",
     "third_layer_closeout_present",
     "no_modeling_guardrail_passed",
 ]

@@ -39,6 +39,7 @@ modis_access_plan_present,true
 ecdc_surveillance_export_plan_present,true
 ncbi_sequence_body_export_plan_present,true
 host_trapping_screening_plan_present,true
+hanta_write_ready_closeout_present,true
 third_layer_closeout_present,true
 no_modeling_guardrail_passed,true
 genbank_metadata_records,24
@@ -68,6 +69,7 @@ modis_access_plan_present,true
 ecdc_surveillance_export_plan_present,true
 ncbi_sequence_body_export_plan_present,true
 host_trapping_screening_plan_present,true
+hanta_write_ready_closeout_present,true
 genbank_accession_audit_present,true
 gbif_second_layer_plan_present,true
 metadata_semantics_audit_present,true

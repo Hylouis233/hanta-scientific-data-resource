@@ -1,0 +1,106 @@
+{
+  "blocked_analyses": [
+    "risk_maps",
+    "host_abundance_inference",
+    "human_case_maps",
+    "rt_estimation",
+    "spillover_inference",
+    "host_switch_inference",
+    "surveillance_join"
+  ],
+  "data_layers": [
+    {
+      "evidence": "DOI 10.15468/dl.t7u3zm; 740758 archive rows; 533900 descriptive mapping candidates",
+      "layer": "GBIF official occurrence archive",
+      "manuscript_use": "data provenance, occurrence QC, descriptive record availability",
+      "status": "closed_real_data_layer"
+    },
+    {
+      "evidence": "24 source records; 12 usable accession metadata candidates; no sequence bodies downloaded",
+      "layer": "GenBank accession metadata",
+      "manuscript_use": "metadata availability and accession triage only",
+      "status": "closed_metadata_layer"
+    },
+    {
+      "evidence": "human surveillance, environmental covariates, sequence body, Rt scope, and cross-source join gates are present",
+      "layer": "Advanced-analysis prerequisite gates",
+      "manuscript_use": "limitations and future work",
+      "status": "closed_planning_layer"
+    },
+    {
+      "evidence": "13 candidate sources reviewed; 12 route-confirmed or access-verified",
+      "layer": "Source-specific access verification",
+      "manuscript_use": "future data acquisition readiness",
+      "status": "closed_planning_layer"
+    },
+    {
+      "evidence": "static covariate inventory, MODIS plan, ECDC export plan, NCBI/Entrez plan, host trapping screening plan",
+      "layer": "Remaining planning layers",
+      "manuscript_use": "future implementation protocol references",
+      "status": "closed_planning_layer"
+    }
+  ],
+  "figures": [
+    {
+      "caption_constraint": "GBIF candidate occurrence record counts by target species; not host abundance or infection risk",
+      "figure_id": "gbif_species_record_counts",
+      "path": "reports/figures/gbif_species_record_counts.svg",
+      "status": "ready_descriptive"
+    },
+    {
+      "caption_constraint": "GBIF candidate occurrence record counts by country/area; not human cases or risk",
+      "figure_id": "gbif_top_country_record_counts",
+      "path": "reports/figures/gbif_top_country_record_counts.svg",
+      "status": "ready_descriptive"
+    },
+    {
+      "caption_constraint": "non-geographic record-availability choropleth prototype; not a risk map",
+      "figure_id": "gbif_country_record_availability_choropleth_prototype",
+      "path": "reports/figures/gbif_country_record_availability_choropleth_prototype.svg",
+      "status": "ready_descriptive_prototype"
+    },
+    {
+      "caption_constraint": "placeholder/scaffold only; source-audit pending; no modeled spillover or transmission dynamics",
+      "figure_id": "phase5_global_virus_distribution",
+      "path": "reports/figures/phase5/global_virus_distribution.png",
+      "status": "planning_scaffold_only"
+    },
+    {
+      "caption_constraint": "placeholder/scaffold only; not evidence of host-switch or spillover inference",
+      "figure_id": "phase5_host_virus_network",
+      "path": "reports/figures/phase5/host_virus_network.png",
+      "status": "planning_scaffold_only"
+    },
+    {
+      "caption_constraint": "placeholder/scaffold only; covariates not ingested and no risk model executed",
+      "figure_id": "phase5_environmental_coverage",
+      "path": "reports/figures/phase5/environmental_coverage.png",
+      "status": "planning_scaffold_only"
+    },
+    {
+      "caption_constraint": "placeholder/scaffold only; no sequence-body phylogeny or host-switch inference",
+      "figure_id": "phase5_segment_availability",
+      "path": "reports/figures/phase5/segment_availability.png",
+      "status": "planning_scaffold_only"
+    }
+  ],
+  "generated_at_utc": "2026-05-29T18:19:28.560580+00:00",
+  "guardrails": [
+    "no risk maps, host abundance inference, human case maps, Rt estimation, spillover inference, host-switch inference, or surveillance joins are executed",
+    "available figures are descriptive record-availability or planning scaffolds only",
+    "manuscript text must not claim causal, predictive, transmission, or intervention effects"
+  ],
+  "recommended_manuscript_sections": [
+    "Data provenance and source-gating workflow",
+    "GBIF occurrence archive acquisition and row-level QC",
+    "Candidate occurrence subset and descriptive record-availability mapping",
+    "GenBank accession metadata triage",
+    "Advanced-analysis gates and limitations",
+    "Future data acquisition protocols"
+  ],
+  "schema_version": "0.1.0",
+  "stage": "writing_ready_metadata_and_planning_only",
+  "status": "hanta_write_ready_closeout_complete",
+  "validation_passed": true,
+  "writing_claim_boundary": "The manuscript can describe a reproducible Hanta data-provenance and descriptive mapping pipeline; it cannot claim risk prediction, transmission dynamics, host abundance, spillover, host-switch, or surveillance integration."
+}

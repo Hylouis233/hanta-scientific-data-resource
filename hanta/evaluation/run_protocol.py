@@ -118,6 +118,8 @@ def main() -> int:
     ncbi_sequence_body_export_plan_present = ncbi_sequence_body_export_plan.get("validation_passed") is True and ncbi_sequence_body_export_plan.get("status") == "ncbi_sequence_body_export_plan_complete" and (reports / "ncbi_entrez_sequence_body_export_plan.md").exists() and (project_root / "data" / "metadata" / "entrez_efetch_protocol.json").exists()
     host_trapping_screening_plan = _load_json(reports / "host_trapping_screening_plan.json")
     host_trapping_screening_plan_present = host_trapping_screening_plan.get("validation_passed") is True and host_trapping_screening_plan.get("status") == "host_trapping_screening_plan_complete" and (reports / "host_trapping_screening_plan.md").exists() and (tables / "host_trapping_screening_plan.csv").exists() and (project_root / "data" / "metadata" / "host_trapping_screening_protocol.json").exists()
+    hanta_write_ready_closeout = _load_json(reports / "hanta_write_ready_closeout.json")
+    hanta_write_ready_closeout_present = hanta_write_ready_closeout.get("validation_passed") is True and hanta_write_ready_closeout.get("status") == "hanta_write_ready_closeout_complete" and (reports / "hanta_write_ready_closeout.md").exists() and (tables / "hanta_write_ready_figures.csv").exists()
     third_layer_closeout_present = (reports / "third_layer_real_data_closeout.md").exists()
 
     checks = {
@@ -161,6 +163,7 @@ def main() -> int:
         "ecdc_surveillance_export_plan_present": ecdc_surveillance_export_plan_present,
         "ncbi_sequence_body_export_plan_present": ncbi_sequence_body_export_plan_present,
         "host_trapping_screening_plan_present": host_trapping_screening_plan_present,
+        "hanta_write_ready_closeout_present": hanta_write_ready_closeout_present,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -238,6 +241,7 @@ def main() -> int:
         "ecdc_surveillance_export_plan_present": ecdc_surveillance_export_plan_present,
         "ncbi_sequence_body_export_plan_present": ncbi_sequence_body_export_plan_present,
         "host_trapping_screening_plan_present": host_trapping_screening_plan_present,
+        "hanta_write_ready_closeout_present": hanta_write_ready_closeout_present,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -274,6 +278,7 @@ def main() -> int:
         f"ecdc_surveillance_export_plan_present,{str(ecdc_surveillance_export_plan_present).lower()}",
         f"ncbi_sequence_body_export_plan_present,{str(ncbi_sequence_body_export_plan_present).lower()}",
         f"host_trapping_screening_plan_present,{str(host_trapping_screening_plan_present).lower()}",
+        f"hanta_write_ready_closeout_present,{str(hanta_write_ready_closeout_present).lower()}",
         f"genbank_accession_audit_present,{str(genbank_accession_audit_present).lower()}",
         f"gbif_second_layer_plan_present,{str(gbif_second_layer_plan_present).lower()}",
         f"metadata_semantics_audit_present,{str(metadata_semantics_audit_present).lower()}",

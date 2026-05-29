@@ -1,0 +1,41 @@
+{
+  "dvc_boundaries": {
+    "gbif_candidate_subset": "data/processed/gbif_rodent_occurrences/candidate_occurrences.tsv.gz",
+    "gbif_raw_archive": "data/raw/gbif_rodent_occurrences/0021747-260519110011954.zip",
+    "genbank_metadata": "data/metadata/genbank_hantavirus_usable_accessions_manifest.json"
+  },
+  "gbif": {
+    "candidate_rows": 533900,
+    "candidate_subset_path": "data/processed/gbif_rodent_occurrences/candidate_occurrences.tsv.gz",
+    "doi": "10.15468/dl.t7u3zm",
+    "download_key": "0021747-260519110011954",
+    "source_rows": 740758,
+    "validation_passed": true
+  },
+  "genbank": {
+    "excluded_or_context_count": 12,
+    "source_records": 24,
+    "usable_accession_count": 12,
+    "usable_counts_by_segment": {
+      "L": 5,
+      "M": 2,
+      "S": 5
+    },
+    "usable_counts_by_virus": {
+      "Puumala virus": 3,
+      "Seoul virus": 6,
+      "Sin Nombre virus": 3
+    },
+    "validation_passed": true
+  },
+  "generated_at_utc": "2026-05-29T07:32:29.266312+00:00",
+  "guardrails": [
+    "GBIF records are host occurrences, not human cases",
+    "GenBank records are genome metadata candidates, not host occurrence rows",
+    "GBIF and GenBank are not joined in this closeout layer",
+    "no Hanta modeling, Rt estimation, host-switch inference, spillover inference, phylogeny, or human surveillance integration is performed"
+  ],
+  "schema_version": "0.1.0",
+  "status": "hanta_real_data_closeout_complete",
+  "validation_passed": true
+}

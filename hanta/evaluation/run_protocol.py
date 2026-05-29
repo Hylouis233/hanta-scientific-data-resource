@@ -65,6 +65,8 @@ def main() -> int:
     ])
     gbif_candidate_subset = _load_json(project_root / "data" / "metadata" / "gbif_candidate_occurrences_manifest.json")
     gbif_candidate_subset_present = gbif_candidate_subset.get("validation_passed") is True and (project_root / "data" / "processed" / "gbif_rodent_occurrences" / "candidate_occurrences.tsv.gz").exists()
+    hanta_real_data_closeout = _load_json(reports / "hanta_real_data_closeout.json")
+    hanta_real_data_closeout_present = hanta_real_data_closeout.get("validation_passed") is True and (reports / "hanta_real_data_closeout.md").exists()
     third_layer_closeout_present = (reports / "third_layer_real_data_closeout.md").exists()
 
     checks = {
@@ -90,6 +92,7 @@ def main() -> int:
         "gbif_occurrence_archive_validated": gbif_occurrence_archive_validated,
         "gbif_occurrence_row_qc_present": gbif_occurrence_row_qc_present,
         "gbif_candidate_subset_present": gbif_candidate_subset_present,
+        "hanta_real_data_closeout_present": hanta_real_data_closeout_present,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -119,6 +122,7 @@ def main() -> int:
         "gbif_occurrence_archive_rows": int(gbif_archive_validation.get("row_count", 0) or 0),
         "gbif_occurrence_qc_candidate_rows": int(gbif_row_qc.get("descriptive_mapping_candidate_rows", 0) or 0),
         "gbif_candidate_subset_rows": int(gbif_candidate_subset.get("candidate_rows", 0) or 0),
+        "hanta_real_data_closeout_present": hanta_real_data_closeout_present,
         "gbif_occurrence_qc_exclude_or_review_rows": int(gbif_row_qc.get("exclude_or_review_rows", 0) or 0),
         "metadata_validation_passed": metadata_validation_passed,
         "genbank_accession_audit_needed": genbank_validation.get("status") == "metadata_ingested_needs_accession_audit",
@@ -138,6 +142,7 @@ def main() -> int:
         "gbif_occurrence_archive_validated": gbif_occurrence_archive_validated,
         "gbif_occurrence_row_qc_present": gbif_occurrence_row_qc_present,
         "gbif_candidate_subset_present": gbif_candidate_subset_present,
+        "hanta_real_data_closeout_present": hanta_real_data_closeout_present,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }

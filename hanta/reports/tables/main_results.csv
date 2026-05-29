@@ -21,6 +21,7 @@ gbif_raw_occurrence_path_ready,true
 gbif_occurrence_archive_validated,true
 gbif_occurrence_row_qc_present,true
 gbif_candidate_subset_present,true
+hanta_real_data_closeout_present,true
 third_layer_closeout_present,true
 no_modeling_guardrail_passed,true
 genbank_metadata_records,24

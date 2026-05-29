@@ -19,6 +19,7 @@ LOCKED_METRICS = [
     "gbif_occurrence_archive_validated",
     "gbif_occurrence_row_qc_present",
     "gbif_candidate_subset_present",
+    "hanta_real_data_closeout_present",
     "third_layer_closeout_present",
     "no_modeling_guardrail_passed",
 ]

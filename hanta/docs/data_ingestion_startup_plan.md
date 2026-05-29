@@ -112,3 +112,24 @@ The second-layer audit adds:
 - Metadata semantics audit: `reports/metadata_semantics_audit.md`
 
 The project remains in metadata/provenance mode. Missing GenBank fields and GBIF DOI status are explicit blockers for manuscript-level Hanta analyses.
+
+## Unified real-data closeout status
+
+The current real-data closeout layer is complete for the two active source families:
+
+- GBIF occurrence DOI/download boundary: `data/metadata/gbif_rodent_occurrences_download_manifest.json`
+- GBIF raw archive validation: `reports/gbif_occurrence_archive_validation.*`
+- GBIF row-level QC: `reports/gbif_occurrence_row_qc.*`
+- GBIF candidate subset manifest: `data/metadata/gbif_candidate_occurrences_manifest.json`
+- GenBank usable accession metadata subset: `data/metadata/genbank_hantavirus_usable_accessions_manifest.json`
+- Unified closeout report: `reports/hanta_real_data_closeout.*`
+
+Closed counts:
+
+- GBIF source rows: 740,758
+- GBIF candidate occurrence rows: 533,900
+- GenBank source records: 24
+- GenBank usable accession metadata candidates: 12
+- GenBank excluded/context-only records: 12
+
+This still does not authorize modeling, Rt estimation, phylogeny, reassortment, host-switch inference, spillover inference, human surveillance integration, or cross-source joins. The next gate must be separately scoped as descriptive mapping preparation, sequence-body download planning, or human surveillance schema design.

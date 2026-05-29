@@ -1,0 +1,33 @@
+{
+  "amap_boundary_gate": {
+    "credential_env_var": "AMAP_KEY",
+    "processed_boundary_path": "data/processed/amap_boundaries/",
+    "raw_boundary_cache_path": "data/raw/amap_boundaries/",
+    "script_to_add_when_key_available": "scripts/data_generation/fetch_amap_boundaries.py",
+    "status": "ready_for_keyed_terms_compliant_retrieval"
+  },
+  "artifacts": [
+    "reports/figures/gbif_species_record_counts.svg",
+    "reports/figures/gbif_top_country_record_counts.svg",
+    "reports/figures/gbif_country_record_availability_choropleth_prototype.svg",
+    "reports/gbif_descriptive_mapping_package.md",
+    "reports/gbif_descriptive_choropleth_package.md",
+    "data/metadata/gbif_choropleth_boundary_plan.json"
+  ],
+  "country_count": 157,
+  "doi": "10.15468/dl.t7u3zm",
+  "figure_count": 3,
+  "generated_at_utc": "2026-05-29T12:21:10.319245+00:00",
+  "guardrails": [
+    "current map artifacts describe GBIF record availability only",
+    "current choropleth prototype is non-geographic and is not a risk map",
+    "AMap/Gaode boundary coordinates require a separate API-key retrieval step and are not committed here",
+    "no host abundance, infection risk, human case, Rt, spillover, host-switch, or surveillance inference is made"
+  ],
+  "mapping_ready_rows": 533900,
+  "schema_version": "0.1.0",
+  "species_count": 5,
+  "status": "descriptive_map_package_closed",
+  "table_count": 2,
+  "validation_passed": true
+}

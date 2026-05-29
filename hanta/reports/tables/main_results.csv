@@ -25,6 +25,7 @@ hanta_real_data_closeout_present,true
 gbif_mapping_readiness_present,true
 gbif_descriptive_mapping_package_present,true
 gbif_descriptive_choropleth_present,true
+gbif_descriptive_map_closeout_present,true
 third_layer_closeout_present,true
 no_modeling_guardrail_passed,true
 genbank_metadata_records,24

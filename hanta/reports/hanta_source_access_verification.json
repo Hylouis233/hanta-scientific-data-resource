@@ -1,0 +1,516 @@
+{
+  "access_verified_count": 12,
+  "generated_at_utc": "2026-05-29T14:27:10.256884+00:00",
+  "guardrails": [
+    "source access verification does not ingest analysis datasets",
+    "source access verification does not execute risk maps, abundance inference, human case maps, Rt, spillover, host-switch, or surveillance joins",
+    "sources marked access_verified still require provenance, terms, field schema, and bias review before analysis"
+  ],
+  "schema_version": "0.1.0",
+  "source_count": 13,
+  "status": "source_specific_access_verification_complete",
+  "validation_passed": true,
+  "verification_rows": [
+    {
+      "access_status": "access_verified_export_route_needs_interactive_csv_check",
+      "analysis_readiness": "human_case_map_planning_only",
+      "category": "human_surveillance",
+      "caveat": "likely aggregate country/time data; no case-level linelist assumed",
+      "could_unlock": [
+        "human_case_maps",
+        "surveillance_join"
+      ],
+      "expected_format": "CSV export from Atlas interface",
+      "guardrails_preserved": true,
+      "missing_or_pending_fields": [
+        "privacy_suppression_rule",
+        "license_or_terms",
+        "subannual_time_granularity"
+      ],
+      "next_action": "perform browser export of current/all indicators and capture exact CSV headers plus terms page",
+      "not_sufficient_for": [
+        "rt_estimation_without_subannual_time_series"
+      ],
+      "priority": "high",
+      "required_fields_verified": [
+        "source_url_or_citation",
+        "case_definition",
+        "reporting_period",
+        "admin_name",
+        "case_count"
+      ],
+      "required_follow_up": "confirm exported fields, temporal granularity, reuse terms, and stable CSV retrieval route",
+      "retrieval_route": "ECDC Surveillance Atlas public interface with export by dataset, health topic, region, period, and indicator",
+      "source_id": "ecdc_surveillance_atlas_hantavirus",
+      "source_name": "ECDC Surveillance Atlas hantavirus exports",
+      "status": "confirmed_public_structured_source",
+      "supports_gates": [
+        "human_surveillance_schema",
+        "cross_source_join_bias_review"
+      ],
+      "terms_status": "terms_review_pending",
+      "url": "https://atlas.ecdc.europa.eu/public/index.aspx?Dataset=27&HealthTopic=24"
+    },
+    {
+      "access_status": "candidate_not_access_verified",
+      "analysis_readiness": "not_ready",
+      "category": "human_surveillance",
+      "caveat": "not verified in current search environment; do not use until provenance and table schema are confirmed",
+      "could_unlock": [
+        "human_case_maps",
+        "rt_estimation",
+        "surveillance_join"
+      ],
+      "expected_format": "HTML or PDF monthly bulletin table if reachable",
+      "guardrails_preserved": true,
+      "missing_or_pending_fields": [
+        "stable_url",
+        "disease_name",
+        "cases",
+        "deaths",
+        "reporting_month",
+        "geography",
+        "license_or_terms"
+      ],
+      "next_action": "verify current official bulletin index and whether HFRS rows are consistently exposed",
+      "not_sufficient_for": [],
+      "priority": "high",
+      "required_fields_verified": [],
+      "required_follow_up": "verify stable public page/table structure, monthly HFRS fields, geography, deaths, terms, and extraction protocol",
+      "retrieval_route": "public monthly notifiable disease bulletin route pending direct verification",
+      "source_id": "china_cdc_hfrs_monthly_bulletins",
+      "source_name": "China CDC monthly notifiable disease HFRS bulletins",
+      "status": "high_value_candidate_needs_access_verification",
+      "supports_gates": [
+        "human_surveillance_schema",
+        "rt_analysis_scope",
+        "cross_source_join_bias_review"
+      ],
+      "terms_status": "unknown",
+      "url": "public_access_route_pending_verification"
+    },
+    {
+      "access_status": "candidate_not_access_verified",
+      "analysis_readiness": "not_ready",
+      "category": "human_surveillance",
+      "caveat": "current search did not confirm a stable machine-readable CDC dataset",
+      "could_unlock": [
+        "human_case_maps"
+      ],
+      "expected_format": "CDC report table or downloadable surveillance product if available",
+      "guardrails_preserved": true,
+      "missing_or_pending_fields": [
+        "stable_download_url",
+        "condition_name",
+        "time_unit",
+        "state_or_national_geography",
+        "case_count"
+      ],
+      "next_action": "verify current NNDSS condition tables for HCPS or hantavirus disease",
+      "not_sufficient_for": [
+        "rt_estimation_until_weekly_or_monthly_series_confirmed"
+      ],
+      "priority": "medium",
+      "required_fields_verified": [],
+      "required_follow_up": "find current NNDSS or CDC table endpoint with HCPS/Hantavirus fields and export terms",
+      "retrieval_route": "CDC/NNDSS product route pending stable table identification",
+      "source_id": "cdc_nndss_hcps",
+      "source_name": "CDC/NNDSS hantavirus pulmonary syndrome reporting products",
+      "status": "candidate_needs_download_route_verification",
+      "supports_gates": [
+        "human_surveillance_schema"
+      ],
+      "terms_status": "terms_review_pending",
+      "url": "https://www.cdc.gov/hantavirus/"
+    },
+    {
+      "access_status": "access_verified_static_download_source",
+      "analysis_readiness": "covariate_inventory_ready",
+      "category": "environmental_covariate",
+      "caveat": "baseline climatology only; not a real-time anomaly layer",
+      "could_unlock": [
+        "risk_maps",
+        "spillover_inference",
+        "surveillance_join"
+      ],
+      "expected_format": "GeoTIFF zip archives",
+      "guardrails_preserved": true,
+      "missing_or_pending_fields": [
+        "file_level_crs",
+        "license_or_terms",
+        "download_date"
+      ],
+      "next_action": "select variables/resolutions and record file metadata after download",
+      "not_sufficient_for": [
+        "causal_or_event_time_risk_inference"
+      ],
+      "priority": "high",
+      "required_fields_verified": [
+        "version",
+        "variable_name",
+        "resolution",
+        "temporal_coverage_start",
+        "temporal_coverage_end"
+      ],
+      "required_follow_up": "record exact variables, resolution, CRS from files, citation, and download date",
+      "retrieval_route": "WorldClim 2.1 GeoTIFF zip downloads from official page",
+      "source_id": "worldclim_2_1",
+      "source_name": "WorldClim 2.1 climate variables",
+      "status": "confirmed_public_source",
+      "supports_gates": [
+        "environmental_covariates_schema",
+        "cross_source_join_bias_review"
+      ],
+      "terms_status": "citation_required_license_text_pending",
+      "url": "https://www.worldclim.org/data/worldclim21.html"
+    },
+    {
+      "access_status": "access_verified_requires_earthdata_workflow",
+      "analysis_readiness": "covariate_inventory_ready",
+      "category": "environmental_covariate",
+      "caveat": "vegetation proxy only; does not measure rodents or cases",
+      "could_unlock": [
+        "risk_maps",
+        "host_abundance_inference",
+        "spillover_inference"
+      ],
+      "expected_format": "HDF-EOS2 granules or cloud-enabled assets",
+      "guardrails_preserved": true,
+      "missing_or_pending_fields": [
+        "tile_list",
+        "QA_filter",
+        "reprojection_rule",
+        "temporal_aggregation_rule"
+      ],
+      "next_action": "define tiles, Earthdata auth route, QA mask, and seasonal summary rules",
+      "not_sufficient_for": [
+        "host_abundance_without_trapping_effort_or_bias_model"
+      ],
+      "priority": "high",
+      "required_fields_verified": [
+        "version",
+        "variable_name",
+        "resolution",
+        "temporal_coverage_start",
+        "temporal_coverage_end",
+        "license_or_terms"
+      ],
+      "required_follow_up": "define QA filtering, temporal aggregation, MODIS sinusoidal reprojection, and NASA Earthdata access method",
+      "retrieval_route": "NASA Earthdata/LP DAAC catalog, CMR, or cloud access",
+      "source_id": "modis_mod13q1_v061",
+      "source_name": "MODIS MOD13Q1 v061 NDVI/EVI",
+      "status": "confirmed_public_source_requires_earthdata_route",
+      "supports_gates": [
+        "environmental_covariates_schema"
+      ],
+      "terms_status": "eosdis_open_with_citation_guidance",
+      "url": "https://www.earthdata.nasa.gov/data/catalog/lpcloud-mod13q1-061"
+    },
+    {
+      "access_status": "access_verified_static_download_source",
+      "analysis_readiness": "covariate_inventory_ready",
+      "category": "environmental_covariate",
+      "caveat": "land-cover change across years is not directly comparable if algorithm versions differ",
+      "could_unlock": [
+        "risk_maps",
+        "host_abundance_inference",
+        "spillover_inference",
+        "surveillance_join"
+      ],
+      "expected_format": "Cloud Optimized GeoTIFF tiles",
+      "guardrails_preserved": true,
+      "missing_or_pending_fields": [
+        "tile_list",
+        "categorical_resampling_rule",
+        "download_date"
+      ],
+      "next_action": "choose 2021 layer, define tile selection and categorical resampling policy",
+      "not_sufficient_for": [],
+      "priority": "high",
+      "required_fields_verified": [
+        "version",
+        "variable_name",
+        "resolution",
+        "crs",
+        "license_or_terms"
+      ],
+      "required_follow_up": "define tile selection, categorical resampling, version, and CC BY 4.0 attribution",
+      "retrieval_route": "ESA WorldCover data access via COG tiles, S3, Zenodo, WMS/WMTS, Terrascope, or GEE",
+      "source_id": "esa_worldcover_2021",
+      "source_name": "ESA WorldCover 2021 land cover",
+      "status": "confirmed_public_source",
+      "supports_gates": [
+        "environmental_covariates_schema",
+        "cross_source_join_bias_review"
+      ],
+      "terms_status": "cc_by_4_0",
+      "url": "https://esa-worldcover.org/en/data-access"
+    },
+    {
+      "access_status": "access_verified_static_download_source",
+      "analysis_readiness": "covariate_inventory_ready",
+      "category": "environmental_covariate",
+      "caveat": "terrain covariate only; derived slope/aspect need documented processing",
+      "could_unlock": [
+        "risk_maps",
+        "host_abundance_inference",
+        "spillover_inference",
+        "surveillance_join"
+      ],
+      "expected_format": "DEM tiles",
+      "guardrails_preserved": true,
+      "missing_or_pending_fields": [
+        "tile_list",
+        "vertical_datum_policy",
+        "derived_terrain_variables"
+      ],
+      "next_action": "define GLO-30 tile list, attribution, and elevation derivative processing",
+      "not_sufficient_for": [],
+      "priority": "high",
+      "required_fields_verified": [
+        "version",
+        "resolution",
+        "crs",
+        "license_or_terms"
+      ],
+      "required_follow_up": "define elevation derivatives, vertical datum handling, download route, and attribution",
+      "retrieval_route": "Copernicus Data Space Browser, OData API, or S3-compatible storage",
+      "source_id": "copernicus_dem_glo30",
+      "source_name": "Copernicus DEM GLO-30",
+      "status": "confirmed_public_source",
+      "supports_gates": [
+        "environmental_covariates_schema",
+        "cross_source_join_bias_review"
+      ],
+      "terms_status": "free_license_with_attribution_obligations",
+      "url": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM"
+    },
+    {
+      "access_status": "access_verified_portal_api_needs_product_selection",
+      "analysis_readiness": "exposure_covariate_planning_only",
+      "category": "population_covariate",
+      "caveat": "population exposure surface is not a case dataset",
+      "could_unlock": [
+        "risk_maps",
+        "spillover_inference",
+        "surveillance_join"
+      ],
+      "expected_format": "raster products exposed through REST catalog",
+      "guardrails_preserved": true,
+      "missing_or_pending_fields": [
+        "specific_product",
+        "year",
+        "crs",
+        "license_or_terms",
+        "download_endpoint"
+      ],
+      "next_action": "select population product/year and capture exact license/API endpoint",
+      "not_sufficient_for": [
+        "human_case_maps_without_case_counts"
+      ],
+      "priority": "medium_high",
+      "required_fields_verified": [
+        "source_url_or_citation",
+        "resolution_options"
+      ],
+      "required_follow_up": "confirm product, year, resolution, license, API endpoint, and exposure-use wording",
+      "retrieval_route": "WorldPop Hub REST data catalog",
+      "source_id": "worldpop_population",
+      "source_name": "WorldPop gridded population",
+      "status": "confirmed_public_portal_needs_license_endpoint_check",
+      "supports_gates": [
+        "environmental_covariates_schema",
+        "cross_source_join_bias_review"
+      ],
+      "terms_status": "license_endpoint_check_pending",
+      "url": "https://hub.worldpop.org/rest/data"
+    },
+    {
+      "access_status": "access_verified_export_source",
+      "analysis_readiness": "sequence_download_planning_ready",
+      "category": "sequence_body",
+      "caveat": "host and geolocation are submitter-provided and require QC",
+      "could_unlock": [
+        "host_switch_inference",
+        "spillover_inference"
+      ],
+      "expected_format": "CSV/XML metadata export plus FASTA/accession-list downloads",
+      "guardrails_preserved": true,
+      "missing_or_pending_fields": [
+        "taxon_id_verification",
+        "quality_exclusion_reason",
+        "isolate_deduplication_key"
+      ],
+      "next_action": "create Hantaviridae query, export metadata, then audit host/location/date completeness",
+      "not_sufficient_for": [
+        "host_switch_inference_without_phylogenetic_design"
+      ],
+      "priority": "high",
+      "required_fields_verified": [
+        "accession",
+        "species",
+        "segment",
+        "host_species",
+        "country",
+        "collection_date",
+        "sequence_length"
+      ],
+      "required_follow_up": "export accession/species/segment/host/location/date/length/completeness, then verify taxonomy and metadata quality",
+      "retrieval_route": "NCBI Virus search/results export using taxonomy and metadata filters",
+      "source_id": "ncbi_virus_hantaviridae",
+      "source_name": "NCBI Virus Hantaviridae sequence and metadata export",
+      "status": "confirmed_public_source",
+      "supports_gates": [
+        "sequence_body_download_plan"
+      ],
+      "terms_status": "ncbi_usage_policy_and_provenance_required",
+      "url": "https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/"
+    },
+    {
+      "access_status": "access_verified_programmatic_api",
+      "analysis_readiness": "sequence_backfill_planning_ready",
+      "category": "sequence_body",
+      "caveat": "requires API etiquette and careful parsing of inconsistent metadata",
+      "could_unlock": [
+        "host_switch_inference"
+      ],
+      "expected_format": "GenBank flatfile and FASTA text responses",
+      "guardrails_preserved": true,
+      "missing_or_pending_fields": [
+        "api_key_policy",
+        "parser_qc",
+        "rate_limit_log"
+      ],
+      "next_action": "script rate-limited ESearch/EFetch and parse source qualifiers for retained accessions",
+      "not_sufficient_for": [
+        "host_switch_inference_without_segment_qc_and_deduplication"
+      ],
+      "priority": "high",
+      "required_fields_verified": [
+        "accession",
+        "sequence_body",
+        "source_qualifiers"
+      ],
+      "required_follow_up": "script ESearch/EFetch with rate limits and parse source qualifiers from GenBank records",
+      "retrieval_route": "Entrez ESearch and EFetch against nuccore with rate limits",
+      "source_id": "ncbi_entrez_nuccore_hantaviridae",
+      "source_name": "NCBI Entrez nuccore GenBank flatfile retrieval",
+      "status": "confirmed_public_api",
+      "supports_gates": [
+        "sequence_body_download_plan"
+      ],
+      "terms_status": "eutilities_policy_required",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
+    },
+    {
+      "access_status": "access_verified_landing_page_file_screening_pending",
+      "analysis_readiness": "host_abundance_screening_only",
+      "category": "host_trapping_effort",
+      "caveat": "local Florida study; not representative global abundance evidence",
+      "could_unlock": [
+        "host_abundance_inference"
+      ],
+      "expected_format": "CSV/XML attachments from ScienceBase item",
+      "guardrails_preserved": true,
+      "missing_or_pending_fields": [
+        "trap_nights_or_effort",
+        "coordinates",
+        "license_or_terms",
+        "file_headers"
+      ],
+      "next_action": "download attachment metadata and confirm effort/count/location fields before abundance use",
+      "not_sufficient_for": [
+        "global_host_abundance_inference"
+      ],
+      "priority": "medium_high",
+      "required_fields_verified": [
+        "species",
+        "dates",
+        "captures_or_counts",
+        "admin_area"
+      ],
+      "required_follow_up": "download metadata/files, confirm trap nights or effort, coordinates/admin resolution, species counts, dates, and license",
+      "retrieval_route": "USGS ScienceBase public data release with attached capture files",
+      "source_id": "usgs_picayune_small_mammal_captures",
+      "source_name": "USGS Picayune Strand small mammal captures",
+      "status": "confirmed_public_candidate_needs_file_screening",
+      "supports_gates": [
+        "environmental_covariates_schema",
+        "cross_source_join_bias_review"
+      ],
+      "terms_status": "usgs_release_terms_review_pending",
+      "url": "https://www.sciencebase.gov/catalog/item/5e1c8c13e4b0ecf25c5efce5"
+    },
+    {
+      "access_status": "access_verified_landing_page_file_screening_pending",
+      "analysis_readiness": "host_abundance_screening_only",
+      "category": "host_trapping_effort",
+      "caveat": "may be better for mark-recapture/detection context than direct abundance index",
+      "could_unlock": [
+        "host_abundance_inference"
+      ],
+      "expected_format": "CSV/XML attachments from ScienceBase item",
+      "guardrails_preserved": true,
+      "missing_or_pending_fields": [
+        "trap_nights_or_effort",
+        "coordinates",
+        "treatment_design_scope",
+        "license_or_terms"
+      ],
+      "next_action": "screen files for repeated-session effort variables and treatment design constraints",
+      "not_sufficient_for": [
+        "direct_abundance_without_effort_confirmation"
+      ],
+      "priority": "medium",
+      "required_fields_verified": [
+        "species",
+        "dates",
+        "capture_histories",
+        "admin_area"
+      ],
+      "required_follow_up": "screen capture histories for effort variables, repeated sessions, coordinates/admin areas, and treatment design constraints",
+      "retrieval_route": "USGS ScienceBase public data release with capture-history files",
+      "source_id": "usgs_deltamethrin_small_mammal_capture_histories",
+      "source_name": "USGS deltamethrin non-target small mammal capture histories",
+      "status": "confirmed_public_candidate_needs_file_screening",
+      "supports_gates": [
+        "cross_source_join_bias_review"
+      ],
+      "terms_status": "usgs_release_terms_review_pending",
+      "url": "https://www.sciencebase.gov/catalog/item/6164f1fed34e52f49c822f06"
+    },
+    {
+      "access_status": "candidate_requires_authenticated_metadata_review",
+      "analysis_readiness": "not_ready",
+      "category": "host_trapping_effort",
+      "caveat": "anonymous metadata access was limited in current search environment",
+      "could_unlock": [
+        "host_abundance_inference"
+      ],
+      "expected_format": "EML metadata and tabular package data",
+      "guardrails_preserved": true,
+      "missing_or_pending_fields": [
+        "package_ids",
+        "trap_effort",
+        "species_counts",
+        "coordinates",
+        "dates",
+        "license_or_terms"
+      ],
+      "next_action": "inspect Sevilleta/Jornada/Konza/Hog Island package metadata with authenticated or manual access",
+      "not_sufficient_for": [],
+      "priority": "medium",
+      "required_fields_verified": [],
+      "required_follow_up": "verify Sevilleta/Jornada/Konza/Hog Island packages for trap effort, species counts, dates, coordinates, and license",
+      "retrieval_route": "EDI simple search and package pages after portal access",
+      "source_id": "edi_lter_small_mammal_datasets",
+      "source_name": "EDI/LTER small mammal trapping datasets",
+      "status": "promising_candidate_needs_authenticated_metadata_review",
+      "supports_gates": [
+        "cross_source_join_bias_review"
+      ],
+      "terms_status": "unknown_until_package_review",
+      "url": "https://portal.edirepository.org/nis/simpleSearch"
+    }
+  ]
+}

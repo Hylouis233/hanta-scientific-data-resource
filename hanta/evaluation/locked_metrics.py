@@ -31,6 +31,7 @@ LOCKED_METRICS = [
     "rt_analysis_scope_gate_present",
     "cross_source_join_bias_review_gate_present",
     "hanta_data_acquisition_plan_present",
+    "hanta_source_access_verification_present",
     "third_layer_closeout_present",
     "no_modeling_guardrail_passed",
 ]

@@ -106,6 +106,8 @@ def main() -> int:
     cross_source_join_bias_review_gate_present = cross_source_join_bias_review_gate.get("validation_passed") is True and (reports / "cross_source_join_bias_review_gate.md").exists()
     hanta_data_acquisition_plan = _load_json(reports / "hanta_data_acquisition_plan.json")
     hanta_data_acquisition_plan_present = hanta_data_acquisition_plan.get("validation_passed") is True and hanta_data_acquisition_plan.get("source_count", 0) >= 10 and (reports / "hanta_data_acquisition_plan.md").exists() and (tables / "hanta_data_acquisition_plan.csv").exists()
+    hanta_source_access_verification = _load_json(reports / "hanta_source_access_verification.json")
+    hanta_source_access_verification_present = hanta_source_access_verification.get("validation_passed") is True and hanta_source_access_verification.get("source_count", 0) >= 10 and hanta_source_access_verification.get("status") == "source_specific_access_verification_complete" and (reports / "hanta_source_access_verification.md").exists() and (tables / "hanta_source_access_verification.csv").exists()
     third_layer_closeout_present = (reports / "third_layer_real_data_closeout.md").exists()
 
     checks = {
@@ -143,6 +145,7 @@ def main() -> int:
         "rt_analysis_scope_gate_present": rt_analysis_scope_gate_present,
         "cross_source_join_bias_review_gate_present": cross_source_join_bias_review_gate_present,
         "hanta_data_acquisition_plan_present": hanta_data_acquisition_plan_present,
+        "hanta_source_access_verification_present": hanta_source_access_verification_present,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -214,6 +217,7 @@ def main() -> int:
         "rt_analysis_scope_gate_present": rt_analysis_scope_gate_present,
         "cross_source_join_bias_review_gate_present": cross_source_join_bias_review_gate_present,
         "hanta_data_acquisition_plan_present": hanta_data_acquisition_plan_present,
+        "hanta_source_access_verification_present": hanta_source_access_verification_present,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -244,6 +248,7 @@ def main() -> int:
         f"rt_analysis_scope_gate_present,{str(rt_analysis_scope_gate_present).lower()}",
         f"cross_source_join_bias_review_gate_present,{str(cross_source_join_bias_review_gate_present).lower()}",
         f"hanta_data_acquisition_plan_present,{str(hanta_data_acquisition_plan_present).lower()}",
+        f"hanta_source_access_verification_present,{str(hanta_source_access_verification_present).lower()}",
         f"genbank_accession_audit_present,{str(genbank_accession_audit_present).lower()}",
         f"gbif_second_layer_plan_present,{str(gbif_second_layer_plan_present).lower()}",
         f"metadata_semantics_audit_present,{str(metadata_semantics_audit_present).lower()}",

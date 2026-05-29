@@ -33,6 +33,7 @@ sequence_body_download_plan_gate_present,true
 rt_analysis_scope_gate_present,true
 cross_source_join_bias_review_gate_present,true
 hanta_data_acquisition_plan_present,true
+hanta_source_access_verification_present,true
 third_layer_closeout_present,true
 no_modeling_guardrail_passed,true
 genbank_metadata_records,24
@@ -56,6 +57,7 @@ sequence_body_download_plan_gate_present,true
 rt_analysis_scope_gate_present,true
 cross_source_join_bias_review_gate_present,true
 hanta_data_acquisition_plan_present,true
+hanta_source_access_verification_present,true
 genbank_accession_audit_present,true
 gbif_second_layer_plan_present,true
 metadata_semantics_audit_present,true

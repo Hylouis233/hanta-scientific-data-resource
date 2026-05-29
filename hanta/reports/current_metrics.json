@@ -29,6 +29,7 @@
     "hanta_advanced_analysis_gate_present": true,
     "hanta_data_acquisition_plan_present": true,
     "hanta_real_data_closeout_present": true,
+    "hanta_source_access_verification_present": true,
     "human_surveillance_schema_gate_present": true,
     "manuscript_target_declared": true,
     "metadata_semantics_audit_present": true,
@@ -74,10 +75,11 @@
   "genbank_missing_triage_present": true,
   "genbank_usable_accession_count": 12,
   "genbank_usable_accession_subset_present": true,
-  "generated_at_utc": "2026-05-29T14:09:13.917104+00:00",
+  "generated_at_utc": "2026-05-29T14:27:11.024383+00:00",
   "hanta_advanced_analysis_gate_present": true,
   "hanta_data_acquisition_plan_present": true,
   "hanta_real_data_closeout_present": true,
+  "hanta_source_access_verification_present": true,
   "human_surveillance_schema_gate_present": true,
   "locked_metrics": [
     "data_sources_registered",
@@ -112,6 +114,7 @@
     "rt_analysis_scope_gate_present",
     "cross_source_join_bias_review_gate_present",
     "hanta_data_acquisition_plan_present",
+    "hanta_source_access_verification_present",
     "third_layer_closeout_present",
     "no_modeling_guardrail_passed"
   ],

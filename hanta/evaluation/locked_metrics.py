@@ -30,6 +30,7 @@ LOCKED_METRICS = [
     "sequence_body_download_plan_gate_present",
     "rt_analysis_scope_gate_present",
     "cross_source_join_bias_review_gate_present",
+    "hanta_data_acquisition_plan_present",
     "third_layer_closeout_present",
     "no_modeling_guardrail_passed",
 ]

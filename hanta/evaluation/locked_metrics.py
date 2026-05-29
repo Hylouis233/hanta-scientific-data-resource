@@ -21,6 +21,7 @@ LOCKED_METRICS = [
     "gbif_candidate_subset_present",
     "hanta_real_data_closeout_present",
     "gbif_mapping_readiness_present",
+    "gbif_descriptive_mapping_package_present",
     "third_layer_closeout_present",
     "no_modeling_guardrail_passed",
 ]

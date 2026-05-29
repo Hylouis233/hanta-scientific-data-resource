@@ -75,6 +75,14 @@ def main() -> int:
         "data/processed/gbif_rodent_occurrences/mapping_readiness/species_year_mapping_summary.csv",
         "data/processed/gbif_rodent_occurrences/mapping_readiness/basis_of_record_mapping_summary.csv",
     ])
+    gbif_descriptive_mapping_package = _load_json(reports / "gbif_descriptive_mapping_package.json")
+    gbif_descriptive_mapping_package_present = gbif_descriptive_mapping_package.get("validation_passed") is True and all((project_root / path).exists() for path in [
+        "reports/gbif_descriptive_mapping_package.md",
+        "reports/figures/gbif_species_record_counts.svg",
+        "reports/figures/gbif_top_country_record_counts.svg",
+        "data/processed/gbif_rodent_occurrences/mapping_readiness/top_country_mapping_summary.csv",
+        "data/processed/gbif_rodent_occurrences/mapping_readiness/top_species_country_mapping_summary.csv",
+    ])
     third_layer_closeout_present = (reports / "third_layer_real_data_closeout.md").exists()
 
     checks = {
@@ -102,6 +110,7 @@ def main() -> int:
         "gbif_candidate_subset_present": gbif_candidate_subset_present,
         "hanta_real_data_closeout_present": hanta_real_data_closeout_present,
         "gbif_mapping_readiness_present": gbif_mapping_readiness_present,
+        "gbif_descriptive_mapping_package_present": gbif_descriptive_mapping_package_present,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -136,6 +145,9 @@ def main() -> int:
         "gbif_mapping_ready_rows": int(gbif_mapping_readiness.get("mapping_ready_rows", 0) or 0),
         "gbif_mapping_excluded_rows": int(gbif_mapping_readiness.get("mapping_excluded_rows", 0) or 0),
         "gbif_mapping_country_count": int(gbif_mapping_readiness.get("country_count", 0) or 0),
+        "gbif_descriptive_mapping_package_present": gbif_descriptive_mapping_package_present,
+        "gbif_descriptive_mapping_figure_count": len(gbif_descriptive_mapping_package.get("figures", {})),
+        "gbif_descriptive_mapping_table_count": len(gbif_descriptive_mapping_package.get("tables", {})),
         "gbif_occurrence_qc_exclude_or_review_rows": int(gbif_row_qc.get("exclude_or_review_rows", 0) or 0),
         "metadata_validation_passed": metadata_validation_passed,
         "genbank_accession_audit_needed": genbank_validation.get("status") == "metadata_ingested_needs_accession_audit",
@@ -157,6 +169,7 @@ def main() -> int:
         "gbif_candidate_subset_present": gbif_candidate_subset_present,
         "hanta_real_data_closeout_present": hanta_real_data_closeout_present,
         "gbif_mapping_readiness_present": gbif_mapping_readiness_present,
+        "gbif_descriptive_mapping_package_present": gbif_descriptive_mapping_package_present,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -176,6 +189,8 @@ def main() -> int:
         f"gbif_mapping_ready_rows,{int(gbif_mapping_readiness.get('mapping_ready_rows', 0) or 0)}",
         f"gbif_mapping_excluded_rows,{int(gbif_mapping_readiness.get('mapping_excluded_rows', 0) or 0)}",
         f"gbif_mapping_country_count,{int(gbif_mapping_readiness.get('country_count', 0) or 0)}",
+        f"gbif_descriptive_mapping_figure_count,{len(gbif_descriptive_mapping_package.get('figures', {}))}",
+        f"gbif_descriptive_mapping_table_count,{len(gbif_descriptive_mapping_package.get('tables', {}))}",
         f"gbif_occurrence_qc_exclude_or_review_rows,{int(gbif_row_qc.get('exclude_or_review_rows', 0) or 0)}",
         f"metadata_validation_passed,{str(metadata_validation_passed).lower()}",
         f"genbank_accession_audit_present,{str(genbank_accession_audit_present).lower()}",

@@ -1,0 +1,31 @@
+{
+  "candidate_row_count_matches_qc": true,
+  "candidate_rows": 533900,
+  "candidate_subset_path": "data/processed/gbif_rodent_occurrences/candidate_occurrences.tsv.gz",
+  "doi": "10.15468/dl.t7u3zm",
+  "download_key": "0021747-260519110011954",
+  "failed_or_not_evidence_for": [
+    "risk_maps",
+    "host_abundance_inference",
+    "human_case_maps",
+    "rt_estimation",
+    "spillover_inference",
+    "host_switch_inference",
+    "surveillance_join"
+  ],
+  "generated_at_utc": "2026-05-29T18:44:53.601949+00:00",
+  "guardrails": [
+    "evidence passes are limited to existing real GBIF occurrence and GenBank metadata layers",
+    "advanced model gates remain blocked until their required real data and QC artifacts exist",
+    "GBIF occurrence records are not human cases, host abundance, or infection risk",
+    "GenBank metadata accessions are not sequence-body phylogenetic evidence"
+  ],
+  "passed_evidence_for": [
+    "descriptive_host_occurrence_record_availability"
+  ],
+  "qc_candidate_rows": 533900,
+  "schema_version": "0.1.0",
+  "status": "passed_for_descriptive_occurrence_record_availability_only",
+  "total_source_rows": 740758,
+  "validation_passed": true
+}

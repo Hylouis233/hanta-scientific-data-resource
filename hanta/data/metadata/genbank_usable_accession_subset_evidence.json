@@ -1,0 +1,24 @@
+{
+  "excluded_or_context_count": 12,
+  "failed_or_not_evidence_for": [
+    "sequence_body_download_gate",
+    "phylogenetic_design_gate",
+    "host_switch_inference"
+  ],
+  "generated_at_utc": "2026-05-29T18:44:53.601949+00:00",
+  "guardrails": [
+    "evidence passes are limited to existing real GBIF occurrence and GenBank metadata layers",
+    "advanced model gates remain blocked until their required real data and QC artifacts exist",
+    "GBIF occurrence records are not human cases, host abundance, or infection risk",
+    "GenBank metadata accessions are not sequence-body phylogenetic evidence"
+  ],
+  "passed_evidence_for": [
+    "host_genome_metadata_candidate_inventory"
+  ],
+  "record_count": 24,
+  "schema_version": "0.1.0",
+  "sequence_bodies_downloaded": false,
+  "status": "passed_for_usable_accession_metadata_candidates_only",
+  "usable_accession_count": 12,
+  "validation_passed": true
+}

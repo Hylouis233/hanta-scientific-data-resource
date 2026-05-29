@@ -1,7 +1,9 @@
 {
+  "advanced_gate_existing_evidence_present": true,
   "advanced_gate_readiness_plan_present": true,
   "all_checks_passed": true,
   "checks": {
+    "advanced_gate_existing_evidence_present": true,
     "advanced_gate_readiness_plan_present": true,
     "authenticity_policy_present": true,
     "cross_source_join_bias_review_gate_present": true,
@@ -85,7 +87,7 @@
   "genbank_missing_triage_present": true,
   "genbank_usable_accession_count": 12,
   "genbank_usable_accession_subset_present": true,
-  "generated_at_utc": "2026-05-29T18:37:58.165708+00:00",
+  "generated_at_utc": "2026-05-29T18:44:54.259424+00:00",
   "hanta_advanced_analysis_gate_present": true,
   "hanta_advanced_models_publication_figures_plan_present": true,
   "hanta_data_acquisition_plan_present": true,
@@ -136,6 +138,7 @@
     "hanta_write_ready_closeout_present",
     "hanta_advanced_models_publication_figures_plan_present",
     "advanced_gate_readiness_plan_present",
+    "advanced_gate_existing_evidence_present",
     "third_layer_closeout_present",
     "no_modeling_guardrail_passed"
   ],

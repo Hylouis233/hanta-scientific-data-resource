@@ -1,0 +1,26 @@
+{
+  "advanced_model_gate_passed": false,
+  "blocked_qc": {
+    "environmental_suitability_or_risk_map": "blocked_no_real_covariate_files_or_target_background_design",
+    "host_abundance_model": "blocked_no_trap_effort_or_count_files_screened",
+    "host_switch_phylogenetic_inference": "blocked_no_sequence_bodies_alignment_or_phylogeny_design",
+    "human_case_mapping": "blocked_no_provenance_complete_surveillance_table",
+    "rt_estimation": "blocked_no_subannual_incidence_time_series_or_interval_protocol",
+    "spillover_or_surveillance_join": "blocked_no_approved_cross_source_join_or_bias_review_for_real_inputs"
+  },
+  "generated_at_utc": "2026-05-29T18:44:53.601949+00:00",
+  "guardrails": [
+    "evidence passes are limited to existing real GBIF occurrence and GenBank metadata layers",
+    "advanced model gates remain blocked until their required real data and QC artifacts exist",
+    "GBIF occurrence records are not human cases, host abundance, or infection risk",
+    "GenBank metadata accessions are not sequence-body phylogenetic evidence"
+  ],
+  "passed_qc": {
+    "gbif_candidate_occurrences_evidence": true,
+    "genbank_metadata_accession_evidence": true,
+    "genbank_usable_accession_subset_evidence": true
+  },
+  "schema_version": "0.1.0",
+  "status": "qc_complete_for_existing_metadata_and_descriptive_layers_only",
+  "validation_passed": true
+}

@@ -1,0 +1,116 @@
+{
+  "excluded_counts_by_final_use": {
+    "human_sequence_context_only": 6,
+    "reference_context_only_exclude_from_analysis": 6
+  },
+  "excluded_or_context_accessions": [
+    {
+      "accession": "NC_077671",
+      "final_use": "reference_context_only_exclude_from_analysis",
+      "host_species": "Peromyscus maniculatus",
+      "reason": "required provenance incomplete",
+      "virus_species": "Sin Nombre virus"
+    },
+    {
+      "accession": "NC_077670",
+      "final_use": "reference_context_only_exclude_from_analysis",
+      "host_species": "Peromyscus maniculatus",
+      "reason": "required provenance incomplete",
+      "virus_species": "Sin Nombre virus"
+    },
+    {
+      "accession": "NC_077669",
+      "final_use": "reference_context_only_exclude_from_analysis",
+      "host_species": "Peromyscus maniculatus",
+      "reason": "required provenance incomplete",
+      "virus_species": "Sin Nombre virus"
+    },
+    {
+      "accession": "NC_077668",
+      "final_use": "reference_context_only_exclude_from_analysis",
+      "host_species": "",
+      "reason": "required provenance incomplete",
+      "virus_species": "Puumala virus"
+    },
+    {
+      "accession": "NC_077667",
+      "final_use": "reference_context_only_exclude_from_analysis",
+      "host_species": "",
+      "reason": "required provenance incomplete",
+      "virus_species": "Puumala virus"
+    },
+    {
+      "accession": "NC_077666",
+      "final_use": "reference_context_only_exclude_from_analysis",
+      "host_species": "",
+      "reason": "required provenance incomplete",
+      "virus_species": "Puumala virus"
+    },
+    {
+      "accession": "PZ385163",
+      "final_use": "human_sequence_context_only",
+      "host_species": "Homo sapiens",
+      "reason": "human host; do not use as rodent host occurrence",
+      "virus_species": "Andes virus"
+    },
+    {
+      "accession": "PZ385162",
+      "final_use": "human_sequence_context_only",
+      "host_species": "Homo sapiens",
+      "reason": "human host; do not use as rodent host occurrence",
+      "virus_species": "Andes virus"
+    },
+    {
+      "accession": "PZ385161",
+      "final_use": "human_sequence_context_only",
+      "host_species": "Homo sapiens",
+      "reason": "human host; do not use as rodent host occurrence",
+      "virus_species": "Andes virus"
+    },
+    {
+      "accession": "PV808478",
+      "final_use": "human_sequence_context_only",
+      "host_species": "Homo sapiens",
+      "reason": "human host; do not use as rodent host occurrence",
+      "virus_species": "Andes virus"
+    },
+    {
+      "accession": "PV808475",
+      "final_use": "human_sequence_context_only",
+      "host_species": "Homo sapiens",
+      "reason": "human host; do not use as rodent host occurrence",
+      "virus_species": "Andes virus"
+    },
+    {
+      "accession": "PV808472",
+      "final_use": "human_sequence_context_only",
+      "host_species": "Homo sapiens",
+      "reason": "human host; do not use as rodent host occurrence",
+      "virus_species": "Andes virus"
+    }
+  ],
+  "excluded_or_context_count": 12,
+  "generated_at_utc": "2026-05-29T05:30:50.994119+00:00",
+  "guardrails": [
+    "metadata subset only; sequence bodies are not downloaded",
+    "usable accessions are genome metadata candidates, not host occurrence rows",
+    "do not infer phylogeny, reassortment, host-switch, spillover, Rt, or transmission dynamics",
+    "do not merge with GBIF occurrence, human surveillance, or environmental covariates in this gate"
+  ],
+  "record_count": 24,
+  "schema_version": "0.1.0",
+  "source_id": "genbank_hantavirus_segments",
+  "status": "usable_accession_subset_sealed",
+  "usable_accession_count": 12,
+  "usable_counts_by_segment": {
+    "L": 5,
+    "M": 2,
+    "S": 5
+  },
+  "usable_counts_by_virus": {
+    "Puumala virus": 3,
+    "Seoul virus": 6,
+    "Sin Nombre virus": 3
+  },
+  "validation_passed": true
+}

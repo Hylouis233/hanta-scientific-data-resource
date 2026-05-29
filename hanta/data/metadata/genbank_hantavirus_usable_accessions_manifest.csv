@@ -1,0 +1,13 @@
+accession,uid,virus_species,segment,host_species,country,collection_date,sequence_length,title,source_id
+PX401037,3069150945,Sin Nombre virus,S,Peromyscus sonoriensis,USA: Washington State,17-Jul-2023,2004,"Orthohantavirus sinnombreense strain PESO295 nucleocapsid (S) gene, complete cds",genbank_hantavirus_segments
+PX401036,3069150943,Sin Nombre virus,S,Peromyscus sonoriensis,USA: Washington State,17-Jul-2023,2004,"Orthohantavirus sinnombreense strain PESO287 nucleocapsid (S) gene, complete cds",genbank_hantavirus_segments
+PX401035,3069150941,Sin Nombre virus,S,Peromyscus sonoriensis,USA: Washington State,12-Jul-2023,2014,"Orthohantavirus sinnombreense strain PESO261 nucleocapsid (S) gene, complete cds",genbank_hantavirus_segments
+PQ723779,2897826021,Puumala virus,L,Myodes glareolus,Russia: The Republic of Tatarstan,2015,605,"Orthohantavirus puumalaense PUUV/Pestretsy/MG_273/2015 RNA-dependent RNA polymerase gene, partial cds",genbank_hantavirus_segments
+PQ723778,2897826019,Puumala virus,L,Myodes glareolus,Russia: The Republic of Tatarstan,2015,605,"Orthohantavirus puumalaense PUUV/Staraya_Pristan/MG_188/2015 RNA-dependent RNA polymerase gene, partial cds",genbank_hantavirus_segments
+PQ723777,2897826017,Puumala virus,L,Myodes glareolus,Russia: The Republic of Tatarstan,2015,605,"Orthohantavirus puumalaense PUUV/Teteevo/MG_167/2015 RNA-dependent RNA polymerase gene, partial cds",genbank_hantavirus_segments
+PZ165969,3331008411,Seoul virus,L,Rattus,"China: Hinggan League, Inner Mongolia",21-Mar-2025,6530,"Orthohantavirus seoulense isolate NMGMQ74 segment L, complete sequence",genbank_hantavirus_segments
+PZ165968,3331004863,Seoul virus,M,Rattus,"China: Hinggan League, Inner Mongolia",21-Mar-2025,3651,"Orthohantavirus seoulense isolate NMGMQ74 segment M, complete sequence",genbank_hantavirus_segments
+PZ118926,3330993749,Seoul virus,S,Rattus norvegicus,China,2024-10-16,1775,"Orthohantavirus seoulense isolate jinx2024066 segment S, complete sequence",genbank_hantavirus_segments
+PZ118921,3330993747,Seoul virus,M,Rattus norvegicus,China,2024-10-16,3671,"Orthohantavirus seoulense isolate jinx2024066 segment M, complete sequence",genbank_hantavirus_segments
+PZ118916,3330993745,Seoul virus,L,Rattus norvegicus,China,2024-10-16,6530,"Orthohantavirus seoulense isolate jinx2024066 segment L, complete sequence",genbank_hantavirus_segments
+PZ118925,3330991646,Seoul virus,S,Rattus norvegicus,China,2024-10-02,1776,"Orthohantavirus seoulense isolate jinx2024044 segment S, complete sequence",genbank_hantavirus_segments

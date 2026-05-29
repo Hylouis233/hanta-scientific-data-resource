@@ -47,6 +47,8 @@ def main() -> int:
     metadata_semantics_audit_present = (reports / "metadata_semantics_audit.md").exists()
     dvc_boundary_present = all((project_root / path).exists() for path in ["data/raw.dvc", "data/processed.dvc", "genomic_data.dvc", "results.dvc", "docs/dvc_data_boundary.md"])
     genbank_missing_triage_present = (reports / "genbank_missing_field_triage.json").exists() and (reports / "genbank_missing_field_triage.md").exists()
+    genbank_usable_subset = _load_json(project_root / "data" / "metadata" / "genbank_hantavirus_usable_accessions_manifest.json")
+    genbank_usable_accession_subset_present = genbank_usable_subset.get("validation_passed") is True and (project_root / "data" / "metadata" / "genbank_hantavirus_usable_accessions_manifest.csv").exists() and (reports / "genbank_usable_accessions.md").exists()
     gbif_download_request_present = (project_root / "data" / "metadata" / "gbif_download_request_package.json").exists() and (reports / "gbif_download_request_package.md").exists()
     gbif_download_manifest = _load_json(project_root / "data" / "metadata" / "gbif_rodent_occurrences_download_manifest.json")
     gbif_download_manifest_present = bool(gbif_download_manifest)
@@ -78,6 +80,7 @@ def main() -> int:
         "metadata_semantics_audit_present": metadata_semantics_audit_present,
         "dvc_boundary_present": dvc_boundary_present,
         "genbank_missing_triage_present": genbank_missing_triage_present,
+        "genbank_usable_accession_subset_present": genbank_usable_accession_subset_present,
         "gbif_download_request_present": gbif_download_request_present,
         "gbif_download_manifest_present": gbif_download_manifest_present,
         "gbif_official_download_identified": gbif_official_download_identified,
@@ -110,6 +113,8 @@ def main() -> int:
         "all_checks_passed": all_checks_passed,
         "scientific_claim": scientific_claim,
         "genbank_metadata_records": genbank_records,
+        "genbank_usable_accession_count": int(genbank_usable_subset.get("usable_accession_count", 0) or 0),
+        "genbank_excluded_or_context_count": int(genbank_usable_subset.get("excluded_or_context_count", 0) or 0),
         "gbif_query_metadata_records": gbif_records,
         "gbif_occurrence_archive_rows": int(gbif_archive_validation.get("row_count", 0) or 0),
         "gbif_occurrence_qc_candidate_rows": int(gbif_row_qc.get("descriptive_mapping_candidate_rows", 0) or 0),
@@ -123,6 +128,7 @@ def main() -> int:
         "metadata_semantics_audit_present": metadata_semantics_audit_present,
         "dvc_boundary_present": dvc_boundary_present,
         "genbank_missing_triage_present": genbank_missing_triage_present,
+        "genbank_usable_accession_subset_present": genbank_usable_accession_subset_present,
         "gbif_download_request_present": gbif_download_request_present,
         "gbif_download_manifest_present": gbif_download_manifest_present,
         "gbif_official_download_identified": gbif_official_download_identified,
@@ -142,6 +148,8 @@ def main() -> int:
     rows.extend(f"{name},{str(value).lower()}" for name, value in checks.items())
     rows.extend([
         f"genbank_metadata_records,{genbank_records}",
+        f"genbank_usable_accession_count,{int(genbank_usable_subset.get('usable_accession_count', 0) or 0)}",
+        f"genbank_excluded_or_context_count,{int(genbank_usable_subset.get('excluded_or_context_count', 0) or 0)}",
         f"gbif_query_metadata_records,{gbif_records}",
         f"gbif_occurrence_archive_rows,{int(gbif_archive_validation.get('row_count', 0) or 0)}",
         f"gbif_occurrence_qc_candidate_rows,{int(gbif_row_qc.get('descriptive_mapping_candidate_rows', 0) or 0)}",

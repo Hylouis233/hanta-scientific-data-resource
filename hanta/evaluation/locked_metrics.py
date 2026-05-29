@@ -11,6 +11,7 @@ LOCKED_METRICS = [
     "metadata_semantics_audit_present",
     "dvc_boundary_present",
     "genbank_missing_triage_present",
+    "genbank_usable_accession_subset_present",
     "gbif_download_request_present",
     "gbif_download_manifest_gate_ready",
     "gbif_official_download_gate_ready",

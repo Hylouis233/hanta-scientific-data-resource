@@ -11,6 +11,7 @@ gbif_second_layer_plan_present,true
 metadata_semantics_audit_present,true
 dvc_boundary_present,true
 genbank_missing_triage_present,true
+genbank_usable_accession_subset_present,true
 gbif_download_request_present,true
 gbif_download_manifest_present,true
 gbif_official_download_identified,true
@@ -23,6 +24,8 @@ gbif_candidate_subset_present,true
 third_layer_closeout_present,true
 no_modeling_guardrail_passed,true
 genbank_metadata_records,24
+genbank_usable_accession_count,12
+genbank_excluded_or_context_count,12
 gbif_query_metadata_records,5
 gbif_occurrence_archive_rows,740758
 gbif_occurrence_qc_candidate_rows,533900

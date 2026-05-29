@@ -1,0 +1,24 @@
+{
+  "amap_boundary_api": {
+    "boundary_output": "District.boundaries coordinate arrays",
+    "constraints": [
+      "requires AMap/Gaode API key and platform terms compliance",
+      "not treated as open boundary data in this repository",
+      "no raw AMap boundary cache is committed without an explicit licensed retrieval step"
+    ],
+    "extensions": "all",
+    "keyword": "\u5168\u56fd",
+    "level": "country",
+    "plugin": "AMap.DistrictSearch",
+    "subdistrict": 1
+  },
+  "generated_at_utc": "2026-05-29T11:14:59.491775+00:00",
+  "public_boundary_fallback": {
+    "reason": "geospatial libraries are not installed in the current environment; this gate produces a non-geographic grid choropleth prototype from sealed country counts",
+    "status": "planned_for_later_true_geographic_choropleth"
+  },
+  "requested_boundary_source": "AMap/Gaode DistrictSearch",
+  "schema_version": "0.1.0",
+  "status": "boundary_plan_recorded_no_boundary_cache_committed",
+  "validation_passed": true
+}

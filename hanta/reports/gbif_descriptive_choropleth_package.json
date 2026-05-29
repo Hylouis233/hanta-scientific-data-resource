@@ -1,0 +1,20 @@
+{
+  "boundary_plan": "data/metadata/gbif_choropleth_boundary_plan.json",
+  "country_count": 157,
+  "figure": "reports/figures/gbif_country_record_availability_choropleth_prototype.svg",
+  "generated_at_utc": "2026-05-29T11:14:59.570484+00:00",
+  "guardrails": [
+    "prototype shows GBIF record availability, not host abundance or infection risk",
+    "grid layout is non-geographic and must not be interpreted as a true map boundary product",
+    "AMap/Gaode boundary use requires an explicit licensed API-key retrieval step before true boundary maps",
+    "no Hanta modeling, Rt estimation, host-switch inference, spillover inference, or surveillance integration is performed"
+  ],
+  "record_count": 533900,
+  "schema_version": "0.1.0",
+  "status": "descriptive_choropleth_prototype_complete",
+  "top_country": {
+    "countryCode": "US",
+    "mapping_ready_rows": 152543
+  },
+  "validation_passed": true
+}

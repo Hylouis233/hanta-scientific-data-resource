@@ -39,6 +39,7 @@ LOCKED_METRICS = [
     "host_trapping_screening_plan_present",
     "hanta_write_ready_closeout_present",
     "hanta_advanced_models_publication_figures_plan_present",
+    "advanced_gate_readiness_plan_present",
     "third_layer_closeout_present",
     "no_modeling_guardrail_passed",
 ]

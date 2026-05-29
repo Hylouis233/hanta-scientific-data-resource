@@ -122,6 +122,8 @@ def main() -> int:
     hanta_write_ready_closeout_present = hanta_write_ready_closeout.get("validation_passed") is True and hanta_write_ready_closeout.get("status") == "hanta_write_ready_closeout_complete" and (reports / "hanta_write_ready_closeout.md").exists() and (tables / "hanta_write_ready_figures.csv").exists()
     hanta_advanced_models_publication_figures_plan = _load_json(reports / "hanta_advanced_models_publication_figures_plan.json")
     hanta_advanced_models_publication_figures_plan_present = hanta_advanced_models_publication_figures_plan.get("validation_passed") is True and hanta_advanced_models_publication_figures_plan.get("status") == "advanced_models_publication_figures_plan_complete" and (reports / "hanta_advanced_models_publication_figures_plan.md").exists() and (tables / "hanta_advanced_model_gate_matrix.csv").exists() and (tables / "hanta_publication_figure_spec.csv").exists()
+    advanced_gate_readiness_plan = _load_json(reports / "hanta_advanced_gate_readiness_plan.json")
+    advanced_gate_readiness_plan_present = advanced_gate_readiness_plan.get("validation_passed") is True and advanced_gate_readiness_plan.get("status") == "readiness_plan_only_no_advanced_gate_passed" and (reports / "hanta_advanced_gate_readiness_plan.md").exists() and (tables / "hanta_advanced_gate_readiness_matrix.csv").exists() and (tables / "hanta_advanced_required_fields.csv").exists()
     third_layer_closeout_present = (reports / "third_layer_real_data_closeout.md").exists()
 
     checks = {
@@ -167,6 +169,7 @@ def main() -> int:
         "host_trapping_screening_plan_present": host_trapping_screening_plan_present,
         "hanta_write_ready_closeout_present": hanta_write_ready_closeout_present,
         "hanta_advanced_models_publication_figures_plan_present": hanta_advanced_models_publication_figures_plan_present,
+        "advanced_gate_readiness_plan_present": advanced_gate_readiness_plan_present,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -246,6 +249,7 @@ def main() -> int:
         "host_trapping_screening_plan_present": host_trapping_screening_plan_present,
         "hanta_write_ready_closeout_present": hanta_write_ready_closeout_present,
         "hanta_advanced_models_publication_figures_plan_present": hanta_advanced_models_publication_figures_plan_present,
+        "advanced_gate_readiness_plan_present": advanced_gate_readiness_plan_present,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -284,6 +288,7 @@ def main() -> int:
         f"host_trapping_screening_plan_present,{str(host_trapping_screening_plan_present).lower()}",
         f"hanta_write_ready_closeout_present,{str(hanta_write_ready_closeout_present).lower()}",
         f"hanta_advanced_models_publication_figures_plan_present,{str(hanta_advanced_models_publication_figures_plan_present).lower()}",
+        f"advanced_gate_readiness_plan_present,{str(advanced_gate_readiness_plan_present).lower()}",
         f"genbank_accession_audit_present,{str(genbank_accession_audit_present).lower()}",
         f"gbif_second_layer_plan_present,{str(gbif_second_layer_plan_present).lower()}",
         f"metadata_semantics_audit_present,{str(metadata_semantics_audit_present).lower()}",

@@ -1,0 +1,264 @@
+{
+  "evaluation_metric_name": "advanced_gate_readiness_plan_present",
+  "fail_criteria": [
+    "placeholder or planning-only data are used as analysis inputs",
+    "join keys, CRS, dates, case definition, effort, sequence body, or provenance are missing",
+    "bias review finds high_unmitigated risk",
+    "any claim is stronger than the supporting data and design"
+  ],
+  "generated_at_utc": "2026-05-29T18:37:57.339804+00:00",
+  "guardrails": [
+    "this readiness plan does not make advanced gates pass",
+    "real data must be ingested, DVC-tracked, schema-validated, and bias-reviewed before any advanced module can execute",
+    "planning completeness is not scientific evidence or model readiness"
+  ],
+  "modules": [
+    {
+      "bias_review_required": [
+        "spatial sampling bias",
+        "background selection",
+        "spatial autocorrelation",
+        "modifiable areal unit sensitivity"
+      ],
+      "claim_boundary": "suitability only unless a valid risk outcome is approved",
+      "current_status": "blocked_pending_real_data",
+      "fail_criteria": "metadata-only covariates, missing target/background design, unreviewed spatial bias, or risk language without outcome",
+      "gate_id": "environmental_covariates_schema",
+      "minimum_pass_criteria": "real covariates and target/background design exist; bias risk is not high_unmitigated; QC summaries pass predeclared thresholds",
+      "module_id": "environmental_suitability_or_risk_map",
+      "qc_checks": [
+        "CRS alignment",
+        "resolution harmonization",
+        "covariate missingness",
+        "spatial block split definition",
+        "background sensitivity"
+      ],
+      "required_data_artifacts": [
+        "DVC-tracked environmental covariate files with file-level metadata",
+        "approved target outcome table or explicit suitability-only target definition",
+        "background/negative sampling design document"
+      ],
+      "required_schema_fields": [
+        "source_id",
+        "variable_name",
+        "version",
+        "download_date",
+        "crs",
+        "resolution",
+        "temporal_coverage_start",
+        "temporal_coverage_end",
+        "spatial_extent",
+        "license_or_terms",
+        "missingness_policy"
+      ]
+    },
+    {
+      "bias_review_required": [
+        "survey design representativeness",
+        "detection heterogeneity",
+        "location disclosure",
+        "effort completeness"
+      ],
+      "claim_boundary": "no abundance inference without effort-screened trapping data",
+      "current_status": "blocked_pending_real_data",
+      "fail_criteria": "GBIF occurrence density only, missing effort, missing counts, or unverifiable survey design",
+      "gate_id": "host_trapping_screening",
+      "minimum_pass_criteria": "effort and count fields exist for retained records; location/date are adequate; bias risk is mitigated or explicitly bounded",
+      "module_id": "host_abundance_model",
+      "qc_checks": [
+        "effort completeness",
+        "count-effort join",
+        "date/location completeness",
+        "species standardization",
+        "duplicate event review"
+      ],
+      "required_data_artifacts": [
+        "DVC-tracked host trapping files",
+        "trap effort/trap-night table",
+        "species count or capture table",
+        "location/date table"
+      ],
+      "required_schema_fields": [
+        "source_id",
+        "species",
+        "event_date",
+        "trap_effort",
+        "count_or_capture",
+        "coordinate_or_admin_area",
+        "license_or_terms"
+      ]
+    },
+    {
+      "bias_review_required": [
+        "case-definition comparability",
+        "reporting completeness",
+        "privacy suppression",
+        "denominator/exposure choice"
+      ],
+      "claim_boundary": "aggregate case mapping only, not individual risk",
+      "current_status": "blocked_pending_real_data",
+      "fail_criteria": "narrative-only reports, missing case definition, missing period/geography, or unsafe small-cell disclosure",
+      "gate_id": "human_surveillance_schema",
+      "minimum_pass_criteria": "public aggregate case table passes schema and privacy checks; reporting geography and period are explicit",
+      "module_id": "human_case_mapping",
+      "qc_checks": [
+        "case count numeric validation",
+        "date interval validation",
+        "admin-name harmonization",
+        "suppressed-cell preservation"
+      ],
+      "required_data_artifacts": [
+        "DVC-tracked public surveillance table",
+        "case definition/provenance note",
+        "privacy suppression policy"
+      ],
+      "required_schema_fields": [
+        "source_id",
+        "source_url_or_citation",
+        "access_date",
+        "case_definition",
+        "syndrome",
+        "reporting_period_start",
+        "reporting_period_end",
+        "admin_level",
+        "admin_name",
+        "case_count",
+        "privacy_suppression_rule",
+        "license_or_terms"
+      ]
+    },
+    {
+      "bias_review_required": [
+        "reporting delay",
+        "right truncation",
+        "case definition stability",
+        "minimum count sufficiency"
+      ],
+      "claim_boundary": "formal Rt only after transmission-specific assumptions pass",
+      "current_status": "blocked_pending_real_data",
+      "fail_criteria": "annual-only counts, descriptive growth proxy, missing interval, or unstable reporting definition",
+      "gate_id": "rt_analysis_scope",
+      "minimum_pass_criteria": "disease-specific subannual incidence and interval assumptions pass QC and sensitivity protocol",
+      "module_id": "rt_estimation",
+      "qc_checks": [
+        "subannual time resolution",
+        "nonnegative incidence",
+        "date continuity",
+        "minimum count threshold",
+        "interval sensitivity"
+      ],
+      "required_data_artifacts": [
+        "DVC-tracked incidence time series",
+        "serial/generation interval source",
+        "reporting-delay and censoring protocol"
+      ],
+      "required_schema_fields": [
+        "disease_scope",
+        "case_time_series_source",
+        "case_definition",
+        "time_unit",
+        "reporting_delay_policy",
+        "serial_interval_source",
+        "right_truncation_policy",
+        "estimation_method"
+      ]
+    },
+    {
+      "bias_review_required": [
+        "post-hoc join avoidance",
+        "spatial/temporal alignment",
+        "sampling bias",
+        "duplication/missingness"
+      ],
+      "claim_boundary": "association/design only unless causal design is approved",
+      "current_status": "blocked_pending_real_data",
+      "fail_criteria": "post-hoc exploratory join, missing keys, non-overlapping time/space, or high_unmitigated bias",
+      "gate_id": "cross_source_join_bias_review",
+      "minimum_pass_criteria": "join protocol is pre-specified; unmatched/missingness are quantified; high bias is mitigated or module skipped",
+      "module_id": "spillover_or_surveillance_join",
+      "qc_checks": [
+        "join cardinality",
+        "unmatched records",
+        "temporal overlap",
+        "spatial unit consistency",
+        "bias-risk rating"
+      ],
+      "required_data_artifacts": [
+        "approved left/right source tables",
+        "pre-specified spatial join keys",
+        "pre-specified temporal windows",
+        "bias review report"
+      ],
+      "required_schema_fields": [
+        "left_source_id",
+        "right_source_id",
+        "join_key",
+        "spatial_alignment_rule",
+        "temporal_alignment_rule",
+        "duplication_policy",
+        "missingness_policy",
+        "bias_risk_rating",
+        "approved_use"
+      ]
+    },
+    {
+      "bias_review_required": [
+        "submitter metadata reliability",
+        "sampling imbalance",
+        "segment/reassortment uncertainty",
+        "lab strain exclusion"
+      ],
+      "claim_boundary": "host-switch inference only after sequence-body phylogeny gates pass",
+      "current_status": "blocked_pending_real_data",
+      "fail_criteria": "metadata-only accessions, missing sequence bodies, ambiguous hosts, or no phylogenetic uncertainty propagation",
+      "gate_id": "sequence_body_download_plan",
+      "minimum_pass_criteria": "sequence bodies and metadata pass segment-specific QC; phylogenetic design and uncertainty plan are approved",
+      "module_id": "host_switch_phylogenetic_inference",
+      "qc_checks": [
+        "sequence length",
+        "segment identity",
+        "host/date/location completeness",
+        "duplicate isolate review",
+        "alignment quality",
+        "tree uncertainty"
+      ],
+      "required_data_artifacts": [
+        "DVC-tracked sequence bodies",
+        "GenBank flatfile metadata",
+        "taxonomy review",
+        "alignment and tree design"
+      ],
+      "required_schema_fields": [
+        "accession",
+        "segment",
+        "virus_species",
+        "host_species",
+        "country",
+        "collection_date",
+        "sequence_length",
+        "download_date",
+        "license_or_terms",
+        "quality_exclusion_reason"
+      ]
+    }
+  ],
+  "pass_criteria": [
+    "all required real data files exist under DVC-tracked boundaries",
+    "source provenance, license, extraction date, and version are present",
+    "schema required fields are complete or exclusions are documented",
+    "missingness is below a predeclared threshold or justified",
+    "bias review is completed with bias_risk_rating not high_unmitigated for executable modules",
+    "module-specific QC passes before model execution"
+  ],
+  "required_artifacts": [
+    "data/metadata/environmental_covariate_file_manifest.json",
+    "data/metadata/human_surveillance_intake_manifest.json",
+    "data/metadata/sequence_body_download_manifest.json",
+    "data/metadata/host_trapping_file_screening_manifest.json",
+    "reports/hanta_advanced_bias_review.json",
+    "reports/hanta_advanced_qc_summary.json"
+  ],
+  "schema_version": "0.1.0",
+  "status": "readiness_plan_only_no_advanced_gate_passed",
+  "validation_passed": true
+}

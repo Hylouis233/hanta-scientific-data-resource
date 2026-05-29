@@ -1,0 +1,19 @@
+{
+  "allowed_target": "GBIF candidate host occurrence presence/background suitability only after explicit approval",
+  "background_design": "spatial background must be generated within an approved accessible-area mask and sensitivity-tested; not generated in this gate",
+  "blocked_targets": [
+    "human infection risk",
+    "host abundance",
+    "spillover risk",
+    "Rt",
+    "causal intervention effect"
+  ],
+  "generated_at_utc": "2026-05-29T19:00:54.939190+00:00",
+  "guardrails": [
+    "target/background design declaration is not model execution",
+    "WorldClim covariates alone do not define risk"
+  ],
+  "schema_version": "0.1.0",
+  "status": "target_background_design_declared_for_future_modeling",
+  "validation_passed": true
+}

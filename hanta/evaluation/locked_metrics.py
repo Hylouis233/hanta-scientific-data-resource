@@ -43,6 +43,7 @@ LOCKED_METRICS = [
     "advanced_gate_existing_evidence_present",
     "sequence_body_download_real_data_present",
     "host_trapping_real_data_present",
+    "environmental_covariate_real_data_present",
     "third_layer_closeout_present",
     "no_modeling_guardrail_passed",
 ]

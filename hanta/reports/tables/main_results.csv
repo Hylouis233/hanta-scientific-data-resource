@@ -45,6 +45,7 @@ advanced_gate_readiness_plan_present,true
 advanced_gate_existing_evidence_present,true
 sequence_body_download_real_data_present,true
 host_trapping_real_data_present,true
+environmental_covariate_real_data_present,true
 third_layer_closeout_present,true
 no_modeling_guardrail_passed,true
 genbank_metadata_records,24
@@ -80,6 +81,7 @@ advanced_gate_readiness_plan_present,true
 advanced_gate_existing_evidence_present,true
 sequence_body_download_real_data_present,true
 host_trapping_real_data_present,true
+environmental_covariate_real_data_present,true
 genbank_accession_audit_present,true
 gbif_second_layer_plan_present,true
 metadata_semantics_audit_present,true

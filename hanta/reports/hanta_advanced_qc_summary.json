@@ -8,7 +8,11 @@
     "rt_estimation": "blocked_no_subannual_incidence_time_series_or_interval_protocol",
     "spillover_or_surveillance_join": "blocked_no_approved_cross_source_join_or_bias_review_for_real_inputs"
   },
-  "generated_at_utc": "2026-05-29T18:55:47.274954+00:00",
+  "environmental_covariate_file_qc_passed": true,
+  "environmental_covariate_source_count": 2,
+  "environmental_model_gate_status": "covariate_intake_passed_model_still_blocked_pending_background_generation_and_bias_review",
+  "environmental_target_background_design_present": true,
+  "generated_at_utc": "2026-05-29T19:00:54.939190+00:00",
   "guardrails": [
     "evidence passes are limited to existing real GBIF occurrence and GenBank metadata layers",
     "advanced model gates remain blocked until their required real data and QC artifacts exist",

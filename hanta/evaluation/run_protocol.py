@@ -137,6 +137,8 @@ def main() -> int:
     sequence_body_download_real_data_present = sequence_body_download_manifest.get("validation_passed") is True and sequence_body_download_manifest.get("downloaded_accession_count", 0) == sequence_body_download_manifest.get("requested_accession_count", -1) and (project_root / "genomic_data.dvc").exists() and (project_root / "data" / "metadata" / "sequence_body_download_manifest.json.dvc").exists() and (reports / "sequence_body_download_qc.md.dvc").exists() and (reports / "hanta_sequence_body_gate_review.md").exists()
     host_trapping_file_screening_manifest = _load_json(project_root / "data" / "metadata" / "host_trapping_file_screening_manifest.json")
     host_trapping_real_data_present = host_trapping_file_screening_manifest.get("validation_passed") is True and host_trapping_file_screening_manifest.get("source_count", 0) >= 2 and (project_root / "data" / "raw.dvc").exists() and (project_root / "data" / "metadata" / "host_trapping_file_screening_manifest.json.dvc").exists() and (reports / "host_trapping_file_screening_qc.md.dvc").exists() and (reports / "hanta_host_trapping_gate_review.md").exists()
+    environmental_covariate_file_manifest = _load_json(project_root / "data" / "metadata" / "environmental_covariate_file_manifest.json")
+    environmental_covariate_real_data_present = environmental_covariate_file_manifest.get("validation_passed") is True and environmental_covariate_file_manifest.get("source_count", 0) >= 2 and (project_root / "data" / "raw.dvc").exists() and (project_root / "data" / "metadata" / "environmental_covariate_file_manifest.json.dvc").exists() and (project_root / "data" / "metadata" / "environmental_target_background_design.json").exists() and (reports / "environmental_covariate_file_qc.md.dvc").exists() and (reports / "hanta_environmental_covariate_gate_review.md").exists()
     third_layer_closeout_present = (reports / "third_layer_real_data_closeout.md").exists()
 
     checks = {
@@ -186,6 +188,7 @@ def main() -> int:
         "advanced_gate_existing_evidence_present": advanced_gate_existing_evidence_present,
         "sequence_body_download_real_data_present": sequence_body_download_real_data_present,
         "host_trapping_real_data_present": host_trapping_real_data_present,
+        "environmental_covariate_real_data_present": environmental_covariate_real_data_present,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -269,6 +272,7 @@ def main() -> int:
         "advanced_gate_existing_evidence_present": advanced_gate_existing_evidence_present,
         "sequence_body_download_real_data_present": sequence_body_download_real_data_present,
         "host_trapping_real_data_present": host_trapping_real_data_present,
+        "environmental_covariate_real_data_present": environmental_covariate_real_data_present,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -311,6 +315,7 @@ def main() -> int:
         f"advanced_gate_existing_evidence_present,{str(advanced_gate_existing_evidence_present).lower()}",
         f"sequence_body_download_real_data_present,{str(sequence_body_download_real_data_present).lower()}",
         f"host_trapping_real_data_present,{str(host_trapping_real_data_present).lower()}",
+        f"environmental_covariate_real_data_present,{str(environmental_covariate_real_data_present).lower()}",
         f"genbank_accession_audit_present,{str(genbank_accession_audit_present).lower()}",
         f"gbif_second_layer_plan_present,{str(gbif_second_layer_plan_present).lower()}",
         f"metadata_semantics_audit_present,{str(metadata_semantics_audit_present).lower()}",

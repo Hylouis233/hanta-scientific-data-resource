@@ -5,6 +5,7 @@
     "data_sources_registered": true,
     "dvc_boundary_present": true,
     "evaluation_protocol_present": true,
+    "gbif_candidate_subset_present": true,
     "gbif_download_manifest_gate_ready": true,
     "gbif_download_manifest_present": true,
     "gbif_download_request_present": true,
@@ -25,6 +26,8 @@
     "third_layer_closeout_present": true
   },
   "dvc_boundary_present": true,
+  "gbif_candidate_subset_present": true,
+  "gbif_candidate_subset_rows": 533900,
   "gbif_download_doi_pending": true,
   "gbif_download_manifest_gate_ready": true,
   "gbif_download_manifest_present": true,
@@ -43,7 +46,7 @@
   "genbank_accession_audit_present": true,
   "genbank_metadata_records": 24,
   "genbank_missing_triage_present": true,
-  "generated_at_utc": "2026-05-29T02:41:06.365207+00:00",
+  "generated_at_utc": "2026-05-29T03:00:38.222779+00:00",
   "locked_metrics": [
     "data_sources_registered",
     "authenticity_policy_present",
@@ -63,6 +66,7 @@
     "gbif_raw_occurrence_path_ready",
     "gbif_occurrence_archive_validated",
     "gbif_occurrence_row_qc_present",
+    "gbif_candidate_subset_present",
     "third_layer_closeout_present",
     "no_modeling_guardrail_passed"
   ],

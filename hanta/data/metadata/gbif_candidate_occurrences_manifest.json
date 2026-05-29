@@ -1,0 +1,62 @@
+{
+  "basis_of_record_counts": {
+    "FOSSIL_SPECIMEN": 1,
+    "HUMAN_OBSERVATION": 292712,
+    "LIVING_SPECIMEN": 41,
+    "MACHINE_OBSERVATION": 39425,
+    "MATERIAL_CITATION": 1811,
+    "MATERIAL_SAMPLE": 527,
+    "OBSERVATION": 18,
+    "OCCURRENCE": 555,
+    "PRESERVED_SPECIMEN": 198810
+  },
+  "candidate_fields": [
+    "gbifID",
+    "species",
+    "eventDate",
+    "decimalLatitude",
+    "decimalLongitude",
+    "coordinateUncertaintyInMeters",
+    "basisOfRecord",
+    "countryCode",
+    "datasetKey",
+    "license"
+  ],
+  "candidate_row_count_matches_qc": true,
+  "candidate_rows": 533900,
+  "candidate_rule": {
+    "requires_coordinate_uncertainty_meters": true,
+    "requires_decimal_latitude": true,
+    "requires_decimal_longitude": true,
+    "requires_event_date": true,
+    "target_species": [
+      "Apodemus agrarius",
+      "Myodes glareolus",
+      "Oligoryzomys longicaudatus",
+      "Peromyscus maniculatus",
+      "Rattus norvegicus"
+    ]
+  },
+  "candidate_subset_path": "data/processed/gbif_rodent_occurrences/candidate_occurrences.tsv.gz",
+  "doi": "10.15468/dl.t7u3zm",
+  "download_key": "0021747-260519110011954",
+  "generated_at_utc": "2026-05-29T02:59:17.245433+00:00",
+  "guardrails": [
+    "candidate subset contains host occurrence rows only, not human cases",
+    "candidate subset is for descriptive mapping preparation only",
+    "no modeling, Rt estimation, spillover inference, or human surveillance integration is performed"
+  ],
+  "qc_report_candidate_rows": 533900,
+  "schema_version": "0.1.0",
+  "source_archive_path": "data/raw/gbif_rodent_occurrences/0021747-260519110011954.zip",
+  "source_csv_member": "0021747-260519110011954.csv",
+  "species_counts": {
+    "Apodemus agrarius": 10813,
+    "Myodes glareolus": 145325,
+    "Oligoryzomys longicaudatus": 1961,
+    "Peromyscus maniculatus": 160529,
+    "Rattus norvegicus": 215272
+  },
+  "total_source_rows": 740758,
+  "validation_passed": true
+}

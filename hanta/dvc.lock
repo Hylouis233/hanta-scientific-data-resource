@@ -14,14 +14,14 @@ stages:
       isexec: true
     - path: evaluation/run_protocol.py
       hash: md5
-      md5: 05b6bd87f9ce42ffaf1a359db399cde4
-      size: 10128
+      md5: 2719273bd6ccfe51d40e1d397d220b73
+      size: 10789
     outs:
     - path: reports/current_metrics.json
       hash: md5
-      md5: 3dfdc1009c17bc60c33c8331006e6631
-      size: 2892
+      md5: 6c751f2be5e2423e517f4c2b665bc434
+      size: 3053
     - path: reports/tables/main_results.csv
       hash: md5
-      md5: fd6f2f74f5b1415af23a0d65a38c887a
-      size: 1256
+      md5: 721939cc261dcad92a4d2e7db3533aef
+      size: 1325

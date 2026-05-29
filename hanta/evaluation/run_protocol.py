@@ -61,6 +61,8 @@ def main() -> int:
         "data/processed/gbif_rodent_occurrences/exclusion_reason_summary.csv",
         "data/processed/gbif_rodent_occurrences/required_field_missingness.csv",
     ])
+    gbif_candidate_subset = _load_json(project_root / "data" / "metadata" / "gbif_candidate_occurrences_manifest.json")
+    gbif_candidate_subset_present = gbif_candidate_subset.get("validation_passed") is True and (project_root / "data" / "processed" / "gbif_rodent_occurrences" / "candidate_occurrences.tsv.gz").exists()
     third_layer_closeout_present = (reports / "third_layer_real_data_closeout.md").exists()
 
     checks = {
@@ -84,6 +86,7 @@ def main() -> int:
         "gbif_raw_occurrence_path_ready": gbif_raw_occurrence_path_ready,
         "gbif_occurrence_archive_validated": gbif_occurrence_archive_validated,
         "gbif_occurrence_row_qc_present": gbif_occurrence_row_qc_present,
+        "gbif_candidate_subset_present": gbif_candidate_subset_present,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -110,6 +113,7 @@ def main() -> int:
         "gbif_query_metadata_records": gbif_records,
         "gbif_occurrence_archive_rows": int(gbif_archive_validation.get("row_count", 0) or 0),
         "gbif_occurrence_qc_candidate_rows": int(gbif_row_qc.get("descriptive_mapping_candidate_rows", 0) or 0),
+        "gbif_candidate_subset_rows": int(gbif_candidate_subset.get("candidate_rows", 0) or 0),
         "gbif_occurrence_qc_exclude_or_review_rows": int(gbif_row_qc.get("exclude_or_review_rows", 0) or 0),
         "metadata_validation_passed": metadata_validation_passed,
         "genbank_accession_audit_needed": genbank_validation.get("status") == "metadata_ingested_needs_accession_audit",
@@ -127,6 +131,7 @@ def main() -> int:
         "gbif_raw_occurrence_path_ready": gbif_raw_occurrence_path_ready,
         "gbif_occurrence_archive_validated": gbif_occurrence_archive_validated,
         "gbif_occurrence_row_qc_present": gbif_occurrence_row_qc_present,
+        "gbif_candidate_subset_present": gbif_candidate_subset_present,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -140,6 +145,7 @@ def main() -> int:
         f"gbif_query_metadata_records,{gbif_records}",
         f"gbif_occurrence_archive_rows,{int(gbif_archive_validation.get('row_count', 0) or 0)}",
         f"gbif_occurrence_qc_candidate_rows,{int(gbif_row_qc.get('descriptive_mapping_candidate_rows', 0) or 0)}",
+        f"gbif_candidate_subset_rows,{int(gbif_candidate_subset.get('candidate_rows', 0) or 0)}",
         f"gbif_occurrence_qc_exclude_or_review_rows,{int(gbif_row_qc.get('exclude_or_review_rows', 0) or 0)}",
         f"metadata_validation_passed,{str(metadata_validation_passed).lower()}",
         f"genbank_accession_audit_present,{str(genbank_accession_audit_present).lower()}",

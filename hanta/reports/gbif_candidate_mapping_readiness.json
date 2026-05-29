@@ -1,0 +1,29 @@
+{
+  "candidate_rows": 533900,
+  "candidate_subset_path": "data/processed/gbif_rodent_occurrences/candidate_occurrences.tsv.gz",
+  "coordinate_issue_counts": {},
+  "country_count": 157,
+  "doi": "10.15468/dl.t7u3zm",
+  "download_key": "0021747-260519110011954",
+  "duplicate_gbif_ids": 0,
+  "generated_at_utc": "2026-05-29T08:26:30.042491+00:00",
+  "guardrails": [
+    "descriptive mapping readiness only; no map-based risk model is produced",
+    "GBIF candidate rows are host occurrences, not human cases",
+    "no Hanta modeling, Rt estimation, spillover inference, host-switch inference, or surveillance integration is performed"
+  ],
+  "mapping_excluded_rows": 0,
+  "mapping_ready_rows": 533900,
+  "outputs": {
+    "basis_of_record_summary": "data/processed/gbif_rodent_occurrences/mapping_readiness/basis_of_record_mapping_summary.csv",
+    "country_summary": "data/processed/gbif_rodent_occurrences/mapping_readiness/country_mapping_summary.csv",
+    "species_country_summary": "data/processed/gbif_rodent_occurrences/mapping_readiness/species_country_mapping_summary.csv",
+    "species_summary": "data/processed/gbif_rodent_occurrences/mapping_readiness/species_mapping_summary.csv",
+    "species_year_summary": "data/processed/gbif_rodent_occurrences/mapping_readiness/species_year_mapping_summary.csv"
+  },
+  "schema_version": "0.1.0",
+  "species_count": 5,
+  "validation_passed": true,
+  "year_max": 2026,
+  "year_min": 1770
+}

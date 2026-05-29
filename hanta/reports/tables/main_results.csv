@@ -22,6 +22,7 @@ gbif_occurrence_archive_validated,true
 gbif_occurrence_row_qc_present,true
 gbif_candidate_subset_present,true
 hanta_real_data_closeout_present,true
+gbif_mapping_readiness_present,true
 third_layer_closeout_present,true
 no_modeling_guardrail_passed,true
 genbank_metadata_records,24
@@ -31,6 +32,9 @@ gbif_query_metadata_records,5
 gbif_occurrence_archive_rows,740758
 gbif_occurrence_qc_candidate_rows,533900
 gbif_candidate_subset_rows,533900
+gbif_mapping_ready_rows,533900
+gbif_mapping_excluded_rows,0
+gbif_mapping_country_count,157
 gbif_occurrence_qc_exclude_or_review_rows,206858
 metadata_validation_passed,true
 genbank_accession_audit_present,true

@@ -67,6 +67,14 @@ def main() -> int:
     gbif_candidate_subset_present = gbif_candidate_subset.get("validation_passed") is True and (project_root / "data" / "processed" / "gbif_rodent_occurrences" / "candidate_occurrences.tsv.gz").exists()
     hanta_real_data_closeout = _load_json(reports / "hanta_real_data_closeout.json")
     hanta_real_data_closeout_present = hanta_real_data_closeout.get("validation_passed") is True and (reports / "hanta_real_data_closeout.md").exists()
+    gbif_mapping_readiness = _load_json(reports / "gbif_candidate_mapping_readiness.json")
+    gbif_mapping_readiness_present = gbif_mapping_readiness.get("validation_passed") is True and all((project_root / path).exists() for path in [
+        "data/processed/gbif_rodent_occurrences/mapping_readiness/species_mapping_summary.csv",
+        "data/processed/gbif_rodent_occurrences/mapping_readiness/country_mapping_summary.csv",
+        "data/processed/gbif_rodent_occurrences/mapping_readiness/species_country_mapping_summary.csv",
+        "data/processed/gbif_rodent_occurrences/mapping_readiness/species_year_mapping_summary.csv",
+        "data/processed/gbif_rodent_occurrences/mapping_readiness/basis_of_record_mapping_summary.csv",
+    ])
     third_layer_closeout_present = (reports / "third_layer_real_data_closeout.md").exists()
 
     checks = {
@@ -93,6 +101,7 @@ def main() -> int:
         "gbif_occurrence_row_qc_present": gbif_occurrence_row_qc_present,
         "gbif_candidate_subset_present": gbif_candidate_subset_present,
         "hanta_real_data_closeout_present": hanta_real_data_closeout_present,
+        "gbif_mapping_readiness_present": gbif_mapping_readiness_present,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -123,6 +132,10 @@ def main() -> int:
         "gbif_occurrence_qc_candidate_rows": int(gbif_row_qc.get("descriptive_mapping_candidate_rows", 0) or 0),
         "gbif_candidate_subset_rows": int(gbif_candidate_subset.get("candidate_rows", 0) or 0),
         "hanta_real_data_closeout_present": hanta_real_data_closeout_present,
+        "gbif_mapping_readiness_present": gbif_mapping_readiness_present,
+        "gbif_mapping_ready_rows": int(gbif_mapping_readiness.get("mapping_ready_rows", 0) or 0),
+        "gbif_mapping_excluded_rows": int(gbif_mapping_readiness.get("mapping_excluded_rows", 0) or 0),
+        "gbif_mapping_country_count": int(gbif_mapping_readiness.get("country_count", 0) or 0),
         "gbif_occurrence_qc_exclude_or_review_rows": int(gbif_row_qc.get("exclude_or_review_rows", 0) or 0),
         "metadata_validation_passed": metadata_validation_passed,
         "genbank_accession_audit_needed": genbank_validation.get("status") == "metadata_ingested_needs_accession_audit",
@@ -143,6 +156,7 @@ def main() -> int:
         "gbif_occurrence_row_qc_present": gbif_occurrence_row_qc_present,
         "gbif_candidate_subset_present": gbif_candidate_subset_present,
         "hanta_real_data_closeout_present": hanta_real_data_closeout_present,
+        "gbif_mapping_readiness_present": gbif_mapping_readiness_present,
         "third_layer_closeout_present": third_layer_closeout_present,
         "no_modeling_guardrail_passed": no_modeling_guardrail_passed,
     }
@@ -159,6 +173,9 @@ def main() -> int:
         f"gbif_occurrence_archive_rows,{int(gbif_archive_validation.get('row_count', 0) or 0)}",
         f"gbif_occurrence_qc_candidate_rows,{int(gbif_row_qc.get('descriptive_mapping_candidate_rows', 0) or 0)}",
         f"gbif_candidate_subset_rows,{int(gbif_candidate_subset.get('candidate_rows', 0) or 0)}",
+        f"gbif_mapping_ready_rows,{int(gbif_mapping_readiness.get('mapping_ready_rows', 0) or 0)}",
+        f"gbif_mapping_excluded_rows,{int(gbif_mapping_readiness.get('mapping_excluded_rows', 0) or 0)}",
+        f"gbif_mapping_country_count,{int(gbif_mapping_readiness.get('country_count', 0) or 0)}",
         f"gbif_occurrence_qc_exclude_or_review_rows,{int(gbif_row_qc.get('exclude_or_review_rows', 0) or 0)}",
         f"metadata_validation_passed,{str(metadata_validation_passed).lower()}",
         f"genbank_accession_audit_present,{str(genbank_accession_audit_present).lower()}",

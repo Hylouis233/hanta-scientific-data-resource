@@ -13,14 +13,14 @@
   "environmental_model_gate_status": "pilot_extraction_table_passed_model_still_blocked_pending_accessible_area_background_and_spatial_bias_review",
   "environmental_suitability_pilot_table_passed": true,
   "environmental_target_background_design_present": true,
-  "generated_at_utc": "2026-05-30T02:47:08.104167+00:00",
+  "generated_at_utc": "2026-05-30T05:51:24.314875+00:00",
   "guardrails": [
     "evidence passes are limited to existing real GBIF occurrence and GenBank metadata layers",
     "advanced model gates remain blocked until their required real data and QC artifacts exist",
     "GBIF occurrence records are not human cases, host abundance, or infection risk",
     "GenBank metadata accessions are not sequence-body phylogenetic evidence"
   ],
-  "host_abundance_gate_status": "study_design_semantics_passed_model_formula_pending",
+  "host_abundance_gate_status": "low_scope_within_study_detection_diagnostics_supported_global_abundance_blocked",
   "host_trapping_file_screening_qc_passed": true,
   "host_trapping_source_count": 2,
   "host_trapping_study_design_semantics_passed": true,
@@ -33,8 +33,11 @@
   "schema_version": "0.1.0",
   "sequence_body_download_qc_passed": true,
   "sequence_body_downloaded_accession_count": 12,
-  "sequence_body_gate_status": "sequence_bodies_present_phylogeny_still_blocked",
+  "sequence_body_gate_status": "sequence_qc_possible_alignment_design_blocked_no_host_switch_claims",
   "sequence_segment_diversity_passed": true,
+  "sequence_segment_qc_passable_segment_count": 0,
+  "sequence_segment_qc_present": true,
+  "sequence_segment_qc_status": "segment_sequence_qc_complete_alignment_design_blocked",
   "status": "qc_complete_for_existing_metadata_and_descriptive_layers_only",
   "validation_passed": true
 }

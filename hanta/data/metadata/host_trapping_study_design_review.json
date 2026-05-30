@@ -1,22 +1,25 @@
 {
-  "generated_at_utc": "2026-05-30T02:41:37.376265+00:00",
+  "generated_at_utc": "2026-05-30T05:50:30.032755+00:00",
   "guardrails": [
     "study-design semantics review is not an abundance model",
-    "candidate effort denominators require final methods confirmation before model fitting",
-    "no abundance surface or inference is produced"
+    "only within-study diagnostics using observed captures and metadata-derived effort are in scope",
+    "no global abundance surface or cross-study abundance inference is produced"
   ],
-  "host_abundance_model_decision": "detection_or_abundance_design_can_be_scoped_but_not_executed_until_model_formula_and_effort_denominator_are_approved",
+  "host_abundance_model_decision": "low_scope_within_study_host_detection_diagnostics_supported_but_global_abundance_inference_blocked",
   "reviews": [
     {
+      "consecutive_nights_reported_in_metadata": 4,
       "design_semantics_passed": true,
-      "effort_denominator_interpretation": "candidate trap-date/trap-number capture table; true trap-night denominator requires XML methods confirmation",
+      "diagnostic_model_scope": "within-study descriptive capture-rate or detection-style diagnostics using observed captures and metadata-derived effort only",
+      "effort_denominator_interpretation": "capture-only table with explicit study-level trap-night metadata; suitable for conservative within-study capture-rate diagnostics, not global abundance inference",
+      "grid_count_observed": 24,
       "habitat_classes": [
         "Cypress",
         "Hardwood Hammock",
         "Pine",
         "Prairie"
       ],
-      "path": "data/raw/host_trapping/usgs_picayune_small_mammal_captures/small_mammal_capture_data_Picayune_submitted.csv",
+      "path": "/home/lh/d/autoresearch/hanta/data/raw/host_trapping/usgs_picayune_small_mammal_captures/small_mammal_capture_data_Picayune_submitted.csv",
       "recapture_counts": {
         ".": 20,
         "No": 671,
@@ -47,15 +50,18 @@
           4
         ]
       ],
+      "trap_nights_reported_in_metadata": 22464,
+      "traps_per_grid_reported_in_metadata": 36,
       "unique_dates": 84,
       "unique_trap_units": 589
     },
     {
       "design_semantics_passed": true,
-      "effort_denominator_interpretation": "S1-S6 are candidate session-level capture indicators; exact trap-night denominator requires XML methods confirmation",
+      "diagnostic_model_scope": "within-study repeated-session detection or capture-history diagnostics by site-year-treatment-stratum only",
+      "effort_denominator_interpretation": "individual capture-history table with repeated session detections; suitable for conservative within-study detection/capture-history diagnostics, not abundance surface estimation",
       "files": [
         {
-          "path": "data/raw/host_trapping/usgs_deltamethrin_small_mammal_capture_histories/Colorado Captures.csv",
+          "path": "/home/lh/d/autoresearch/hanta/data/raw/host_trapping/usgs_deltamethrin_small_mammal_capture_histories/Colorado Captures.csv",
           "row_count": 656,
           "session_columns": [
             "S1",
@@ -64,7 +70,7 @@
           ]
         },
         {
-          "path": "data/raw/host_trapping/usgs_deltamethrin_small_mammal_capture_histories/Idaho Captures.csv",
+          "path": "/home/lh/d/autoresearch/hanta/data/raw/host_trapping/usgs_deltamethrin_small_mammal_capture_histories/Idaho Captures.csv",
           "row_count": 633,
           "session_columns": [
             "S1",
@@ -73,7 +79,7 @@
           ]
         },
         {
-          "path": "data/raw/host_trapping/usgs_deltamethrin_small_mammal_capture_histories/South Dakota Captures.csv",
+          "path": "/home/lh/d/autoresearch/hanta/data/raw/host_trapping/usgs_deltamethrin_small_mammal_capture_histories/South Dakota Captures.csv",
           "row_count": 1852,
           "session_columns": [
             "S1",
@@ -85,6 +91,8 @@
           ]
         }
       ],
+      "paired_treatment_confirmed_in_metadata": true,
+      "repeated_sessions_confirmed_in_metadata": true,
       "row_count": 3141,
       "session_columns_observed": [
         "S1",
@@ -94,6 +102,14 @@
         "S5",
         "S6"
       ],
+      "session_detection_counts": {
+        "S1": 976,
+        "S2": 895,
+        "S3": 996,
+        "S4": 356,
+        "S5": 264,
+        "S6": 409
+      },
       "site_count": 8,
       "source_id": "usgs_deltamethrin_small_mammal_capture_histories",
       "species_code_count": 4,
@@ -122,7 +138,7 @@
       "year_count": 7
     }
   ],
-  "schema_version": "0.1.0",
+  "schema_version": "0.2.0",
   "status": "host_trapping_study_design_semantics_review_passed",
   "validation_passed": true
 }

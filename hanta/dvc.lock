@@ -19,7 +19,7 @@ stages:
     outs:
     - path: reports/current_metrics.json
       hash: md5
-      md5: 9e6fc55f98280dc8a6d5c1bb9d53109b
+      md5: 203b87fb71c610081e063d14cd888e39
       size: 7466
     - path: reports/tables/main_results.csv
       hash: md5

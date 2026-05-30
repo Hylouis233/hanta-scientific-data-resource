@@ -1,3 +1,3 @@
-source_id,row_count,design_semantics_passed,effort_denominator_interpretation
-usgs_picayune_small_mammal_captures,1958,True,candidate trap-date/trap-number capture table; true trap-night denominator requires XML methods confirmation
-usgs_deltamethrin_small_mammal_capture_histories,3141,True,S1-S6 are candidate session-level capture indicators; exact trap-night denominator requires XML methods confirmation
+source_id,row_count,design_semantics_passed,effort_denominator_interpretation,diagnostic_model_scope
+usgs_picayune_small_mammal_captures,1958,True,"capture-only table with explicit study-level trap-night metadata; suitable for conservative within-study capture-rate diagnostics, not global abundance inference",within-study descriptive capture-rate or detection-style diagnostics using observed captures and metadata-derived effort only
+usgs_deltamethrin_small_mammal_capture_histories,3141,True,"individual capture-history table with repeated session detections; suitable for conservative within-study detection/capture-history diagnostics, not abundance surface estimation",within-study repeated-session detection or capture-history diagnostics by site-year-treatment-stratum only

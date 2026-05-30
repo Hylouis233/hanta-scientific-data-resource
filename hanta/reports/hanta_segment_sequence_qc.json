@@ -1,0 +1,320 @@
+{
+  "alignment_design_gate_passed": false,
+  "alignment_design_requirements": [
+    "analyze each segment separately rather than pooling S, M, and L",
+    "require at least one biologically coherent taxon set with at least 4 high-quality sequences per segment before alignment",
+    "exclude or separately flag records with ambiguous-base fraction above 1%",
+    "exclude partial-vs-complete mixes unless a segment-specific trimming protocol is prespecified",
+    "freeze host metadata to audited labels before any host-associated interpretation"
+  ],
+  "generated_at_utc": "2026-05-30T05:51:24.319665+00:00",
+  "global_blockers": [
+    "taxonomic and provenance audit of host/location/date metadata is incomplete",
+    "segment sets are too sparse and unbalanced for a defensible multi-host phylogeny design",
+    "partial L-segment Puumala records would need segment-specific handling before any alignment analysis",
+    "two Sin Nombre S-segment records contain >1% ambiguous bases in GenBank sequence bodies",
+    "reassortment-aware multi-segment design and phylogenetic uncertainty propagation are not specified"
+  ],
+  "guardrails": [
+    "sequence bodies are used only for bounded sequence QC and alignment-design readiness review",
+    "no phylogeny, host-switch inference, spillover inference, or Rt estimation is performed",
+    "submitter-provided host, location, and date metadata remain unverified pending taxonomy and provenance review"
+  ],
+  "host_switch_inference_permitted": false,
+  "passable_segments_for_qc_only": [],
+  "record_count": 12,
+  "records": [
+    {
+      "accession": "PQ723777",
+      "ambiguous_base_count": 0,
+      "ambiguous_base_fraction": 0.0,
+      "cds_count": 1,
+      "cds_coverage_fraction": 1.0,
+      "cds_length_nt": 605,
+      "collection_date": "2015",
+      "country": "Russia: The Republic of Tatarstan",
+      "fasta_path": "genomic_data/hantavirus_sequence_bodies/PQ723777.fasta",
+      "genbank_path": "genomic_data/hantavirus_sequence_bodies/PQ723777.gb",
+      "host_species": "Myodes glareolus",
+      "is_partial_cds": true,
+      "segment": "L",
+      "sequence_length": 605,
+      "virus_species": "Orthohantavirus puumalaense"
+    },
+    {
+      "accession": "PQ723778",
+      "ambiguous_base_count": 0,
+      "ambiguous_base_fraction": 0.0,
+      "cds_count": 1,
+      "cds_coverage_fraction": 1.0,
+      "cds_length_nt": 605,
+      "collection_date": "2015",
+      "country": "Russia: The Republic of Tatarstan",
+      "fasta_path": "genomic_data/hantavirus_sequence_bodies/PQ723778.fasta",
+      "genbank_path": "genomic_data/hantavirus_sequence_bodies/PQ723778.gb",
+      "host_species": "Myodes glareolus",
+      "is_partial_cds": true,
+      "segment": "L",
+      "sequence_length": 605,
+      "virus_species": "Orthohantavirus puumalaense"
+    },
+    {
+      "accession": "PQ723779",
+      "ambiguous_base_count": 0,
+      "ambiguous_base_fraction": 0.0,
+      "cds_count": 1,
+      "cds_coverage_fraction": 1.0,
+      "cds_length_nt": 605,
+      "collection_date": "2015",
+      "country": "Russia: The Republic of Tatarstan",
+      "fasta_path": "genomic_data/hantavirus_sequence_bodies/PQ723779.fasta",
+      "genbank_path": "genomic_data/hantavirus_sequence_bodies/PQ723779.gb",
+      "host_species": "Myodes glareolus",
+      "is_partial_cds": true,
+      "segment": "L",
+      "sequence_length": 605,
+      "virus_species": "Orthohantavirus puumalaense"
+    },
+    {
+      "accession": "PX401035",
+      "ambiguous_base_count": 92,
+      "ambiguous_base_fraction": 0.04568,
+      "cds_count": 1,
+      "cds_coverage_fraction": 0.639027,
+      "cds_length_nt": 1287,
+      "collection_date": "12-Jul-2023",
+      "country": "USA: Washington State",
+      "fasta_path": "genomic_data/hantavirus_sequence_bodies/PX401035.fasta",
+      "genbank_path": "genomic_data/hantavirus_sequence_bodies/PX401035.gb",
+      "host_species": "Peromyscus sonoriensis",
+      "is_partial_cds": false,
+      "segment": "S",
+      "sequence_length": 2014,
+      "virus_species": "Orthohantavirus sinnombreense"
+    },
+    {
+      "accession": "PX401036",
+      "ambiguous_base_count": 91,
+      "ambiguous_base_fraction": 0.045409,
+      "cds_count": 1,
+      "cds_coverage_fraction": 0.642216,
+      "cds_length_nt": 1287,
+      "collection_date": "17-Jul-2023",
+      "country": "USA: Washington State",
+      "fasta_path": "genomic_data/hantavirus_sequence_bodies/PX401036.fasta",
+      "genbank_path": "genomic_data/hantavirus_sequence_bodies/PX401036.gb",
+      "host_species": "Peromyscus sonoriensis",
+      "is_partial_cds": false,
+      "segment": "S",
+      "sequence_length": 2004,
+      "virus_species": "Orthohantavirus sinnombreense"
+    },
+    {
+      "accession": "PX401037",
+      "ambiguous_base_count": 0,
+      "ambiguous_base_fraction": 0.0,
+      "cds_count": 1,
+      "cds_coverage_fraction": 0.642216,
+      "cds_length_nt": 1287,
+      "collection_date": "17-Jul-2023",
+      "country": "USA: Washington State",
+      "fasta_path": "genomic_data/hantavirus_sequence_bodies/PX401037.fasta",
+      "genbank_path": "genomic_data/hantavirus_sequence_bodies/PX401037.gb",
+      "host_species": "Peromyscus sonoriensis",
+      "is_partial_cds": false,
+      "segment": "S",
+      "sequence_length": 2004,
+      "virus_species": "Orthohantavirus sinnombreense"
+    },
+    {
+      "accession": "PZ118916",
+      "ambiguous_base_count": 0,
+      "ambiguous_base_fraction": 0.0,
+      "cds_count": 1,
+      "cds_coverage_fraction": 0.988668,
+      "cds_length_nt": 6456,
+      "collection_date": "2024-10-16",
+      "country": "China",
+      "fasta_path": "genomic_data/hantavirus_sequence_bodies/PZ118916.fasta",
+      "genbank_path": "genomic_data/hantavirus_sequence_bodies/PZ118916.gb",
+      "host_species": "Rattus norvegicus",
+      "is_partial_cds": false,
+      "segment": "L",
+      "sequence_length": 6530,
+      "virus_species": "Orthohantavirus seoulense"
+    },
+    {
+      "accession": "PZ118921",
+      "ambiguous_base_count": 0,
+      "ambiguous_base_fraction": 0.0,
+      "cds_count": 1,
+      "cds_coverage_fraction": 0.926723,
+      "cds_length_nt": 3402,
+      "collection_date": "2024-10-16",
+      "country": "China",
+      "fasta_path": "genomic_data/hantavirus_sequence_bodies/PZ118921.fasta",
+      "genbank_path": "genomic_data/hantavirus_sequence_bodies/PZ118921.gb",
+      "host_species": "Rattus norvegicus",
+      "is_partial_cds": false,
+      "segment": "M",
+      "sequence_length": 3671,
+      "virus_species": "Orthohantavirus seoulense"
+    },
+    {
+      "accession": "PZ118925",
+      "ambiguous_base_count": 0,
+      "ambiguous_base_fraction": 0.0,
+      "cds_count": 1,
+      "cds_coverage_fraction": 0.726351,
+      "cds_length_nt": 1290,
+      "collection_date": "2024-10-02",
+      "country": "China",
+      "fasta_path": "genomic_data/hantavirus_sequence_bodies/PZ118925.fasta",
+      "genbank_path": "genomic_data/hantavirus_sequence_bodies/PZ118925.gb",
+      "host_species": "Rattus norvegicus",
+      "is_partial_cds": false,
+      "segment": "S",
+      "sequence_length": 1776,
+      "virus_species": "Orthohantavirus seoulense"
+    },
+    {
+      "accession": "PZ118926",
+      "ambiguous_base_count": 0,
+      "ambiguous_base_fraction": 0.0,
+      "cds_count": 1,
+      "cds_coverage_fraction": 0.726761,
+      "cds_length_nt": 1290,
+      "collection_date": "2024-10-16",
+      "country": "China",
+      "fasta_path": "genomic_data/hantavirus_sequence_bodies/PZ118926.fasta",
+      "genbank_path": "genomic_data/hantavirus_sequence_bodies/PZ118926.gb",
+      "host_species": "Rattus norvegicus",
+      "is_partial_cds": false,
+      "segment": "S",
+      "sequence_length": 1775,
+      "virus_species": "Orthohantavirus seoulense"
+    },
+    {
+      "accession": "PZ165968",
+      "ambiguous_base_count": 0,
+      "ambiguous_base_fraction": 0.0,
+      "cds_count": 1,
+      "cds_coverage_fraction": 0.9318,
+      "cds_length_nt": 3402,
+      "collection_date": "21-Mar-2025",
+      "country": "China: Hinggan League, Inner Mongolia",
+      "fasta_path": "genomic_data/hantavirus_sequence_bodies/PZ165968.fasta",
+      "genbank_path": "genomic_data/hantavirus_sequence_bodies/PZ165968.gb",
+      "host_species": "Rattus",
+      "is_partial_cds": false,
+      "segment": "M",
+      "sequence_length": 3651,
+      "virus_species": "Orthohantavirus seoulense"
+    },
+    {
+      "accession": "PZ165969",
+      "ambiguous_base_count": 0,
+      "ambiguous_base_fraction": 0.0,
+      "cds_count": 1,
+      "cds_coverage_fraction": 0.988668,
+      "cds_length_nt": 6456,
+      "collection_date": "21-Mar-2025",
+      "country": "China: Hinggan League, Inner Mongolia",
+      "fasta_path": "genomic_data/hantavirus_sequence_bodies/PZ165969.fasta",
+      "genbank_path": "genomic_data/hantavirus_sequence_bodies/PZ165969.gb",
+      "host_species": "Rattus",
+      "is_partial_cds": false,
+      "segment": "L",
+      "sequence_length": 6530,
+      "virus_species": "Orthohantavirus seoulense"
+    }
+  ],
+  "schema_version": "0.2.0",
+  "segment_gate_thresholds": {
+    "ambiguous_base_fraction_fail_threshold": 0.01,
+    "minimum_records_per_segment": {
+      "L": 2,
+      "M": 2,
+      "S": 2
+    }
+  },
+  "segments": {
+    "L": {
+      "ambiguous_accessions": [],
+      "blockers": [
+        "contains partial CDS coordinates that would require segment-specific trimming",
+        "mixes virus species in one segment set",
+        "mixes host labels that are not yet taxonomy-audited"
+      ],
+      "host_species": [
+        "Myodes glareolus",
+        "Rattus",
+        "Rattus norvegicus"
+      ],
+      "partial_cds_accessions": [
+        "PQ723777",
+        "PQ723778",
+        "PQ723779"
+      ],
+      "record_count": 5,
+      "sequence_length_range": [
+        605,
+        6530
+      ],
+      "status": "blocked",
+      "virus_species": [
+        "Orthohantavirus puumalaense",
+        "Orthohantavirus seoulense"
+      ]
+    },
+    "M": {
+      "ambiguous_accessions": [],
+      "blockers": [
+        "mixes host labels that are not yet taxonomy-audited"
+      ],
+      "host_species": [
+        "Rattus",
+        "Rattus norvegicus"
+      ],
+      "partial_cds_accessions": [],
+      "record_count": 2,
+      "sequence_length_range": [
+        3651,
+        3671
+      ],
+      "status": "blocked",
+      "virus_species": [
+        "Orthohantavirus seoulense"
+      ]
+    },
+    "S": {
+      "ambiguous_accessions": [
+        "PX401035",
+        "PX401036"
+      ],
+      "blockers": [
+        "contains records with ambiguous-base fraction above 1%",
+        "mixes virus species in one segment set",
+        "mixes host labels that are not yet taxonomy-audited"
+      ],
+      "host_species": [
+        "Peromyscus sonoriensis",
+        "Rattus norvegicus"
+      ],
+      "partial_cds_accessions": [],
+      "record_count": 5,
+      "sequence_length_range": [
+        1775,
+        2014
+      ],
+      "status": "blocked",
+      "virus_species": [
+        "Orthohantavirus seoulense",
+        "Orthohantavirus sinnombreense"
+      ]
+    }
+  },
+  "sequence_dir": "/home/lh/d/autoresearch/hanta/genomic_data/hantavirus_sequence_bodies",
+  "status": "segment_sequence_qc_complete_alignment_design_blocked",
+  "validation_passed": true
+}

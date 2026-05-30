@@ -1,8 +1,8 @@
 {
   "datasets": [
     {
-      "readiness": "file_level_screening_pending",
-      "scope": "local abundance/detection screening only, not global abundance inference",
+      "readiness": "public_files_downloaded_and_screened",
+      "scope": "local within-study capture/detection diagnostics only; not global abundance inference",
       "screen_for_fields": [
         "species",
         "capture_date",
@@ -15,8 +15,8 @@
       "url": "https://www.sciencebase.gov/catalog/item/5e1c8c13e4b0ecf25c5efce5"
     },
     {
-      "readiness": "file_level_screening_pending",
-      "scope": "mark-recapture/detection context screening only until effort fields are confirmed",
+      "readiness": "public_files_downloaded_and_screened",
+      "scope": "repeated-session capture-history diagnostics only; not abundance surface estimation",
       "screen_for_fields": [
         "species",
         "session_date",
@@ -30,8 +30,8 @@
       "url": "https://www.sciencebase.gov/catalog/item/6164f1fed34e52f49c822f06"
     },
     {
-      "readiness": "authenticated_or_manual_metadata_review_pending",
-      "scope": "candidate long-term trapping source; not abundance-ready until package metadata are verified",
+      "readiness": "public_search_route_reached_structured_package_metadata_not_captured",
+      "scope": "candidate long-term trapping source remains blocked until a self-service public package page exposing trap effort/captures/license is captured",
       "screen_for_fields": [
         "package_id",
         "species",
@@ -45,7 +45,7 @@
       "url": "https://portal.edirepository.org/nis/simpleSearch"
     }
   ],
-  "generated_at_utc": "2026-05-29T15:27:51.471446+00:00",
+  "generated_at_utc": "2026-05-30T17:22:25.536738+00:00",
   "guardrails": [
     "planning artifacts do not ingest analysis datasets",
     "planning artifacts do not execute risk maps, abundance inference, human case maps, Rt, spillover, host-switch, or surveillance joins",

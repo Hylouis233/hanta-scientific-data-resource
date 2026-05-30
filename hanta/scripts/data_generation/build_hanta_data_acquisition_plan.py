@@ -7,9 +7,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
-REPORT_JSON = Path("reports/hanta_data_acquisition_plan.json")
-REPORT_MD = Path("reports/hanta_data_acquisition_plan.md")
-TABLE_CSV = Path("reports/tables/hanta_data_acquisition_plan.csv")
+REPORT_JSON = Path(__file__).resolve().parents[2] / "reports/hanta_data_acquisition_plan.json"
+REPORT_MD = Path(__file__).resolve().parents[2] / "reports/hanta_data_acquisition_plan.md"
+TABLE_CSV = Path(__file__).resolve().parents[2] / "reports/tables/hanta_data_acquisition_plan.csv"
 
 
 SOURCES = [
@@ -19,12 +19,12 @@ SOURCES = [
         "url": "https://atlas.ecdc.europa.eu/public/index.aspx?Dataset=27&HealthTopic=24",
         "category": "human_surveillance",
         "priority": "high",
-        "status": "confirmed_public_structured_source",
+        "status": "confirmed_public_csv_export_captured",
         "supports_gates": ["human_surveillance_schema", "cross_source_join_bias_review"],
         "could_unlock": ["human_case_maps", "surveillance_join"],
         "not_sufficient_for": ["rt_estimation_without_subannual_time_series"],
-        "required_follow_up": "confirm exported fields, temporal granularity, reuse terms, and stable CSV retrieval route",
-        "caveat": "likely aggregate country/time data; no case-level linelist assumed",
+        "required_follow_up": "capture explicit terms or disclaimer text, decide handling for suppression markers and aggregate reference regions, and document reusable export route",
+        "caveat": "aggregate country/month data are public and structured, but downstream use still needs terms capture and harmonization review",
     },
     {
         "source_id": "china_cdc_hfrs_monthly_bulletins",
@@ -42,15 +42,15 @@ SOURCES = [
     {
         "source_id": "cdc_nndss_hcps",
         "source_name": "CDC/NNDSS hantavirus pulmonary syndrome reporting products",
-        "url": "https://www.cdc.gov/hantavirus/",
+        "url": "https://wonder.cdc.gov/nndss-annual-summary.html",
         "category": "human_surveillance",
         "priority": "medium",
-        "status": "candidate_needs_download_route_verification",
+        "status": "confirmed_public_csv_export_captured_annual_only",
         "supports_gates": ["human_surveillance_schema"],
         "could_unlock": ["human_case_maps"],
         "not_sufficient_for": ["rt_estimation_until_weekly_or_monthly_series_confirmed"],
-        "required_follow_up": "find current NNDSS or CDC table endpoint with HCPS/Hantavirus fields and export terms",
-        "caveat": "current search did not confirm a stable machine-readable CDC dataset",
+        "required_follow_up": "review reportability and case-definition comparability, and keep searching for finer-grained public hantavirus surveillance tables if needed",
+        "caveat": "verified public machine-readable CDC WONDER export is annual state-level only, so Rt and fine-grained joins remain blocked",
     },
     {
         "source_id": "worldclim_2_1",
@@ -101,7 +101,7 @@ SOURCES = [
         "supports_gates": ["environmental_covariates_schema", "cross_source_join_bias_review"],
         "could_unlock": ["risk_maps", "host_abundance_inference", "spillover_inference", "surveillance_join"],
         "not_sufficient_for": [],
-        "required_follow_up": "define elevation derivatives, vertical datum handling, download route, and attribution",
+        "required_follow_up": "define elevation derivatives, vertical datum handling, and practical tile retrieval route with attribution capture before download",
         "caveat": "terrain covariate only; derived slope/aspect need documented processing",
     },
     {
@@ -194,7 +194,8 @@ def main() -> int:
         "source_count": len(SOURCES),
         "sources": SOURCES,
         "recommended_order": [
-            "ECDC Atlas human surveillance export verification",
+            "ECDC Atlas public export normalization and terms capture",
+            "CDC WONDER annual hantavirus review for coarse mapping provenance",
             "WorldClim/ESA WorldCover/Copernicus DEM static covariate inventory",
             "MODIS MOD13Q1 Earthdata access and QA aggregation plan",
             "NCBI Virus export plus Entrez flatfile backfill plan",
@@ -238,7 +239,7 @@ def main() -> int:
     REPORT_MD.write_text("\n".join([
         "# Hanta data acquisition plan",
         "",
-        "Status: data sources identified; no advanced analyses executed.",
+        "Status: public-source acquisition plan updated; no advanced analyses executed.",
         "",
         "## Recommended acquisition order",
         "",
@@ -254,7 +255,7 @@ def main() -> int:
         "",
         "## Next action",
         "",
-        "Begin with source-specific access verification for ECDC Atlas and the static environmental covariate stack, then create separate ingestion plans for sequence bodies and host trapping datasets.",
+        "Use the captured ECDC Atlas and CDC WONDER public exports for provenance-complete coarse surveillance planning only, while leaving China CDC monthly bulletin access and any finer-grained Rt/join needs explicitly blocked until better public tables are captured.",
         "",
     ]) + "\n", encoding="utf-8")
     print(json.dumps({"status": payload["status"], "source_count": len(SOURCES)}, sort_keys=True))

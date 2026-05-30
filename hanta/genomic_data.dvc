@@ -1,6 +1,6 @@
 outs:
-- md5: e759863c3b4b2157eca5d1523057ccd9.dir
-  size: 259953
-  nfiles: 48
+- md5: 2da21b05eb72113114298648ab4d0c58.dir
+  size: 562648
+  nfiles: 96
   hash: md5
   path: genomic_data

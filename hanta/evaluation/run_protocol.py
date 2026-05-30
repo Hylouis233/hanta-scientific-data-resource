@@ -19,12 +19,13 @@ def main() -> int:
         print("usage: python evaluation/run_protocol.py <config>", file=sys.stderr)
         return 2
 
-    config_path = Path(sys.argv[1])
+    raw_config_path = Path(sys.argv[1])
+    project_root = Path(__file__).resolve().parents[1]
+    config_path = raw_config_path if raw_config_path.is_absolute() else project_root / raw_config_path
     if not config_path.exists():
         print(f"missing config: {config_path}", file=sys.stderr)
         return 2
 
-    project_root = Path.cwd()
     reports = project_root / "reports"
     tables = reports / "tables"
     reports.mkdir(parents=True, exist_ok=True)
@@ -109,7 +110,7 @@ def main() -> int:
     hanta_source_access_verification = _load_json(reports / "hanta_source_access_verification.json")
     hanta_source_access_verification_present = hanta_source_access_verification.get("validation_passed") is True and hanta_source_access_verification.get("source_count", 0) >= 10 and hanta_source_access_verification.get("status") == "source_specific_access_verification_complete" and (reports / "hanta_source_access_verification.md").exists() and (tables / "hanta_source_access_verification.csv").exists()
     human_surveillance_join_blocked_evidence = _load_json(project_root / "data" / "metadata" / "human_surveillance_join_blocked_evidence.json")
-    human_surveillance_join_blocked_evidence_present = human_surveillance_join_blocked_evidence.get("validation_passed") is True and human_surveillance_join_blocked_evidence.get("overall_status") in {"blocked_evidence_backed_no_downloaded_human_surveillance_table", "partial_unblock_real_ecdc_export_captured_but_terms_and_join_clearance_still_blocked", "annual_state_table_captured_rt_and_join_still_partially_blocked"} and (reports / "human_surveillance_join_blocked_evidence.md").exists()
+    human_surveillance_join_blocked_evidence_present = human_surveillance_join_blocked_evidence.get("validation_passed") is True and human_surveillance_join_blocked_evidence.get("overall_status") in {"blocked_evidence_backed_no_downloaded_human_surveillance_table", "partial_unblock_real_ecdc_export_captured_but_terms_and_join_clearance_still_blocked", "annual_state_table_captured_rt_and_join_still_partially_blocked", "public_surveillance_exports_captured_but_rt_and_cross_source_join_still_partially_blocked"} and (reports / "human_surveillance_join_blocked_evidence.md").exists()
     static_covariate_inventory = _load_json(reports / "static_environmental_covariate_inventory.json")
     static_covariate_inventory_present = static_covariate_inventory.get("validation_passed") is True and static_covariate_inventory.get("status") == "static_covariate_inventory_complete" and (reports / "static_environmental_covariate_inventory.md").exists() and (tables / "static_environmental_covariate_inventory.csv").exists()
     modis_access_plan = _load_json(reports / "modis_access_plan.json")
@@ -139,6 +140,8 @@ def main() -> int:
     sequence_body_download_real_data_present = sequence_body_download_manifest.get("validation_passed") is True and sequence_body_download_manifest.get("downloaded_accession_count", 0) == sequence_body_download_manifest.get("requested_accession_count", -1) and (project_root / "genomic_data.dvc").exists() and (project_root / "data" / "metadata" / "sequence_body_download_manifest.json.dvc").exists() and (reports / "sequence_body_download_qc.md.dvc").exists() and (reports / "hanta_sequence_body_gate_review.md").exists()
     hantaan_minimal_phylogeny_qc = _load_json(reports / "hantaan_minimal_phylogeny_qc.json")
     hantaan_minimal_phylogeny_alignment_gate_present = hantaan_minimal_phylogeny_qc.get("validation_passed") is True and hantaan_minimal_phylogeny_qc.get("alignment_design_gate_passed") is True and hantaan_minimal_phylogeny_qc.get("host_switch_inference_permitted") is False and (project_root / "data" / "metadata" / "hantaan_minimal_phylogeny_candidate_manifest.json").exists() and (project_root / "data" / "metadata" / "hantaan_ncbi_query_evidence.json").exists() and (reports / "hantaan_minimal_phylogeny_qc.md").exists() and (project_root / "genomic_data.dvc").exists()
+    hantaan_expanded_phylogeny_qc = _load_json(reports / "hantaan_expanded_phylogeny_qc.json")
+    hantaan_expanded_phylogeny_alignment_gate_present = hantaan_expanded_phylogeny_qc.get("validation_passed") is True and hantaan_expanded_phylogeny_qc.get("alignment_design_gate_passed") is True and hantaan_expanded_phylogeny_qc.get("multi_host_expansion_achieved") is True and hantaan_expanded_phylogeny_qc.get("host_switch_inference_permitted") is False and (project_root / "data" / "metadata" / "hantaan_expanded_phylogeny_candidate_manifest.json").exists() and (project_root / "data" / "metadata" / "hantaan_expanded_ncbi_query_evidence.json").exists() and (reports / "hantaan_expanded_phylogeny_qc.md").exists() and (project_root / "genomic_data.dvc").exists()
     host_trapping_file_screening_manifest = _load_json(project_root / "data" / "metadata" / "host_trapping_file_screening_manifest.json")
     host_trapping_real_data_present = host_trapping_file_screening_manifest.get("validation_passed") is True and host_trapping_file_screening_manifest.get("source_count", 0) >= 2 and (project_root / "data" / "raw.dvc").exists() and (project_root / "data" / "metadata" / "host_trapping_file_screening_manifest.json.dvc").exists() and (reports / "host_trapping_file_screening_qc.md.dvc").exists() and (reports / "hanta_host_trapping_gate_review.md").exists()
     environmental_covariate_file_manifest = _load_json(project_root / "data" / "metadata" / "environmental_covariate_file_manifest.json")
@@ -212,6 +215,7 @@ def main() -> int:
         "advanced_gate_existing_evidence_present": advanced_gate_existing_evidence_present,
         "sequence_body_download_real_data_present": sequence_body_download_real_data_present,
         "hantaan_minimal_phylogeny_alignment_gate_present": hantaan_minimal_phylogeny_alignment_gate_present,
+        "hantaan_expanded_phylogeny_alignment_gate_present": hantaan_expanded_phylogeny_alignment_gate_present,
         "host_trapping_real_data_present": host_trapping_real_data_present,
         "environmental_covariate_real_data_present": environmental_covariate_real_data_present,
         "host_trapping_study_design_present": host_trapping_study_design_present,
@@ -305,6 +309,7 @@ def main() -> int:
         "advanced_gate_existing_evidence_present": advanced_gate_existing_evidence_present,
         "sequence_body_download_real_data_present": sequence_body_download_real_data_present,
         "hantaan_minimal_phylogeny_alignment_gate_present": hantaan_minimal_phylogeny_alignment_gate_present,
+        "hantaan_expanded_phylogeny_alignment_gate_present": hantaan_expanded_phylogeny_alignment_gate_present,
         "host_trapping_real_data_present": host_trapping_real_data_present,
         "environmental_covariate_real_data_present": environmental_covariate_real_data_present,
         "host_trapping_study_design_present": host_trapping_study_design_present,

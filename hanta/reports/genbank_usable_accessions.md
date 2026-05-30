@@ -19,6 +19,13 @@ Status: passed.
 - human_sequence_context_only: 6
 - reference_context_only_exclude_from_analysis: 6
 
+## Host-label summary
+
+- Myodes glareolus: 3
+- Peromyscus sonoriensis: 3
+- Rattus: 2
+- Rattus norvegicus: 4
+
 ## Guardrails
 
 - This is metadata-only; no sequence bodies were downloaded.

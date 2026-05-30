@@ -12,10 +12,10 @@
   "environmental_covariate_file_qc_passed": true,
   "environmental_covariate_source_count": 2,
   "environmental_descriptive_suitability_pilot_model_passed": true,
-  "environmental_model_gate_status": "bounded_descriptive_gbif_presence_background_suitability_pilot_fit_complete_no_risk_claims",
+  "environmental_model_gate_status": "covariate_intake_passed_model_still_blocked_pending_background_generation_and_bias_review",
   "environmental_suitability_pilot_table_passed": true,
   "environmental_target_background_design_present": true,
-  "generated_at_utc": "2026-05-30T07:33:57.743716+00:00",
+  "generated_at_utc": "2026-05-30T17:19:51.254810+00:00",
   "guardrails": [
     "evidence passes are limited to existing real GBIF occurrence and GenBank metadata layers",
     "advanced model gates remain blocked until their required real data and QC artifacts exist",

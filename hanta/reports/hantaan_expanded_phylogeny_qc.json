@@ -1,0 +1,129 @@
+{
+  "alignment_design_gate_passed": true,
+  "candidate_species": "Orthohantavirus hantanense",
+  "complete_triplet_count_in_sample": 8,
+  "distinct_host_label_count": 2,
+  "downloaded_record_count": 24,
+  "generated_at_utc": "2026-05-30T17:19:51.029589+00:00",
+  "guardrails": [
+    "public NCBI/GenBank records are acquired only to support per-segment alignment design and accession-level evidence expansion",
+    "all analyses must keep S, M, and L separate rather than pooling segments",
+    "multi-host labels increase design coverage but do not by themselves justify host-switch, spillover, reassortment, or transmission claims",
+    "host labels remain submitter-provided and should be taxonomy-audited before any host-associated interpretation"
+  ],
+  "host_switch_inference_permitted": false,
+  "multi_host_expansion_achieved": true,
+  "remaining_limitations": [
+    "host labels remain submitter-provided GenBank metadata and have not been independently provenance-audited",
+    "even with two host labels, this gate supports alignment readiness only; host-switch or spillover inference would still require prespecified comparative design, denser sampling, and contamination/provenance review",
+    "the sampled candidate universe was limited to the first 200 most recent NCBI records and should be refreshed if broader diversity becomes necessary"
+  ],
+  "schema_version": "0.1.0",
+  "segment_counts": {
+    "L": 8,
+    "M": 8,
+    "S": 8
+  },
+  "selected_isolates": [
+    {
+      "collection_date": "2021/2022",
+      "country": "China: Yunnan",
+      "host_species": "Niviventer confucianus",
+      "isolate": "YNMIX-YNSC109",
+      "segments": {
+        "L": "PQ678272",
+        "M": "PQ678296",
+        "S": "PQ678285"
+      }
+    },
+    {
+      "collection_date": "2015",
+      "country": "China: Anyi, Jiangxi",
+      "host_species": "Apodemus agrarius",
+      "isolate": "AYW89-15",
+      "segments": {
+        "L": "KY978757",
+        "M": "KY978756",
+        "S": "KY978755"
+      }
+    },
+    {
+      "collection_date": "05-Sep-2019",
+      "country": "China",
+      "host_species": "Apodemus agrarius",
+      "isolate": "Hunan2019C022-13",
+      "segments": {
+        "L": "OM337652",
+        "M": "OM337653",
+        "S": "OM337654"
+      }
+    },
+    {
+      "collection_date": "05-Sep-2019",
+      "country": "China",
+      "host_species": "Apodemus agrarius",
+      "isolate": "Hunan2019C022-17",
+      "segments": {
+        "L": "OM337655",
+        "M": "OM337656",
+        "S": "OM337657"
+      }
+    },
+    {
+      "collection_date": "05-Sep-2019",
+      "country": "China",
+      "host_species": "Apodemus agrarius",
+      "isolate": "Hunan2019C022-19",
+      "segments": {
+        "L": "OM337658",
+        "M": "OM337659",
+        "S": "OM337660"
+      }
+    },
+    {
+      "collection_date": "05-Sep-2019",
+      "country": "China",
+      "host_species": "Apodemus agrarius",
+      "isolate": "Hunan2019C022-21",
+      "segments": {
+        "L": "OM337661",
+        "M": "OM337662",
+        "S": "OM337663"
+      }
+    },
+    {
+      "collection_date": "05-Sep-2019",
+      "country": "China",
+      "host_species": "Apodemus agrarius",
+      "isolate": "Hunan2019C022-23",
+      "segments": {
+        "L": "OM337664",
+        "M": "OM337665",
+        "S": "OM337666"
+      }
+    },
+    {
+      "collection_date": "05-Sep-2019",
+      "country": "China",
+      "host_species": "Apodemus agrarius",
+      "isolate": "Hunan2019C022-32",
+      "segments": {
+        "L": "OM337667",
+        "M": "OM337668",
+        "S": "OM337669"
+      }
+    }
+  ],
+  "selected_triplet_count": 8,
+  "selected_triplet_count_by_country": {
+    "China": 6,
+    "China: Anyi, Jiangxi": 1,
+    "China: Yunnan": 1
+  },
+  "selected_triplet_count_by_host": {
+    "Apodemus agrarius": 7,
+    "Niviventer confucianus": 1
+  },
+  "status": "expanded_sequence_design_gate_passed_for_alignment_readiness_only",
+  "validation_passed": true
+}

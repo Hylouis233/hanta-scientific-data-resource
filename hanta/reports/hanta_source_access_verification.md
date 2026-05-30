@@ -1,14 +1,14 @@
 # Hanta source-specific access verification
 
-Status: source-specific access verification complete; no advanced analyses executed.
+Status: annual/state and country/month public surveillance exports captured where available; no advanced analyses executed.
 
-Verified or route-confirmed sources: 10 / 13.
+Verified or route-confirmed sources: 8 / 13.
 
 ## Source status
 
-- `ecdc_surveillance_atlas_hantavirus`: access_verified_export_route_needs_interactive_csv_check — human_case_map_planning_only
+- `ecdc_surveillance_atlas_hantavirus`: public_csv_export_captured_terms_pending — country_month_mapping_planning_only
 - `china_cdc_hfrs_monthly_bulletins`: candidate_not_access_verified — not_ready
-- `cdc_nndss_hcps`: candidate_not_access_verified — not_ready
+- `cdc_nndss_hcps`: public_csv_export_captured_annual_only — annual_state_mapping_only
 - `worldclim_2_1`: access_verified_static_download_source — covariate_inventory_ready
 - `modis_mod13q1_v061`: access_verified_requires_earthdata_workflow — covariate_inventory_ready
 - `esa_worldcover_2021`: access_verified_static_download_source — covariate_inventory_ready
@@ -22,11 +22,13 @@ Verified or route-confirmed sources: 10 / 13.
 
 ## Still pending before analysis
 
-- ECDC Atlas: interactive CSV header and terms capture.
-- China CDC and CDC/NNDSS: stable public tables remain unverified.
+- ECDC Atlas: explicit terms/disclaimer capture and suppression handling documentation.
+- China CDC: stable public HFRS tables remain unverified.
+- CDC WONDER: only annual state-level data are captured, so Rt stays blocked.
 - WorldPop: exact product/year/license endpoint selection.
 - NCBI/Entrez: query export, taxonomy check, and sequence metadata QC.
-- USGS/EDI host trapping: file-level effort/count/location screening.
+- USGS public trapping files: coordinate/license semantics still need documentation.
+- EDI/LTER: package-level public metadata remain uncaptured in a self-service route.
 
 ## Guardrails
 

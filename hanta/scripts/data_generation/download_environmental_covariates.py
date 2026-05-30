@@ -18,6 +18,7 @@ SOURCES = [
         "resolution": "10 arc-min",
         "temporal_coverage": "1970-2000 climatology",
         "license_or_terms": "WorldClim citation/terms required",
+        "download_type": "zip",
     },
     {
         "source_id": "worldclim_2_1_elevation_10m",
@@ -27,10 +28,21 @@ SOURCES = [
         "resolution": "10 arc-min",
         "temporal_coverage": "static elevation layer distributed by WorldClim",
         "license_or_terms": "WorldClim citation/terms required",
+        "download_type": "zip",
+    },
+    {
+        "source_id": "natural_earth_10m_land",
+        "url": "https://naturalearth.s3.amazonaws.com/10m_physical/ne_10m_land.zip",
+        "variable_group": "land_mask_boundary_support",
+        "version": "5.x public release",
+        "resolution": "1:10m vector",
+        "temporal_coverage": "static physical vector release",
+        "license_or_terms": "public domain (Natural Earth terms)",
+        "download_type": "zip",
     },
 ]
 
-RAW_DIR = Path("data/raw/environmental_covariates/worldclim_2_1_10m")
+RAW_DIR = Path("data/raw/environmental_covariates/self_service_public")
 MANIFEST = Path("data/metadata/environmental_covariate_file_manifest.json")
 REPORT = Path("reports/environmental_covariate_file_qc.md")
 
@@ -53,6 +65,11 @@ def _zip_members(path: Path) -> list[dict[str, Any]]:
         ]
 
 
+def _write_text(path: Path, text: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8")
+
+
 def main() -> int:
     generated_at_utc = datetime.now(timezone.utc).isoformat()
     records = []
@@ -66,12 +83,12 @@ def main() -> int:
             "archive_size": path.stat().st_size,
             "member_count": len(members),
             "members": members,
-            "crs": "confirm_from_geotiff_metadata_before_modeling",
-            "missingness_policy": "evaluate nodata after raster extraction",
+            "crs": "confirm_from_file_metadata_before_modeling",
+            "missingness_policy": "evaluate nodata or geometry completeness after downstream extraction",
             "validation_passed": path.stat().st_size > 0 and len(members) > 0,
         })
     payload = {
-        "schema_version": "0.1.0",
+        "schema_version": "0.2.0",
         "generated_at_utc": generated_at_utc,
         "status": "environmental_covariate_files_downloaded",
         "source_count": len(records),
@@ -79,12 +96,14 @@ def main() -> int:
         "validation_passed": all(record["validation_passed"] for record in records),
         "guardrails": [
             "covariate files are downloaded for file-level intake QC only",
+            "only self-service public static covariates with practical terms are included here",
+            "permission-gated or credential-dependent environmental layers remain documented but not downloaded",
             "no risk map, suitability model, spillover model, or surveillance join is executed",
             "target/background design remains required before any model",
         ],
     }
-    MANIFEST.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    REPORT.write_text("\n".join([
+    _write_text(MANIFEST, json.dumps(payload, indent=2, sort_keys=True) + "\n")
+    _write_text(REPORT, "\n".join([
         "# Environmental covariate file QC",
         "",
         f"Status: {payload['status']}.",
@@ -95,7 +114,7 @@ def main() -> int:
         "",
         *[f"- {item}" for item in payload["guardrails"]],
         "",
-    ]) + "\n", encoding="utf-8")
+    ]) + "\n")
     print(json.dumps({"status": payload["status"], "validation_passed": payload["validation_passed"]}, sort_keys=True))
     return 0 if payload["validation_passed"] else 1
 

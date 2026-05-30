@@ -90,7 +90,7 @@
     }
   ],
   "excluded_or_context_count": 12,
-  "generated_at_utc": "2026-05-29T05:30:50.994119+00:00",
+  "generated_at_utc": "2026-05-30T17:18:51.919797+00:00",
   "guardrails": [
     "metadata subset only; sequence bodies are not downloaded",
     "usable accessions are genome metadata candidates, not host occurrence rows",
@@ -102,6 +102,12 @@
   "source_id": "genbank_hantavirus_segments",
   "status": "usable_accession_subset_sealed",
   "usable_accession_count": 12,
+  "usable_counts_by_host": {
+    "Myodes glareolus": 3,
+    "Peromyscus sonoriensis": 3,
+    "Rattus": 2,
+    "Rattus norvegicus": 4
+  },
   "usable_counts_by_segment": {
     "L": 5,
     "M": 2,

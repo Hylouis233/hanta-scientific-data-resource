@@ -54,9 +54,41 @@ sources:
     url: https://www.worldclim.org/
     publisher: WorldClim
     role: climate_covariates
-    status: planned_metadata_audit
+    status: public_worldclim_archives_downloaded_file_qc_passed
     required_fields: [version, variable, resolution, crs, download_date]
     authenticity: Green: real data after version audit
+  - source_id: esa_worldcover_land_cover
+    source_name: ESA WorldCover land cover
+    url: https://esa-worldcover.s3.eu-central-1.amazonaws.com/
+    publisher: ESA WorldCover
+    role: land_cover_covariates
+    status: public_tile_bucket_verified_self_service_not_downloaded
+    required_fields: [version, variable, resolution, crs, license_or_terms, download_date]
+    authenticity: Green for public self-service bucket route; download remains optional until extent-approved tile selection
+  - source_id: copernicus_dem_glo30
+    source_name: Copernicus DEM GLO-30
+    url: https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM
+    publisher: Copernicus Data Space Ecosystem
+    role: terrain_covariates
+    status: public_collection_verified_practical_tile_endpoint_pending_capture
+    required_fields: [version, resolution, horizontal_crs, vertical_datum, license_or_terms, download_route]
+    authenticity: Green for public collection description; leave repo download pending exact self-service tile endpoint capture
+  - source_id: natural_earth_land
+    source_name: Natural Earth land polygons
+    url: https://naturalearth.s3.amazonaws.com/10m_physical/ne_10m_land.zip
+    publisher: Natural Earth
+    role: boundary_support_covariates
+    status: public_zip_downloaded_file_qc_passed
+    required_fields: [version, layer_name, scale, crs, license_or_terms, download_date]
+    authenticity: Green: public-domain static support layer downloaded from official public bucket
+  - source_id: worldpop_population_surface
+    source_name: WorldPop population surfaces
+    url: https://hub.worldpop.org/rest/data
+    publisher: WorldPop
+    role: human_exposure_covariates
+    status: public_rest_catalog_verified_product_selection_pending
+    required_fields: [product_alias, year, resolution, crs, license_or_terms, download_endpoint]
+    authenticity: Green for public REST catalog; product-specific intake remains pending endpoint/license capture
   - source_id: modis_ndvi_covariates
     source_name: MODIS NDVI covariates
     url: https://modis.gsfc.nasa.gov/

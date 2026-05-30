@@ -18,4 +18,4 @@ Fixed evaluation entrypoint:
 bash evaluation/evaluate.sh configs/experiment.yaml
 ```
 
-Current status: ResearchOps scaffold only; no real data has been downloaded or analyzed.
+Current status: ResearchOps scaffold plus bounded public-data evidence artifacts; advanced or permission-gated analyses remain blocked.

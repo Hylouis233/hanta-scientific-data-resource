@@ -1,0 +1,40 @@
+{
+  "candidate_species": "Orthohantavirus hantanense",
+  "complete_triplet_count_in_sample": 8,
+  "generated_at_utc": "2026-05-30T17:19:51.029589+00:00",
+  "sampled_record_count": 200,
+  "schema_version": "0.1.0",
+  "selected_accessions": [
+    "PQ678285",
+    "PQ678296",
+    "PQ678272",
+    "KY978755",
+    "KY978756",
+    "KY978757",
+    "OM337654",
+    "OM337653",
+    "OM337652",
+    "OM337657",
+    "OM337656",
+    "OM337655",
+    "OM337660",
+    "OM337659",
+    "OM337658",
+    "OM337663",
+    "OM337662",
+    "OM337661",
+    "OM337666",
+    "OM337665",
+    "OM337664",
+    "OM337669",
+    "OM337668",
+    "OM337667"
+  ],
+  "selected_host_labels": [
+    "Apodemus agrarius",
+    "Niviventer confucianus"
+  ],
+  "target_query": "Hantaan virus[Organism] AND (segment S[Title] OR segment M[Title] OR segment L[Title])",
+  "total_ncbi_hit_count": 448,
+  "validation_passed": true
+}

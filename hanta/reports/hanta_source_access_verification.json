@@ -1,6 +1,6 @@
 {
-  "access_verified_count": 10,
-  "generated_at_utc": "2026-05-30T17:04:32.369312+00:00",
+  "access_verified_count": 8,
+  "generated_at_utc": "2026-05-30T17:19:51.148918+00:00",
   "guardrails": [
     "source access verification does not ingest analysis datasets",
     "source access verification does not execute risk maps, abundance inference, human case maps, Rt, spillover, host-switch, or surveillance joins",
@@ -12,38 +12,41 @@
   "validation_passed": true,
   "verification_rows": [
     {
-      "access_status": "access_verified_export_route_needs_interactive_csv_check",
-      "analysis_readiness": "human_case_map_planning_only",
+      "access_status": "public_csv_export_captured_terms_pending",
+      "analysis_readiness": "country_month_mapping_planning_only",
       "category": "human_surveillance",
-      "caveat": "likely aggregate country/time data; no case-level linelist assumed",
+      "caveat": "aggregate country/month data are public and structured, but downstream use still needs terms capture and harmonization review",
       "could_unlock": [
         "human_case_maps",
         "surveillance_join"
       ],
-      "expected_format": "CSV export from Atlas interface",
+      "expected_format": "CSV file or CSV text export",
       "guardrails_preserved": true,
       "missing_or_pending_fields": [
-        "privacy_suppression_rule",
-        "license_or_terms",
-        "subannual_time_granularity"
+        "explicit_terms_or_license_text",
+        "suppression_semantics_confirmation"
       ],
-      "next_action": "perform browser export of current/all indicators and capture exact CSV headers plus terms page",
+      "next_action": "capture explicit disclaimer or terms text and document handling of aggregate reference-region rows and suppression markers",
       "not_sufficient_for": [
         "rt_estimation_without_subannual_time_series"
       ],
       "priority": "high",
       "required_fields_verified": [
         "source_url_or_citation",
-        "case_definition",
+        "health_topic",
+        "population",
+        "indicator",
+        "unit",
         "reporting_period",
-        "admin_name",
+        "region_code",
+        "region_name",
         "case_count"
       ],
-      "required_follow_up": "confirm exported fields, temporal granularity, reuse terms, and stable CSV retrieval route",
-      "retrieval_route": "ECDC Surveillance Atlas public interface with export by dataset, health topic, region, period, and indicator",
+      "required_follow_up": "capture explicit terms or disclaimer text, decide handling for suppression markers and aggregate reference regions, and document reusable export route",
+      "retrieval_route": "public ECDC Atlas export endpoint and captured CSV-text export for reported cases",
       "source_id": "ecdc_surveillance_atlas_hantavirus",
       "source_name": "ECDC Surveillance Atlas hantavirus exports",
-      "status": "confirmed_public_structured_source",
+      "status": "confirmed_public_csv_export_captured",
       "supports_gates": [
         "human_surveillance_schema",
         "cross_source_join_bias_review"
@@ -90,38 +93,42 @@
       "url": "public_access_route_pending_verification"
     },
     {
-      "access_status": "candidate_not_access_verified",
-      "analysis_readiness": "not_ready",
+      "access_status": "public_csv_export_captured_annual_only",
+      "analysis_readiness": "annual_state_mapping_only",
       "category": "human_surveillance",
-      "caveat": "current search did not confirm a stable machine-readable CDC dataset",
+      "caveat": "verified public machine-readable CDC WONDER export is annual state-level only, so Rt and fine-grained joins remain blocked",
       "could_unlock": [
         "human_case_maps"
       ],
-      "expected_format": "CDC report table or downloadable surveillance product if available",
+      "expected_format": "CSV, TSV, or XLS export",
       "guardrails_preserved": true,
       "missing_or_pending_fields": [
-        "stable_download_url",
-        "condition_name",
-        "time_unit",
-        "state_or_national_geography",
-        "case_count"
+        "subannual_time_unit",
+        "reportability_harmonization",
+        "privacy_suppression_rule_by_jurisdiction"
       ],
-      "next_action": "verify current NNDSS condition tables for HCPS or hantavirus disease",
+      "next_action": "retain for coarse mapping provenance and keep Rt/join gates blocked unless subannual or better-harmonized public data are captured",
       "not_sufficient_for": [
         "rt_estimation_until_weekly_or_monthly_series_confirmed"
       ],
       "priority": "medium",
-      "required_fields_verified": [],
-      "required_follow_up": "find current NNDSS or CDC table endpoint with HCPS/Hantavirus fields and export terms",
-      "retrieval_route": "CDC/NNDSS product route pending stable table identification",
+      "required_fields_verified": [
+        "condition_name",
+        "reporting_year",
+        "state_or_territory",
+        "case_count",
+        "citation_footer"
+      ],
+      "required_follow_up": "review reportability and case-definition comparability, and keep searching for finer-grained public hantavirus surveillance tables if needed",
+      "retrieval_route": "CDC WONDER NNDSS annual summary request form with CSV export",
       "source_id": "cdc_nndss_hcps",
       "source_name": "CDC/NNDSS hantavirus pulmonary syndrome reporting products",
-      "status": "candidate_needs_download_route_verification",
+      "status": "confirmed_public_csv_export_captured_annual_only",
       "supports_gates": [
         "human_surveillance_schema"
       ],
-      "terms_status": "terms_review_pending",
-      "url": "https://www.cdc.gov/hantavirus/"
+      "terms_status": "cdc_wonder_terms_and_citation_footer_captured",
+      "url": "https://wonder.cdc.gov/nndss-annual-summary.html"
     },
     {
       "access_status": "access_verified_static_download_source",
@@ -273,7 +280,7 @@
         "crs",
         "license_or_terms"
       ],
-      "required_follow_up": "define elevation derivatives, vertical datum handling, download route, and attribution",
+      "required_follow_up": "define elevation derivatives, vertical datum handling, and practical tile retrieval route with attribution capture before download",
       "retrieval_route": "Copernicus Data Space Browser, OData API, or S3-compatible storage",
       "source_id": "copernicus_dem_glo30",
       "source_name": "Copernicus DEM GLO-30",

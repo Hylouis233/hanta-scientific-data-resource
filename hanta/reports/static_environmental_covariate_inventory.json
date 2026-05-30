@@ -1,8 +1,9 @@
 {
-  "covariate_count": 4,
+  "covariate_count": 5,
   "covariates": [
     {
       "crs": "confirm from GeoTIFF metadata after download",
+      "download_readiness": "downloaded_10_arc_min_bioclim_and_elevation_archives_present",
       "download_route": "official WorldClim GeoTIFF zip downloads",
       "license_or_terms": "citation required; exact license text pending file/page review",
       "resolution": "30 arc-sec, 2.5 arc-min, 5 arc-min, 10 arc-min",
@@ -14,7 +15,8 @@
     },
     {
       "crs": "EPSG:4326",
-      "download_route": "COG tiles, S3, Zenodo, WMS/WMTS, Terrascope, or Google Earth Engine",
+      "download_readiness": "self_service_public_tiles_listable_but_not_downloaded_in_this_task",
+      "download_route": "public ESA WorldCover S3 bucket, COG tiles, Zenodo, WMS/WMTS, Terrascope, or Google Earth Engine",
       "license_or_terms": "CC BY 4.0",
       "resolution": "10 m",
       "source_id": "esa_worldcover_2021",
@@ -25,7 +27,8 @@
     },
     {
       "crs": "horizontal EPSG:4326; vertical EGM2008 EPSG:3855",
-      "download_route": "Copernicus Browser, OData API, or S3-compatible storage",
+      "download_readiness": "public_route_confirmed_but exact practical bulk tile endpoint still to be captured before repo download",
+      "download_route": "Copernicus Data Space Browser, OData API, or S3-compatible storage",
       "license_or_terms": "free license with attribution obligations",
       "resolution": "1 arc-sec",
       "source_id": "copernicus_dem_glo30",
@@ -35,18 +38,31 @@
       "version": "GLO-30 public release"
     },
     {
+      "crs": "EPSG:4326",
+      "download_readiness": "downloaded_public_zip_present",
+      "download_route": "Natural Earth public S3 zip download",
+      "license_or_terms": "public domain",
+      "resolution": "1:10m vector",
+      "source_id": "natural_earth_10m_land",
+      "target_policy": "boundary or land-mask support only; not a biological suitability signal",
+      "temporal_coverage": "static physical vector release",
+      "variables": "land polygons for coastline or study-mask support",
+      "version": "5.x public release"
+    },
+    {
       "crs": "confirm from product metadata",
+      "download_readiness": "self_service_public_catalog_confirmed_but exact product selection still pending",
       "download_route": "WorldPop Hub REST catalog",
       "license_or_terms": "open-access portal; exact product license pending endpoint review",
       "resolution": "100 m, 1 km, or 30 arc-sec depending selected product",
       "source_id": "worldpop_population",
       "target_policy": "human exposure covariate only, not a human case surface",
-      "temporal_coverage": "candidate products include 2015-2030 global datasets",
+      "temporal_coverage": "candidate products include 2000-2020 country surfaces and related global datasets",
       "variables": "gridded population and demographic products",
       "version": "product/year selected during ingestion"
     }
   ],
-  "generated_at_utc": "2026-05-29T15:27:51.471446+00:00",
+  "generated_at_utc": "2026-05-30T17:22:25.536738+00:00",
   "guardrails": [
     "planning artifacts do not ingest analysis datasets",
     "planning artifacts do not execute risk maps, abundance inference, human case maps, Rt, spillover, host-switch, or surveillance joins",

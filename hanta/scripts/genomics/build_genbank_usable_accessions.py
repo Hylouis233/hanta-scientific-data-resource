@@ -66,6 +66,7 @@ def main() -> int:
 
     usable_counts_by_virus = Counter(record["virus_species"] for record in usable)
     usable_counts_by_segment = Counter(record["segment"] for record in usable)
+    usable_counts_by_host = Counter(record["host_species"] for record in usable)
     excluded_counts_by_final_use = Counter(record.get("final_use", "unclassified") for record in excluded)
 
     payload = {
@@ -78,6 +79,7 @@ def main() -> int:
         "excluded_or_context_count": len(excluded),
         "usable_counts_by_virus": dict(sorted(usable_counts_by_virus.items())),
         "usable_counts_by_segment": dict(sorted(usable_counts_by_segment.items())),
+        "usable_counts_by_host": dict(sorted(usable_counts_by_host.items())),
         "excluded_counts_by_final_use": dict(sorted(excluded_counts_by_final_use.items())),
         "records": usable,
         "excluded_or_context_accessions": [
@@ -123,7 +125,7 @@ def main() -> int:
         "",
         "## Host-label summary",
         "",
-        *[f"- {host}: {count}" for host, count in payload["selected_triplet_count_by_host"].items()],
+        *[f"- {host}: {count}" for host, count in sorted(usable_counts_by_host.items())],
         "",
         "## Guardrails",
         "",

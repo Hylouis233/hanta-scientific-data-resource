@@ -7,11 +7,12 @@ from pathlib import Path
 from typing import Any
 
 
-COVARIATE_MANIFEST = Path("data/metadata/environmental_covariate_file_manifest.json")
-BIAS_REVIEW = Path("reports/hanta_advanced_bias_review.json")
-QC_SUMMARY = Path("reports/hanta_advanced_qc_summary.json")
-TARGET_DESIGN = Path("data/metadata/environmental_target_background_design.json")
-REPORT_MD = Path("reports/hanta_environmental_covariate_gate_review.md")
+ROOT = Path(__file__).resolve().parents[2]
+COVARIATE_MANIFEST = ROOT / "data/metadata/environmental_covariate_file_manifest.json"
+BIAS_REVIEW = ROOT / "reports/hanta_advanced_bias_review.json"
+QC_SUMMARY = ROOT / "reports/hanta_advanced_qc_summary.json"
+TARGET_DESIGN = ROOT / "data/metadata/environmental_target_background_design.json"
+REPORT_MD = ROOT / "reports/hanta_environmental_covariate_gate_review.md"
 
 
 def _load_json(path: Path) -> dict[str, Any]:

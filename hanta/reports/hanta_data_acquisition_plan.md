@@ -1,21 +1,22 @@
 # Hanta data acquisition plan
 
-Status: data sources identified; no advanced analyses executed.
+Status: public-source acquisition plan updated; no advanced analyses executed.
 
 ## Recommended acquisition order
 
-1. ECDC Atlas human surveillance export verification
-2. WorldClim/ESA WorldCover/Copernicus DEM static covariate inventory
-3. MODIS MOD13Q1 Earthdata access and QA aggregation plan
-4. NCBI Virus export plus Entrez flatfile backfill plan
-5. China CDC HFRS monthly bulletin route verification
-6. USGS/EDI host trapping file-level screening
+1. ECDC Atlas public export normalization and terms capture
+2. CDC WONDER annual hantavirus review for coarse mapping provenance
+3. WorldClim/ESA WorldCover/Copernicus DEM static covariate inventory
+4. MODIS MOD13Q1 Earthdata access and QA aggregation plan
+5. NCBI Virus export plus Entrez flatfile backfill plan
+6. China CDC HFRS monthly bulletin route verification
+7. USGS/EDI host trapping file-level screening
 
 ## Source shortlist
 
-- `ecdc_surveillance_atlas_hantavirus` (high): confirmed_public_structured_source
+- `ecdc_surveillance_atlas_hantavirus` (high): confirmed_public_csv_export_captured
 - `china_cdc_hfrs_monthly_bulletins` (high): high_value_candidate_needs_access_verification
-- `cdc_nndss_hcps` (medium): candidate_needs_download_route_verification
+- `cdc_nndss_hcps` (medium): confirmed_public_csv_export_captured_annual_only
 - `worldclim_2_1` (high): confirmed_public_source
 - `modis_mod13q1_v061` (high): confirmed_public_source_requires_earthdata_route
 - `esa_worldcover_2021` (high): confirmed_public_source
@@ -35,5 +36,5 @@ Status: data sources identified; no advanced analyses executed.
 
 ## Next action
 
-Begin with source-specific access verification for ECDC Atlas and the static environmental covariate stack, then create separate ingestion plans for sequence bodies and host trapping datasets.
+Use the captured ECDC Atlas and CDC WONDER public exports for provenance-complete coarse surveillance planning only, while leaving China CDC monthly bulletin access and any finer-grained Rt/join needs explicitly blocked until better public tables are captured.
 

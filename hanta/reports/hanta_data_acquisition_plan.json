@@ -1,12 +1,13 @@
 {
-  "generated_at_utc": "2026-05-30T17:04:32.317851+00:00",
+  "generated_at_utc": "2026-05-30T17:19:51.099228+00:00",
   "guardrails": [
     "identified sources do not execute advanced analyses",
     "no risk map, abundance inference, human case map, Rt estimate, spillover inference, host-switch inference, or surveillance join is authorized by this plan alone",
     "each source still requires provenance, terms, field-schema, and bias review before analysis"
   ],
   "recommended_order": [
-    "ECDC Atlas human surveillance export verification",
+    "ECDC Atlas public export normalization and terms capture",
+    "CDC WONDER annual hantavirus review for coarse mapping provenance",
     "WorldClim/ESA WorldCover/Copernicus DEM static covariate inventory",
     "MODIS MOD13Q1 Earthdata access and QA aggregation plan",
     "NCBI Virus export plus Entrez flatfile backfill plan",
@@ -18,7 +19,7 @@
   "sources": [
     {
       "category": "human_surveillance",
-      "caveat": "likely aggregate country/time data; no case-level linelist assumed",
+      "caveat": "aggregate country/month data are public and structured, but downstream use still needs terms capture and harmonization review",
       "could_unlock": [
         "human_case_maps",
         "surveillance_join"
@@ -27,10 +28,10 @@
         "rt_estimation_without_subannual_time_series"
       ],
       "priority": "high",
-      "required_follow_up": "confirm exported fields, temporal granularity, reuse terms, and stable CSV retrieval route",
+      "required_follow_up": "capture explicit terms or disclaimer text, decide handling for suppression markers and aggregate reference regions, and document reusable export route",
       "source_id": "ecdc_surveillance_atlas_hantavirus",
       "source_name": "ECDC Surveillance Atlas hantavirus exports",
-      "status": "confirmed_public_structured_source",
+      "status": "confirmed_public_csv_export_captured",
       "supports_gates": [
         "human_surveillance_schema",
         "cross_source_join_bias_review"
@@ -60,7 +61,7 @@
     },
     {
       "category": "human_surveillance",
-      "caveat": "current search did not confirm a stable machine-readable CDC dataset",
+      "caveat": "verified public machine-readable CDC WONDER export is annual state-level only, so Rt and fine-grained joins remain blocked",
       "could_unlock": [
         "human_case_maps"
       ],
@@ -68,14 +69,14 @@
         "rt_estimation_until_weekly_or_monthly_series_confirmed"
       ],
       "priority": "medium",
-      "required_follow_up": "find current NNDSS or CDC table endpoint with HCPS/Hantavirus fields and export terms",
+      "required_follow_up": "review reportability and case-definition comparability, and keep searching for finer-grained public hantavirus surveillance tables if needed",
       "source_id": "cdc_nndss_hcps",
       "source_name": "CDC/NNDSS hantavirus pulmonary syndrome reporting products",
-      "status": "candidate_needs_download_route_verification",
+      "status": "confirmed_public_csv_export_captured_annual_only",
       "supports_gates": [
         "human_surveillance_schema"
       ],
-      "url": "https://www.cdc.gov/hantavirus/"
+      "url": "https://wonder.cdc.gov/nndss-annual-summary.html"
     },
     {
       "category": "environmental_covariate",
@@ -152,7 +153,7 @@
       ],
       "not_sufficient_for": [],
       "priority": "high",
-      "required_follow_up": "define elevation derivatives, vertical datum handling, download route, and attribution",
+      "required_follow_up": "define elevation derivatives, vertical datum handling, and practical tile retrieval route with attribution capture before download",
       "source_id": "copernicus_dem_glo30",
       "source_name": "Copernicus DEM GLO-30",
       "status": "confirmed_public_source",

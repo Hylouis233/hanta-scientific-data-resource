@@ -1,70 +1,39 @@
 {
-  "schema_version": "0.2.0",
-  "status": "captured_public_export",
-  "generated_at_utc": "2026-05-30T06:19:03.327458+00:00",
-  "source_id": "ecdc_surveillance_atlas_hantavirus",
-  "atlas_url": "https://atlas.ecdc.europa.eu/public/index.aspx?Dataset=27&HealthTopic=24",
-  "export_endpoint": "https://atlas.ecdc.europa.eu/public/AtlasService/rest/post/GetMeasuresResultsExportText",
-  "access": "no_credentials_required",
-  "capture_method": "public AtlasService POST export using observed JavaScript endpoint and parameters for healthTopicId=24 datasetId=27 measurePopulation=All cases measureId=895789",
-  "export_parameters": {
-    "healthTopicId": 24,
-    "datasetId": 27,
-    "measurePopulation": "All cases",
-    "measureIds": "895789",
-    "measureTypes": "I",
-    "timeCodes": "",
-    "geoCodes": "",
-    "geoLevel": "2",
-    "timeUnit": "Y",
-    "isPivotByTimePeriod": false
+  "generated_at_utc": "2026-05-30T17:22:25.536738+00:00",
+  "guardrails": [
+    "planning artifacts do not ingest analysis datasets",
+    "planning artifacts do not execute risk maps, abundance inference, human case maps, Rt, spillover, host-switch, or surveillance joins",
+    "each source still requires provenance, terms, field-schema, and bias review before analysis"
+  ],
+  "plan": {
+    "analysis_scope": "public surveillance export provenance and schema evidence only; descriptive mapping already remains bounded elsewhere",
+    "atlas_url": "https://atlas.ecdc.europa.eu/public/index.aspx?Dataset=27&HealthTopic=24",
+    "captured_fields": [
+      "HealthTopic",
+      "Population",
+      "Indicator",
+      "Unit",
+      "Time",
+      "RegionCode",
+      "RegionName",
+      "NumValue",
+      "TxtValue"
+    ],
+    "captured_file": "data/raw/ecdc_surveillance_atlas_hantavirus_reported_cases_export.csv",
+    "observed_export_endpoint": "https://atlas.ecdc.europa.eu/public/AtlasService/rest/post/GetMeasuresResultsExportText",
+    "remaining_blockers": [
+      "explicit terms/license/disclaimer text capture",
+      "suppression marker semantics confirmation",
+      "aggregate reference-region filtering rule before downstream use"
+    ],
+    "row_count_excluding_header": 6360,
+    "sha256": "2db0e5fc7c1558d5c35fd34a0c620f4836cf04a9b9b6f31b9fb364ee48ea1245",
+    "source_id": "ecdc_surveillance_atlas_hantavirus",
+    "verified_case_count_field": "NumValue when Indicator=Reported cases and Unit=N",
+    "verified_geography": "country rows plus aggregate reference-region rows",
+    "verified_time_granularity": "annual rows such as 2008 and monthly rows such as 2008-01"
   },
-  "captured_file": "/home/lh/d/autoresearch/hanta/data/raw/ecdc_surveillance_atlas_hantavirus_reported_cases_export.csv",
-  "captured_file_sha256": "2db0e5fc7c1558d5c35fd34a0c620f4836cf04a9b9b6f31b9fb364ee48ea1245",
-  "captured_file_bytes": 631521,
-  "headers_exact": [
-    "HealthTopic",
-    "Population",
-    "Indicator",
-    "Unit",
-    "Time",
-    "RegionCode",
-    "RegionName",
-    "NumValue",
-    "TxtValue"
-  ],
-  "row_count": 6360,
-  "field_semantics": {
-    "HealthTopic": "disease label from source",
-    "Population": "subpopulation / case grouping",
-    "Indicator": "indicator label",
-    "Unit": "measurement unit",
-    "Time": "mixed annual and monthly time periods as exported by source",
-    "RegionCode": "geographic code including countries and ECDC aggregate reference regions",
-    "RegionName": "geographic label",
-    "NumValue": "numeric value or source suppression marker rendered in numeric column",
-    "TxtValue": "text value companion column; empty in sampled rows"
-  },
-  "terms_and_license": {
-    "page_disclaimer_button_present": true,
-    "explicit_license_text_captured": false,
-    "notes": "Static page and public endpoints confirmed export capability, but no explicit license text was exposed in inspected HTML or endpoint responses. Measure description endpoint returned a generic PDF embed path not clearly specific to hantavirus. Use ECDC source attribution and retain blocker on terms/license completeness."
-  },
-  "geography_granularity_verified": [
-    "Country (geoLevel 2)"
-  ],
-  "additional_geography_supported_by_measure_metadata": [
-    "Subnational3 yearly for reported cases"
-  ],
-  "time_granularity_verified": [
-    "Year",
-    "Month"
-  ],
-  "case_count_field": "NumValue when Indicator = Reported cases and Unit = N",
-  "important_caveats": [
-    "single captured export mixes annual and monthly rows because timeCodes was empty and the source returned all available periods",
-    "export includes aggregate reference regions such as EU27_21 and EUEEA30_21 in addition to countries",
-    "NumValue may contain non-numeric markers such as - for not calculated or unavailable cells"
-  ],
+  "schema_version": "0.1.0",
+  "status": "ecdc_surveillance_export_plan_complete",
   "validation_passed": true
 }

@@ -2,9 +2,9 @@
 
 Status: screening plan complete; no host abundance inference executed.
 
-- `usgs_picayune_small_mammal_captures`: file_level_screening_pending — local abundance/detection screening only, not global abundance inference
-- `usgs_deltamethrin_small_mammal_capture_histories`: file_level_screening_pending — mark-recapture/detection context screening only until effort fields are confirmed
-- `edi_lter_small_mammal_datasets`: authenticated_or_manual_metadata_review_pending — candidate long-term trapping source; not abundance-ready until package metadata are verified
+- `usgs_picayune_small_mammal_captures`: public_files_downloaded_and_screened — local within-study capture/detection diagnostics only; not global abundance inference
+- `usgs_deltamethrin_small_mammal_capture_histories`: public_files_downloaded_and_screened — repeated-session capture-history diagnostics only; not abundance surface estimation
+- `edi_lter_small_mammal_datasets`: public_search_route_reached_structured_package_metadata_not_captured — candidate long-term trapping source remains blocked until a self-service public package page exposing trap effort/captures/license is captured
 
 ## Guardrails
 

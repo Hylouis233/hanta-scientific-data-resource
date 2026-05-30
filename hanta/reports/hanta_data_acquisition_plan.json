@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-29T14:09:13.242027+00:00",
+  "generated_at_utc": "2026-05-30T17:04:32.317851+00:00",
   "guardrails": [
     "identified sources do not execute advanced analyses",
     "no risk map, abundance inference, human case map, Rt estimate, spillover inference, host-switch inference, or surveillance join is authorized by this plan alone",
@@ -264,16 +264,16 @@
     },
     {
       "category": "host_trapping_effort",
-      "caveat": "anonymous metadata access was limited in current search environment",
+      "caveat": "public search page is reachable, but this run did not capture package-level metadata or a self-service dataset meeting scope requirements",
       "could_unlock": [
         "host_abundance_inference"
       ],
       "not_sufficient_for": [],
       "priority": "medium",
-      "required_follow_up": "verify Sevilleta/Jornada/Konza/Hog Island packages for trap effort, species counts, dates, coordinates, and license",
+      "required_follow_up": "retain as documented blocker until a concrete public package page exposing trap effort, captures, dates, coordinates, and license terms is captured without authentication or manual permission",
       "source_id": "edi_lter_small_mammal_datasets",
       "source_name": "EDI/LTER small mammal trapping datasets",
-      "status": "promising_candidate_needs_authenticated_metadata_review",
+      "status": "public_search_route_reached_structured_package_metadata_not_captured",
       "supports_gates": [
         "cross_source_join_bias_review"
       ],

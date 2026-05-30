@@ -2,7 +2,7 @@
 
 Status: source-specific access verification complete; no advanced analyses executed.
 
-Verified or route-confirmed sources: 12 / 13.
+Verified or route-confirmed sources: 10 / 13.
 
 ## Source status
 
@@ -16,9 +16,9 @@ Verified or route-confirmed sources: 12 / 13.
 - `worldpop_population`: access_verified_portal_api_needs_product_selection — exposure_covariate_planning_only
 - `ncbi_virus_hantaviridae`: access_verified_export_source — sequence_download_planning_ready
 - `ncbi_entrez_nuccore_hantaviridae`: access_verified_programmatic_api — sequence_backfill_planning_ready
-- `usgs_picayune_small_mammal_captures`: access_verified_landing_page_file_screening_pending — host_abundance_screening_only
-- `usgs_deltamethrin_small_mammal_capture_histories`: access_verified_landing_page_file_screening_pending — host_abundance_screening_only
-- `edi_lter_small_mammal_datasets`: candidate_requires_authenticated_metadata_review — not_ready
+- `usgs_picayune_small_mammal_captures`: public_files_downloaded_and_screened — within_study_capture_diagnostics_only
+- `usgs_deltamethrin_small_mammal_capture_histories`: public_files_downloaded_and_screened — within_study_detection_diagnostics_only
+- `edi_lter_small_mammal_datasets`: public_search_route_reached_structured_package_metadata_not_captured — blocked_documented_public_search_only
 
 ## Still pending before analysis
 

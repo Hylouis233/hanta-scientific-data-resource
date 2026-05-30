@@ -25,7 +25,7 @@ Status: data sources identified; no advanced analyses executed.
 - `ncbi_entrez_nuccore_hantaviridae` (high): confirmed_public_api
 - `usgs_picayune_small_mammal_captures` (medium_high): confirmed_public_candidate_needs_file_screening
 - `usgs_deltamethrin_small_mammal_capture_histories` (medium): confirmed_public_candidate_needs_file_screening
-- `edi_lter_small_mammal_datasets` (medium): promising_candidate_needs_authenticated_metadata_review
+- `edi_lter_small_mammal_datasets` (medium): public_search_route_reached_structured_package_metadata_not_captured
 
 ## Guardrails
 

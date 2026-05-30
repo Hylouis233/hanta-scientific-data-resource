@@ -1,30 +1,27 @@
 # Human surveillance join blocker evidence
 
-Status: partially unblocked. Annual state-level CDC WONDER CSV exports were captured for U.S. hantavirus conditions, enabling coarse mapping review only.
+Status: blocked with evidence-backed public-source review; no surveillance table downloaded.
 
-## Verified downloadable source
+## Best available candidate
 
-- `cdc_wonder_nndss_hantavirus_annual`: `https://wonder.cdc.gov/nndss-annual-summary.html`
-  - no-credential CSV export confirmed
-  - condition rows available for `Hantavirus pulmonary syndrome` and `Hantavirus infection, non-hantavirus pulmonary syndrome`
-  - geography: United States and states
-  - time coverage: 2016-2023 annual counts
-  - terms/provenance: query footer includes CDC WONDER citation text
+- `ecdc_surveillance_atlas_hantavirus`: public Atlas page exposes CSV export UI text, but this run did not capture the downloadable file, headers, terms, or stable endpoint.
 
-## Remaining blocker for Rt/join gate
+## Attempted sources
 
-- Annual aggregation is insufficient for Rt estimation.
-- Jurisdiction rows include `Not Reportable`, so case-definition/reportability harmonization still needs review before joins.
-- No county-level table was captured; this remains a state-level surveillance product.
+- `ecdc_surveillance_atlas_hantavirus`: accessible without credentials; likely structured CSV export exists; still blocked pending actual export capture.
+- `cdc_nndss_hcps`: CDC public pages and NNDSS routes reached; only HTML summary content and a PDF form were confirmed, not a hantavirus-specific downloadable dataset.
+- `china_cdc_hfrs_monthly_bulletins`: inspected English China CDC pages did not expose HFRS bulletins or downloadable surveillance tables.
 
-## Other searched routes
+## Why join/Rt stays blocked
 
-- `https://www.cdc.gov/hantavirus/data-research/cases/index.html`: confirmed static HTML summary only, no CSV/XLS/API.
-- `https://www.cdc.gov/hantavirus/php/surveillance/index.html`: confirmed reporting guidance and links, plus PDF CRF, but not a direct dataset.
-- `https://data.cdc.gov/browse?category=NNDSS`: no hantavirus-specific dataset identified from the catalog landing page.
+- No real surveillance table was downloaded during this task.
+- ECDC export schema, terms, and temporal granularity remain uncaptured.
+- CDC did not yield a verified downloadable HCPS dataset from inspected public routes.
+- China CDC did not yield a verified public HFRS bulletin table from inspected no-credential routes.
 
 ## Guardrails
 
-- this artifact records source access evidence only and does not ingest case data beyond the downloaded annual surveillance table
-- no Rt estimate or surveillance join is executed from this artifact
-- downstream analyses beyond annual mapping remain blocked until finer-grained or harmonized data are captured
+- this artifact records source access evidence only and does not ingest case data
+- no human case map, Rt estimate, or surveillance join is executed from this artifact
+- all downstream analyses remain blocked until a provenance-complete surveillance table is captured
+

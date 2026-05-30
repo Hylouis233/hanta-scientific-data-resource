@@ -1,6 +1,6 @@
 {
-  "access_verified_count": 12,
-  "generated_at_utc": "2026-05-30T05:53:32.304026+00:00",
+  "access_verified_count": 10,
+  "generated_at_utc": "2026-05-30T17:04:32.369312+00:00",
   "guardrails": [
     "source access verification does not ingest analysis datasets",
     "source access verification does not execute risk maps, abundance inference, human case maps, Rt, spillover, host-switch, or surveillance joins",
@@ -403,8 +403,8 @@
       "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
     },
     {
-      "access_status": "access_verified_landing_page_file_screening_pending",
-      "analysis_readiness": "host_abundance_screening_only",
+      "access_status": "public_files_downloaded_and_screened",
+      "analysis_readiness": "within_study_capture_diagnostics_only",
       "category": "host_trapping_effort",
       "caveat": "local Florida study; not representative global abundance evidence",
       "could_unlock": [
@@ -413,21 +413,20 @@
       "expected_format": "CSV/XML attachments from ScienceBase item",
       "guardrails_preserved": true,
       "missing_or_pending_fields": [
-        "trap_nights_or_effort",
-        "coordinates",
-        "license_or_terms",
-        "file_headers"
+        "file_level_coordinates",
+        "explicit_license_text"
       ],
-      "next_action": "download attachment metadata and confirm effort/count/location fields before abundance use",
+      "next_action": "preserve downloaded files with provenance and keep any broader abundance use blocked until coordinate and license semantics are documented",
       "not_sufficient_for": [
         "global_host_abundance_inference"
       ],
       "priority": "medium_high",
       "required_fields_verified": [
         "species",
-        "dates",
+        "capture_date",
         "captures_or_counts",
-        "admin_area"
+        "trap_number",
+        "habitat_or_admin_context"
       ],
       "required_follow_up": "download metadata/files, confirm trap nights or effort, coordinates/admin resolution, species counts, dates, and license",
       "retrieval_route": "USGS ScienceBase public data release with attached capture files",
@@ -438,12 +437,12 @@
         "environmental_covariates_schema",
         "cross_source_join_bias_review"
       ],
-      "terms_status": "usgs_release_terms_review_pending",
+      "terms_status": "public_usgs_data_release_rights_field_not_populated_in_item_json",
       "url": "https://www.sciencebase.gov/catalog/item/5e1c8c13e4b0ecf25c5efce5"
     },
     {
-      "access_status": "access_verified_landing_page_file_screening_pending",
-      "analysis_readiness": "host_abundance_screening_only",
+      "access_status": "public_files_downloaded_and_screened",
+      "analysis_readiness": "within_study_detection_diagnostics_only",
       "category": "host_trapping_effort",
       "caveat": "may be better for mark-recapture/detection context than direct abundance index",
       "could_unlock": [
@@ -452,21 +451,20 @@
       "expected_format": "CSV/XML attachments from ScienceBase item",
       "guardrails_preserved": true,
       "missing_or_pending_fields": [
-        "trap_nights_or_effort",
-        "coordinates",
-        "treatment_design_scope",
-        "license_or_terms"
+        "file_level_coordinates",
+        "explicit_license_text"
       ],
-      "next_action": "screen files for repeated-session effort variables and treatment design constraints",
+      "next_action": "preserve downloaded files with provenance and keep cross-study or abundance-surface use blocked until coordinate and license semantics are documented",
       "not_sufficient_for": [
         "direct_abundance_without_effort_confirmation"
       ],
       "priority": "medium",
       "required_fields_verified": [
         "species",
-        "dates",
+        "year",
         "capture_histories",
-        "admin_area"
+        "repeated_sessions",
+        "treatment_design"
       ],
       "required_follow_up": "screen capture histories for effort variables, repeated sessions, coordinates/admin areas, and treatment design constraints",
       "retrieval_route": "USGS ScienceBase public data release with capture-history files",
@@ -476,18 +474,18 @@
       "supports_gates": [
         "cross_source_join_bias_review"
       ],
-      "terms_status": "usgs_release_terms_review_pending",
+      "terms_status": "public_usgs_data_release_rights_field_not_populated_in_item_json",
       "url": "https://www.sciencebase.gov/catalog/item/6164f1fed34e52f49c822f06"
     },
     {
-      "access_status": "candidate_requires_authenticated_metadata_review",
-      "analysis_readiness": "not_ready",
+      "access_status": "public_search_route_reached_structured_package_metadata_not_captured",
+      "analysis_readiness": "blocked_documented_public_search_only",
       "category": "host_trapping_effort",
-      "caveat": "anonymous metadata access was limited in current search environment",
+      "caveat": "public search page is reachable, but this run did not capture package-level metadata or a self-service dataset meeting scope requirements",
       "could_unlock": [
         "host_abundance_inference"
       ],
-      "expected_format": "EML metadata and tabular package data",
+      "expected_format": "EML metadata and tabular package data when package pages are concretely identified",
       "guardrails_preserved": true,
       "missing_or_pending_fields": [
         "package_ids",
@@ -497,19 +495,19 @@
         "dates",
         "license_or_terms"
       ],
-      "next_action": "inspect Sevilleta/Jornada/Konza/Hog Island package metadata with authenticated or manual access",
+      "next_action": "leave documented as a blocker until a self-service public package page exposing the required metadata is captured without authentication or permission",
       "not_sufficient_for": [],
       "priority": "medium",
       "required_fields_verified": [],
-      "required_follow_up": "verify Sevilleta/Jornada/Konza/Hog Island packages for trap effort, species counts, dates, coordinates, and license",
-      "retrieval_route": "EDI simple search and package pages after portal access",
+      "required_follow_up": "retain as documented blocker until a concrete public package page exposing trap effort, captures, dates, coordinates, and license terms is captured without authentication or manual permission",
+      "retrieval_route": "EDI simple search page reachable without credentials, but concrete package-level metadata were not exposed in this run",
       "source_id": "edi_lter_small_mammal_datasets",
       "source_name": "EDI/LTER small mammal trapping datasets",
-      "status": "promising_candidate_needs_authenticated_metadata_review",
+      "status": "public_search_route_reached_structured_package_metadata_not_captured",
       "supports_gates": [
         "cross_source_join_bias_review"
       ],
-      "terms_status": "unknown_until_package_review",
+      "terms_status": "unknown_until_package_level_public_metadata_are_captured",
       "url": "https://portal.edirepository.org/nis/simpleSearch"
     }
   ]

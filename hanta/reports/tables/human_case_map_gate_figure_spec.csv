@@ -1,0 +1,2 @@
+figure_id,status,format,quality_requirements,caption_must_state
+fig_human_case_map_gate,ready_descriptive_non_geographic,SVG vector,"publication-style typography, colorblind-safe sequential palette, explicit non-geographic panel labeling, suppression shown in gray, caption with data and claim boundaries","public aggregate surveillance availability/counts only; non-geographic tile map substitute because no allowed boundary geometry was committed; not risk, causal, spillover, or Rt output"

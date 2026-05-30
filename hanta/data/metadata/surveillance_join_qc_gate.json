@@ -1,0 +1,111 @@
+{
+  "approved_use": [
+    "descriptive join-key documentation",
+    "country-month coverage QC",
+    "bias and exclusion review"
+  ],
+  "bias_review": {
+    "bias_risk_rating": "high_for_inference_bounded_for_descriptive_join_qc",
+    "key_biases": [
+      "Human surveillance counts and host occurrence records measure different processes and should not be interpreted as exposure or spillover events.",
+      "ECDC national reporting practices, case definitions, and suppression differ across countries and time.",
+      "GBIF occurrence effort is opportunistic and spatially biased, not a standardized host surveillance frame.",
+      "Country-month matching is coarse and may reflect asynchronous ecological and reporting processes.",
+      "The environmental pilot table is a 1000-row sample linked to GBIF IDs, not a full covariate layer for all joined rows.",
+      "Code harmonization gaps remain, including ECDC codes such as EL and UK that may not line up with GBIF countryCode usage."
+    ]
+  },
+  "coverage_qc": {
+    "ecdc_country_codes_without_gbif_overlap": [
+      "EL",
+      "IS",
+      "MT",
+      "UK"
+    ],
+    "ecdc_country_count": 30,
+    "ecdc_country_month_rows": 5102,
+    "gbif_country_count_with_parseable_month": 109,
+    "gbif_country_month_rows": 10106,
+    "matched_country_count": 23,
+    "matched_country_month_rows": 1692,
+    "output_table": "/home/lh/d/autoresearch/hanta/reports/tables/surveillance_join_country_month_qc.csv",
+    "sample_environment_overlap": {
+      "gbif_candidate_rows_total": 533900,
+      "gbif_rows_linked_to_pilot_environment": 500,
+      "pilot_environment_rows": 1000
+    },
+    "unmatched_ecdc_country_month_rows": 3410
+  },
+  "gate_decision": {
+    "blockers": [
+      "No approved harmonization from descriptive country-month overlap to scientific surveillance-host inference.",
+      "CDC WONDER annual state data cannot be joined to ECDC country-month records without invalid temporal and geographic mixing.",
+      "GBIF and ECDC code systems do not fully align, leaving explicit no-overlap country codes including EL, IS, MT, and UK in current coverage accounting.",
+      "Pilot environmental rows cover only a small GBIF-linked subset and are not sufficient for a complete joined layer."
+    ],
+    "descriptive_join_qc_supported": true,
+    "true_surveillance_join_gate_passed": false
+  },
+  "generated_at_utc": "2026-05-30T06:52:36.822596+00:00",
+  "guardrails": [
+    "This artifact documents descriptive join QC only.",
+    "No spillover inference, risk prediction, causal effect estimation, or abundance claim is authorized.",
+    "Absence of a GBIF country-month match does not imply host absence, low abundance, or zero surveillance risk."
+  ],
+  "join_specification": {
+    "duplication_policy": "Aggregate GBIF rows to country-month before any descriptive join; do not duplicate surveillance rows by raw host records.",
+    "exclusion_rules": [
+      "Exclude any ECDC rows outside YYYY-MM monthly format.",
+      "Exclude aggregate ECDC reference-region rows from the surveillance slice.",
+      "Exclude GBIF rows lacking parseable event month or country code from join coverage accounting.",
+      "Do not use the CDC WONDER annual state table in this join because it is annual and U.S. state-level, not country-month.",
+      "Do not project the pilot environmental table to unmatched GBIF or surveillance rows."
+    ],
+    "join_key": [
+      "country_code == countryCode",
+      "reporting_month == event_month"
+    ],
+    "missingness_policy": "Retain all ECDC country-month rows. GBIF non-matches remain explicit non-coverage. Preserve suppressed/non-numeric ECDC counts as missing numeric values.",
+    "spatial_alignment_rule": "Restrict to two-letter country codes present in both sources without attempting subnational harmonization.",
+    "temporal_alignment_rule": "Restrict to YYYY-MM monthly alignment only; do not aggregate annual surveillance or infer zero counts from missing host rows."
+  },
+  "left_source": {
+    "entity": "human reported cases",
+    "path": "/home/lh/d/autoresearch/hanta/data/processed/ecdc_hantavirus_country_month_reported_cases.csv",
+    "primary_key": [
+      "reporting_month",
+      "country_code"
+    ],
+    "source_id": "ecdc_surveillance_atlas_hantavirus",
+    "spatial_unit": "country",
+    "time_unit": "month"
+  },
+  "not_approved_for": [
+    "spillover inference",
+    "risk prediction",
+    "causal effects",
+    "abundance estimation",
+    "Rt estimation",
+    "cross-source modeling"
+  ],
+  "right_source": {
+    "derived_join_key": [
+      "event_month",
+      "countryCode"
+    ],
+    "entity": "host occurrence records",
+    "path": "/home/lh/d/autoresearch/hanta/data/processed/gbif_rodent_occurrences/candidate_occurrences.tsv.gz",
+    "source_id": "gbif_candidate_host_occurrences",
+    "spatial_unit": "country",
+    "time_unit": "event month"
+  },
+  "schema_version": "0.1.0",
+  "status": "descriptive_join_qc_only_partial_country_month_alignment",
+  "supporting_environment_layer": {
+    "coverage_note": "Pilot environmental table covers a small GBIF-linked subset and is not aligned to the full country-month surveillance table.",
+    "entity": "pilot covariate extraction rows linked by gbifID only",
+    "path": "/home/lh/d/autoresearch/hanta/data/processed/environmental_suitability/presence_background_environment_table.csv",
+    "source_id": "environmental_suitability_pilot_table"
+  },
+  "validation_passed": true
+}

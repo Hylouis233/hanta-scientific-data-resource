@@ -147,6 +147,12 @@ def main() -> int:
     environmental_suitability_pilot_table_present = environmental_suitability_pilot.get("validation_passed") is True and environmental_suitability_pilot.get("status") == "environmental_suitability_pilot_table_complete" and (project_root / "data" / "processed.dvc").exists() and (project_root / "data" / "metadata" / "environmental_suitability_pilot_manifest.json.dvc").exists() and (reports / "environmental_suitability_pilot_qc.md.dvc").exists()
     human_surveillance_wonder_provenance = _load_json(project_root / "data" / "metadata" / "human_surveillance_wonder_provenance.json")
     human_surveillance_real_data_present = human_surveillance_wonder_provenance.get("validation_passed") is True and human_surveillance_wonder_provenance.get("provenance_complete") is True and human_surveillance_wonder_provenance.get("row_count", 0) > 0 and (project_root / "data" / "raw.dvc").exists() and (project_root / "data" / "processed.dvc").exists()
+    rt_time_series_gate = _load_json(project_root / "data" / "metadata" / "rt_time_series_gate.json")
+    rt_time_series_gate_present = rt_time_series_gate.get("validation_passed") is True and rt_time_series_gate.get("ecdc_monthly_country_series", {}).get("fit_for_descriptive_growth_proxy") is True and rt_time_series_gate.get("ecdc_monthly_country_series", {}).get("fit_for_formal_rt_estimation") is False and (reports / "rt_time_series_gate.md").exists()
+    human_case_map_gate = _load_json(reports / "human_case_map_gate.json")
+    human_case_map_gate_present = human_case_map_gate.get("validation_passed") is True and human_case_map_gate.get("status") == "human_case_mapping_gate_descriptive_outputs_complete" and (reports / "human_case_map_gate.md").exists() and (reports / "figures" / "human_case_map_gate_descriptive_availability_panel.svg").exists() and (tables / "cdc_wonder_hantavirus_state_annual_map_ready.csv").exists() and (tables / "ecdc_hantavirus_country_annual_map_ready.csv").exists()
+    surveillance_join_qc_gate = _load_json(project_root / "data" / "metadata" / "surveillance_join_qc_gate.json")
+    surveillance_join_qc_gate_present = surveillance_join_qc_gate.get("validation_passed") is True and surveillance_join_qc_gate.get("gate_decision", {}).get("descriptive_join_qc_supported") is True and surveillance_join_qc_gate.get("gate_decision", {}).get("true_surveillance_join_gate_passed") is False and (reports / "surveillance_join_qc_gate.md").exists() and (tables / "surveillance_join_country_month_qc.csv").exists()
     third_layer_closeout_present = (reports / "third_layer_real_data_closeout.md").exists()
 
     checks = {
@@ -187,6 +193,9 @@ def main() -> int:
         "hanta_source_access_verification_present": hanta_source_access_verification_present,
         "human_surveillance_join_blocked_evidence_present": human_surveillance_join_blocked_evidence_present,
         "human_surveillance_real_data_present": human_surveillance_real_data_present,
+        "rt_time_series_gate_present": rt_time_series_gate_present,
+        "human_case_map_gate_present": human_case_map_gate_present,
+        "surveillance_join_qc_gate_present": surveillance_join_qc_gate_present,
         "static_covariate_inventory_present": static_covariate_inventory_present,
         "modis_access_plan_present": modis_access_plan_present,
         "ecdc_surveillance_export_plan_present": ecdc_surveillance_export_plan_present,
@@ -275,6 +284,9 @@ def main() -> int:
         "hanta_source_access_verification_present": hanta_source_access_verification_present,
         "human_surveillance_join_blocked_evidence_present": human_surveillance_join_blocked_evidence_present,
         "human_surveillance_real_data_present": human_surveillance_real_data_present,
+        "rt_time_series_gate_present": rt_time_series_gate_present,
+        "human_case_map_gate_present": human_case_map_gate_present,
+        "surveillance_join_qc_gate_present": surveillance_join_qc_gate_present,
         "static_covariate_inventory_present": static_covariate_inventory_present,
         "modis_access_plan_present": modis_access_plan_present,
         "ecdc_surveillance_export_plan_present": ecdc_surveillance_export_plan_present,
@@ -321,6 +333,9 @@ def main() -> int:
         f"hanta_data_acquisition_plan_present,{str(hanta_data_acquisition_plan_present).lower()}",
         f"hanta_source_access_verification_present,{str(hanta_source_access_verification_present).lower()}",
         f"human_surveillance_real_data_present,{str(human_surveillance_real_data_present).lower()}",
+        f"rt_time_series_gate_present,{str(rt_time_series_gate_present).lower()}",
+        f"human_case_map_gate_present,{str(human_case_map_gate_present).lower()}",
+        f"surveillance_join_qc_gate_present,{str(surveillance_join_qc_gate_present).lower()}",
         f"static_covariate_inventory_present,{str(static_covariate_inventory_present).lower()}",
         f"modis_access_plan_present,{str(modis_access_plan_present).lower()}",
         f"ecdc_surveillance_export_plan_present,{str(ecdc_surveillance_export_plan_present).lower()}",

@@ -1,0 +1,354 @@
+{
+  "cdc_wonder_annual_state_series": {
+    "blocker": "CDC WONDER surveillance table is annual by state and therefore cannot support subannual growth or Rt time-series estimation under current guardrails.",
+    "fit_for_rt_or_subannual_growth": false,
+    "period_end_max": "2023-12-31",
+    "period_start_min": "2016-01-01",
+    "row_count": 960,
+    "source_dataset": "/home/lh/d/autoresearch/hanta/data/processed/human_surveillance/cdc_wonder_hantavirus_annual_state_cases_2016_2023.csv",
+    "time_units": [
+      "year"
+    ]
+  },
+  "claim": "existing surveillance data are sufficient for a descriptive monthly growth metric but not for formal Rt estimation",
+  "ecdc_monthly_country_series": {
+    "countries_with_any_positive_months": 22,
+    "countries_with_full_numeric_series": 24,
+    "countries_with_usable_positive_to_positive_pairs": 19,
+    "country_count": 30,
+    "country_missing_numeric_examples": {
+      "BE": {
+        "first_missing_months": [
+          "2008-01",
+          "2008-02",
+          "2008-03",
+          "2008-04",
+          "2008-05"
+        ],
+        "missing_month_count": 181
+      },
+      "BG": {
+        "first_missing_months": [
+          "2008-01",
+          "2008-02",
+          "2008-03",
+          "2008-04",
+          "2008-05"
+        ],
+        "missing_month_count": 192
+      },
+      "HR": {
+        "first_missing_months": [
+          "2012-01",
+          "2012-02",
+          "2012-03",
+          "2012-04",
+          "2012-05"
+        ],
+        "missing_month_count": 96
+      },
+      "LU": {
+        "first_missing_months": [
+          "2009-01",
+          "2009-02",
+          "2009-03",
+          "2009-04",
+          "2009-05"
+        ],
+        "missing_month_count": 84
+      },
+      "LV": {
+        "first_missing_months": [
+          "2008-01",
+          "2008-02",
+          "2008-03",
+          "2008-04",
+          "2008-05"
+        ],
+        "missing_month_count": 24
+      },
+      "RO": {
+        "first_missing_months": [
+          "2008-01",
+          "2008-02",
+          "2008-03",
+          "2008-04",
+          "2008-05"
+        ],
+        "missing_month_count": 12
+      }
+    },
+    "country_series_summary_top10": [
+      {
+        "country_code": "FI",
+        "country_name": "Finland",
+        "missing_numeric_months": 0,
+        "months_observed": 192,
+        "numeric_months": 192,
+        "positive_months": 192,
+        "zero_months": 0
+      },
+      {
+        "country_code": "DE",
+        "country_name": "Germany",
+        "missing_numeric_months": 0,
+        "months_observed": 192,
+        "numeric_months": 192,
+        "positive_months": 191,
+        "zero_months": 1
+      },
+      {
+        "country_code": "SE",
+        "country_name": "Sweden",
+        "missing_numeric_months": 0,
+        "months_observed": 192,
+        "numeric_months": 192,
+        "positive_months": 188,
+        "zero_months": 4
+      },
+      {
+        "country_code": "AT",
+        "country_name": "Austria",
+        "missing_numeric_months": 0,
+        "months_observed": 192,
+        "numeric_months": 192,
+        "positive_months": 164,
+        "zero_months": 28
+      },
+      {
+        "country_code": "FR",
+        "country_name": "France",
+        "missing_numeric_months": 0,
+        "months_observed": 156,
+        "numeric_months": 156,
+        "positive_months": 146,
+        "zero_months": 10
+      },
+      {
+        "country_code": "NO",
+        "country_name": "Norway",
+        "missing_numeric_months": 0,
+        "months_observed": 192,
+        "numeric_months": 192,
+        "positive_months": 143,
+        "zero_months": 49
+      },
+      {
+        "country_code": "SI",
+        "country_name": "Slovenia",
+        "missing_numeric_months": 0,
+        "months_observed": 192,
+        "numeric_months": 192,
+        "positive_months": 134,
+        "zero_months": 58
+      },
+      {
+        "country_code": "EE",
+        "country_name": "Estonia",
+        "missing_numeric_months": 0,
+        "months_observed": 192,
+        "numeric_months": 192,
+        "positive_months": 119,
+        "zero_months": 73
+      },
+      {
+        "country_code": "SK",
+        "country_name": "Slovakia",
+        "missing_numeric_months": 0,
+        "months_observed": 192,
+        "numeric_months": 192,
+        "positive_months": 104,
+        "zero_months": 88
+      },
+      {
+        "country_code": "HU",
+        "country_name": "Hungary",
+        "missing_numeric_months": 0,
+        "months_observed": 192,
+        "numeric_months": 192,
+        "positive_months": 87,
+        "zero_months": 105
+      }
+    ],
+    "descriptive_growth_proxy_definition": "country-specific consecutive-month growth ratio and log-growth among observed monthly reported case counts, without renewal-equation Rt interpretation",
+    "fit_for_descriptive_growth_proxy": true,
+    "fit_for_formal_rt_estimation": false,
+    "formal_rt_blockers": [
+      "no disease-specific serial interval or generation-interval protocol is present in the repository",
+      "the available monthly counts are reported-case aggregates, so renewal-equation assumptions for formal Rt are not demonstrated here",
+      "suppression and heterogeneous reporting create missingness and comparability concerns that are not resolved by current metadata"
+    ],
+    "interval_assumptions": [
+      "calendar month is treated as the analysis interval because the source data are monthly reported counts",
+      "growth ratios are only computed for consecutive months where both counts are numeric and the previous month is greater than zero",
+      "no attempt is made to back-project infection times or reporting delays"
+    ],
+    "n_reporting_months": 192,
+    "reporting_month_range": [
+      "2008-01",
+      "2023-12"
+    ],
+    "row_count": 5102,
+    "source_dataset": "/home/lh/d/autoresearch/hanta/data/processed/ecdc_hantavirus_country_month_reported_cases.csv",
+    "suppressed_or_non_numeric_rows": 589,
+    "uncertainty_and_qc": [
+      "589 country-month rows carry non-numeric suppression or unavailable markers and are left missing rather than imputed",
+      "country rows come from heterogeneous national reporting and case-definition practices through TESSy",
+      "monthly reported cases are event counts by report month, not necessarily symptom onset or infection month",
+      "low counts make month-to-month ratios unstable and not suitable on their own for causal or mechanistic inference"
+    ],
+    "usable_growth_pair_summary_top10": [
+      {
+        "country_code": "FI",
+        "country_name": "Finland",
+        "first_example": {
+          "current_cases": 146,
+          "from_month": "2008-01",
+          "growth_ratio": 0.4634920634920635,
+          "log_growth": -0.7689660171172966,
+          "previous_cases": 315,
+          "to_month": "2008-02"
+        },
+        "usable_pairs_with_both_months_positive": 191,
+        "usable_pairs_with_positive_previous_month": 191
+      },
+      {
+        "country_code": "DE",
+        "country_name": "Germany",
+        "first_example": {
+          "current_cases": 22,
+          "from_month": "2008-01",
+          "growth_ratio": 0.4489795918367347,
+          "log_growth": -0.8007778447523107,
+          "previous_cases": 49,
+          "to_month": "2008-02"
+        },
+        "usable_pairs_with_both_months_positive": 189,
+        "usable_pairs_with_positive_previous_month": 190
+      },
+      {
+        "country_code": "SE",
+        "country_name": "Sweden",
+        "first_example": {
+          "current_cases": 139,
+          "from_month": "2008-01",
+          "growth_ratio": 0.6650717703349283,
+          "log_growth": -0.4078603188341192,
+          "previous_cases": 209,
+          "to_month": "2008-02"
+        },
+        "usable_pairs_with_both_months_positive": 183,
+        "usable_pairs_with_positive_previous_month": 187
+      },
+      {
+        "country_code": "AT",
+        "country_name": "Austria",
+        "first_example": {
+          "current_cases": 0,
+          "from_month": "2008-08",
+          "growth_ratio": 0.0,
+          "log_growth": null,
+          "previous_cases": 1,
+          "to_month": "2008-09"
+        },
+        "usable_pairs_with_both_months_positive": 150,
+        "usable_pairs_with_positive_previous_month": 163
+      },
+      {
+        "country_code": "FR",
+        "country_name": "France",
+        "first_example": {
+          "current_cases": 4,
+          "from_month": "2011-01",
+          "growth_ratio": 4.0,
+          "log_growth": 1.3862943611198906,
+          "previous_cases": 1,
+          "to_month": "2011-02"
+        },
+        "usable_pairs_with_both_months_positive": 138,
+        "usable_pairs_with_positive_previous_month": 145
+      },
+      {
+        "country_code": "NO",
+        "country_name": "Norway",
+        "first_example": {
+          "current_cases": 12,
+          "from_month": "2008-01",
+          "growth_ratio": 3.0,
+          "log_growth": 1.0986122886681098,
+          "previous_cases": 4,
+          "to_month": "2008-02"
+        },
+        "usable_pairs_with_both_months_positive": 111,
+        "usable_pairs_with_positive_previous_month": 142
+      },
+      {
+        "country_code": "SI",
+        "country_name": "Slovenia",
+        "first_example": {
+          "current_cases": 1,
+          "from_month": "2008-01",
+          "growth_ratio": 0.5,
+          "log_growth": -0.6931471805599453,
+          "previous_cases": 2,
+          "to_month": "2008-02"
+        },
+        "usable_pairs_with_both_months_positive": 104,
+        "usable_pairs_with_positive_previous_month": 133
+      },
+      {
+        "country_code": "EE",
+        "country_name": "Estonia",
+        "first_example": {
+          "current_cases": 3,
+          "from_month": "2008-01",
+          "growth_ratio": 1.5,
+          "log_growth": 0.4054651081081644,
+          "previous_cases": 2,
+          "to_month": "2008-02"
+        },
+        "usable_pairs_with_both_months_positive": 82,
+        "usable_pairs_with_positive_previous_month": 118
+      },
+      {
+        "country_code": "SK",
+        "country_name": "Slovakia",
+        "first_example": {
+          "current_cases": 0,
+          "from_month": "2008-04",
+          "growth_ratio": 0.0,
+          "log_growth": null,
+          "previous_cases": 1,
+          "to_month": "2008-05"
+        },
+        "usable_pairs_with_both_months_positive": 80,
+        "usable_pairs_with_positive_previous_month": 103
+      },
+      {
+        "country_code": "HU",
+        "country_name": "Hungary",
+        "first_example": {
+          "current_cases": 0,
+          "from_month": "2008-08",
+          "growth_ratio": 0.0,
+          "log_growth": null,
+          "previous_cases": 1,
+          "to_month": "2008-09"
+        },
+        "usable_pairs_with_both_months_positive": 48,
+        "usable_pairs_with_positive_previous_month": 86
+      }
+    ]
+  },
+  "gate_id": "rt_time_series",
+  "generated_at_utc": "2026-05-30T06:52:33.677658+00:00",
+  "guardrails": [
+    "do not fabricate case data or impute suppressed counts for this gate",
+    "do not claim causal intervention effects from these descriptive time-series summaries",
+    "do not label descriptive growth proxies as formal EpiEstim or renewal-equation Rt",
+    "do not pool countries into a single epidemic process without separate harmonization and comparability review"
+  ],
+  "schema_version": "0.1.0",
+  "status": "descriptive_growth_proxy_only_formal_rt_blocked",
+  "validation_passed": true
+}

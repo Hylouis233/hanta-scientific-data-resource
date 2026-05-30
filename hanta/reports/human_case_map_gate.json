@@ -1,0 +1,73 @@
+{
+  "allowed_scope": "publication-quality descriptive availability/count map and map-ready tables only",
+  "blockers": [],
+  "figure": {
+    "caption": "Human hantavirus case mapping gate: descriptive availability/count panels from public CDC WONDER annual U.S. state data and ECDC country-month surveillance rows. Panels are non-geographic tile maps used in place of licensed boundary geometry. They summarize public aggregate case availability/counts only and must not be interpreted as risk, causal, spillover, or transmission maps.",
+    "path": "/home/lh/d/autoresearch/hanta/reports/figures/human_case_map_gate_descriptive_availability_panel.svg",
+    "type": "non_geographic_tile_map"
+  },
+  "generated_at_utc": "2026-05-30T06:52:34.749118+00:00",
+  "guardrails": [
+    "No licensed boundary geometry was fetched, cached, or committed.",
+    "Outputs are descriptive public aggregate availability/count products only.",
+    "No risk, causal, spillover, transmission, or cross-source join claims are supported.",
+    "ECDC annual totals sum numeric monthly rows only; suppressed/non-numeric months remain flagged rather than imputed."
+  ],
+  "schema_version": "0.1.0",
+  "selected_2023_summary": {
+    "cdc_hps_states_with_numeric_counts": 53,
+    "cdc_hps_states_with_positive_counts": 11,
+    "ecdc_countries_with_any_numeric_month": 25,
+    "ecdc_countries_with_positive_annual_case_count": 16
+  },
+  "sources": [
+    {
+      "coverage": {
+        "rows_written": 912,
+        "years": [
+          "2016",
+          "2017",
+          "2018",
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ]
+      },
+      "figure_panel": "A",
+      "input_table": "/home/lh/d/autoresearch/hanta/data/processed/human_surveillance/cdc_wonder_hantavirus_annual_state_cases_2016_2023.csv",
+      "map_ready_table": "/home/lh/d/autoresearch/hanta/reports/tables/cdc_wonder_hantavirus_state_annual_map_ready.csv",
+      "source_id": "cdc_wonder_nndss_hantavirus_annual"
+    },
+    {
+      "coverage": {
+        "rows_written": 426,
+        "years": [
+          "2008",
+          "2009",
+          "2010",
+          "2011",
+          "2012",
+          "2013",
+          "2014",
+          "2015",
+          "2016",
+          "2017",
+          "2018",
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ]
+      },
+      "figure_panel": "B",
+      "input_table": "/home/lh/d/autoresearch/hanta/data/processed/ecdc_hantavirus_country_month_reported_cases.csv",
+      "map_ready_table": "/home/lh/d/autoresearch/hanta/reports/tables/ecdc_hantavirus_country_annual_map_ready.csv",
+      "source_id": "ecdc_surveillance_atlas_hantavirus"
+    }
+  ],
+  "status": "human_case_mapping_gate_descriptive_outputs_complete",
+  "validation_passed": true
+}

@@ -5,9 +5,9 @@
     "host_switch_phylogenetic_inference": "blocked_sequence_qc_can_run_but_alignment_design_and_host_switch_gate_fail",
     "human_case_mapping": "blocked_no_provenance_complete_surveillance_table",
     "rt_estimation": "blocked_no_subannual_incidence_time_series_or_interval_protocol",
-    "spillover_or_surveillance_join": "blocked_no_approved_cross_source_join_or_bias_review_for_real_inputs"
+    "spillover_or_surveillance_join": "blocked_for_inference_only_descriptive_join_qc_documented"
   },
-  "generated_at_utc": "2026-05-30T05:51:24.314875+00:00",
+  "generated_at_utc": "2026-05-30T06:52:36.822596+00:00",
   "guardrails": [
     "evidence passes are limited to existing real GBIF occurrence and GenBank metadata layers",
     "advanced model gates remain blocked until their required real data and QC artifacts exist",
@@ -76,6 +76,18 @@
         "sampling imbalance across viruses and hosts",
         "segment-specific coverage and reassortment uncertainty",
         "no alignment or phylogenetic uncertainty has been assessed"
+      ]
+    },
+    "surveillance_join_descriptive_qc": {
+      "bias_risk_rating": "high_for_inference_bounded_for_descriptive_join_qc",
+      "decision": "pass_for_join_key_documentation_and_coverage_qc_not_inference",
+      "remaining_biases": [
+        "Human surveillance counts and host occurrence records measure different processes and should not be interpreted as exposure or spillover events.",
+        "ECDC national reporting practices, case definitions, and suppression differ across countries and time.",
+        "GBIF occurrence effort is opportunistic and spatially biased, not a standardized host surveillance frame.",
+        "Country-month matching is coarse and may reflect asynchronous ecological and reporting processes.",
+        "The environmental pilot table is a 1000-row sample linked to GBIF IDs, not a full covariate layer for all joined rows.",
+        "Code harmonization gaps remain, including ECDC codes such as EL and UK that may not line up with GBIF countryCode usage."
       ]
     }
   },

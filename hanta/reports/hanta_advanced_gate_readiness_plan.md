@@ -10,6 +10,39 @@ Status: readiness plan only; no advanced gate is marked passed.
 - `data/metadata/host_trapping_file_screening_manifest.json`
 - `reports/hanta_advanced_bias_review.json`
 - `reports/hanta_advanced_qc_summary.json`
+- `data/metadata/hanta_advanced_gate_blocker_acquisition_checklist.json`
+- `reports/hanta_advanced_gate_blocker_acquisition_checklist.md`
+
+## Lower-scope gates already passed or partially passed
+
+- `rt_time_series`: descriptive growth proxy only; formal Rt still blocked.
+- `surveillance_join_qc`: descriptive country-month join QC only; inferential surveillance/spillover join still blocked.
+- `environmental_suitability_pilot`: 500 presence + 500 background pilot rows complete for model-readiness QC only; no formal suitability/risk gate passed.
+- `host_trapping_gate_review`: within-study detection/capture diagnostics passed; global/cross-study abundance inference still blocked.
+- `hantaan_minimal_phylogeny_qc`: minimal alignment-design evidence acquisition passed; host-switch phylogeny still blocked.
+
+## Exact external acquisitions still required for each blocked formal gate
+
+- `formal_rt`
+  - Disease-specific serial-interval or generation-interval protocol applicable to the surveillance syndrome under study, with citation package and sensitivity plan.
+  - Subannual incidence series whose timing semantics support Rt estimation, plus reporting-delay/right-truncation protocol matched to that series.
+  - Harmonized syndrome/case-definition decision for the exact disease scope used in the interval protocol and incidence table.
+- `inferential_surveillance_spillover_join`
+  - Approved left/right source tables with matching spatial and temporal units, not the currently mixed ECDC country-month and CDC annual-state products.
+  - Full aligned environmental covariate layer for the joined observation units, not the current 1000-row GBIF-linked pilot subset.
+  - Pre-specified inferential target/outcome, join keys, temporal windows, duplication policy, and missingness/bias controls that avoid unsupported spillover semantics.
+- `formal_environmental_suitability_or_risk`
+  - DVC-tracked full covariate raster/table package with versioned CRS, resolution, temporal extent, and file-level provenance.
+  - Approved target definition: either explicit suitability-only target with accessible-area/background design, or an approved human/animal risk outcome table.
+  - Spatial validation and sampling-bias protocol for the final analysis frame, beyond the current pilot readiness sample.
+- `global_cross_study_host_abundance`
+  - Multi-study trapping datasets with explicit effort or trap-night fields, count/capture outcomes, locations/admin areas, dates, and harmonizable survey design metadata.
+  - Cross-study taxonomy/species standardization, duplicate-event review, and location disclosure policy.
+  - Approved abundance/detection model scope defining how effort heterogeneity and study design differences will be handled across studies.
+- `host_switch_phylogeny`
+  - DVC-tracked sequence bodies plus flatfile metadata spanning multiple host taxa and broader geographic diversity, not just the current single-host Hantaan subset.
+  - Taxonomy audit for host labels and isolate provenance, plus duplicate/lab-strain/reassortment screening.
+  - Prespecified segment-specific alignment/tree workflow with uncertainty propagation suitable for host-trait transition inference.
 
 ## Module readiness requirements
 

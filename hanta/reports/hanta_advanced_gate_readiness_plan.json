@@ -1,5 +1,9 @@
 {
   "evaluation_metric_name": "advanced_gate_readiness_plan_present",
+  "external_acquisition_checklist_artifacts": [
+    "data/metadata/hanta_advanced_gate_blocker_acquisition_checklist.json",
+    "reports/hanta_advanced_gate_blocker_acquisition_checklist.md"
+  ],
   "fail_criteria": [
     "placeholder or planning-only data are used as analysis inputs",
     "join keys, CRS, dates, case definition, effort, sequence body, or provenance are missing",
@@ -12,6 +16,13 @@
     "real data must be ingested, DVC-tracked, schema-validated, and bias-reviewed before any advanced module can execute",
     "planning completeness is not scientific evidence or model readiness"
   ],
+  "lower_scope_evidence": {
+    "environmental_suitability_pilot": "passed_for_model_readiness_qc_only_not_formal_suitability_or_risk",
+    "hantaan_minimal_phylogeny_qc": "passed_for_minimal_alignment_design_only_not_host_switch_inference",
+    "host_trapping_gate_review": "passed_for_within_study_detection_diagnostics_only_not_global_cross_study_abundance",
+    "rt_time_series": "passed_for_descriptive_growth_proxy_only_not_formal_rt",
+    "surveillance_join_qc": "passed_for_descriptive_country_month_join_qc_only_not_inferential_join"
+  },
   "modules": [
     {
       "bias_review_required": [

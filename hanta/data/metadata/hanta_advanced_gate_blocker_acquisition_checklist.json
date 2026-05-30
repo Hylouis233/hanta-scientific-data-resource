@@ -1,0 +1,184 @@
+{
+  "schema_version": "0.1.0",
+  "generated_at_utc": "2026-05-30T00:00:00+00:00",
+  "status": "blocked_formal_gates_require_external_acquisitions",
+  "advanced_model_gate_passed": false,
+  "checklist": [
+    {
+      "gate_id": "formal_rt",
+      "formal_gate_status": "blocked",
+      "lower_scope_gate_evidence": {
+        "status": "passed_lower_scope_only",
+        "artifacts": [
+          "/home/lh/d/autoresearch/hanta/reports/rt_time_series_gate.md",
+          "/home/lh/d/autoresearch/hanta/data/metadata/rt_analysis_scope_gate.json"
+        ],
+        "summary": "ECDC country-month data support descriptive growth proxies only; formal Rt remains blocked."
+      },
+      "current_blockers": [
+        "No disease-specific serial/generation-interval protocol is present.",
+        "No method justification ties formal Rt assumptions to monthly reported-count timing semantics.",
+        "CDC WONDER data are annual rather than subannual."
+      ],
+      "required_external_acquisitions": [
+        "Acquire a disease-specific serial-interval or generation-interval citation package and protocol applicable to the exact hantavirus syndrome under analysis.",
+        "Acquire a subannual incidence time series with clear timing semantics suitable for Rt estimation, plus source provenance and case-definition documentation.",
+        "Acquire a reporting-delay/right-truncation protocol matched to that incidence source, with sensitivity-analysis plan."
+      ],
+      "required_schema_or_protocol_fields": [
+        "disease_scope",
+        "case_time_series_source",
+        "case_definition",
+        "time_unit",
+        "reporting_delay_policy",
+        "serial_interval_source",
+        "right_truncation_policy",
+        "estimation_method"
+      ],
+      "pass_condition_summary": "Formal Rt can pass only after a disease-specific interval protocol and a compatible subannual incidence series are both acquired and justified."
+    },
+    {
+      "gate_id": "inferential_surveillance_spillover_join",
+      "formal_gate_status": "blocked",
+      "lower_scope_gate_evidence": {
+        "status": "passed_lower_scope_only",
+        "artifacts": [
+          "/home/lh/d/autoresearch/hanta/reports/surveillance_join_qc_gate.md",
+          "/home/lh/d/autoresearch/hanta/data/metadata/surveillance_join_qc_gate.json"
+        ],
+        "summary": "Descriptive country-month join QC and alias harmonization are documented; inferential join remains blocked."
+      },
+      "current_blockers": [
+        "Current sources mix ECDC country-month rows with CDC annual-state rows and cannot support a single inferential frame.",
+        "Environmental covariates exist only as a 1000-row GBIF-linked pilot subset, not a full aligned layer.",
+        "No approved non-causal target/outcome or spillover-safe inferential design exists."
+      ],
+      "required_external_acquisitions": [
+        "Acquire approved left/right source tables sharing the same spatial and temporal unit for the intended inferential observation frame.",
+        "Acquire a full environmental covariate layer aligned to those joined units, with complete provenance and coverage metadata.",
+        "Acquire a pre-specified inferential target/outcome definition and protocol covering join keys, temporal windows, duplication handling, missingness policy, and bias controls."
+      ],
+      "required_schema_or_protocol_fields": [
+        "left_source_id",
+        "right_source_id",
+        "join_key",
+        "spatial_alignment_rule",
+        "temporal_alignment_rule",
+        "duplication_policy",
+        "missingness_policy",
+        "bias_risk_rating",
+        "approved_use"
+      ],
+      "pass_condition_summary": "Inferential surveillance/spillover join can pass only after matched source tables, full aligned covariates, and an approved join target/bias-control design are acquired."
+    },
+    {
+      "gate_id": "formal_environmental_suitability_or_risk",
+      "formal_gate_status": "blocked",
+      "lower_scope_gate_evidence": {
+        "status": "passed_lower_scope_only",
+        "artifacts": [
+          "/home/lh/d/autoresearch/hanta/reports/environmental_suitability_pilot_qc.md",
+          "/home/lh/d/autoresearch/hanta/data/metadata/environmental_suitability_pilot_manifest.json"
+        ],
+        "summary": "A pilot presence-background environment table exists for model-readiness QC only; no formal suitability/risk gate has passed."
+      },
+      "current_blockers": [
+        "Current environmental table is a pilot sample, not the final full covariate package.",
+        "Background design is simple global pilot background, not an approved accessible-area design.",
+        "No approved formal target definition exists for either suitability-only or risk analysis."
+      ],
+      "required_external_acquisitions": [
+        "Acquire full DVC-tracked environmental covariate files or rasters with file-level metadata covering CRS, resolution, version, temporal coverage, and license/terms.",
+        "Acquire an approved target definition: either a suitability-only target with accessible-area/background design or a validated human/animal risk outcome table.",
+        "Acquire the final spatial validation and sampling-bias protocol for the full analysis frame, including block definition and background sensitivity plan."
+      ],
+      "required_schema_or_protocol_fields": [
+        "source_id",
+        "variable_name",
+        "version",
+        "download_date",
+        "crs",
+        "resolution",
+        "temporal_coverage_start",
+        "temporal_coverage_end",
+        "spatial_extent",
+        "license_or_terms",
+        "missingness_policy"
+      ],
+      "pass_condition_summary": "Formal environmental suitability/risk can pass only after full covariates, an approved target/background definition, and final bias-aware validation design are acquired."
+    },
+    {
+      "gate_id": "global_cross_study_host_abundance",
+      "formal_gate_status": "blocked",
+      "lower_scope_gate_evidence": {
+        "status": "passed_lower_scope_only",
+        "artifacts": [
+          "/home/lh/d/autoresearch/hanta/reports/hanta_host_trapping_gate_review.md",
+          "/home/lh/d/autoresearch/hanta/data/metadata/host_trapping_screening_protocol.json"
+        ],
+        "summary": "Within-study capture/detection diagnostics are supported; global or cross-study abundance inference remains blocked."
+      },
+      "current_blockers": [
+        "Existing screened trapping sources support local diagnostics only, not cross-study abundance inference.",
+        "Cross-study effort, count, location, and survey design harmonization are not yet acquired.",
+        "No approved global/cross-study abundance model scope exists."
+      ],
+      "required_external_acquisitions": [
+        "Acquire multi-study trapping datasets with explicit trap effort or trap-night fields, count/capture outcomes, locations or admin areas, dates, and usable license/terms metadata.",
+        "Acquire cross-study taxonomy/species standardization and duplicate-event review inputs, plus location-disclosure policy for retained studies.",
+        "Acquire an approved abundance/detection modeling protocol specifying how effort heterogeneity and survey-design differences will be handled across studies."
+      ],
+      "required_schema_or_protocol_fields": [
+        "source_id",
+        "species",
+        "event_date",
+        "trap_effort",
+        "count_or_capture",
+        "coordinate_or_admin_area",
+        "license_or_terms"
+      ],
+      "pass_condition_summary": "Global/cross-study host abundance can pass only after multi-study effort-bearing trapping data and a cross-study abundance model protocol are acquired."
+    },
+    {
+      "gate_id": "host_switch_phylogeny",
+      "formal_gate_status": "blocked",
+      "lower_scope_gate_evidence": {
+        "status": "passed_lower_scope_only",
+        "artifacts": [
+          "/home/lh/d/autoresearch/hanta/reports/hantaan_minimal_phylogeny_qc.md",
+          "/home/lh/d/autoresearch/hanta/data/metadata/hantaan_minimal_phylogeny_candidate_manifest.json"
+        ],
+        "summary": "A minimal single-host Hantaan sequence set supports alignment-design evidence acquisition only; host-switch inference remains blocked."
+      },
+      "current_blockers": [
+        "Current sequence set comes from one host species in a narrow geographic context.",
+        "Host labels remain submitter-provided and need taxonomy/provenance audit.",
+        "No approved phylogenetic uncertainty and host-transition design exists for inference."
+      ],
+      "required_external_acquisitions": [
+        "Acquire DVC-tracked sequence bodies and flatfile metadata spanning multiple host taxa and broader geographic diversity rather than the current single-host subset.",
+        "Acquire taxonomy-audit inputs for host labels and isolate provenance, plus duplicate, lab-strain, and reassortment screening artifacts.",
+        "Acquire a prespecified segment-specific alignment/tree workflow with uncertainty propagation suitable for host-trait transition inference."
+      ],
+      "required_schema_or_protocol_fields": [
+        "accession",
+        "segment",
+        "virus_species",
+        "host_species",
+        "country",
+        "collection_date",
+        "sequence_length",
+        "download_date",
+        "license_or_terms",
+        "quality_exclusion_reason"
+      ],
+      "pass_condition_summary": "Host-switch phylogeny can pass only after multi-host sequence-body acquisition, taxonomy/provenance audit, and an approved segment-specific phylogenetic design are acquired."
+    }
+  ],
+  "guardrails": [
+    "Do not mark advanced_model_gate_passed true from this checklist.",
+    "Lower-scope passes remain bounded to descriptive or readiness-only evidence.",
+    "Planning completeness is not scientific gate passage."
+  ],
+  "validation_passed": true
+}

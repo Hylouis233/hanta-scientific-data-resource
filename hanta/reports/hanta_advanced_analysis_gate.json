@@ -1,13 +1,13 @@
 {
   "blocked_analyses": {
-    "bounded_non_causal_cross_source_model": "blocked_until_target_outcome_bias_controls_and_complete_aligned_covariates_exist",
+    "bounded_non_causal_cross_source_model": "blocked_until_target_outcome_bias_controls_complete_covariates_and_reporting_harmonization_exist",
     "host_abundance_inference": "blocked_until_sampling_bias_and_abundance_model_scope_are_approved",
     "host_switch_inference": "blocked_until_sequence_bodies_phylogenetic_design_and_taxonomy_review_exist",
     "human_case_maps": "partially_unblocked_for_coarse_aggregate_descriptive_mapping_from_provenance_complete_cdc_annual_state_and_ecdc_country_month_surveillance_tables_only",
     "risk_maps": "blocked_until_environmental_covariates_and_target_outcome_are_scoped",
     "rt_estimation": "formal_rt_blocked_no_disease_specific_interval_protocol_and_monthly_reported_count_justification",
-    "spillover_inference": "blocked_descriptive_join_qc_only_no_supported_joint_host_human_environment_inference",
-    "surveillance_join": "blocked_descriptive_country_month_join_qc_only_no_approved_inferential_join"
+    "spillover_inference": "blocked_descriptive_join_qc_only_alias_harmonization_documented_but_no_supported_joint_host_human_environment_inference",
+    "surveillance_join": "blocked_descriptive_country_month_join_qc_only_alias_harmonization_documented_no_approved_inferential_join"
   },
   "currently_allowed": [
     "descriptive GBIF host-occurrence record-availability mapping from sealed candidate subset",
@@ -16,7 +16,7 @@
     "coarse aggregate descriptive human-case mapping from provenance-complete CDC annual state and ECDC country-month surveillance tables only",
     "descriptive country-month hantavirus growth proxy summaries from the ECDC surveillance slice under explicit non-Rt guardrails"
   ],
-  "generated_at_utc": "2026-05-30T07:11:44.357998+00:00",
+  "generated_at_utc": "2026-05-30T07:33:57.743716+00:00",
   "guardrails": [
     "do not convert record availability maps into risk maps",
     "do not infer host abundance from GBIF occurrences without a sampling-bias model and approved scope",

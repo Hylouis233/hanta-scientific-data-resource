@@ -11,7 +11,7 @@ Status: existing real-data evidence passed only for descriptive/metadata layers;
 ## Rt/time-series update
 
 - ECDC monthly country surveillance slice: sufficient for descriptive monthly growth proxies only under explicit interval assumptions and missing-data QC.
-- Formal Rt estimation: still blocked because no disease-specific serial/generation-interval protocol or renewal-equation justification is present, and no already captured or lightweight public evidence reviewed here closes that gap.
+- Formal Rt estimation: still blocked because no disease-specific serial/generation-interval protocol or renewal-equation justification is present, and lightweight public literature review found only incubation-period and Andes-virus transmission evidence, not a transportable interval protocol for ECDC monthly reported counts.
 - CDC WONDER annual state surveillance: still blocked for Rt/time-series because it is annual rather than subannual.
 
 ## Blocked advanced modules

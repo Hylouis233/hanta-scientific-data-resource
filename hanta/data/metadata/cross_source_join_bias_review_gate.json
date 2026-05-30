@@ -2,29 +2,40 @@
   "descriptive_join_qc_layer": {
     "approved_use": "descriptive_join_qc_only",
     "bias_risk_rating": "high_for_inference_bounded_for_descriptive_join_qc",
+    "country_code_harmonization": {
+      "applied_aliases": {
+        "EL": "GR",
+        "UK": "GB"
+      },
+      "residual_non_overlap_codes_after_alias_review": [
+        "IS",
+        "MT"
+      ],
+      "rule": "Apply documented ECDC-to-GBIF ISO-style aliases before overlap accounting and descriptive country-month matching."
+    },
     "duplication_policy": "Aggregate GBIF rows to country-month before any descriptive join; do not duplicate surveillance rows by raw host records.",
     "join_key": [
-      "country_code == countryCode",
+      "country_code_gbif_harmonized == countryCode",
       "reporting_month == event_month"
     ],
     "left_source_id": "ecdc_surveillance_atlas_hantavirus",
     "missingness_policy": "Retain all ECDC country-month rows. GBIF non-matches remain explicit non-coverage. Preserve suppressed/non-numeric ECDC counts as missing numeric values.",
     "right_source_id": "gbif_candidate_host_occurrences",
-    "spatial_alignment_rule": "Restrict to two-letter country codes present in both sources without attempting subnational harmonization.",
+    "spatial_alignment_rule": "Restrict to two-letter country codes present in both sources after limited code harmonization review without attempting subnational harmonization.",
     "temporal_alignment_rule": "Restrict to YYYY-MM monthly alignment only; do not aggregate annual surveillance or infer zero counts from missing host rows."
   },
   "gate_id": "cross_source_join_bias_review",
-  "generated_at_utc": "2026-05-30T07:11:44.357998+00:00",
+  "generated_at_utc": "2026-05-30T07:33:57.743716+00:00",
   "guardrails": [
     "this gate defines prerequisites only and does not ingest real analysis data",
     "this gate does not authorize risk, abundance, human-case, Rt, spillover, host-switch, or surveillance-join outputs",
     "all real source data must pass provenance and terms review before analysis"
   ],
   "remaining_requirements": [
-    "country-code harmonization review for non-overlap codes such as EL and UK",
     "sampling-bias assessment before any spillover or risk interpretation",
     "explicit approval remains required for any inferential or modeling use beyond descriptive join QC",
-    "a pre-specified non-causal target/outcome with unit alignment and explicit bias controls before any bounded cross-source model can be considered"
+    "a pre-specified non-causal target/outcome with unit alignment and explicit bias controls before any bounded cross-source model can be considered",
+    "country-code harmonization review for residual non-overlap codes after EL->GR and UK->GB alias handling, including IS and MT in current coverage accounting"
   ],
   "required_fields": [
     "left_source_id",

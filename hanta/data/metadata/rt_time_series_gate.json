@@ -171,6 +171,41 @@
       }
     ],
     "descriptive_growth_proxy_definition": "country-specific consecutive-month growth ratio and log-growth among observed monthly reported case counts, without renewal-equation Rt interpretation",
+    "external_interval_evidence_review": {
+      "bottom_line": "The lightweight public literature reviewed here yields incubation-period and Andes-virus person-to-person evidence, but no defensible disease-specific serial or generation interval protocol for the monthly ECDC European reported-case series.",
+      "sources_considered": [
+        {
+          "citation": "Vial PA, Valdivieso F, Ferres M, et al. Incubation period of hantavirus cardiopulmonary syndrome. Emerg Infect Dis. 2006;12(8):1271-1273.",
+          "finding": "reports Andes-virus HCPS incubation periods of 7-39 days with median 18 days",
+          "pmid": "16965713",
+          "use_for_rt": "not a serial or generation interval estimate and not representative of European hantavirus surveillance dominated by HFRS/PUUV-like disease"
+        },
+        {
+          "citation": "Young JC, Hansen GR, Graves TK, et al. The incubation period of hantavirus pulmonary syndrome. Am J Trop Med Hyg. 2000;62(6):714-717.",
+          "finding": "reviewed HPS incubation periods of 9-33 days with median about 14-17 days",
+          "pmid": "11304061",
+          "use_for_rt": "incubation-period evidence only; does not identify a transmission interval for renewal-equation Rt"
+        },
+        {
+          "citation": "Martinez VP, Bellomo C, San Juan J, et al. Person-to-person transmission of Andes virus. Emerg Infect Dis. 2005;11(12):1848-1853.",
+          "finding": "documents person-to-person Andes-virus transmission",
+          "pmid": "16485469",
+          "use_for_rt": "shows transmission route exists for Andes virus but does not provide a disease-general serial/generation interval usable for the ECDC monthly European reported-case series"
+        },
+        {
+          "citation": "Martinez VP, Bellomo CM, Cacace ML, et al. Person-to-person transmission of Andes virus associated with a super-spreading event, Argentina, 2018. N Engl J Med. 2020;383(23):2230-2241.",
+          "finding": "describes an Andes-virus person-to-person outbreak and superspreading dynamics",
+          "pmid": "33264545",
+          "use_for_rt": "outbreak-specific Andes-virus evidence is not directly transportable to broad ECDC country-month hantavirus surveillance aggregates"
+        },
+        {
+          "citation": "Toledo J, Martinez-Valdebenito C, Olea A, et al. Person-to-person transmission of hantavirus: a systematic review. J Infect Dis. 2022;226(7):1241-1260.",
+          "finding": "systematic review indicates human-to-human transmission evidence is limited to Andes virus settings",
+          "pmid": "34515290",
+          "use_for_rt": "supports non-generalisability of Andes-virus transmission timing to the wider hantavirus disease scope captured by ECDC Europe"
+        }
+      ]
+    },
     "fit_for_descriptive_growth_proxy": true,
     "fit_for_formal_rt_estimation": false,
     "formal_rt_blockers": [
@@ -342,7 +377,7 @@
     ]
   },
   "gate_id": "rt_time_series",
-  "generated_at_utc": "2026-05-30T07:11:42.251670+00:00",
+  "generated_at_utc": "2026-05-30T07:33:55.620747+00:00",
   "guardrails": [
     "do not fabricate case data or impute suppressed counts for this gate",
     "do not claim causal intervention effects from these descriptive time-series summaries",

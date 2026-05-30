@@ -67,6 +67,12 @@ FIGURES = [
         "caption_constraint": "non-geographic record-availability choropleth prototype; not a risk map",
     },
     {
+        "figure_id": "gbif_descriptive_suitability_covariates",
+        "path": "reports/figures/gbif_descriptive_suitability_covariates.svg",
+        "status": "ready_descriptive_qc_only",
+        "caption_constraint": "pilot presence/background covariate-effects figure for GBIF host-occurrence QC only; non-approved background, no accessible-area design, not formal suitability, and not human infection risk",
+    },
+    {
         "figure_id": "phase5_global_virus_distribution",
         "path": "reports/figures/phase5/global_virus_distribution.png",
         "status": "planning_scaffold_only",
@@ -104,10 +110,12 @@ BLOCKED_ANALYSES = [
 
 
 def _write_json(path: Path, payload: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
 def _write_md(path: Path, lines: list[str]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 

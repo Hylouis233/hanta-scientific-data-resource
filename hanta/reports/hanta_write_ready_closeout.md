@@ -15,6 +15,7 @@ Status: complete for writing stage; metadata/provenance and descriptive outputs 
 - `gbif_species_record_counts`: ready_descriptive — GBIF candidate occurrence record counts by target species; not host abundance or infection risk
 - `gbif_top_country_record_counts`: ready_descriptive — GBIF candidate occurrence record counts by country/area; not human cases or risk
 - `gbif_country_record_availability_choropleth_prototype`: ready_descriptive_prototype — non-geographic record-availability choropleth prototype; not a risk map
+- `gbif_descriptive_suitability_covariates`: ready_descriptive_qc_only — pilot presence/background covariate-effects figure for GBIF host-occurrence QC only; non-approved background, no accessible-area design, not formal suitability, and not human infection risk
 - `phase5_global_virus_distribution`: planning_scaffold_only — placeholder/scaffold only; source-audit pending; no modeled spillover or transmission dynamics
 - `phase5_host_virus_network`: planning_scaffold_only — placeholder/scaffold only; not evidence of host-switch or spillover inference
 - `phase5_environmental_coverage`: planning_scaffold_only — placeholder/scaffold only; covariates not ingested and no risk model executed

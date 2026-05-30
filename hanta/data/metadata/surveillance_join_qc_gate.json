@@ -12,7 +12,7 @@
       "GBIF occurrence effort is opportunistic and spatially biased, not a standardized host surveillance frame.",
       "Country-month matching is coarse and may reflect asynchronous ecological and reporting processes.",
       "The environmental pilot table is a 1000-row sample linked to GBIF IDs, not a full covariate layer for all joined rows.",
-      "Code harmonization gaps remain, including ECDC codes such as EL and UK that may not line up with GBIF countryCode usage."
+      "Alias harmonization improves coding overlap for EL/UK but does not solve broader reporting-process comparability or sampling-bias limits."
     ]
   },
   "bounded_non_causal_model_status": {
@@ -23,36 +23,42 @@
       "Environmental covariates are available only as an incomplete pilot GBIF-linked subset rather than a full aligned covariate layer for the joined surveillance table.",
       "Host records are opportunistic GBIF occurrences without denominator, surveillance frame, or bias-corrected effort model for use as a stable predictor target pairing.",
       "Human surveillance tables differ in geography and time scale across ECDC country-month and CDC annual state products, preventing a single bounded modeling frame.",
-      "Country-code harmonization and reporting-process comparability remain unresolved for cross-source modeling inputs."
+      "Country-code harmonization and reporting-process comparability remain unresolved for cross-source modeling inputs even after documented EL->GR and UK->GB alias handling."
     ],
     "reason": "No validated target/outcome exists that is jointly aligned across ECDC/CDC surveillance, GBIF host records, and environmental covariates without unsupported spillover semantics."
   },
   "coverage_qc": {
-    "ecdc_country_codes_without_gbif_overlap": [
-      "EL",
+    "country_code_harmonization_review": {
+      "aliases_applied": {
+        "EL": "GR",
+        "UK": "GB"
+      },
+      "ecdc_rows_with_alias_applied": 336,
+      "matched_rows_after_alias_application": 155
+    },
+    "ecdc_country_codes_without_gbif_overlap_after_alias_review": [
       "IS",
-      "MT",
-      "UK"
+      "MT"
     ],
     "ecdc_country_count": 30,
     "ecdc_country_month_rows": 5102,
     "gbif_country_count_with_parseable_month": 109,
     "gbif_country_month_rows": 10106,
-    "matched_country_count": 23,
-    "matched_country_month_rows": 1692,
+    "matched_country_count": 25,
+    "matched_country_month_rows": 1847,
     "output_table": "/home/lh/d/autoresearch/hanta/reports/tables/surveillance_join_country_month_qc.csv",
     "sample_environment_overlap": {
       "gbif_candidate_rows_total": 533900,
       "gbif_rows_linked_to_pilot_environment": 500,
       "pilot_environment_rows": 1000
     },
-    "unmatched_ecdc_country_month_rows": 3410
+    "unmatched_ecdc_country_month_rows": 3255
   },
   "gate_decision": {
     "blockers": [
       "No approved harmonization from descriptive country-month overlap to scientific surveillance-host inference.",
       "CDC WONDER annual state data cannot be joined to ECDC country-month records without invalid temporal and geographic mixing.",
-      "GBIF and ECDC code systems do not fully align, leaving explicit no-overlap country codes including EL, IS, MT, and UK in current coverage accounting.",
+      "Residual no-overlap country codes remain after alias review, including IS and MT in current coverage accounting.",
       "Pilot environmental rows cover only a small GBIF-linked subset and are not sufficient for a complete joined layer.",
       "No bounded non-causal target/outcome and bias-control design has been justified that avoids spillover or risk interpretation."
     ],
@@ -60,13 +66,24 @@
     "legitimate_bounded_non_causal_model_passed": false,
     "true_surveillance_join_gate_passed": false
   },
-  "generated_at_utc": "2026-05-30T07:11:44.357998+00:00",
+  "generated_at_utc": "2026-05-30T07:33:57.743716+00:00",
   "guardrails": [
     "This artifact documents descriptive join QC only.",
     "No spillover inference, risk prediction, causal effect estimation, or abundance claim is authorized.",
     "Absence of a GBIF country-month match does not imply host absence, low abundance, or zero surveillance risk."
   ],
   "join_specification": {
+    "country_code_harmonization": {
+      "applied_aliases": {
+        "EL": "GR",
+        "UK": "GB"
+      },
+      "residual_non_overlap_codes_after_alias_review": [
+        "IS",
+        "MT"
+      ],
+      "rule": "Apply documented ECDC-to-GBIF ISO-style aliases before overlap accounting and descriptive country-month matching."
+    },
     "duplication_policy": "Aggregate GBIF rows to country-month before any descriptive join; do not duplicate surveillance rows by raw host records.",
     "exclusion_rules": [
       "Exclude any ECDC rows outside YYYY-MM monthly format.",
@@ -76,11 +93,11 @@
       "Do not project the pilot environmental table to unmatched GBIF or surveillance rows."
     ],
     "join_key": [
-      "country_code == countryCode",
+      "country_code_gbif_harmonized == countryCode",
       "reporting_month == event_month"
     ],
     "missingness_policy": "Retain all ECDC country-month rows. GBIF non-matches remain explicit non-coverage. Preserve suppressed/non-numeric ECDC counts as missing numeric values.",
-    "spatial_alignment_rule": "Restrict to two-letter country codes present in both sources without attempting subnational harmonization.",
+    "spatial_alignment_rule": "Restrict to two-letter country codes present in both sources after limited code harmonization review without attempting subnational harmonization.",
     "temporal_alignment_rule": "Restrict to YYYY-MM monthly alignment only; do not aggregate annual surveillance or infer zero counts from missing host rows."
   },
   "left_source": {
@@ -113,7 +130,7 @@
     "spatial_unit": "country",
     "time_unit": "event month"
   },
-  "schema_version": "0.2.0",
+  "schema_version": "0.3.0",
   "status": "descriptive_join_qc_only_partial_country_month_alignment",
   "supporting_environment_layer": {
     "coverage_note": "Pilot environmental table covers a small GBIF-linked subset and is not aligned to the full country-month surveillance table.",

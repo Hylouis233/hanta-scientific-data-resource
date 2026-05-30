@@ -6,8 +6,10 @@ Status: descriptive, non-causal, non-risk country-month join QC layer documented
 
 - Left source: `ecdc_surveillance_atlas_hantavirus`
 - Right source: `gbif_candidate_host_occurrences`
-- Join key: `country_code == countryCode; reporting_month == event_month`
-- Spatial alignment rule: Restrict to two-letter country codes present in both sources without attempting subnational harmonization.
+- Join key: `country_code_gbif_harmonized == countryCode; reporting_month == event_month`
+- Country-code harmonization rule: Apply documented ECDC-to-GBIF ISO-style aliases before overlap accounting and descriptive country-month matching.
+- Applied aliases: `{"EL": "GR", "UK": "GB"}`
+- Spatial alignment rule: Restrict to two-letter country codes present in both sources after limited code harmonization review without attempting subnational harmonization.
 - Temporal alignment rule: Restrict to YYYY-MM monthly alignment only; do not aggregate annual surveillance or infer zero counts from missing host rows.
 - Duplication policy: Aggregate GBIF rows to country-month before any descriptive join; do not duplicate surveillance rows by raw host records.
 - Missingness policy: Retain all ECDC country-month rows. GBIF non-matches remain explicit non-coverage. Preserve suppressed/non-numeric ECDC counts as missing numeric values.
@@ -24,10 +26,12 @@ Status: descriptive, non-causal, non-risk country-month join QC layer documented
 
 - ECDC country-month rows: 5102
 - GBIF aggregated country-month rows: 10106
-- Matched country-month rows: 1692
-- Unmatched ECDC country-month rows: 3410
-- Matched countries: 23 of 30 ECDC countries
-- ECDC codes without GBIF overlap in current accounting: EL, IS, MT, UK
+- Matched country-month rows: 1847
+- Unmatched ECDC country-month rows: 3255
+- Matched countries: 25 of 30 ECDC countries
+- Alias-harmonized ECDC rows: 336
+- Alias-harmonized matched rows: 155
+- ECDC codes without GBIF overlap after alias review: IS, MT
 - Pilot environmental overlap: 500 GBIF rows linked to 1000 pilot environmental rows out of 533900 GBIF candidate rows
 - QC table: `/home/lh/d/autoresearch/hanta/reports/tables/surveillance_join_country_month_qc.csv`
 
@@ -39,7 +43,7 @@ Status: descriptive, non-causal, non-risk country-month join QC layer documented
 - GBIF occurrence effort is opportunistic and spatially biased, not a standardized host surveillance frame.
 - Country-month matching is coarse and may reflect asynchronous ecological and reporting processes.
 - The environmental pilot table is a 1000-row sample linked to GBIF IDs, not a full covariate layer for all joined rows.
-- Code harmonization gaps remain, including ECDC codes such as EL and UK that may not line up with GBIF countryCode usage.
+- Alias harmonization improves coding overlap for EL/UK but does not solve broader reporting-process comparability or sampling-bias limits.
 
 ## Bounded non-causal model decision
 
@@ -50,7 +54,7 @@ Status: descriptive, non-causal, non-risk country-month join QC layer documented
 - Missing design/evidence: Environmental covariates are available only as an incomplete pilot GBIF-linked subset rather than a full aligned covariate layer for the joined surveillance table.
 - Missing design/evidence: Host records are opportunistic GBIF occurrences without denominator, surveillance frame, or bias-corrected effort model for use as a stable predictor target pairing.
 - Missing design/evidence: Human surveillance tables differ in geography and time scale across ECDC country-month and CDC annual state products, preventing a single bounded modeling frame.
-- Missing design/evidence: Country-code harmonization and reporting-process comparability remain unresolved for cross-source modeling inputs.
+- Missing design/evidence: Country-code harmonization and reporting-process comparability remain unresolved for cross-source modeling inputs even after documented EL->GR and UK->GB alias handling.
 
 ## Gate decision
 
@@ -59,7 +63,7 @@ Status: descriptive, non-causal, non-risk country-month join QC layer documented
 - Legitimate bounded non-causal model passed: False
 - Blocker: No approved harmonization from descriptive country-month overlap to scientific surveillance-host inference.
 - Blocker: CDC WONDER annual state data cannot be joined to ECDC country-month records without invalid temporal and geographic mixing.
-- Blocker: GBIF and ECDC code systems do not fully align, leaving explicit no-overlap country codes including EL, IS, MT, and UK in current coverage accounting.
+- Blocker: Residual no-overlap country codes remain after alias review, including IS and MT in current coverage accounting.
 - Blocker: Pilot environmental rows cover only a small GBIF-linked subset and are not sufficient for a complete joined layer.
 - Blocker: No bounded non-causal target/outcome and bias-control design has been justified that avoids spillover or risk interpretation.
 
@@ -68,4 +72,3 @@ Status: descriptive, non-causal, non-risk country-month join QC layer documented
 - This artifact documents descriptive join QC only.
 - No spillover inference, risk prediction, causal effect estimation, or abundance claim is authorized.
 - Absence of a GBIF country-month match does not imply host absence, low abundance, or zero surveillance risk.
-

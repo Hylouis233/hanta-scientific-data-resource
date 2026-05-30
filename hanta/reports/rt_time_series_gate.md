@@ -26,9 +26,17 @@ Status: descriptive_growth_proxy_only_formal_rt_blocked.
 ## Interval evidence review
 
 - Repository inspection found only blocker/planning references to serial or generation intervals; no disease-specific parameter protocol, citation package, or sensitivity design is stored in this repo.
-- Publicly reviewed lightweight evidence did not produce a usable hantavirus serial/generation interval estimate tied to the disease scope represented by the ECDC surveillance table.
-- Human hantavirus transmission is disease- and setting-specific, with Andes-virus human-to-human transmission not generalizable to the broader European HFRS monthly surveillance slice.
+- Lightweight public evidence review found incubation-period estimates for HCPS/Andes-virus settings and Andes-virus person-to-person transmission reports, but no defensible disease-specific serial/generation interval protocol for the ECDC monthly European reported-case series.
+- Andes-virus human-to-human transmission is not generalizable to the broader European HFRS-oriented hantavirus surveillance slice represented in the ECDC dataset.
 - Monthly reported-case aggregates are too coarse to recover a short transmission interval without an externally justified observation model and delay structure.
+
+## External citations reviewed
+
+- Vial PA, Valdivieso F, Ferres M, et al. Incubation period of hantavirus cardiopulmonary syndrome. Emerg Infect Dis. 2006;12(8):1271-1273. PMID: 16965713. Evidence: Andes-virus HCPS incubation period 7-39 days, median 18 days; not a serial/generation interval.
+- Young JC, Hansen GR, Graves TK, et al. The incubation period of hantavirus pulmonary syndrome. Am J Trop Med Hyg. 2000;62(6):714-717. PMID: 11304061. Evidence: HPS incubation period 9-33 days with median about 14-17 days; not a transmission interval.
+- Martinez VP, Bellomo C, San Juan J, et al. Person-to-person transmission of Andes virus. Emerg Infect Dis. 2005;11(12):1848-1853. PMID: 16485469. Evidence: confirms Andes-virus person-to-person spread, but no serial/generation interval estimate for general hantavirus Rt use.
+- Martinez VP, Bellomo CM, Cacace ML, et al. Person-to-person transmission of Andes virus associated with a super-spreading event, Argentina, 2018. N Engl J Med. 2020;383(23):2230-2241. PMID: 33264545. Evidence: outbreak-specific Andes-virus transmission dynamics, not a transportable interval protocol for ECDC Europe monthly aggregates.
+- Toledo J, Martinez-Valdebenito C, Olea A, et al. Person-to-person transmission of hantavirus: a systematic review. J Infect Dis. 2022;226(7):1241-1260. PMID: 34515290. Evidence: human-to-human transmission evidence remains limited to Andes-virus settings, reinforcing non-generalisability.
 
 ## Interval assumptions
 

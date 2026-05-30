@@ -22,11 +22,11 @@ Status: descriptive_join_qc_documented_true_join_still_blocked.
 
 ## Remaining requirements before analysis
 
-- explicit approval remains required for inferential or modeling use beyond descriptive join QC
-- country-code harmonization review for non-overlap codes such as EL and UK
 - sampling-bias assessment before any spillover or risk interpretation
+- explicit approval remains required for any inferential or modeling use beyond descriptive join QC
+- a pre-specified non-causal target/outcome with unit alignment and explicit bias controls before any bounded cross-source model can be considered
+- country-code harmonization review for residual non-overlap codes after EL->GR and UK->GB alias handling, including IS and MT in current coverage accounting
 
 ## Guardrail
 
 This is a prerequisite gate only. It does not execute or authorize scientific analysis outputs.
-

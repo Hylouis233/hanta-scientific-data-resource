@@ -6,9 +6,9 @@
     "host_switch_phylogenetic_inference": "blocked_sequence_qc_can_run_but_alignment_design_and_host_switch_gate_fail",
     "human_case_mapping": "blocked_no_provenance_complete_surveillance_table",
     "rt_estimation": "blocked_no_subannual_incidence_time_series_or_interval_protocol",
-    "spillover_or_surveillance_join": "blocked_for_inference_only_descriptive_join_qc_documented"
+    "spillover_or_surveillance_join": "blocked_descriptive_join_qc_only_alias_harmonization_documented_but_no_inferential_spillover_support"
   },
-  "generated_at_utc": "2026-05-30T07:11:45.873885+00:00",
+  "generated_at_utc": "2026-05-30T07:33:57.743716+00:00",
   "guardrails": [
     "evidence passes are limited to existing real GBIF occurrence and GenBank metadata layers",
     "advanced model gates remain blocked until their required real data and QC artifacts exist",

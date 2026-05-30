@@ -16,9 +16,9 @@
       "status": "closed_real_data_layer"
     },
     {
-      "evidence": "24 source records; 12 usable accession metadata candidates; 12 downloaded GenBank sequence bodies passed bounded QC but no segment reached a defensible alignment/tree gate",
-      "layer": "GenBank accession metadata and bounded sequence QC",
-      "manuscript_use": "metadata availability, accession triage, and explicit blocker evidence for deferred phylogeny/host-switch work",
+      "evidence": "24 source records; 12 usable accession metadata candidates; no sequence bodies downloaded",
+      "layer": "GenBank accession metadata",
+      "manuscript_use": "metadata availability and accession triage only",
       "status": "closed_metadata_layer"
     },
     {
@@ -60,6 +60,12 @@
       "status": "ready_descriptive_prototype"
     },
     {
+      "caption_constraint": "pilot presence/background covariate-effects figure for GBIF host-occurrence QC only; non-approved background, no accessible-area design, not formal suitability, and not human infection risk",
+      "figure_id": "gbif_descriptive_suitability_covariates",
+      "path": "reports/figures/gbif_descriptive_suitability_covariates.svg",
+      "status": "ready_descriptive_qc_only"
+    },
+    {
       "caption_constraint": "placeholder/scaffold only; source-audit pending; no modeled spillover or transmission dynamics",
       "figure_id": "phase5_global_virus_distribution",
       "path": "reports/figures/phase5/global_virus_distribution.png",
@@ -84,7 +90,7 @@
       "status": "planning_scaffold_only"
     }
   ],
-  "generated_at_utc": "2026-05-29T18:19:28.560580+00:00",
+  "generated_at_utc": "2026-05-30T07:33:57.880344+00:00",
   "guardrails": [
     "no risk maps, host abundance inference, human case maps, Rt estimation, spillover inference, host-switch inference, or surveillance joins are executed",
     "available figures are descriptive record-availability or planning scaffolds only",

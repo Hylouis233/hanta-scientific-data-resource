@@ -36,9 +36,9 @@ STATIC_COVARIATES = [
         "crs": "EPSG:4326",
         "temporal_coverage": "2021 annual product",
         "license_or_terms": "CC BY 4.0",
-        "download_route": "public ESA WorldCover S3 bucket, COG tiles, Zenodo, WMS/WMTS, Terrascope, or Google Earth Engine",
+        "download_route": "public ESA WorldCover S3 bucket; sample tile URL verified from bucket listing",
         "target_policy": "categorical nearest-neighbor resampling only",
-        "download_readiness": "self_service_public_tiles_listable_but_not_downloaded_in_this_task",
+        "download_readiness": "self_service_public_bucket_listing_and_sample_tile_verified_no_full_extent_download",
     },
     {
         "source_id": "copernicus_dem_glo30",
@@ -48,9 +48,9 @@ STATIC_COVARIATES = [
         "crs": "horizontal EPSG:4326; vertical EGM2008 EPSG:3855",
         "temporal_coverage": "static DEM release",
         "license_or_terms": "free license with attribution obligations",
-        "download_route": "Copernicus Data Space Browser, OData API, or S3-compatible storage",
+        "download_route": "public AWS Open Data bucket documentation plus Copernicus Data Space Browser or OData API",
         "target_policy": "document vertical datum before slope/aspect derivatives",
-        "download_readiness": "public_route_confirmed_but exact practical bulk tile endpoint still to be captured before repo download",
+        "download_readiness": "public_aws_open_data_readme_verified_exact_tile_selection_still_pending",
     },
     {
         "source_id": "natural_earth_10m_land",
@@ -70,11 +70,11 @@ STATIC_COVARIATES = [
         "version": "product/year selected during ingestion",
         "resolution": "100 m, 1 km, or 30 arc-sec depending selected product",
         "crs": "confirm from product metadata",
-        "temporal_coverage": "candidate products include 2000-2020 country surfaces and related global datasets",
+        "temporal_coverage": "candidate products include 2015-2030 Global2 surfaces and archived Global1 products",
         "license_or_terms": "open-access portal; exact product license pending endpoint review",
         "download_route": "WorldPop Hub REST catalog",
         "target_policy": "human exposure covariate only, not a human case surface",
-        "download_readiness": "self_service_public_catalog_confirmed_but exact product selection still pending",
+        "download_readiness": "self_service_public_catalog_verified_product_families_visible_exact_endpoint_selection_pending",
     },
 ]
 

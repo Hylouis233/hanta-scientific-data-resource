@@ -4,7 +4,7 @@ Status: public NCBI/GenBank evidence expands the Hantaan sequence-design gate to
 
 - Candidate species: Orthohantavirus hantanense
 - Distinct host labels in selected sets: 2
-- Complete triplets found in sampled records: 8
+- Complete triplets found in sampled records: 10
 - Downloaded records: 24
 - Alignment-design gate passed: true
 - Multi-host expansion achieved: true

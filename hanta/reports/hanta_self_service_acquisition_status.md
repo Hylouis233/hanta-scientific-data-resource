@@ -6,6 +6,7 @@ Status: concise lane split for tomorrow planning only; no new data were fabricat
 
 Ready or already evidenced for continued automation:
 - ECDC Atlas hantavirus export route and captured CSV
+- ECDC public legal/intellectual-property terms evidence for Atlas reuse framing
 - CDC WONDER annual hantavirus surveillance export route
 - WorldClim, ESA WorldCover, Copernicus DEM static covariate inventory work
 - WorldPop product/license endpoint selection

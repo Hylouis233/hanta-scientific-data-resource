@@ -15,8 +15,8 @@
     },
     {
       "crs": "EPSG:4326",
-      "download_readiness": "self_service_public_tiles_listable_but_not_downloaded_in_this_task",
-      "download_route": "public ESA WorldCover S3 bucket, COG tiles, Zenodo, WMS/WMTS, Terrascope, or Google Earth Engine",
+      "download_readiness": "self_service_public_bucket_listing_and_sample_tile_verified_no_full_extent_download",
+      "download_route": "public ESA WorldCover S3 bucket; sample tile URL verified from bucket listing",
       "license_or_terms": "CC BY 4.0",
       "resolution": "10 m",
       "source_id": "esa_worldcover_2021",
@@ -27,8 +27,8 @@
     },
     {
       "crs": "horizontal EPSG:4326; vertical EGM2008 EPSG:3855",
-      "download_readiness": "public_route_confirmed_but exact practical bulk tile endpoint still to be captured before repo download",
-      "download_route": "Copernicus Data Space Browser, OData API, or S3-compatible storage",
+      "download_readiness": "public_aws_open_data_readme_verified_exact_tile_selection_still_pending",
+      "download_route": "public AWS Open Data bucket documentation plus Copernicus Data Space Browser or OData API",
       "license_or_terms": "free license with attribution obligations",
       "resolution": "1 arc-sec",
       "source_id": "copernicus_dem_glo30",
@@ -51,18 +51,18 @@
     },
     {
       "crs": "confirm from product metadata",
-      "download_readiness": "self_service_public_catalog_confirmed_but exact product selection still pending",
+      "download_readiness": "self_service_public_catalog_verified_product_families_visible_exact_endpoint_selection_pending",
       "download_route": "WorldPop Hub REST catalog",
       "license_or_terms": "open-access portal; exact product license pending endpoint review",
       "resolution": "100 m, 1 km, or 30 arc-sec depending selected product",
       "source_id": "worldpop_population",
       "target_policy": "human exposure covariate only, not a human case surface",
-      "temporal_coverage": "candidate products include 2000-2020 country surfaces and related global datasets",
+      "temporal_coverage": "candidate products include 2015-2030 Global2 surfaces and archived Global1 products",
       "variables": "gridded population and demographic products",
       "version": "product/year selected during ingestion"
     }
   ],
-  "generated_at_utc": "2026-05-30T17:22:25.536738+00:00",
+  "generated_at_utc": "2026-05-30T17:33:45.282796+00:00",
   "guardrails": [
     "planning artifacts do not ingest analysis datasets",
     "planning artifacts do not execute risk maps, abundance inference, human case maps, Rt, spillover, host-switch, or surveillance joins",

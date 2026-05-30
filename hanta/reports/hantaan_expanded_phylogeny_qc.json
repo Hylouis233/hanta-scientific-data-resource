@@ -1,10 +1,10 @@
 {
   "alignment_design_gate_passed": true,
   "candidate_species": "Orthohantavirus hantanense",
-  "complete_triplet_count_in_sample": 8,
+  "complete_triplet_count_in_sample": 10,
   "distinct_host_label_count": 2,
   "downloaded_record_count": 24,
-  "generated_at_utc": "2026-05-30T17:19:51.029589+00:00",
+  "generated_at_utc": "2026-05-30T17:34:43.111084+00:00",
   "guardrails": [
     "public NCBI/GenBank records are acquired only to support per-segment alignment design and accession-level evidence expansion",
     "all analyses must keep S, M, and L separate rather than pooling segments",

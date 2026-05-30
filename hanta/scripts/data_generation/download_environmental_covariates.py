@@ -40,6 +40,26 @@ SOURCES = [
         "license_or_terms": "public domain (Natural Earth terms)",
         "download_type": "zip",
     },
+    {
+        "source_id": "esa_worldcover_2021_sample_tile",
+        "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N00E006_Map.tif",
+        "variable_group": "land_cover",
+        "version": "2021 v200",
+        "resolution": "10 m",
+        "temporal_coverage": "2021 annual product",
+        "license_or_terms": "CC BY 4.0",
+        "download_type": "file",
+    },
+    {
+        "source_id": "copernicus_dem_glo30_readme",
+        "url": "https://copernicus-dem-30m.s3.amazonaws.com/readme.html",
+        "variable_group": "terrain_download_route_support",
+        "version": "GLO-30 public release",
+        "resolution": "1 arc-sec",
+        "temporal_coverage": "static DEM release documentation",
+        "license_or_terms": "public AWS open data documentation page",
+        "download_type": "file",
+    },
 ]
 
 RAW_DIR = Path("data/raw/environmental_covariates/self_service_public")
@@ -54,6 +74,16 @@ def _download(url: str, path: Path) -> None:
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
     with urllib.request.urlopen(req, timeout=300) as response:
         path.write_bytes(response.read())
+
+
+def _describe_file(path: Path) -> list[dict[str, Any]]:
+    return [{"name": path.name, "size": path.stat().st_size}]
+
+
+def _members_for_record(path: Path, download_type: str) -> list[dict[str, Any]]:
+    if download_type == "zip":
+        return _zip_members(path)
+    return _describe_file(path)
 
 
 def _zip_members(path: Path) -> list[dict[str, Any]]:
@@ -76,7 +106,7 @@ def main() -> int:
     for source in SOURCES:
         path = RAW_DIR / Path(source["url"]).name
         _download(source["url"], path)
-        members = _zip_members(path)
+        members = _members_for_record(path, source["download_type"])
         records.append({
             **source,
             "archive_path": str(path),
@@ -97,6 +127,7 @@ def main() -> int:
         "guardrails": [
             "covariate files are downloaded for file-level intake QC only",
             "only self-service public static covariates with practical terms are included here",
+            "sample or support files do not clear full-study raster ingestion or analysis readiness",
             "permission-gated or credential-dependent environmental layers remain documented but not downloaded",
             "no risk map, suitability model, spillover model, or surveillance join is executed",
             "target/background design remains required before any model",

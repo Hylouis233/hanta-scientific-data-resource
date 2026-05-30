@@ -4,19 +4,19 @@ Status: partially unblocked. Public ECDC country/month and CDC WONDER annual/sta
 
 ## Best available public exports
 
-- `ecdc_surveillance_atlas_hantavirus`: real public CSV export captured with annual and monthly rows plus country and aggregate reference-region geography; explicit terms/disclaimer capture is still pending.
+- `ecdc_surveillance_atlas_hantavirus`: real public CSV export captured with annual and monthly rows plus country and aggregate reference-region geography; official terms/disclaimer evidence was also captured in `data/metadata/ecdc_surveillance_terms_evidence.json`, so remaining limits are downstream suppression, case-definition, and geography harmonization review rather than missing baseline reuse evidence.
 - `cdc_nndss_hcps`: real public CDC WONDER CSV export captured for both hantavirus conditions at annual state/territory granularity with citation footer; Rt remains blocked because the series is annual only.
 
 ## Attempted sources
 
-- `ecdc_surveillance_atlas_hantavirus`: accessible without credentials; machine-readable export captured and schema-backed; still pending explicit terms/disclaimer text.
+- `ecdc_surveillance_atlas_hantavirus`: accessible without credentials; machine-readable export captured and schema-backed; official terms/disclaimer evidence captured from ECDC public legal and IP pages.
 - `cdc_nndss_hcps`: CDC WONDER request page and CSV export captured without credentials; useful for annual state mapping only.
 - `china_cdc_hfrs_monthly_bulletins`: inspected English China CDC pages did not expose HFRS bulletins or downloadable surveillance tables.
 
 ## Why join/Rt stays blocked
 
 - Public surveillance tables were downloaded for ECDC Atlas and CDC WONDER.
-- ECDC still needs explicit terms/disclaimer capture before broader downstream clearance.
+- ECDC now has public terms/disclaimer evidence captured, but suppression handling, case-definition review, and geography harmonization are still required before broader downstream clearance.
 - CDC WONDER data are annual only, so Rt remains blocked.
 - China CDC did not yield a verified public HFRS bulletin table from inspected no-credential routes.
 

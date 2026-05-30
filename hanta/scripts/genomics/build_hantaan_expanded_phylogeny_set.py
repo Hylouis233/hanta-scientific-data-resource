@@ -126,10 +126,11 @@ def _build_candidate_records(ids: list[str]) -> list[dict[str, Any]]:
     return records
 
 
-def _triplet_sort_key(triplet: dict[str, dict[str, Any]]) -> tuple[int, int, str, str, str, str]:
+def _triplet_sort_key(triplet: dict[str, dict[str, Any]]) -> tuple[int, int, int, str, str, str, str]:
     record = triplet["S"]
     return (
         0 if record["host_species"] != "Apodemus agrarius" else 1,
+        0 if record["host_species"] != "Homo sapiens" else 1,
         0 if record["country"] != "China" else 1,
         record["collection_date"],
         record["host_species"],
@@ -156,7 +157,22 @@ def _choose_triplets(records: list[dict[str, Any]]) -> list[dict[str, dict[str, 
         triplets[(record["host_species"], record["isolate"], record["country"], record["collection_date"])][record["segment"]] = record
     complete_triplets = [triplet for triplet in triplets.values() if set(TARGET_SEGMENTS).issubset(triplet.keys())]
     complete_triplets.sort(key=_triplet_sort_key)
-    return complete_triplets
+    selected_triplets: list[dict[str, dict[str, Any]]] = []
+    seen_hosts: set[str] = set()
+    for triplet in complete_triplets:
+        host = triplet["S"]["host_species"]
+        if host not in seen_hosts:
+            selected_triplets.append(triplet)
+            seen_hosts.add(host)
+        if len(selected_triplets) >= TARGET_DOWNLOAD_TRIPLETS:
+            return selected_triplets
+    for triplet in complete_triplets:
+        if triplet in selected_triplets:
+            continue
+        selected_triplets.append(triplet)
+        if len(selected_triplets) >= TARGET_DOWNLOAD_TRIPLETS:
+            break
+    return selected_triplets
 
 
 def _download_sequence_bodies(selected_triplets: list[dict[str, dict[str, Any]]]) -> list[dict[str, Any]]:
@@ -233,11 +249,10 @@ def main() -> int:
     if not ids:
         raise NCBIError("NCBI search returned no candidate records")
     candidate_records = _build_candidate_records(ids)
-    complete_triplets = _choose_triplets(candidate_records)
-    if len(complete_triplets) < MIN_TRIPLETS:
-        raise NCBIError(f"Only found {len(complete_triplets)} complete triplets; need {MIN_TRIPLETS}")
+    selected_triplets = _choose_triplets(candidate_records)
+    if len(selected_triplets) < MIN_TRIPLETS:
+        raise NCBIError(f"Only found {len(selected_triplets)} complete triplets; need {MIN_TRIPLETS}")
 
-    selected_triplets = complete_triplets[:TARGET_DOWNLOAD_TRIPLETS]
     downloaded_records = _download_sequence_bodies(selected_triplets)
     generated_at_utc = datetime.now(timezone.utc).isoformat()
 
@@ -255,13 +270,33 @@ def main() -> int:
     selected_triplet_count_by_host = Counter(item["host_species"] for item in selected_isolates)
     selected_triplet_count_by_country = Counter(item["country"] for item in selected_isolates)
 
+    total_complete_triplets = len({
+        (
+            record["host_species"],
+            record["isolate"],
+            record["country"],
+            record["collection_date"],
+        )
+        for record in candidate_records
+        if record["segment"] in TARGET_SEGMENTS
+        and record["virus_species"] == TARGET_SPECIES
+        and record["host_species"]
+        and record["country"]
+        and record["collection_date"]
+        and record["isolate"]
+        and record["complete_title_flag"]
+        and not record["partial_title_flag"]
+        and not record["is_partial_cds"]
+        and (record["ambiguous_base_fraction"] or 0.0) <= 0.01
+    })
+
     query_payload = {
         "schema_version": "0.1.0",
         "generated_at_utc": generated_at_utc,
         "target_query": TARGET_TERM,
         "sampled_record_count": len(candidate_records),
         "total_ncbi_hit_count": total_count,
-        "complete_triplet_count_in_sample": len(complete_triplets),
+        "complete_triplet_count_in_sample": len(selected_triplets),
         "candidate_species": TARGET_SPECIES,
         "selected_accessions": [record["accession"] for record in downloaded_records],
         "selected_host_labels": sorted(selected_triplet_count_by_host),
@@ -277,7 +312,7 @@ def main() -> int:
         "target_query": TARGET_TERM,
         "total_ncbi_hit_count": total_count,
         "sampled_record_count": len(candidate_records),
-        "complete_triplet_count_in_sample": len(complete_triplets),
+        "complete_triplet_count_in_sample": len(selected_triplets),
         "selected_triplet_count": len(selected_triplets),
         "distinct_host_label_count": len(selected_triplet_count_by_host),
         "selected_triplet_count_by_host": dict(sorted(selected_triplet_count_by_host.items())),
@@ -300,7 +335,7 @@ def main() -> int:
         "generated_at_utc": generated_at_utc,
         "status": "expanded_sequence_design_gate_passed_for_alignment_readiness_only",
         "candidate_species": TARGET_SPECIES,
-        "complete_triplet_count_in_sample": len(complete_triplets),
+        "complete_triplet_count_in_sample": len(selected_triplets),
         "selected_triplet_count": len(selected_triplets),
         "downloaded_record_count": len(downloaded_records),
         "segment_counts": dict(sorted(segment_counts.items())),

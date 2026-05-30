@@ -1,0 +1,106 @@
+{
+  "dataset": "ecdc_hantavirus_country_month_reported_cases",
+  "fields": [
+    {
+      "description": "Stable source identifier.",
+      "name": "source_id",
+      "type": "string"
+    },
+    {
+      "description": "Official ECDC Atlas entry route used for provenance.",
+      "name": "source_url",
+      "type": "string"
+    },
+    {
+      "description": "Official ECDC intellectual property notice URL.",
+      "name": "license_or_terms_url",
+      "type": "string"
+    },
+    {
+      "description": "Required ECDC attribution statement for reused third-party-supplied data.",
+      "name": "dataset_attribution",
+      "type": "string"
+    },
+    {
+      "description": "Disease label from source export.",
+      "name": "health_topic",
+      "type": "string"
+    },
+    {
+      "description": "Population grouping from source export.",
+      "name": "population",
+      "type": "string"
+    },
+    {
+      "description": "Indicator label from source export.",
+      "name": "indicator",
+      "type": "string"
+    },
+    {
+      "description": "Measurement unit from source export.",
+      "name": "unit",
+      "type": "string"
+    },
+    {
+      "description": "Month in YYYY-MM format.",
+      "name": "reporting_month",
+      "type": "string"
+    },
+    {
+      "description": "Two-letter country code retained after excluding aggregate regions.",
+      "name": "country_code",
+      "type": "string"
+    },
+    {
+      "description": "Country name from source export.",
+      "name": "country_name",
+      "type": "string"
+    },
+    {
+      "description": "Parsed monthly reported case count when NumValue is numeric.",
+      "name": "case_count",
+      "type": "integer_or_blank"
+    },
+    {
+      "description": "Original NumValue string, including suppression markers.",
+      "name": "case_count_raw",
+      "type": "string"
+    },
+    {
+      "description": "true when NumValue was not parseable as a numeric count.",
+      "name": "is_suppressed_or_non_numeric",
+      "type": "boolean_string"
+    },
+    {
+      "description": "TxtValue companion field from source export.",
+      "name": "txt_value",
+      "type": "string"
+    },
+    {
+      "description": "Explicit restriction to descriptive surveillance availability/QC use only.",
+      "name": "scope_note",
+      "type": "string"
+    }
+  ],
+  "filters_applied": [
+    "HealthTopic == Hantavirus infection",
+    "Population == All cases",
+    "Indicator == Reported cases",
+    "Unit == N",
+    "Time matches YYYY-MM only",
+    "RegionCode matches two uppercase letters only"
+  ],
+  "generated_at_utc": "2026-05-30T06:26:30.248325+00:00",
+  "guardrails": [
+    "Descriptive surveillance availability/QC only.",
+    "Not approved for Rt estimation, causal inference, risk mapping, spillover joins, or other advanced analysis.",
+    "Suppressed or non-numeric counts are preserved as missing numeric counts with raw marker retention."
+  ],
+  "path": "/home/lh/d/autoresearch/hanta/data/processed/ecdc_hantavirus_country_month_reported_cases.csv",
+  "primary_key": [
+    "reporting_month",
+    "country_code"
+  ],
+  "schema_version": "0.1.0",
+  "validation_passed": true
+}

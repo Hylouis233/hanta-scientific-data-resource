@@ -1,0 +1,191 @@
+{
+  "schema_version": "0.1.0",
+  "dataset_path": "/home/lh/d/autoresearch/hanta/data/processed/human_surveillance/cdc_wonder_hantavirus_annual_state_cases_2016_2023.csv",
+  "source_id": "cdc_wonder_nndss_hantavirus_annual",
+  "provenance_complete": true,
+  "machine_readable_format": "csv",
+  "publisher": "Centers for Disease Control and Prevention",
+  "platform": "CDC WONDER",
+  "conditions": [
+    "Hantavirus pulmonary syndrome",
+    "Hantavirus infection, non-hantavirus pulmonary syndrome"
+  ],
+  "time_coverage": [
+    "2016",
+    "2023"
+  ],
+  "geography": "United States and state rows",
+  "row_count": 960,
+  "columns": [
+    {
+      "name": "source_id",
+      "type": "string"
+    },
+    {
+      "name": "source_url_or_citation",
+      "type": "string"
+    },
+    {
+      "name": "access_date",
+      "type": "date"
+    },
+    {
+      "name": "condition_code",
+      "type": "string"
+    },
+    {
+      "name": "condition",
+      "type": "string"
+    },
+    {
+      "name": "case_definition",
+      "type": "string"
+    },
+    {
+      "name": "syndrome",
+      "type": "string"
+    },
+    {
+      "name": "reporting_period_start",
+      "type": "date"
+    },
+    {
+      "name": "reporting_period_end",
+      "type": "date"
+    },
+    {
+      "name": "time_unit",
+      "type": "string"
+    },
+    {
+      "name": "admin_level",
+      "type": "string"
+    },
+    {
+      "name": "admin_name",
+      "type": "string"
+    },
+    {
+      "name": "admin_code",
+      "type": "string"
+    },
+    {
+      "name": "case_count_raw",
+      "type": "string"
+    },
+    {
+      "name": "case_count",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    {
+      "name": "privacy_suppression_rule",
+      "type": "string"
+    },
+    {
+      "name": "license_or_terms",
+      "type": "string"
+    },
+    {
+      "name": "query_grouping",
+      "type": "string"
+    },
+    {
+      "name": "query_date_utc",
+      "type": "string"
+    },
+    {
+      "name": "notes",
+      "type": "string"
+    }
+  ],
+  "provenance": [
+    {
+      "condition_code": "11590",
+      "condition": "Hantavirus pulmonary syndrome",
+      "raw_export_path": "/home/lh/d/autoresearch/hanta/data/raw/human_surveillance/hantavirus_pulmonary_syndrome_wonder_export.csv",
+      "raw_header": [
+        "Notes",
+        "Year",
+        "Year Code",
+        "States",
+        "States Code",
+        "Case Count"
+      ],
+      "row_count": 480,
+      "query_date_utc": "2026-05-30T06:24:41.740065+00:00",
+      "query_parameters": {
+        "dataset_code": "D130",
+        "dataset_label": "NNDSS Annual Summary Data 2016-2023",
+        "stage": "request",
+        "O_javascript": "on",
+        "M_1": "D130.M1",
+        "B_1": "D130.V1",
+        "B_2": "D130.V2",
+        "B_3": "*None*",
+        "V_D130.V3": "11590",
+        "V_D130.V1": "*All*",
+        "V_D130.V2": "*All*",
+        "O_tables": "D130.V2",
+        "O_change_action-Send-Export Results": "Export Results",
+        "O_export-format": "csv",
+        "O_show_totals": "true",
+        "O_show_zeros": "true",
+        "O_precision": "2",
+        "O_timeout": "600",
+        "O_rate_per": "100000",
+        "action-Send": "Send"
+      },
+      "citation_excerpt": "Centers for Disease Control and Prevention. National Notifiable Diseases Surveillance System (NNDSS) Annual Summary Data for years 2016-2023, United States, CDC WONDER online database.",
+      "contains_terms_footer": true
+    },
+    {
+      "condition_code": "11610",
+      "condition": "Hantavirus infection, non-hantavirus pulmonary syndrome",
+      "raw_export_path": "/home/lh/d/autoresearch/hanta/data/raw/human_surveillance/hantavirus_non_hps_wonder_export.csv",
+      "raw_header": [
+        "Notes",
+        "Year",
+        "Year Code",
+        "States",
+        "States Code",
+        "Case Count"
+      ],
+      "row_count": 480,
+      "query_date_utc": "2026-05-30T06:24:41.740065+00:00",
+      "query_parameters": {
+        "dataset_code": "D130",
+        "dataset_label": "NNDSS Annual Summary Data 2016-2023",
+        "stage": "request",
+        "O_javascript": "on",
+        "M_1": "D130.M1",
+        "B_1": "D130.V1",
+        "B_2": "D130.V2",
+        "B_3": "*None*",
+        "V_D130.V3": "11610",
+        "V_D130.V1": "*All*",
+        "V_D130.V2": "*All*",
+        "O_tables": "D130.V2",
+        "O_change_action-Send-Export Results": "Export Results",
+        "O_export-format": "csv",
+        "O_show_totals": "true",
+        "O_show_zeros": "true",
+        "O_precision": "2",
+        "O_timeout": "600",
+        "O_rate_per": "100000",
+        "action-Send": "Send"
+      },
+      "citation_excerpt": "Centers for Disease Control and Prevention. National Notifiable Diseases Surveillance System (NNDSS) Annual Summary Data for years 2016-2023, United States, CDC WONDER online database.",
+      "contains_terms_footer": true
+    }
+  ],
+  "fit_for": [
+    "human_case_maps"
+  ],
+  "not_fit_for_without_more_granularity": [
+    "rt_estimation"
+  ],
+  "validation_passed": true
+}

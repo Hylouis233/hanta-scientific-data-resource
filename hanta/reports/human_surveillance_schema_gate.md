@@ -1,8 +1,12 @@
 # Human surveillance schema gate
 
-Status: schema_scope_only_no_case_data_ingested.
+Status: real_surveillance_table_captured_for_annual_state_mapping_only.
 
-## Required fields
+## Verified source
+
+- `cdc_wonder_nndss_hantavirus_annual`: CDC WONDER NNDSS Annual Summary Data 2016-2023 exported as CSV without credentials.
+
+## Required fields present
 
 - `source_id`
 - `source_url_or_citation`
@@ -20,17 +24,12 @@ Status: schema_scope_only_no_case_data_ingested.
 ## Planning scope unlocked
 
 - `human_case_maps`
-- `rt_estimation`
-- `surveillance_join`
 
-## Remaining requirements before analysis
+## Still blocked
 
-- source-specific extraction protocol
-- privacy and aggregation review
-- case-definition harmonization review
-- real surveillance table with provenance audit
+- `rt_estimation` because the captured table is annual, not weekly or monthly.
+- `surveillance_join` until downstream privacy, aggregation, and case-definition harmonization review is completed.
 
 ## Guardrail
 
-This is a prerequisite gate only. It does not execute or authorize scientific analysis outputs.
-
+This artifact records a real surveillance table capture and provenance only. It does not execute scientific analysis outputs.

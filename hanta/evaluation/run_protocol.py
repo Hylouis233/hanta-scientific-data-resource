@@ -109,13 +109,13 @@ def main() -> int:
     hanta_source_access_verification = _load_json(reports / "hanta_source_access_verification.json")
     hanta_source_access_verification_present = hanta_source_access_verification.get("validation_passed") is True and hanta_source_access_verification.get("source_count", 0) >= 10 and hanta_source_access_verification.get("status") == "source_specific_access_verification_complete" and (reports / "hanta_source_access_verification.md").exists() and (tables / "hanta_source_access_verification.csv").exists()
     human_surveillance_join_blocked_evidence = _load_json(project_root / "data" / "metadata" / "human_surveillance_join_blocked_evidence.json")
-    human_surveillance_join_blocked_evidence_present = human_surveillance_join_blocked_evidence.get("validation_passed") is True and human_surveillance_join_blocked_evidence.get("overall_status") == "blocked_evidence_backed_no_downloaded_human_surveillance_table" and (reports / "human_surveillance_join_blocked_evidence.md").exists()
+    human_surveillance_join_blocked_evidence_present = human_surveillance_join_blocked_evidence.get("validation_passed") is True and human_surveillance_join_blocked_evidence.get("overall_status") in {"blocked_evidence_backed_no_downloaded_human_surveillance_table", "partial_unblock_real_ecdc_export_captured_but_terms_and_join_clearance_still_blocked", "annual_state_table_captured_rt_and_join_still_partially_blocked"} and (reports / "human_surveillance_join_blocked_evidence.md").exists()
     static_covariate_inventory = _load_json(reports / "static_environmental_covariate_inventory.json")
     static_covariate_inventory_present = static_covariate_inventory.get("validation_passed") is True and static_covariate_inventory.get("status") == "static_covariate_inventory_complete" and (reports / "static_environmental_covariate_inventory.md").exists() and (tables / "static_environmental_covariate_inventory.csv").exists()
     modis_access_plan = _load_json(reports / "modis_access_plan.json")
     modis_access_plan_present = modis_access_plan.get("validation_passed") is True and modis_access_plan.get("status") == "modis_access_plan_complete" and (reports / "modis_access_plan.md").exists() and (project_root / "data" / "metadata" / "modis_tile_earthdata_plan.json").exists()
     ecdc_surveillance_export_plan = _load_json(reports / "ecdc_surveillance_export_plan.json")
-    ecdc_surveillance_export_plan_present = ecdc_surveillance_export_plan.get("validation_passed") is True and ecdc_surveillance_export_plan.get("status") == "ecdc_surveillance_export_plan_complete" and (reports / "ecdc_surveillance_export_plan.md").exists() and (project_root / "data" / "metadata" / "ecdc_atlas_export_protocol.json").exists()
+    ecdc_surveillance_export_plan_present = ecdc_surveillance_export_plan.get("validation_passed") is True and ecdc_surveillance_export_plan.get("status") in {"ecdc_surveillance_export_plan_complete", "public_export_captured_terms_incomplete"} and (reports / "ecdc_surveillance_export_plan.md").exists() and (project_root / "data" / "metadata" / "ecdc_atlas_export_protocol.json").exists()
     ncbi_sequence_body_export_plan = _load_json(reports / "ncbi_entrez_sequence_body_export_plan.json")
     ncbi_sequence_body_export_plan_present = ncbi_sequence_body_export_plan.get("validation_passed") is True and ncbi_sequence_body_export_plan.get("status") == "ncbi_sequence_body_export_plan_complete" and (reports / "ncbi_entrez_sequence_body_export_plan.md").exists() and (project_root / "data" / "metadata" / "entrez_efetch_protocol.json").exists()
     host_trapping_screening_plan = _load_json(reports / "host_trapping_screening_plan.json")
@@ -145,6 +145,8 @@ def main() -> int:
     host_trapping_study_design_present = host_trapping_study_design.get("validation_passed") is True and host_trapping_study_design.get("status") == "host_trapping_study_design_semantics_review_passed" and (reports / "host_trapping_study_design_review.md").exists() and (tables / "host_trapping_study_design_summary.csv").exists()
     environmental_suitability_pilot = _load_json(project_root / "data" / "metadata" / "environmental_suitability_pilot_manifest.json")
     environmental_suitability_pilot_table_present = environmental_suitability_pilot.get("validation_passed") is True and environmental_suitability_pilot.get("status") == "environmental_suitability_pilot_table_complete" and (project_root / "data" / "processed.dvc").exists() and (project_root / "data" / "metadata" / "environmental_suitability_pilot_manifest.json.dvc").exists() and (reports / "environmental_suitability_pilot_qc.md.dvc").exists()
+    human_surveillance_wonder_provenance = _load_json(project_root / "data" / "metadata" / "human_surveillance_wonder_provenance.json")
+    human_surveillance_real_data_present = human_surveillance_wonder_provenance.get("validation_passed") is True and human_surveillance_wonder_provenance.get("provenance_complete") is True and human_surveillance_wonder_provenance.get("row_count", 0) > 0 and (project_root / "data" / "raw.dvc").exists() and (project_root / "data" / "processed.dvc").exists()
     third_layer_closeout_present = (reports / "third_layer_real_data_closeout.md").exists()
 
     checks = {
@@ -184,6 +186,7 @@ def main() -> int:
         "hanta_data_acquisition_plan_present": hanta_data_acquisition_plan_present,
         "hanta_source_access_verification_present": hanta_source_access_verification_present,
         "human_surveillance_join_blocked_evidence_present": human_surveillance_join_blocked_evidence_present,
+        "human_surveillance_real_data_present": human_surveillance_real_data_present,
         "static_covariate_inventory_present": static_covariate_inventory_present,
         "modis_access_plan_present": modis_access_plan_present,
         "ecdc_surveillance_export_plan_present": ecdc_surveillance_export_plan_present,
@@ -271,6 +274,7 @@ def main() -> int:
         "hanta_data_acquisition_plan_present": hanta_data_acquisition_plan_present,
         "hanta_source_access_verification_present": hanta_source_access_verification_present,
         "human_surveillance_join_blocked_evidence_present": human_surveillance_join_blocked_evidence_present,
+        "human_surveillance_real_data_present": human_surveillance_real_data_present,
         "static_covariate_inventory_present": static_covariate_inventory_present,
         "modis_access_plan_present": modis_access_plan_present,
         "ecdc_surveillance_export_plan_present": ecdc_surveillance_export_plan_present,
@@ -316,6 +320,7 @@ def main() -> int:
         f"cross_source_join_bias_review_gate_present,{str(cross_source_join_bias_review_gate_present).lower()}",
         f"hanta_data_acquisition_plan_present,{str(hanta_data_acquisition_plan_present).lower()}",
         f"hanta_source_access_verification_present,{str(hanta_source_access_verification_present).lower()}",
+        f"human_surveillance_real_data_present,{str(human_surveillance_real_data_present).lower()}",
         f"static_covariate_inventory_present,{str(static_covariate_inventory_present).lower()}",
         f"modis_access_plan_present,{str(modis_access_plan_present).lower()}",
         f"ecdc_surveillance_export_plan_present,{str(ecdc_surveillance_export_plan_present).lower()}",

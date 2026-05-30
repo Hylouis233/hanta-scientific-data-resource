@@ -1,16 +1,14 @@
 {
   "gate_id": "human_surveillance_schema",
-  "generated_at_utc": "2026-05-29T13:49:27.407136+00:00",
+  "generated_at_utc": "2026-05-30T06:24:41.740065+00:00",
   "guardrails": [
-    "this gate defines prerequisites only and does not ingest real analysis data",
-    "this gate does not authorize risk, abundance, human-case, Rt, spillover, host-switch, or surveillance-join outputs",
-    "all real source data must pass provenance and terms review before analysis"
+    "this gate records a real no-credential machine-readable surveillance table and does not by itself execute analysis",
+    "annual state-level counts can support coarse human case maps after downstream review",
+    "rt estimation remains blocked because annual aggregates are not subannual incidence series"
   ],
   "remaining_requirements": [
-    "source-specific extraction protocol",
     "privacy and aggregation review",
-    "case-definition harmonization review",
-    "real surveillance table with provenance audit"
+    "case-definition harmonization review"
   ],
   "required_fields": [
     "source_id",
@@ -27,12 +25,13 @@
     "license_or_terms"
   ],
   "schema_version": "0.1.0",
-  "status": "schema_scope_only_no_case_data_ingested",
+  "status": "real_surveillance_table_captured_for_annual_state_mapping_only",
   "title": "Human surveillance schema gate",
   "unblocks_planning_for": [
-    "human_case_maps",
-    "rt_estimation",
-    "surveillance_join"
+    "human_case_maps"
+  ],
+  "still_blocked_for": [
+    "rt_estimation"
   ],
   "validation_passed": true
 }

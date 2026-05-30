@@ -1,0 +1,49 @@
+{
+  "assessment": {
+    "basis": [
+      "ECDC-owned website content is described as reusable under CC BY 4.0 with attribution, license link, and modification notice obligations.",
+      "Third-party-supplied public-health data are reusable when the prescribed ECDC dataset attribution statement is used.",
+      "The legal notice adds accuracy and liability caveats, so outputs must be framed as descriptive surveillance availability/QC only and not as official legal or causal conclusions."
+    ],
+    "required_reuse_conditions": [
+      "acknowledge ECDC as creator/source as applicable",
+      "include a link or reference to CC BY 4.0 for ECDC-owned material when redistributed",
+      "state modifications or transformations clearly",
+      "use the prescribed dataset attribution statement for third-party-supplied data exposed via ECDC",
+      "do not use the ECDC logo without prior written consent"
+    ],
+    "residual_uncertainties": [
+      "the Atlas page itself does not restate all reuse terms inline",
+      "country submissions may reflect heterogeneous national reporting and suppression practices",
+      "online content may not exactly reproduce officially adopted texts per ECDC legal notice"
+    ],
+    "terms_sufficient_for_internal_reproducible_research": true
+  },
+  "evidence": {
+    "atlas_source_attribution": "The information contained in the dataset provided through ATLAS is made available by ECDC collating data from the Member States collected through The European Surveillance System (TESSy).",
+    "copyright_and_reuse": [
+      "the contents of these web pages, including the documents, graphs and tables published thereon, are \u00a9 ECDC [2005-2025].",
+      "ECDC is always acknowledged as the creator of the licenced material",
+      "The above-mentioned permission DOES NOT apply to content supplied by third parties.",
+      "Dataset provided by ECDC based on data provided by public health authorities, scientific institutes or health care providers in the relevant reporting countries and/or by WHO.",
+      "Any adaptations or modifications must be explicitly stated at a suitably prominent place of the work."
+    ],
+    "legal_notice_disclaimer": [
+      "ECDC maintains this website to enhance public access to information about its activities.",
+      "not intended to address the specific circumstances of any particular individual or entity",
+      "not legal advice",
+      "it cannot be guaranteed that a document available online exactly reproduces an officially adopted text."
+    ],
+    "logo_restriction": "The ECDC logo may not be used without ECDC's prior written consent."
+  },
+  "generated_at_utc": "2026-05-30T06:26:30.112904+00:00",
+  "official_pages": {
+    "atlas_page": "https://www.ecdc.europa.eu/en/surveillance-atlas-infectious-diseases",
+    "intellectual_property": "https://www.ecdc.europa.eu/en/ecdc-intellectual-property-notices",
+    "legal_notice": "https://www.ecdc.europa.eu/en/legal-notice"
+  },
+  "schema_version": "0.1.0",
+  "scope": "official_public_terms_license_disclaimer_citation_capture",
+  "source_id": "ecdc_surveillance_atlas_hantavirus",
+  "validation_passed": true
+}

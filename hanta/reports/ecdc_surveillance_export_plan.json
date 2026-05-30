@@ -1,33 +1,42 @@
 {
-  "generated_at_utc": "2026-05-29T15:27:51.471446+00:00",
-  "guardrails": [
-    "planning artifacts do not ingest analysis datasets",
-    "planning artifacts do not execute risk maps, abundance inference, human case maps, Rt, spillover, host-switch, or surveillance joins",
-    "each source still requires provenance, terms, field-schema, and bias review before analysis"
+  "schema_version": "0.2.0",
+  "status": "public_export_captured_terms_incomplete",
+  "generated_at_utc": "2026-05-30T06:19:03.327458+00:00",
+  "source_id": "ecdc_surveillance_atlas_hantavirus",
+  "atlas_url": "https://atlas.ecdc.europa.eu/public/index.aspx?Dataset=27&HealthTopic=24",
+  "export_endpoint": "https://atlas.ecdc.europa.eu/public/AtlasService/rest/post/GetMeasuresResultsExportText",
+  "captured_file": "/home/lh/d/autoresearch/hanta/data/raw/ecdc_surveillance_atlas_hantavirus_reported_cases_export.csv",
+  "captured_file_sha256": "2db0e5fc7c1558d5c35fd34a0c620f4836cf04a9b9b6f31b9fb364ee48ea1245",
+  "headers_exact": [
+    "HealthTopic",
+    "Population",
+    "Indicator",
+    "Unit",
+    "Time",
+    "RegionCode",
+    "RegionName",
+    "NumValue",
+    "TxtValue"
   ],
-  "plan": {
-    "analysis_scope": "human surveillance export planning only; no human case map or Rt estimation",
-    "atlas_url": "https://atlas.ecdc.europa.eu/public/index.aspx?Dataset=27&HealthTopic=24",
-    "case_definition_policy": "record ECDC disease/reporting definition from source page before comparing across sources",
-    "expected_fields": [
-      "disease_or_indicator",
-      "time_period",
-      "region_or_country",
-      "case_count_or_rate_indicator",
-      "export_timestamp",
-      "source_url"
+  "row_count": 6360,
+  "verified": {
+    "public_no_credential_access": true,
+    "csv_export": true,
+    "xls_export": false,
+    "time_granularity": [
+      "Year",
+      "Month"
     ],
-    "export_route": "public Atlas interface CSV export by time period, region, indicator, and current/all indicators",
-    "pending_interactive_capture": [
-      "exact CSV headers",
-      "indicator names",
-      "temporal granularity",
-      "terms/disclaimer text"
+    "geography": [
+      "Country",
+      "Aggregate reference regions"
     ],
-    "privacy_suppression_rule": "use only aggregate public exports; preserve any suppressed/missing cells as released",
-    "source_id": "ecdc_surveillance_atlas_hantavirus"
+    "case_count_field": "NumValue"
   },
-  "schema_version": "0.1.0",
-  "status": "ecdc_surveillance_export_plan_complete",
+  "not_verified": {
+    "explicit_terms_text": true,
+    "explicit_license_text": true,
+    "separate_subnational_export_capture": true
+  },
   "validation_passed": true
 }

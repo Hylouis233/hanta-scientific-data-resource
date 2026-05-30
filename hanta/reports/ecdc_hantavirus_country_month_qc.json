@@ -1,0 +1,32 @@
+{
+  "bias_and_qc": [
+    "This file is limited to descriptive country-month surveillance availability/QC and excludes aggregate ECDC reference regions.",
+    "The raw export mixes annual and monthly rows; this controlled slice keeps only YYYY-MM rows.",
+    "Country rows reflect heterogeneous national reporting and case-definition practices through TESSy and should not be treated as directly comparable without separate harmonization review.",
+    "Suppression or unavailable markers appear in NumValue and are not imputed.",
+    "Absence of a numeric count in this slice does not imply zero incidence; it may reflect suppression, unavailable data, or reporting gaps."
+  ],
+  "coverage": {
+    "country_count": 30,
+    "first_reporting_month": "2008-01",
+    "last_reporting_month": "2023-12"
+  },
+  "generated_at_utc": "2026-05-30T06:26:30.247920+00:00",
+  "output_file": "/home/lh/d/autoresearch/hanta/data/processed/ecdc_hantavirus_country_month_reported_cases.csv",
+  "row_counts": {
+    "aggregate_rows_excluded": 768,
+    "annual_rows_excluded": 490,
+    "country_month_rows_written": 5102,
+    "raw_total_rows": 6360
+  },
+  "schema_version": "0.1.0",
+  "source_file": "/home/lh/d/autoresearch/hanta/data/raw/ecdc_surveillance_atlas_hantavirus_reported_cases_export.csv",
+  "suppression_and_non_numeric": {
+    "handling": "Non-numeric NumValue values are retained in case_count_raw, case_count is left blank, and is_suppressed_or_non_numeric=true.",
+    "markers": {
+      "-": 589
+    },
+    "rows_flagged": 589
+  },
+  "validation_passed": true
+}

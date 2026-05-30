@@ -33,6 +33,7 @@ LOCKED_METRICS = [
     "hanta_data_acquisition_plan_present",
     "hanta_source_access_verification_present",
     "human_surveillance_join_blocked_evidence_present",
+    "human_surveillance_real_data_present",
     "static_covariate_inventory_present",
     "modis_access_plan_present",
     "ecdc_surveillance_export_plan_present",

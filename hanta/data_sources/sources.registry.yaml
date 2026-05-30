@@ -35,20 +35,20 @@ sources:
     authenticity: Green: real data after access-date audit
   - source_id: ecdc_hantavirus_surveillance
     source_name: ECDC Hantavirus surveillance summaries
-    url: https://www.ecdc.europa.eu/
+    url: https://atlas.ecdc.europa.eu/public/index.aspx?Dataset=27&HealthTopic=24
     publisher: European Centre for Disease Prevention and Control
     role: europe_surveillance_context
-    status: planned_metadata_audit
-    required_fields: [url, access_date, geography, reporting_period, case_definition]
-    authenticity: Green: real data after access-date audit
-  - source_id: china_hfrs_literature_public_statistics
-    source_name: China HFRS literature and public statistics
-    url: literature_registry_pending
-    publisher: peer_reviewed_literature_or_public_statistics
+    status: public_csv_export_captured_terms_incomplete
+    required_fields: [source_url, export_endpoint, HealthTopic, Population, Indicator, Unit, Time, RegionCode, RegionName, NumValue, TxtValue]
+    authenticity: Green for public no-credential export capture; retain terms/license follow-up before downstream join clearance
+  - source_id: china_hfrs_official_notifiable_bulletins
+    source_name: China official HFRS notifiable disease monthly or annual bulletins
+    url: https://www.nhc.gov.cn/
+    publisher: National Health Commission of the People's Republic of China or China CDC official channels
     role: china_hfrs_longitudinal_context
-    status: planned_metadata_audit
-    required_fields: [citation_or_url, extraction_date, province_or_county, reporting_period, syndrome, table_id]
-    authenticity: Green for public statistics; Yellow for literature parameters
+    status: public_route_reviewed_not_yet_verified_downloadable_table
+    required_fields: [citation_or_url, access_date, geography_scope, reporting_period, syndrome, case_count, table_or_bulletin_id, license_or_terms]
+    authenticity: Pending official downloadable or parseable table capture with provenance and terms
   - source_id: worldclim_climate_covariates
     source_name: WorldClim climate covariates
     url: https://www.worldclim.org/

@@ -18,6 +18,8 @@ JOIN_GATE_MD = ROOT / "reports/surveillance_join_qc_gate.md"
 JOIN_QC_CSV = ROOT / "reports/tables/surveillance_join_country_month_qc.csv"
 BIAS_REVIEW_JSON = ROOT / "data/metadata/cross_source_join_bias_review_gate.json"
 ADVANCED_BIAS_JSON = ROOT / "reports/hanta_advanced_bias_review.json"
+ADVANCED_QC_JSON = ROOT / "reports/hanta_advanced_qc_summary.json"
+ADVANCED_GATE_JSON = ROOT / "reports/hanta_advanced_analysis_gate.json"
 
 
 def utc_now() -> str:
@@ -94,7 +96,7 @@ def build_join_qc() -> dict[str, Any]:
     gbif_env_overlap_rows = int(gbif["gbifID"].dropna().astype(str).isin(env_ids).sum())
 
     return {
-        "schema_version": "0.1.0",
+        "schema_version": "0.2.0",
         "generated_at_utc": utc_now(),
         "status": "descriptive_join_qc_only_partial_country_month_alignment",
         "approved_use": [
@@ -110,6 +112,18 @@ def build_join_qc() -> dict[str, Any]:
             "Rt estimation",
             "cross-source modeling",
         ],
+        "bounded_non_causal_model_status": {
+            "can_pass_now": False,
+            "decision": "blocked_keep_to_descriptive_join_qc_only",
+            "reason": "No validated target/outcome exists that is jointly aligned across ECDC/CDC surveillance, GBIF host records, and environmental covariates without unsupported spillover semantics.",
+            "missing_design_or_evidence": [
+                "No pre-specified non-causal prediction target with clear observation unit and outcome semantics that avoids spillover or risk interpretation.",
+                "Environmental covariates are available only as an incomplete pilot GBIF-linked subset rather than a full aligned covariate layer for the joined surveillance table.",
+                "Host records are opportunistic GBIF occurrences without denominator, surveillance frame, or bias-corrected effort model for use as a stable predictor target pairing.",
+                "Human surveillance tables differ in geography and time scale across ECDC country-month and CDC annual state products, preventing a single bounded modeling frame.",
+                "Country-code harmonization and reporting-process comparability remain unresolved for cross-source modeling inputs.",
+            ],
+        },
         "left_source": {
             "source_id": "ecdc_surveillance_atlas_hantavirus",
             "path": str(ECDC_CSV),
@@ -176,11 +190,13 @@ def build_join_qc() -> dict[str, Any]:
         "gate_decision": {
             "descriptive_join_qc_supported": True,
             "true_surveillance_join_gate_passed": False,
+            "legitimate_bounded_non_causal_model_passed": False,
             "blockers": [
                 "No approved harmonization from descriptive country-month overlap to scientific surveillance-host inference.",
                 "CDC WONDER annual state data cannot be joined to ECDC country-month records without invalid temporal and geographic mixing.",
                 "GBIF and ECDC code systems do not fully align, leaving explicit no-overlap country codes including EL, IS, MT, and UK in current coverage accounting.",
                 "Pilot environmental rows cover only a small GBIF-linked subset and are not sufficient for a complete joined layer.",
+                "No bounded non-causal target/outcome and bias-control design has been justified that avoids spillover or risk interpretation.",
             ],
         },
         "guardrails": [
@@ -207,16 +223,21 @@ def update_bias_artifacts(join_payload: dict[str, Any]) -> None:
         "bias_risk_rating": join_payload["bias_review"]["bias_risk_rating"],
         "approved_use": "descriptive_join_qc_only",
     }
-    if "explicit approval before any GBIF/GenBank/surveillance/environment join" in gate_payload.get("remaining_requirements", []):
-        gate_payload["remaining_requirements"] = [
+    gate_payload["remaining_requirements"] = list(
+        dict.fromkeys(
             item
-            for item in gate_payload["remaining_requirements"]
-            if item != "explicit approval before any GBIF/GenBank/surveillance/environment join"
-        ]
-    gate_payload["remaining_requirements"] = list(dict.fromkeys(gate_payload.get("remaining_requirements", []) + [
-        "explicit approval remains required for any inferential or modeling use beyond descriptive join QC",
-        "country-code harmonization review for non-overlap codes such as EL and UK",
-    ]))
+            for item in (
+                gate_payload.get("remaining_requirements", [])
+                + [
+                    "explicit approval remains required for any inferential or modeling use beyond descriptive join QC",
+                    "country-code harmonization review for non-overlap codes such as EL and UK",
+                    "sampling-bias assessment before any spillover or risk interpretation",
+                    "a pre-specified non-causal target/outcome with unit alignment and explicit bias controls before any bounded cross-source model can be considered",
+                ]
+            )
+            if item != "explicit approval remains required for inferential or modeling use beyond descriptive join QC"
+        )
+    )
     write_json(BIAS_REVIEW_JSON, gate_payload)
 
     advanced_bias = load_json(ADVANCED_BIAS_JSON)
@@ -227,7 +248,27 @@ def update_bias_artifacts(join_payload: dict[str, Any]) -> None:
         "remaining_biases": join_payload["bias_review"]["key_biases"],
     }
     advanced_bias.setdefault("blocked_reviews", {})["spillover_or_surveillance_join"] = "blocked_for_inference_only_descriptive_join_qc_documented"
+    advanced_bias["blocked_reviews"]["bounded_non_causal_cross_source_model"] = "blocked_no_aligned_target_outcome_full_covariate_layer_or_bias_control_design"
     write_json(ADVANCED_BIAS_JSON, advanced_bias)
+
+
+def update_advanced_gate_artifacts(join_payload: dict[str, Any]) -> None:
+    advanced_qc = load_json(ADVANCED_QC_JSON)
+    advanced_qc["generated_at_utc"] = join_payload["generated_at_utc"]
+    advanced_qc["blocked_qc"]["spillover_or_surveillance_join"] = "blocked_descriptive_join_qc_only_no_inferential_spillover_support"
+    advanced_qc["blocked_qc"]["bounded_non_causal_cross_source_model"] = "blocked_no_aligned_target_outcome_full_covariate_layer_or_bias_control_design"
+    advanced_qc["validation_passed"] = True
+    write_json(ADVANCED_QC_JSON, advanced_qc)
+
+    advanced_gate = load_json(ADVANCED_GATE_JSON)
+    advanced_gate["generated_at_utc"] = join_payload["generated_at_utc"]
+    advanced_gate["blocked_analyses"]["spillover_inference"] = "blocked_descriptive_join_qc_only_no_supported_joint_host_human_environment_inference"
+    advanced_gate["blocked_analyses"]["surveillance_join"] = "blocked_descriptive_country_month_join_qc_only_no_approved_inferential_join"
+    advanced_gate["blocked_analyses"]["bounded_non_causal_cross_source_model"] = "blocked_until_target_outcome_bias_controls_and_complete_aligned_covariates_exist"
+    guardrail = "do not fit cross-source surveillance/host/environment models until a non-causal target/outcome, complete aligned covariates, and explicit bias controls are approved"
+    if guardrail not in advanced_gate.get("guardrails", []):
+        advanced_gate["guardrails"] = advanced_gate.get("guardrails", []) + [guardrail]
+    write_json(ADVANCED_GATE_JSON, advanced_gate)
 
 
 def write_markdown(payload: dict[str, Any]) -> None:
@@ -235,6 +276,7 @@ def write_markdown(payload: dict[str, Any]) -> None:
     spec = payload["join_specification"]
     bias = payload["bias_review"]
     gate = payload["gate_decision"]
+    bounded = payload["bounded_non_causal_model_status"]
     JOIN_GATE_MD.write_text(
         "\n".join(
             [
@@ -272,10 +314,18 @@ def write_markdown(payload: dict[str, Any]) -> None:
                 f"- Bias risk rating: `{bias['bias_risk_rating']}`",
                 *[f"- {item}" for item in bias["key_biases"]],
                 "",
+                "## Bounded non-causal model decision",
+                "",
+                f"- Can a legitimate bounded non-causal model pass now: {bounded['can_pass_now']}",
+                f"- Decision: {bounded['decision']}",
+                f"- Reason: {bounded['reason']}",
+                *[f"- Missing design/evidence: {item}" for item in bounded["missing_design_or_evidence"]],
+                "",
                 "## Gate decision",
                 "",
                 f"- Descriptive join QC supported: {gate['descriptive_join_qc_supported']}",
                 f"- True surveillance join gate passed: {gate['true_surveillance_join_gate_passed']}",
+                f"- Legitimate bounded non-causal model passed: {gate['legitimate_bounded_non_causal_model_passed']}",
                 *[f"- Blocker: {item}" for item in gate["blockers"]],
                 "",
                 "## Guardrails",
@@ -293,12 +343,14 @@ def main() -> int:
     payload = build_join_qc()
     write_json(JOIN_GATE_JSON, payload)
     update_bias_artifacts(payload)
+    update_advanced_gate_artifacts(payload)
     write_markdown(payload)
     print(
         json.dumps(
             {
                 "descriptive_join_qc_supported": payload["gate_decision"]["descriptive_join_qc_supported"],
                 "true_surveillance_join_gate_passed": payload["gate_decision"]["true_surveillance_join_gate_passed"],
+                "legitimate_bounded_non_causal_model_passed": payload["gate_decision"]["legitimate_bounded_non_causal_model_passed"],
                 "matched_country_month_rows": payload["coverage_qc"]["matched_country_month_rows"],
                 "unmatched_ecdc_country_month_rows": payload["coverage_qc"]["unmatched_ecdc_country_month_rows"],
             },

@@ -1,0 +1,53 @@
+{
+  "blocked_interpretations": [
+    "human infection risk",
+    "host abundance",
+    "spillover risk",
+    "Rt",
+    "causal intervention effect"
+  ],
+  "coefficients": [
+    {
+      "coefficient": -0.023651509608860873,
+      "covariate": "bio1_mean_annual_temperature"
+    },
+    {
+      "coefficient": 0.0004966111050917473,
+      "covariate": "bio12_annual_precipitation"
+    },
+    {
+      "coefficient": 0.0001902883657449523,
+      "covariate": "elevation"
+    }
+  ],
+  "covariates": [
+    "bio1_mean_annual_temperature",
+    "bio12_annual_precipitation",
+    "elevation"
+  ],
+  "cross_validation": {
+    "average_precision": 0.5297463566471136,
+    "brier_score": 0.250048338341464,
+    "folds": 5,
+    "roc_auc": 0.5214300000000001
+  },
+  "generated_at_utc": "2026-05-30T07:11:45.873885+00:00",
+  "guardrails": [
+    "model target is GBIF candidate host-occurrence presence/background suitability only",
+    "output is a bounded descriptive pilot and must not be interpreted as human infection risk, host abundance, or spillover risk",
+    "background rows come from the existing pilot table and are not an approved accessible-area background design",
+    "cross-validation is internal descriptive QC only and does not authorize prospective or geographic risk claims"
+  ],
+  "input_table": "data/processed/environmental_suitability/presence_background_environment_table.csv",
+  "prediction_table": "results/risk_maps/gbif_descriptive_suitability_pilot_predictions.csv",
+  "row_counts": {
+    "background_rows": 500,
+    "presence_rows": 500,
+    "rows_with_any_missing_covariate": 107,
+    "total_rows": 1000
+  },
+  "schema_version": "0.1.0",
+  "status": "bounded_descriptive_suitability_pilot_fit_complete",
+  "target": "GBIF candidate host occurrence presence/background suitability only",
+  "validation_passed": true
+}

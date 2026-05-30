@@ -4,29 +4,31 @@ Status: blocked for formal scientific Rt estimation; limited descriptive time-se
 
 ## Currently allowed
 
-- Descriptive GBIF host-occurrence record-availability mapping from the sealed candidate subset.
+- Descriptive GBIF host-occurrence record-availability mapping from sealed candidate subset.
 - Metadata-only GenBank accession summaries.
 - Planning documents for future gated analyses.
-- Descriptive country-month hantavirus growth proxy summaries from the ECDC surveillance slice under explicit non-Rt guardrails.
 - Coarse aggregate descriptive human-case mapping from provenance-complete CDC annual state and ECDC country-month surveillance tables only.
+- Descriptive country-month hantavirus growth proxy summaries from the ECDC surveillance slice under explicit non-Rt guardrails.
 
 ## Blocked analyses
 
-- `risk_maps`: blocked_until_environmental_covariates_and_target_outcome_are_scoped
+- `bounded_non_causal_cross_source_model`: blocked_until_target_outcome_bias_controls_and_complete_aligned_covariates_exist
 - `host_abundance_inference`: blocked_until_sampling_bias_and_abundance_model_scope_are_approved
-- `human_case_maps`: partially_unblocked_for_coarse_aggregate_descriptive_mapping_from_provenance_complete_cdc_annual_state_and_ecdc_country_month_surveillance_tables_only
-- `rt_estimation`: descriptive_growth_proxy_only_formal_rt_blocked_until_interval_protocol_and_method_justification_exist
-- `spillover_inference`: blocked_until_joint_host_human_environment_design_is_approved
 - `host_switch_inference`: blocked_until_sequence_bodies_phylogenetic_design_and_taxonomy_review_exist
-- `surveillance_join`: blocked_until_human_surveillance_schema_environment_alignment_and_join_keys_are_approved
+- `human_case_maps`: partially_unblocked_for_coarse_aggregate_descriptive_mapping_from_provenance_complete_cdc_annual_state_and_ecdc_country_month_surveillance_tables_only
+- `risk_maps`: blocked_until_environmental_covariates_and_target_outcome_are_scoped
+- `rt_estimation`: formal_rt_blocked_no_disease_specific_interval_protocol_and_monthly_reported_count_justification
+- `spillover_inference`: blocked_descriptive_join_qc_only_no_supported_joint_host_human_environment_inference
+- `surveillance_join`: blocked_descriptive_country_month_join_qc_only_no_approved_inferential_join
 
 ## Prerequisite gates now defined
 
-- `human_surveillance_schema`: real_surveillance_table_captured_for_annual_state_mapping_only
-- `environmental_covariates_schema`: schema_scope_with_real_covariates_ingested_no_model_fit
-- `sequence_body_download_plan`: sequence_bodies_ingested_alignment_and_phylogeny_design_blocked
-- `rt_analysis_scope`: descriptive_growth_proxy_scope_only_formal_rt_blocked
 - `cross_source_join_bias_review`: descriptive_join_qc_documented_true_join_still_blocked
+- `environmental_covariates_schema`: schema_scope_with_real_covariates_ingested_no_model_fit
+- `human_surveillance_schema`: real_surveillance_table_captured_for_annual_state_mapping_only
+- `rt_analysis_scope`: descriptive_growth_proxy_scope_only_formal_rt_blocked
+- `rt_time_series`: descriptive_growth_proxy_only_formal_rt_blocked
+- `sequence_body_download_plan`: sequence_bodies_ingested_alignment_and_phylogeny_design_blocked
 
 ## Rt/time-series decision
 

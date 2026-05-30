@@ -175,6 +175,7 @@
     "fit_for_formal_rt_estimation": false,
     "formal_rt_blockers": [
       "no disease-specific serial interval or generation-interval protocol is present in the repository",
+      "publicly obtainable evidence reviewed here does not yield a defensible hantavirus serial or generation interval protocol for monthly reported-case Rt estimation",
       "the available monthly counts are reported-case aggregates, so renewal-equation assumptions for formal Rt are not demonstrated here",
       "suppression and heterogeneous reporting create missingness and comparability concerns that are not resolved by current metadata"
     ],
@@ -341,7 +342,7 @@
     ]
   },
   "gate_id": "rt_time_series",
-  "generated_at_utc": "2026-05-30T06:52:33.677658+00:00",
+  "generated_at_utc": "2026-05-30T07:11:42.251670+00:00",
   "guardrails": [
     "do not fabricate case data or impute suppressed counts for this gate",
     "do not claim causal intervention effects from these descriptive time-series summaries",

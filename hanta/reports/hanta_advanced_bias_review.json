@@ -1,13 +1,14 @@
 {
   "blocked_reviews": {
-    "environmental_suitability_or_risk_map": "blocked_no_real_covariate_files_or_target_background_design",
+    "bounded_non_causal_cross_source_model": "blocked_no_aligned_target_outcome_full_covariate_layer_or_bias_control_design",
+    "environmental_suitability_or_risk_map": "formal_suitability_or_human_risk_mapping_still_blocked_bounded_descriptive_pilot_only",
     "host_abundance_model": "blocked_no_trap_effort_or_count_files_screened",
     "host_switch_phylogenetic_inference": "blocked_sequence_qc_can_run_but_alignment_design_and_host_switch_gate_fail",
     "human_case_mapping": "blocked_no_provenance_complete_surveillance_table",
     "rt_estimation": "blocked_no_subannual_incidence_time_series_or_interval_protocol",
     "spillover_or_surveillance_join": "blocked_for_inference_only_descriptive_join_qc_documented"
   },
-  "generated_at_utc": "2026-05-30T07:01:10.436317+00:00",
+  "generated_at_utc": "2026-05-30T07:11:45.873885+00:00",
   "guardrails": [
     "evidence passes are limited to existing real GBIF occurrence and GenBank metadata layers",
     "advanced model gates remain blocked until their required real data and QC artifacts exist",
@@ -22,6 +23,17 @@
         "target/background design not materialized as model inputs",
         "GBIF spatial sampling bias not corrected",
         "CRS and raster nodata require downstream extraction QC"
+      ]
+    },
+    "environmental_descriptive_suitability_pilot_model": {
+      "bias_risk_rating": "bounded_descriptive_only",
+      "decision": "pass_for_internal_presence_background_pilot_qc_not_human_risk_or_formal_suitability_mapping",
+      "remaining_biases": [
+        "background rows are pilot pseudo-background rather than approved accessible-area controls",
+        "GBIF sampling effort and detectability bias remain uncorrected",
+        "species are pooled across distinct reservoir systems and continents",
+        "WorldClim climatology is static and not aligned to observation date heterogeneity",
+        "ECDC surveillance is not joined into the model target and cannot validate ecological suitability as public-health risk"
       ]
     },
     "environmental_suitability_pilot_table": {

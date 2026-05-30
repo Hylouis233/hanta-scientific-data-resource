@@ -37,6 +37,7 @@ LOCKED_METRICS = [
     "rt_time_series_gate_present",
     "human_case_map_gate_present",
     "surveillance_join_qc_gate_present",
+    "gbif_descriptive_suitability_model_present",
     "static_covariate_inventory_present",
     "modis_access_plan_present",
     "ecdc_surveillance_export_plan_present",

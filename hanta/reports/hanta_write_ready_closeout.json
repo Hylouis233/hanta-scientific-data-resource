@@ -16,9 +16,9 @@
       "status": "closed_real_data_layer"
     },
     {
-      "evidence": "24 source records; 12 usable accession metadata candidates; no sequence bodies downloaded",
-      "layer": "GenBank accession metadata",
-      "manuscript_use": "metadata availability and accession triage only",
+      "evidence": "24 source records; 12 usable accession metadata candidates; 12 downloaded GenBank sequence bodies passed bounded QC but no segment reached a defensible alignment/tree gate",
+      "layer": "GenBank accession metadata and bounded sequence QC",
+      "manuscript_use": "metadata availability, accession triage, and explicit blocker evidence for deferred phylogeny/host-switch work",
       "status": "closed_metadata_layer"
     },
     {

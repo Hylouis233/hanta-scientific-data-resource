@@ -6,6 +6,7 @@ Status: descriptive_growth_proxy_only_formal_rt_blocked.
 
 - ECDC country-month reported-case data are sufficient for a descriptive monthly growth proxy under explicit restrictions.
 - The repository remains blocked for formal Rt estimation because no disease-specific interval protocol or renewal-equation justification exists.
+- Review of already captured and lightweight public evidence did not identify a defensible hantavirus serial/generation interval protocol that can be paired with these monthly reported counts without fabricating assumptions.
 - CDC WONDER annual state data remain unusable for this gate because they are annual, not subannual.
 
 ## ECDC evidence
@@ -21,6 +22,13 @@ Status: descriptive_growth_proxy_only_formal_rt_blocked.
 - Country-specific consecutive-month growth ratio: cases_t / cases_t-1 when both months are numeric and cases_t-1 > 0.
 - Country-specific log-growth: log(cases_t / cases_t-1) on the same eligible pairs.
 - These are descriptive growth proxies only and must not be labeled or interpreted as formal EpiEstim or renewal-equation Rt.
+
+## Interval evidence review
+
+- Repository inspection found only blocker/planning references to serial or generation intervals; no disease-specific parameter protocol, citation package, or sensitivity design is stored in this repo.
+- Publicly reviewed lightweight evidence did not produce a usable hantavirus serial/generation interval estimate tied to the disease scope represented by the ECDC surveillance table.
+- Human hantavirus transmission is disease- and setting-specific, with Andes-virus human-to-human transmission not generalizable to the broader European HFRS monthly surveillance slice.
+- Monthly reported-case aggregates are too coarse to recover a short transmission interval without an externally justified observation model and delay structure.
 
 ## Interval assumptions
 
@@ -38,6 +46,7 @@ Status: descriptive_growth_proxy_only_formal_rt_blocked.
 ## Formal Rt blockers
 
 - no disease-specific serial interval or generation-interval protocol is present in the repository
+- publicly obtainable evidence reviewed here does not yield a defensible hantavirus serial or generation interval protocol for monthly reported-case Rt estimation
 - the available monthly counts are reported-case aggregates, so renewal-equation assumptions for formal Rt are not demonstrated here
 - suppression and heterogeneous reporting create missingness and comparability concerns that are not resolved by current metadata
 

@@ -39,6 +39,7 @@ human_surveillance_real_data_present,true
 rt_time_series_gate_present,true
 human_case_map_gate_present,true
 surveillance_join_qc_gate_present,true
+gbif_descriptive_suitability_model_present,true
 static_covariate_inventory_present,true
 modis_access_plan_present,true
 ecdc_surveillance_export_plan_present,true
@@ -81,6 +82,7 @@ human_surveillance_real_data_present,true
 rt_time_series_gate_present,true
 human_case_map_gate_present,true
 surveillance_join_qc_gate_present,true
+gbif_descriptive_suitability_model_present,true
 static_covariate_inventory_present,true
 modis_access_plan_present,true
 ecdc_surveillance_export_plan_present,true

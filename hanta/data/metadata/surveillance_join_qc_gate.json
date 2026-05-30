@@ -15,6 +15,18 @@
       "Code harmonization gaps remain, including ECDC codes such as EL and UK that may not line up with GBIF countryCode usage."
     ]
   },
+  "bounded_non_causal_model_status": {
+    "can_pass_now": false,
+    "decision": "blocked_keep_to_descriptive_join_qc_only",
+    "missing_design_or_evidence": [
+      "No pre-specified non-causal prediction target with clear observation unit and outcome semantics that avoids spillover or risk interpretation.",
+      "Environmental covariates are available only as an incomplete pilot GBIF-linked subset rather than a full aligned covariate layer for the joined surveillance table.",
+      "Host records are opportunistic GBIF occurrences without denominator, surveillance frame, or bias-corrected effort model for use as a stable predictor target pairing.",
+      "Human surveillance tables differ in geography and time scale across ECDC country-month and CDC annual state products, preventing a single bounded modeling frame.",
+      "Country-code harmonization and reporting-process comparability remain unresolved for cross-source modeling inputs."
+    ],
+    "reason": "No validated target/outcome exists that is jointly aligned across ECDC/CDC surveillance, GBIF host records, and environmental covariates without unsupported spillover semantics."
+  },
   "coverage_qc": {
     "ecdc_country_codes_without_gbif_overlap": [
       "EL",
@@ -41,12 +53,14 @@
       "No approved harmonization from descriptive country-month overlap to scientific surveillance-host inference.",
       "CDC WONDER annual state data cannot be joined to ECDC country-month records without invalid temporal and geographic mixing.",
       "GBIF and ECDC code systems do not fully align, leaving explicit no-overlap country codes including EL, IS, MT, and UK in current coverage accounting.",
-      "Pilot environmental rows cover only a small GBIF-linked subset and are not sufficient for a complete joined layer."
+      "Pilot environmental rows cover only a small GBIF-linked subset and are not sufficient for a complete joined layer.",
+      "No bounded non-causal target/outcome and bias-control design has been justified that avoids spillover or risk interpretation."
     ],
     "descriptive_join_qc_supported": true,
+    "legitimate_bounded_non_causal_model_passed": false,
     "true_surveillance_join_gate_passed": false
   },
-  "generated_at_utc": "2026-05-30T06:52:36.822596+00:00",
+  "generated_at_utc": "2026-05-30T07:11:44.357998+00:00",
   "guardrails": [
     "This artifact documents descriptive join QC only.",
     "No spillover inference, risk prediction, causal effect estimation, or abundance claim is authorized.",
@@ -99,7 +113,7 @@
     "spatial_unit": "country",
     "time_unit": "event month"
   },
-  "schema_version": "0.1.0",
+  "schema_version": "0.2.0",
   "status": "descriptive_join_qc_only_partial_country_month_alignment",
   "supporting_environment_layer": {
     "coverage_note": "Pilot environmental table covers a small GBIF-linked subset and is not aligned to the full country-month surveillance table.",

@@ -153,6 +153,8 @@ def main() -> int:
     human_case_map_gate_present = human_case_map_gate.get("validation_passed") is True and human_case_map_gate.get("status") == "human_case_mapping_gate_descriptive_outputs_complete" and (reports / "human_case_map_gate.md").exists() and (reports / "figures" / "human_case_map_gate_descriptive_availability_panel.svg").exists() and (tables / "cdc_wonder_hantavirus_state_annual_map_ready.csv").exists() and (tables / "ecdc_hantavirus_country_annual_map_ready.csv").exists()
     surveillance_join_qc_gate = _load_json(project_root / "data" / "metadata" / "surveillance_join_qc_gate.json")
     surveillance_join_qc_gate_present = surveillance_join_qc_gate.get("validation_passed") is True and surveillance_join_qc_gate.get("gate_decision", {}).get("descriptive_join_qc_supported") is True and surveillance_join_qc_gate.get("gate_decision", {}).get("true_surveillance_join_gate_passed") is False and (reports / "surveillance_join_qc_gate.md").exists() and (tables / "surveillance_join_country_month_qc.csv").exists()
+    gbif_descriptive_suitability_model = _load_json(reports / "gbif_descriptive_suitability_model_summary.json")
+    gbif_descriptive_suitability_model_present = gbif_descriptive_suitability_model.get("validation_passed") is True and gbif_descriptive_suitability_model.get("status") == "bounded_descriptive_suitability_pilot_fit_complete" and (reports / "gbif_descriptive_suitability_model_summary.md").exists() and (reports / "figures" / "gbif_descriptive_suitability_covariates.svg").exists() and (project_root / "results.dvc").exists()
     third_layer_closeout_present = (reports / "third_layer_real_data_closeout.md").exists()
 
     checks = {
@@ -196,6 +198,7 @@ def main() -> int:
         "rt_time_series_gate_present": rt_time_series_gate_present,
         "human_case_map_gate_present": human_case_map_gate_present,
         "surveillance_join_qc_gate_present": surveillance_join_qc_gate_present,
+        "gbif_descriptive_suitability_model_present": gbif_descriptive_suitability_model_present,
         "static_covariate_inventory_present": static_covariate_inventory_present,
         "modis_access_plan_present": modis_access_plan_present,
         "ecdc_surveillance_export_plan_present": ecdc_surveillance_export_plan_present,
@@ -287,6 +290,7 @@ def main() -> int:
         "rt_time_series_gate_present": rt_time_series_gate_present,
         "human_case_map_gate_present": human_case_map_gate_present,
         "surveillance_join_qc_gate_present": surveillance_join_qc_gate_present,
+        "gbif_descriptive_suitability_model_present": gbif_descriptive_suitability_model_present,
         "static_covariate_inventory_present": static_covariate_inventory_present,
         "modis_access_plan_present": modis_access_plan_present,
         "ecdc_surveillance_export_plan_present": ecdc_surveillance_export_plan_present,
@@ -336,6 +340,7 @@ def main() -> int:
         f"rt_time_series_gate_present,{str(rt_time_series_gate_present).lower()}",
         f"human_case_map_gate_present,{str(human_case_map_gate_present).lower()}",
         f"surveillance_join_qc_gate_present,{str(surveillance_join_qc_gate_present).lower()}",
+        f"gbif_descriptive_suitability_model_present,{str(gbif_descriptive_suitability_model_present).lower()}",
         f"static_covariate_inventory_present,{str(static_covariate_inventory_present).lower()}",
         f"modis_access_plan_present,{str(modis_access_plan_present).lower()}",
         f"ecdc_surveillance_export_plan_present,{str(ecdc_surveillance_export_plan_present).lower()}",

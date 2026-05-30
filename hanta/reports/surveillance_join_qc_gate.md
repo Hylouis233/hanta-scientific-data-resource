@@ -41,14 +41,27 @@ Status: descriptive, non-causal, non-risk country-month join QC layer documented
 - The environmental pilot table is a 1000-row sample linked to GBIF IDs, not a full covariate layer for all joined rows.
 - Code harmonization gaps remain, including ECDC codes such as EL and UK that may not line up with GBIF countryCode usage.
 
+## Bounded non-causal model decision
+
+- Can a legitimate bounded non-causal model pass now: False
+- Decision: blocked_keep_to_descriptive_join_qc_only
+- Reason: No validated target/outcome exists that is jointly aligned across ECDC/CDC surveillance, GBIF host records, and environmental covariates without unsupported spillover semantics.
+- Missing design/evidence: No pre-specified non-causal prediction target with clear observation unit and outcome semantics that avoids spillover or risk interpretation.
+- Missing design/evidence: Environmental covariates are available only as an incomplete pilot GBIF-linked subset rather than a full aligned covariate layer for the joined surveillance table.
+- Missing design/evidence: Host records are opportunistic GBIF occurrences without denominator, surveillance frame, or bias-corrected effort model for use as a stable predictor target pairing.
+- Missing design/evidence: Human surveillance tables differ in geography and time scale across ECDC country-month and CDC annual state products, preventing a single bounded modeling frame.
+- Missing design/evidence: Country-code harmonization and reporting-process comparability remain unresolved for cross-source modeling inputs.
+
 ## Gate decision
 
 - Descriptive join QC supported: True
 - True surveillance join gate passed: False
+- Legitimate bounded non-causal model passed: False
 - Blocker: No approved harmonization from descriptive country-month overlap to scientific surveillance-host inference.
 - Blocker: CDC WONDER annual state data cannot be joined to ECDC country-month records without invalid temporal and geographic mixing.
 - Blocker: GBIF and ECDC code systems do not fully align, leaving explicit no-overlap country codes including EL, IS, MT, and UK in current coverage accounting.
 - Blocker: Pilot environmental rows cover only a small GBIF-linked subset and are not sufficient for a complete joined layer.
+- Blocker: No bounded non-causal target/outcome and bias-control design has been justified that avoids spillover or risk interpretation.
 
 ## Guardrails
 

@@ -132,6 +132,7 @@ def summarize_ecdc(rows: list[dict[str, str]]) -> dict:
         ],
         "formal_rt_blockers": [
             "no disease-specific serial interval or generation-interval protocol is present in the repository",
+            "publicly obtainable evidence reviewed here does not yield a defensible hantavirus serial or generation interval protocol for monthly reported-case Rt estimation",
             "the available monthly counts are reported-case aggregates, so renewal-equation assumptions for formal Rt are not demonstrated here",
             "suppression and heterogeneous reporting create missingness and comparability concerns that are not resolved by current metadata",
         ],
@@ -164,6 +165,7 @@ def write_outputs(payload: dict) -> None:
         "",
         "- ECDC country-month reported-case data are sufficient for a descriptive monthly growth proxy under explicit restrictions.",
         "- The repository remains blocked for formal Rt estimation because no disease-specific interval protocol or renewal-equation justification exists.",
+        "- Review of already captured and lightweight public evidence did not identify a defensible hantavirus serial/generation interval protocol that can be paired with these monthly reported counts without fabricating assumptions.",
         "- CDC WONDER annual state data remain unusable for this gate because they are annual, not subannual.",
         "",
         "## ECDC evidence",
@@ -179,6 +181,13 @@ def write_outputs(payload: dict) -> None:
         "- Country-specific consecutive-month growth ratio: cases_t / cases_t-1 when both months are numeric and cases_t-1 > 0.",
         "- Country-specific log-growth: log(cases_t / cases_t-1) on the same eligible pairs.",
         "- These are descriptive growth proxies only and must not be labeled or interpreted as formal EpiEstim or renewal-equation Rt.",
+        "",
+        "## Interval evidence review",
+        "",
+        "- Repository inspection found only blocker/planning references to serial or generation intervals; no disease-specific parameter protocol, citation package, or sensitivity design is stored in this repo.",
+        "- Publicly reviewed lightweight evidence did not produce a usable hantavirus serial/generation interval estimate tied to the disease scope represented by the ECDC surveillance table.",
+        "- Human hantavirus transmission is disease- and setting-specific, with Andes-virus human-to-human transmission not generalizable to the broader European HFRS monthly surveillance slice.",
+        "- Monthly reported-case aggregates are too coarse to recover a short transmission interval without an externally justified observation model and delay structure.",
         "",
         "## Interval assumptions",
         "",
@@ -210,7 +219,7 @@ def write_outputs(payload: dict) -> None:
 def refresh_gate_files(payload: dict) -> None:
     gate = json.loads(ADVANCED_GATE_JSON.read_text(encoding="utf-8"))
     gate["generated_at_utc"] = utc_now()
-    gate["blocked_analyses"]["rt_estimation"] = "descriptive_growth_proxy_only_formal_rt_blocked_until_interval_protocol_and_method_justification_exist"
+    gate["blocked_analyses"]["rt_estimation"] = "formal_rt_blocked_no_disease_specific_interval_protocol_and_monthly_reported_count_justification"
     gate["currently_allowed"] = [
         item for item in gate["currently_allowed"]
         if item not in {
@@ -239,7 +248,7 @@ def refresh_gate_files(payload: dict) -> None:
     gate_md_lines = [
         "# Hanta advanced analysis gate",
         "",
-        "Status: blocked for formal scientific Rt estimation; limited descriptive time-series summaries now allowed.",
+        "Status: blocked for formal scientific Rt estimation; limited descriptive time-series summaries and coarse aggregate human-case mapping now allowed.",
         "",
         "## Currently allowed",
         "",
@@ -261,6 +270,10 @@ def refresh_gate_files(payload: dict) -> None:
         "",
         *[f"- {item}" for item in gate["minimum_gates"]],
         "",
+        "## Decision",
+        "",
+        "Advanced analyses remain blocked in this repository state except for coarse aggregate descriptive human-case mapping from provenance-complete public surveillance tables and descriptive non-Rt monthly growth proxies. Formal Rt estimation, surveillance/spillover joins, risk or suitability models, global abundance inference, and host-switch inference remain blocked pending their separate data, QC, and design gates.",
+        "",
     ]
     ADVANCED_GATE_MD.write_text("\n".join(gate_md_lines) + "\n", encoding="utf-8")
 
@@ -270,15 +283,19 @@ def refresh_gate_files(payload: dict) -> None:
         "## Rt/time-series update",
         "",
         "- ECDC monthly country surveillance slice: sufficient for descriptive monthly growth proxies only under explicit interval assumptions and missing-data QC.",
-        "- Formal Rt estimation: still blocked because no disease-specific serial/generation-interval protocol or renewal-equation justification is present.",
+        "- Formal Rt estimation: still blocked because no disease-specific serial/generation-interval protocol or renewal-equation justification is present, and no already captured or lightweight public evidence reviewed here closes that gap.",
         "- CDC WONDER annual state surveillance: still blocked for Rt/time-series because it is annual rather than subannual.",
         "",
     ]
     if "## Rt/time-series update" not in evidence_lines:
         evidence_lines = evidence_lines[:insert_at] + extra + evidence_lines[insert_at:]
+    else:
+        start = evidence_lines.index("## Rt/time-series update")
+        end = insert_at
+        evidence_lines = evidence_lines[:start] + extra + evidence_lines[end:]
     for i, line in enumerate(evidence_lines):
         if line.startswith("- `rt_estimation`:"):
-            evidence_lines[i] = "- `rt_estimation`: descriptive_growth_proxy_only_formal_rt_blocked_until_interval_protocol_and_method_justification_exist"
+            evidence_lines[i] = "- `rt_estimation`: formal_rt_blocked_no_disease_specific_interval_protocol_and_monthly_reported_count_justification"
     ADVANCED_EVIDENCE_MD.write_text("\n".join(evidence_lines) + "\n", encoding="utf-8")
 
 

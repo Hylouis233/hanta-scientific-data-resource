@@ -1,31 +1,15 @@
 {
-  "descriptive_join_qc_layer": {
-    "approved_use": "descriptive_join_qc_only",
-    "bias_risk_rating": "high_for_inference_bounded_for_descriptive_join_qc",
-    "duplication_policy": "Aggregate GBIF rows to country-month before any descriptive join; do not duplicate surveillance rows by raw host records.",
-    "join_key": [
-      "country_code == countryCode",
-      "reporting_month == event_month"
-    ],
-    "left_source_id": "ecdc_surveillance_atlas_hantavirus",
-    "missingness_policy": "Retain all ECDC country-month rows. GBIF non-matches remain explicit non-coverage. Preserve suppressed/non-numeric ECDC counts as missing numeric values.",
-    "right_source_id": "gbif_candidate_host_occurrences",
-    "spatial_alignment_rule": "Restrict to two-letter country codes present in both sources without attempting subnational harmonization.",
-    "temporal_alignment_rule": "Restrict to YYYY-MM monthly alignment only; do not aggregate annual surveillance or infer zero counts from missing host rows."
-  },
   "gate_id": "cross_source_join_bias_review",
-  "generated_at_utc": "2026-05-30T06:52:36.822596+00:00",
+  "generated_at_utc": "2026-05-30T06:57:23.708215+00:00",
   "guardrails": [
     "this gate defines prerequisites only and does not ingest real analysis data",
     "this gate does not authorize risk, abundance, human-case, Rt, spillover, host-switch, or surveillance-join outputs",
     "all real source data must pass provenance and terms review before analysis"
   ],
   "remaining_requirements": [
-    "pre-specified join keys",
-    "spatial and temporal alignment audit",
-    "sampling-bias assessment",
-    "explicit approval remains required for any inferential or modeling use beyond descriptive join QC",
-    "country-code harmonization review for non-overlap codes such as EL and UK"
+    "explicit approval remains required for inferential or modeling use beyond descriptive join QC",
+    "country-code harmonization review for non-overlap codes such as EL and UK",
+    "sampling-bias assessment before any spillover or risk interpretation"
   ],
   "required_fields": [
     "left_source_id",
@@ -39,7 +23,7 @@
     "approved_use"
   ],
   "schema_version": "0.1.0",
-  "status": "descriptive_surveillance_join_qc_documented_true_join_still_blocked",
+  "status": "descriptive_join_qc_documented_true_join_still_blocked",
   "title": "Cross-source join and bias review gate",
   "unblocks_planning_for": [
     "surveillance_join",

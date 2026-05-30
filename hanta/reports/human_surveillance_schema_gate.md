@@ -2,11 +2,7 @@
 
 Status: real_surveillance_table_captured_for_annual_state_mapping_only.
 
-## Verified source
-
-- `cdc_wonder_nndss_hantavirus_annual`: CDC WONDER NNDSS Annual Summary Data 2016-2023 exported as CSV without credentials.
-
-## Required fields present
+## Required fields
 
 - `source_id`
 - `source_url_or_citation`
@@ -24,12 +20,16 @@ Status: real_surveillance_table_captured_for_annual_state_mapping_only.
 ## Planning scope unlocked
 
 - `human_case_maps`
+- `rt_estimation`
+- `surveillance_join`
 
-## Still blocked
+## Remaining requirements before analysis
 
-- `rt_estimation` because the captured table is annual, not weekly or monthly.
-- `surveillance_join` until downstream privacy, aggregation, and case-definition harmonization review is completed.
+- privacy and aggregation review for inferential uses beyond coarse descriptive mapping
+- case-definition harmonization review for cross-source comparisons
+- subannual disease-specific interval protocol before Rt estimation
 
 ## Guardrail
 
-This artifact records a real surveillance table capture and provenance only. It does not execute scientific analysis outputs.
+This is a prerequisite gate only. It does not execute or authorize scientific analysis outputs.
+

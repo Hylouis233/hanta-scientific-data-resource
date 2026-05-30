@@ -15,7 +15,7 @@ Status: readiness plan only; no advanced gate is marked passed.
 
 - `environmental_suitability_or_risk_map`: blocked_pending_real_data — real covariates and target/background design exist; bias risk is not high_unmitigated; QC summaries pass predeclared thresholds
 - `host_abundance_model`: blocked_pending_real_data — effort and count fields exist for retained records; location/date are adequate; bias risk is mitigated or explicitly bounded
-- `human_case_mapping`: blocked_pending_real_data — public aggregate case table passes schema and privacy checks; reporting geography and period are explicit
+- `human_case_mapping`: partially_unblocked_for_coarse_aggregate_descriptive_mapping_only — public aggregate case table passes schema and privacy checks; reporting geography and period are explicit
 - `rt_estimation`: blocked_pending_real_data — disease-specific subannual incidence and interval assumptions pass QC and sensitivity protocol
 - `spillover_or_surveillance_join`: blocked_pending_real_data — join protocol is pre-specified; unmatched/missingness are quantified; high bias is mitigated or module skipped
 - `host_switch_phylogenetic_inference`: blocked_pending_real_data — sequence bodies and metadata pass segment-specific QC; phylogenetic design and uncertainty plan are approved

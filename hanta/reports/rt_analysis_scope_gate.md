@@ -1,6 +1,6 @@
 # Rt analysis scope gate
 
-Status: scope_only_no_rt_estimation.
+Status: descriptive_growth_proxy_scope_only_formal_rt_blocked.
 
 ## Required fields
 
@@ -20,8 +20,8 @@ Status: scope_only_no_rt_estimation.
 ## Remaining requirements before analysis
 
 - disease-specific transmission justification
-- case time series with provenance audit
 - serial interval or generation interval protocol
+- method justification tied to reported-count timing and reporting-delay policy
 - clear statement that descriptive growth proxies are not formal Rt
 
 ## Guardrail

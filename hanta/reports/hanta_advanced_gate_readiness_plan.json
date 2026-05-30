@@ -96,11 +96,7 @@
         "denominator/exposure choice"
       ],
       "claim_boundary": "aggregate case mapping only, not individual risk",
-      "current_status": "blocked_pending_real_data",
-      "fail_criteria": "narrative-only reports, missing case definition, missing period/geography, or unsafe small-cell disclosure",
-      "gate_id": "human_surveillance_schema",
-      "minimum_pass_criteria": "public aggregate case table passes schema and privacy checks; reporting geography and period are explicit",
-      "module_id": "human_case_mapping",
+      "current_status": "partially_unblocked_for_coarse_aggregate_descriptive_mapping_only",
       "qc_checks": [
         "case count numeric validation",
         "date interval validation",

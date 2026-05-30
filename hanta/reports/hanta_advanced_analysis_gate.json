@@ -2,7 +2,7 @@
   "blocked_analyses": {
     "host_abundance_inference": "blocked_until_sampling_bias_and_abundance_model_scope_are_approved",
     "host_switch_inference": "blocked_until_sequence_bodies_phylogenetic_design_and_taxonomy_review_exist",
-    "human_case_maps": "blocked_until_human_surveillance_schema_and_hfrs_hcps_fields_exist",
+    "human_case_maps": "partially_unblocked_for_coarse_aggregate_descriptive_mapping_from_provenance_complete_cdc_annual_state_and_ecdc_country_month_surveillance_tables_only",
     "risk_maps": "blocked_until_environmental_covariates_and_target_outcome_are_scoped",
     "rt_estimation": "descriptive_growth_proxy_only_formal_rt_blocked_until_interval_protocol_and_method_justification_exist",
     "spillover_inference": "blocked_until_joint_host_human_environment_design_is_approved",
@@ -12,9 +12,10 @@
     "descriptive GBIF host-occurrence record-availability mapping from sealed candidate subset",
     "metadata-only GenBank accession summaries",
     "planning documents for future gated analyses",
-    "descriptive country-month hantavirus growth proxy summaries from the ECDC surveillance slice under explicit non-Rt guardrails"
+    "descriptive country-month hantavirus growth proxy summaries from the ECDC surveillance slice under explicit non-Rt guardrails",
+    "coarse aggregate descriptive human-case mapping from provenance-complete CDC annual state and ECDC country-month surveillance tables only"
   ],
-  "generated_at_utc": "2026-05-30T06:52:33.687874+00:00",
+  "generated_at_utc": "2026-05-30T06:57:23.708215+00:00",
   "guardrails": [
     "do not convert record availability maps into risk maps",
     "do not infer host abundance from GBIF occurrences without a sampling-bias model and approved scope",
@@ -35,7 +36,7 @@
     "cross_source_join_bias_review": {
       "metadata_path": "data/metadata/cross_source_join_bias_review_gate.json",
       "report_path": "reports/cross_source_join_bias_review_gate.md",
-      "status": "review_template_only_no_join_executed",
+      "status": "descriptive_join_qc_documented_true_join_still_blocked",
       "unblocks_planning_for": [
         "surveillance_join",
         "spillover_inference",
@@ -46,7 +47,7 @@
     "environmental_covariates_schema": {
       "metadata_path": "data/metadata/environmental_covariates_schema_gate.json",
       "report_path": "reports/environmental_covariates_schema_gate.md",
-      "status": "schema_scope_only_no_covariates_ingested",
+      "status": "schema_scope_with_real_covariates_ingested_no_model_fit",
       "unblocks_planning_for": [
         "risk_maps",
         "host_abundance_inference",
@@ -58,7 +59,7 @@
     "human_surveillance_schema": {
       "metadata_path": "data/metadata/human_surveillance_schema_gate.json",
       "report_path": "reports/human_surveillance_schema_gate.md",
-      "status": "schema_scope_only_no_case_data_ingested",
+      "status": "real_surveillance_table_captured_for_annual_state_mapping_only",
       "unblocks_planning_for": [
         "human_case_maps",
         "rt_estimation",
@@ -69,25 +70,16 @@
     "rt_analysis_scope": {
       "metadata_path": "data/metadata/rt_analysis_scope_gate.json",
       "report_path": "reports/rt_analysis_scope_gate.md",
-      "status": "scope_only_no_rt_estimation",
+      "status": "descriptive_growth_proxy_scope_only_formal_rt_blocked",
       "unblocks_planning_for": [
         "rt_estimation"
-      ],
-      "validation_passed": true
-    },
-    "rt_time_series": {
-      "metadata_path": "data/metadata/rt_time_series_gate.json",
-      "report_path": "reports/rt_time_series_gate.md",
-      "status": "descriptive_growth_proxy_only_formal_rt_blocked",
-      "unblocks_planning_for": [
-        "descriptive_growth_proxy"
       ],
       "validation_passed": true
     },
     "sequence_body_download_plan": {
       "metadata_path": "data/metadata/sequence_body_download_plan_gate.json",
       "report_path": "reports/sequence_body_download_plan_gate.md",
-      "status": "plan_only_no_sequence_bodies_downloaded",
+      "status": "sequence_bodies_ingested_alignment_and_phylogeny_design_blocked",
       "unblocks_planning_for": [
         "host_switch_inference",
         "spillover_inference"

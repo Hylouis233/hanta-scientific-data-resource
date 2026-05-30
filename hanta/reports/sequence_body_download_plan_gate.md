@@ -1,6 +1,6 @@
 # Sequence-body download plan gate
 
-Status: plan_only_no_sequence_bodies_downloaded.
+Status: sequence_bodies_ingested_alignment_and_phylogeny_design_blocked.
 
 ## Required fields
 
@@ -22,10 +22,10 @@ Status: plan_only_no_sequence_bodies_downloaded.
 
 ## Remaining requirements before analysis
 
-- sequence-body retrieval protocol
 - segment-specific quality control rules
-- taxonomy review
+- taxonomy and provenance review
 - separate phylogenetic design before host-switch claims
+- reassortment-aware uncertainty protocol
 
 ## Guardrail
 

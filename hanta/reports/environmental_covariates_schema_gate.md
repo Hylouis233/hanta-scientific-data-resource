@@ -1,6 +1,6 @@
 # Environmental covariates schema gate
 
-Status: schema_scope_only_no_covariates_ingested.
+Status: schema_scope_with_real_covariates_ingested_no_model_fit.
 
 ## Required fields
 
@@ -25,10 +25,9 @@ Status: schema_scope_only_no_covariates_ingested.
 
 ## Remaining requirements before analysis
 
-- approved covariate list
-- CRS and resolution alignment protocol
+- approved target outcome and accessible-area background design before risk or suitability modeling
+- CRS and resolution alignment protocol for final model inputs
 - sampling-bias review for GBIF-derived host occurrence records
-- real covariate rasters or tables with provenance audit
 
 ## Guardrail
 

@@ -1,6 +1,6 @@
 # Cross-source join and bias review gate
 
-Status: review_template_only_no_join_executed.
+Status: descriptive_join_qc_documented_true_join_still_blocked.
 
 ## Required fields
 
@@ -22,10 +22,9 @@ Status: review_template_only_no_join_executed.
 
 ## Remaining requirements before analysis
 
-- pre-specified join keys
-- spatial and temporal alignment audit
-- sampling-bias assessment
-- explicit approval before any GBIF/GenBank/surveillance/environment join
+- explicit approval remains required for inferential or modeling use beyond descriptive join QC
+- country-code harmonization review for non-overlap codes such as EL and UK
+- sampling-bias assessment before any spillover or risk interpretation
 
 ## Guardrail
 

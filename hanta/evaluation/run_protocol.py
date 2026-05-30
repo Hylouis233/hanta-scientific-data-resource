@@ -137,6 +137,8 @@ def main() -> int:
         "reports/hanta_advanced_gate_evidence.md",
     ])
     sequence_body_download_real_data_present = sequence_body_download_manifest.get("validation_passed") is True and sequence_body_download_manifest.get("downloaded_accession_count", 0) == sequence_body_download_manifest.get("requested_accession_count", -1) and (project_root / "genomic_data.dvc").exists() and (project_root / "data" / "metadata" / "sequence_body_download_manifest.json.dvc").exists() and (reports / "sequence_body_download_qc.md.dvc").exists() and (reports / "hanta_sequence_body_gate_review.md").exists()
+    hantaan_minimal_phylogeny_qc = _load_json(reports / "hantaan_minimal_phylogeny_qc.json")
+    hantaan_minimal_phylogeny_alignment_gate_present = hantaan_minimal_phylogeny_qc.get("validation_passed") is True and hantaan_minimal_phylogeny_qc.get("alignment_design_gate_passed") is True and hantaan_minimal_phylogeny_qc.get("host_switch_inference_permitted") is False and (project_root / "data" / "metadata" / "hantaan_minimal_phylogeny_candidate_manifest.json").exists() and (project_root / "data" / "metadata" / "hantaan_ncbi_query_evidence.json").exists() and (reports / "hantaan_minimal_phylogeny_qc.md").exists() and (project_root / "genomic_data.dvc").exists()
     host_trapping_file_screening_manifest = _load_json(project_root / "data" / "metadata" / "host_trapping_file_screening_manifest.json")
     host_trapping_real_data_present = host_trapping_file_screening_manifest.get("validation_passed") is True and host_trapping_file_screening_manifest.get("source_count", 0) >= 2 and (project_root / "data" / "raw.dvc").exists() and (project_root / "data" / "metadata" / "host_trapping_file_screening_manifest.json.dvc").exists() and (reports / "host_trapping_file_screening_qc.md.dvc").exists() and (reports / "hanta_host_trapping_gate_review.md").exists()
     environmental_covariate_file_manifest = _load_json(project_root / "data" / "metadata" / "environmental_covariate_file_manifest.json")
@@ -209,6 +211,7 @@ def main() -> int:
         "advanced_gate_readiness_plan_present": advanced_gate_readiness_plan_present,
         "advanced_gate_existing_evidence_present": advanced_gate_existing_evidence_present,
         "sequence_body_download_real_data_present": sequence_body_download_real_data_present,
+        "hantaan_minimal_phylogeny_alignment_gate_present": hantaan_minimal_phylogeny_alignment_gate_present,
         "host_trapping_real_data_present": host_trapping_real_data_present,
         "environmental_covariate_real_data_present": environmental_covariate_real_data_present,
         "host_trapping_study_design_present": host_trapping_study_design_present,
@@ -301,6 +304,7 @@ def main() -> int:
         "advanced_gate_readiness_plan_present": advanced_gate_readiness_plan_present,
         "advanced_gate_existing_evidence_present": advanced_gate_existing_evidence_present,
         "sequence_body_download_real_data_present": sequence_body_download_real_data_present,
+        "hantaan_minimal_phylogeny_alignment_gate_present": hantaan_minimal_phylogeny_alignment_gate_present,
         "host_trapping_real_data_present": host_trapping_real_data_present,
         "environmental_covariate_real_data_present": environmental_covariate_real_data_present,
         "host_trapping_study_design_present": host_trapping_study_design_present,
@@ -351,6 +355,7 @@ def main() -> int:
         f"advanced_gate_readiness_plan_present,{str(advanced_gate_readiness_plan_present).lower()}",
         f"advanced_gate_existing_evidence_present,{str(advanced_gate_existing_evidence_present).lower()}",
         f"sequence_body_download_real_data_present,{str(sequence_body_download_real_data_present).lower()}",
+        f"hantaan_minimal_phylogeny_alignment_gate_present,{str(hantaan_minimal_phylogeny_alignment_gate_present).lower()}",
         f"host_trapping_real_data_present,{str(host_trapping_real_data_present).lower()}",
         f"environmental_covariate_real_data_present,{str(environmental_covariate_real_data_present).lower()}",
         f"host_trapping_study_design_present,{str(host_trapping_study_design_present).lower()}",

@@ -1,0 +1,25 @@
+{
+  "candidate_host": "Apodemus agrarius",
+  "candidate_species": "Orthohantavirus hantanense",
+  "complete_triplet_count_in_sample": 4,
+  "generated_at_utc": "2026-05-30T07:36:43.509349+00:00",
+  "sampled_record_count": 120,
+  "schema_version": "0.1.0",
+  "selected_accessions": [
+    "OM337654",
+    "OM337653",
+    "OM337652",
+    "OM337657",
+    "OM337656",
+    "OM337655",
+    "OM337660",
+    "OM337659",
+    "OM337658",
+    "OM337663",
+    "OM337662",
+    "OM337661"
+  ],
+  "target_query": "Hantaan virus[Organism] AND Apodemus agrarius[All Fields] AND (segment S[Title] OR segment M[Title] OR segment L[Title])",
+  "total_ncbi_hit_count": 235,
+  "validation_passed": true
+}

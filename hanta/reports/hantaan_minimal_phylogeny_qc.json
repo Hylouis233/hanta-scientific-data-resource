@@ -1,0 +1,74 @@
+{
+  "alignment_design_gate_passed": true,
+  "candidate_host": "Apodemus agrarius",
+  "candidate_species": "Orthohantavirus hantanense",
+  "complete_triplet_count_in_sample": 4,
+  "downloaded_record_count": 12,
+  "generated_at_utc": "2026-05-30T07:36:43.509349+00:00",
+  "guardrails": [
+    "public NCBI/GenBank records are acquired only to support minimal per-segment alignment design",
+    "all analyses must keep S, M, and L separate rather than pooling segments",
+    "this evidence does not by itself justify host-switch, spillover, reassortment, or transmission claims",
+    "host labels remain submitter-provided and should be taxonomy-audited before any host-associated interpretation"
+  ],
+  "host_switch_inference_permitted": false,
+  "remaining_limitations": [
+    "all four selected isolates come from a single host species and a narrow geographic context, so host-switch design is still unsupported",
+    "this gate supports alignment readiness only; inference would still require a prespecified phylogenetic model and metadata audit",
+    "the sampled candidate universe was limited to recent NCBI search results and should be refreshed if broader diversity becomes necessary"
+  ],
+  "schema_version": "0.1.0",
+  "segment_counts": {
+    "L": 4,
+    "M": 4,
+    "S": 4
+  },
+  "selected_isolates": [
+    {
+      "collection_date": "05-Sep-2019",
+      "country": "China",
+      "host_species": "Apodemus agrarius",
+      "isolate": "Hunan2019C022-13",
+      "segments": {
+        "L": "OM337652",
+        "M": "OM337653",
+        "S": "OM337654"
+      }
+    },
+    {
+      "collection_date": "05-Sep-2019",
+      "country": "China",
+      "host_species": "Apodemus agrarius",
+      "isolate": "Hunan2019C022-17",
+      "segments": {
+        "L": "OM337655",
+        "M": "OM337656",
+        "S": "OM337657"
+      }
+    },
+    {
+      "collection_date": "05-Sep-2019",
+      "country": "China",
+      "host_species": "Apodemus agrarius",
+      "isolate": "Hunan2019C022-19",
+      "segments": {
+        "L": "OM337658",
+        "M": "OM337659",
+        "S": "OM337660"
+      }
+    },
+    {
+      "collection_date": "05-Sep-2019",
+      "country": "China",
+      "host_species": "Apodemus agrarius",
+      "isolate": "Hunan2019C022-21",
+      "segments": {
+        "L": "OM337661",
+        "M": "OM337662",
+        "S": "OM337663"
+      }
+    }
+  ],
+  "status": "minimal_sequence_design_gate_passed_for_alignment_readiness_only",
+  "validation_passed": true
+}

@@ -175,12 +175,12 @@ SOURCES = [
         "url": "https://portal.edirepository.org/nis/simpleSearch",
         "category": "host_trapping_effort",
         "priority": "medium",
-        "status": "promising_candidate_needs_authenticated_metadata_review",
+        "status": "public_search_route_reached_structured_package_metadata_not_captured",
         "supports_gates": ["cross_source_join_bias_review"],
         "could_unlock": ["host_abundance_inference"],
         "not_sufficient_for": [],
-        "required_follow_up": "verify Sevilleta/Jornada/Konza/Hog Island packages for trap effort, species counts, dates, coordinates, and license",
-        "caveat": "anonymous metadata access was limited in current search environment",
+        "required_follow_up": "retain as documented blocker until a concrete public package page exposing trap effort, captures, dates, coordinates, and license terms is captured without authentication or manual permission",
+        "caveat": "public search page is reachable, but this run did not capture package-level metadata or a self-service dataset meeting scope requirements",
     },
 ]
 

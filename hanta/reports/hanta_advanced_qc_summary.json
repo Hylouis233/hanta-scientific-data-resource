@@ -13,7 +13,7 @@
   "environmental_model_gate_status": "pilot_extraction_table_passed_model_still_blocked_pending_accessible_area_background_and_spatial_bias_review",
   "environmental_suitability_pilot_table_passed": true,
   "environmental_target_background_design_present": true,
-  "generated_at_utc": "2026-05-30T05:51:24.314875+00:00",
+  "generated_at_utc": "2026-05-30T07:01:10.436317+00:00",
   "guardrails": [
     "evidence passes are limited to existing real GBIF occurrence and GenBank metadata layers",
     "advanced model gates remain blocked until their required real data and QC artifacts exist",

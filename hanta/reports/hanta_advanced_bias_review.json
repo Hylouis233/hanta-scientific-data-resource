@@ -7,7 +7,7 @@
     "rt_estimation": "blocked_no_subannual_incidence_time_series_or_interval_protocol",
     "spillover_or_surveillance_join": "blocked_for_inference_only_descriptive_join_qc_documented"
   },
-  "generated_at_utc": "2026-05-30T06:52:36.822596+00:00",
+  "generated_at_utc": "2026-05-30T07:01:10.436317+00:00",
   "guardrails": [
     "evidence passes are limited to existing real GBIF occurrence and GenBank metadata layers",
     "advanced model gates remain blocked until their required real data and QC artifacts exist",

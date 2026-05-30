@@ -9,7 +9,7 @@ Ready or already evidenced for continued automation:
 - ECDC public legal/intellectual-property terms evidence for Atlas reuse framing
 - CDC WONDER annual hantavirus surveillance export route
 - WorldClim, ESA WorldCover, Copernicus DEM static covariate inventory work
-- WorldPop product/license endpoint selection
+- WorldPop public product summary, REST metadata, and license endpoints selected; large raster download intentionally deferred
 - NCBI Virus and Entrez sequence metadata/body collection and QC
 - Public USGS host trapping file-level schema screening
 

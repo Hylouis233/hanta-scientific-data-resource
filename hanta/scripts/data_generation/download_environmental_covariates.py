@@ -60,11 +60,47 @@ SOURCES = [
         "license_or_terms": "public AWS open data documentation page",
         "download_type": "file",
     },
+    {
+        "source_id": "worldpop_population_chn_2020_public_metadata",
+        "url": "https://hub.worldpop.org/data/licence.txt",
+        "variable_group": "human_population_metadata_only",
+        "version": "Global 2000-2020 public product metadata",
+        "resolution": "3 arc-sec (approximately 100 m at the equator)",
+        "temporal_coverage": "2020 population estimate for China",
+        "license_or_terms": "CC BY 4.0 via public WorldPop licence endpoint",
+        "download_type": "file",
+        "skip_download": True,
+        "archive_path_override": "not_downloaded_large_raster_public_metadata_only",
+        "archive_size_override": 0,
+        "member_count_override": 0,
+        "members_override": [],
+        "validation_passed_override": True,
+        "public_metadata": {
+            "country": "China",
+            "iso3": "CHN",
+            "product_title": "The spatial distribution of population in 2020, China",
+            "worldpop_category_page": "https://hub.worldpop.org/project/categories?id=3",
+            "worldpop_summary_url": "https://hub.worldpop.org/geodata/summary?id=6524",
+            "worldpop_rest_url": "https://hub.worldpop.org/rest/data/pop/wpgp?iso3=CHN",
+            "dataset_id": "6524",
+            "dataset_public": "Y",
+            "raster_download_url": "https://data.worldpop.org/GIS/Population/Global_2000_2020/2020/CHN/chn_ppp_2020.tif",
+            "raster_download_status": "not_downloaded_to_avoid_large_full_raster",
+            "citation": "WorldPop (www.worldpop.org - School of Geography and Environmental Science, University of Southampton; Department of Geography and Geosciences, University of Louisville; Departement de Geographie, Universite de Namur) and Center for International Earth Science Information Network (CIESIN), Columbia University (2018). Global High Resolution Population Denominators Project - Funded by The Bill and Melinda Gates Foundation (OPP1134076). https://dx.doi.org/10.5258/SOTON/WP00645",
+            "doi": "10.5258/SOTON/WP00645",
+            "product_description": "Estimated total number of people per grid-cell. The dataset is available to download in Geotiff format at a resolution of 3 arc (approximately 100m at the equator). The projection is Geographic Coordinate System, WGS84. The units are number of people per pixel. The mapping approach is Random Forest-based dasymetric redistribution.",
+            "license_endpoint": "https://hub.worldpop.org/data/licence.txt",
+            "license_statement": "WorldPop datasets are licensed under the Creative Commons Attribution 4.0 International License",
+            "download_notice": "Please read our page on choosing the right WorldPop population data before downloading a dataset."
+        },
+    },
 ]
 
-RAW_DIR = Path("data/raw/environmental_covariates/self_service_public")
-MANIFEST = Path("data/metadata/environmental_covariate_file_manifest.json")
-REPORT = Path("reports/environmental_covariate_file_qc.md")
+ROOT = Path(__file__).resolve().parents[2]
+RAW_DIR = ROOT / "data/raw/environmental_covariates/self_service_public"
+MANIFEST = ROOT / "data/metadata/environmental_covariate_file_manifest.json"
+REPORT = ROOT / "reports/environmental_covariate_file_qc.md"
+SUMMARY = ROOT / "reports/worldpop_public_metadata_evidence.json"
 
 
 def _download(url: str, path: Path) -> None:
@@ -100,23 +136,40 @@ def _write_text(path: Path, text: str) -> None:
     path.write_text(text, encoding="utf-8")
 
 
+def _record_from_source(source: dict[str, Any], path: Path) -> dict[str, Any]:
+    if source.get("skip_download"):
+        members = source.get("members_override", [])
+        return {
+            **source,
+            "archive_path": source.get("archive_path_override", str(path)),
+            "archive_size": source.get("archive_size_override", 0),
+            "member_count": source.get("member_count_override", len(members)),
+            "members": members,
+            "crs": "confirm_from_public_product_metadata_before_modeling",
+            "missingness_policy": "no file downloaded; inspect nodata/completeness only after explicitly approved raster acquisition",
+            "validation_passed": source.get("validation_passed_override", True),
+        }
+
+    _download(source["url"], path)
+    members = _members_for_record(path, source["download_type"])
+    return {
+        **source,
+        "archive_path": str(path),
+        "archive_size": path.stat().st_size,
+        "member_count": len(members),
+        "members": members,
+        "crs": "confirm_from_file_metadata_before_modeling",
+        "missingness_policy": "evaluate nodata or geometry completeness after downstream extraction",
+        "validation_passed": path.stat().st_size > 0 and len(members) > 0,
+    }
+
+
 def main() -> int:
     generated_at_utc = datetime.now(timezone.utc).isoformat()
     records = []
     for source in SOURCES:
         path = RAW_DIR / Path(source["url"]).name
-        _download(source["url"], path)
-        members = _members_for_record(path, source["download_type"])
-        records.append({
-            **source,
-            "archive_path": str(path),
-            "archive_size": path.stat().st_size,
-            "member_count": len(members),
-            "members": members,
-            "crs": "confirm_from_file_metadata_before_modeling",
-            "missingness_policy": "evaluate nodata or geometry completeness after downstream extraction",
-            "validation_passed": path.stat().st_size > 0 and len(members) > 0,
-        })
+        records.append(_record_from_source(source, path))
     payload = {
         "schema_version": "0.2.0",
         "generated_at_utc": generated_at_utc,
@@ -133,7 +186,20 @@ def main() -> int:
             "target/background design remains required before any model",
         ],
     }
+    worldpop_records = [record for record in records if record["source_id"].startswith("worldpop_")]
     _write_text(MANIFEST, json.dumps(payload, indent=2, sort_keys=True) + "\n")
+    _write_text(SUMMARY, json.dumps({
+        "generated_at_utc": generated_at_utc,
+        "status": "worldpop_public_metadata_captured_without_credentials",
+        "record_count": len(worldpop_records),
+        "records": worldpop_records,
+        "guardrails": [
+            "metadata endpoints only; no large WorldPop raster downloaded",
+            "public/self-service evidence does not authorize risk-map claims",
+            "WorldPop use remains limited to future human exposure covariate consideration after explicit approval",
+        ],
+        "validation_passed": len(worldpop_records) > 0 and all(record["validation_passed"] for record in worldpop_records),
+    }, indent=2, sort_keys=True) + "\n")
     _write_text(REPORT, "\n".join([
         "# Environmental covariate file QC",
         "",

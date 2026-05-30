@@ -10,18 +10,20 @@
   },
   "environmental_covariate_file_qc_passed": true,
   "environmental_covariate_source_count": 2,
-  "environmental_model_gate_status": "covariate_intake_passed_model_still_blocked_pending_background_generation_and_bias_review",
+  "environmental_model_gate_status": "pilot_extraction_table_passed_model_still_blocked_pending_accessible_area_background_and_spatial_bias_review",
+  "environmental_suitability_pilot_table_passed": true,
   "environmental_target_background_design_present": true,
-  "generated_at_utc": "2026-05-29T19:00:54.939190+00:00",
+  "generated_at_utc": "2026-05-30T02:47:08.104167+00:00",
   "guardrails": [
     "evidence passes are limited to existing real GBIF occurrence and GenBank metadata layers",
     "advanced model gates remain blocked until their required real data and QC artifacts exist",
     "GBIF occurrence records are not human cases, host abundance, or infection risk",
     "GenBank metadata accessions are not sequence-body phylogenetic evidence"
   ],
-  "host_abundance_gate_status": "screening_passed_model_still_blocked_pending_study_design_review",
+  "host_abundance_gate_status": "study_design_semantics_passed_model_formula_pending",
   "host_trapping_file_screening_qc_passed": true,
   "host_trapping_source_count": 2,
+  "host_trapping_study_design_semantics_passed": true,
   "host_trapping_total_csv_rows": 5099,
   "passed_qc": {
     "gbif_candidate_occurrences_evidence": true,

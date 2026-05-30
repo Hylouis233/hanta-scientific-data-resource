@@ -1,0 +1,5 @@
+outs:
+- md5: 57b512cb81f197b3878ada264bce26ab
+  size: 709
+  hash: md5
+  path: environmental_suitability_pilot_manifest.json

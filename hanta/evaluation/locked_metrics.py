@@ -44,6 +44,8 @@ LOCKED_METRICS = [
     "sequence_body_download_real_data_present",
     "host_trapping_real_data_present",
     "environmental_covariate_real_data_present",
+    "host_trapping_study_design_present",
+    "environmental_suitability_pilot_table_present",
     "third_layer_closeout_present",
     "no_modeling_guardrail_passed",
 ]

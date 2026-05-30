@@ -7,7 +7,7 @@
     "rt_estimation": "blocked_no_subannual_incidence_time_series_or_interval_protocol",
     "spillover_or_surveillance_join": "blocked_no_approved_cross_source_join_or_bias_review_for_real_inputs"
   },
-  "generated_at_utc": "2026-05-29T19:00:54.939190+00:00",
+  "generated_at_utc": "2026-05-30T02:47:08.104167+00:00",
   "guardrails": [
     "evidence passes are limited to existing real GBIF occurrence and GenBank metadata layers",
     "advanced model gates remain blocked until their required real data and QC artifacts exist",
@@ -22,6 +22,15 @@
         "target/background design not materialized as model inputs",
         "GBIF spatial sampling bias not corrected",
         "CRS and raster nodata require downstream extraction QC"
+      ]
+    },
+    "environmental_suitability_pilot_table": {
+      "bias_risk_rating": "bounded_pilot_table_only",
+      "decision": "pass_for_covariate_extraction_qc_not_suitability_model",
+      "remaining_biases": [
+        "global background is not approved accessible-area background",
+        "spatial sampling bias is not corrected",
+        "no spatial cross-validation or model fit"
       ]
     },
     "gbif_descriptive_record_availability": {
@@ -40,6 +49,15 @@
         "trap effort semantics require metadata interpretation",
         "site-level disclosure and spatial generalizability",
         "no abundance model or detection model has been fit"
+      ]
+    },
+    "host_trapping_study_design_semantics": {
+      "bias_risk_rating": "bounded_design_semantics_only",
+      "decision": "pass_for_model_scoping_not_abundance_inference",
+      "remaining_biases": [
+        "model formula not approved",
+        "spatial generalization limited",
+        "detection heterogeneity not modeled"
       ]
     },
     "sequence_body_download": {

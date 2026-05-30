@@ -1,7 +1,7 @@
 {
   "candidate_species": "Orthohantavirus hantanense",
-  "complete_triplet_count_in_sample": 10,
-  "generated_at_utc": "2026-05-30T17:34:43.111084+00:00",
+  "complete_triplet_count_in_sample": 8,
+  "generated_at_utc": "2026-05-30T17:38:16.362628+00:00",
   "sampled_record_count": 200,
   "schema_version": "0.1.0",
   "selected_accessions": [

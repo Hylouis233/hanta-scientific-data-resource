@@ -108,6 +108,8 @@ def main() -> int:
     hanta_data_acquisition_plan_present = hanta_data_acquisition_plan.get("validation_passed") is True and hanta_data_acquisition_plan.get("source_count", 0) >= 10 and (reports / "hanta_data_acquisition_plan.md").exists() and (tables / "hanta_data_acquisition_plan.csv").exists()
     hanta_source_access_verification = _load_json(reports / "hanta_source_access_verification.json")
     hanta_source_access_verification_present = hanta_source_access_verification.get("validation_passed") is True and hanta_source_access_verification.get("source_count", 0) >= 10 and hanta_source_access_verification.get("status") == "source_specific_access_verification_complete" and (reports / "hanta_source_access_verification.md").exists() and (tables / "hanta_source_access_verification.csv").exists()
+    human_surveillance_join_blocked_evidence = _load_json(project_root / "data" / "metadata" / "human_surveillance_join_blocked_evidence.json")
+    human_surveillance_join_blocked_evidence_present = human_surveillance_join_blocked_evidence.get("validation_passed") is True and human_surveillance_join_blocked_evidence.get("overall_status") == "blocked_evidence_backed_no_downloaded_human_surveillance_table" and (reports / "human_surveillance_join_blocked_evidence.md").exists()
     static_covariate_inventory = _load_json(reports / "static_environmental_covariate_inventory.json")
     static_covariate_inventory_present = static_covariate_inventory.get("validation_passed") is True and static_covariate_inventory.get("status") == "static_covariate_inventory_complete" and (reports / "static_environmental_covariate_inventory.md").exists() and (tables / "static_environmental_covariate_inventory.csv").exists()
     modis_access_plan = _load_json(reports / "modis_access_plan.json")
@@ -181,6 +183,7 @@ def main() -> int:
         "cross_source_join_bias_review_gate_present": cross_source_join_bias_review_gate_present,
         "hanta_data_acquisition_plan_present": hanta_data_acquisition_plan_present,
         "hanta_source_access_verification_present": hanta_source_access_verification_present,
+        "human_surveillance_join_blocked_evidence_present": human_surveillance_join_blocked_evidence_present,
         "static_covariate_inventory_present": static_covariate_inventory_present,
         "modis_access_plan_present": modis_access_plan_present,
         "ecdc_surveillance_export_plan_present": ecdc_surveillance_export_plan_present,
@@ -267,6 +270,7 @@ def main() -> int:
         "cross_source_join_bias_review_gate_present": cross_source_join_bias_review_gate_present,
         "hanta_data_acquisition_plan_present": hanta_data_acquisition_plan_present,
         "hanta_source_access_verification_present": hanta_source_access_verification_present,
+        "human_surveillance_join_blocked_evidence_present": human_surveillance_join_blocked_evidence_present,
         "static_covariate_inventory_present": static_covariate_inventory_present,
         "modis_access_plan_present": modis_access_plan_present,
         "ecdc_surveillance_export_plan_present": ecdc_surveillance_export_plan_present,

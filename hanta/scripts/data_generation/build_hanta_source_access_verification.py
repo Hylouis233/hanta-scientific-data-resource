@@ -7,10 +7,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
-ACQUISITION_PLAN = Path("reports/hanta_data_acquisition_plan.json")
-REPORT_JSON = Path("reports/hanta_source_access_verification.json")
-REPORT_MD = Path("reports/hanta_source_access_verification.md")
-TABLE_CSV = Path("reports/tables/hanta_source_access_verification.csv")
+ACQUISITION_PLAN = Path(__file__).resolve().parents[2] / "reports/hanta_data_acquisition_plan.json"
+REPORT_JSON = Path(__file__).resolve().parents[2] / "reports/hanta_source_access_verification.json"
+REPORT_MD = Path(__file__).resolve().parents[2] / "reports/hanta_source_access_verification.md"
+TABLE_CSV = Path(__file__).resolve().parents[2] / "reports/tables/hanta_source_access_verification.csv"
+BLOCKED_JSON = Path(__file__).resolve().parents[2] / "data/metadata/human_surveillance_join_blocked_evidence.json"
+BLOCKED_MD = Path(__file__).resolve().parents[2] / "reports/human_surveillance_join_blocked_evidence.md"
 
 
 VERIFICATION_DETAILS = {
@@ -154,6 +156,76 @@ NO_ANALYSIS_GUARDRAILS = [
 ]
 
 
+HUMAN_SURVEILLANCE_EVIDENCE = {
+    "generated_from": "public no-credential web inspection performed in current environment",
+    "target_gate": "human_surveillance_or_rt_join_blocker",
+    "attempts": [
+        {
+            "source_id": "ecdc_surveillance_atlas_hantavirus",
+            "url": "https://atlas.ecdc.europa.eu/public/index.aspx?Dataset=27&HealthTopic=24",
+            "access_result": "public_page_reached",
+            "downloadability": "export_ui_visible_but_direct_csv_endpoint_not_exposed_in_static_html",
+            "structured_table_status": "likely_yes_via_interactive_csv_export",
+            "machine_readable_status": "probable_csv_but_not_programmatically_captured_here",
+            "findings": [
+                "page is accessible without credentials",
+                "export dialog text includes CSV file and CSV text",
+                "indicator data CSV modal is visible in page text",
+                "no hardcoded CSV/API URL was exposed in static HTML fetched here",
+            ],
+            "join_readiness": "blocked_pending_interactive_export_headers_terms_and_temporal_granularity",
+            "rt_readiness": "not_sufficient_until_subannual_time_series_is_confirmed",
+            "reason": "legitimate public structured source exists, but this environment did not capture the actual downloadable file or exact schema",
+        },
+        {
+            "source_id": "cdc_nndss_hcps",
+            "url": "https://www.cdc.gov/hantavirus/",
+            "access_result": "public_pages_reached",
+            "downloadability": "public_html_and_pdf_found_but_no_direct_HCPS_CSV_or_excel_dataset_confirmed",
+            "structured_table_status": "static_html_summary_table_only_on_cases_page",
+            "machine_readable_status": "no_bulk_machine_readable_hantavirus_dataset_confirmed",
+            "findings": [
+                "about page links to reported cases and surveillance pages",
+                "reported cases page contains a static HTML summary table with cumulative U.S. characteristics as of Dec 2020",
+                "surveillance page points to NNDSS infectious disease tables and a downloadable case report form PDF",
+                "NNDSS landing pages inspected here did not directly confirm a hantavirus-specific downloadable machine-readable table",
+                "data.cdc.gov NNDSS category is linked, but no hantavirus-specific dataset URL was identified from inspected public pages",
+            ],
+            "join_readiness": "blocked_no_hantavirus_specific_download_route_confirmed",
+            "rt_readiness": "blocked_no_verified_weekly_or_monthly_HCPS_time_series_endpoint",
+            "reason": "public CDC content exists, but inspected pages only confirmed narrative pages, HTML summary content, and a PDF form rather than a verified downloadable surveillance table",
+        },
+        {
+            "source_id": "china_cdc_hfrs_monthly_bulletins",
+            "url": "https://en.chinacdc.cn/health_topics/infectious_diseases/",
+            "access_result": "public_pages_reached",
+            "downloadability": "no_monthly_bulletin_or_downloadable_HFRS_table_found_on_inspected_English_pages",
+            "structured_table_status": "not_found",
+            "machine_readable_status": "not_found",
+            "findings": [
+                "China CDC English homepage and infectious-diseases section were reachable without credentials",
+                "inspected pages contained informational article links rather than surveillance tables",
+                "no HFRS mention, monthly notifiable disease bulletin, PDF table, CSV, or Excel download was exposed on inspected English pages",
+                "web search for China CDC HFRS bulletin in this environment failed due to tool-side API error, so no stronger public route was confirmed here",
+            ],
+            "join_readiness": "blocked_no_verified_public_bulletin_table_route",
+            "rt_readiness": "blocked_no_verified_monthly_HFRS_series",
+            "reason": "high-value target remains unresolved because the inspected public no-credential routes did not expose a usable HFRS surveillance table",
+        },
+    ],
+    "overall_status": "blocked_evidence_backed_no_downloaded_human_surveillance_table",
+    "best_available_source": "ecdc_surveillance_atlas_hantavirus",
+    "best_available_source_status": "public structured export route appears real but downloadable file and schema were not captured in this run",
+    "blocking_reasons": [
+        "no real surveillance CSV/XLS/PDF table was downloaded into the repository during this task",
+        "ECDC Atlas export route appears legitimate but exact file headers, terms, and stable retrieval path were not captured",
+        "CDC pages did not expose a hantavirus-specific bulk machine-readable dataset from the inspected public routes",
+        "China CDC English public pages did not expose HFRS surveillance tables, and search confirmation for the Chinese bulletin route failed in-tool",
+    ],
+    "recommended_next_step": "treat the human surveillance/Rt/join lane as blocked until an actual ECDC export file is captured or a verified China CDC or CDC downloadable table is obtained with provenance and terms",
+}
+
+
 def _verification_rows() -> list[dict]:
     plan = json.loads(ACQUISITION_PLAN.read_text(encoding="utf-8"))
     rows = []
@@ -165,6 +237,50 @@ def _verification_rows() -> list[dict]:
             "guardrails_preserved": True,
         })
     return rows
+
+
+def _write_blocked_evidence(generated_at_utc: str) -> None:
+    payload = {
+        "schema_version": "0.1.0",
+        "generated_at_utc": generated_at_utc,
+        **HUMAN_SURVEILLANCE_EVIDENCE,
+        "guardrails": [
+            "this artifact records source access evidence only and does not ingest case data",
+            "no human case map, Rt estimate, or surveillance join is executed from this artifact",
+            "all downstream analyses remain blocked until a provenance-complete surveillance table is captured",
+        ],
+        "validation_passed": True,
+    }
+    BLOCKED_JSON.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    BLOCKED_MD.write_text("\n".join([
+        "# Human surveillance join blocker evidence",
+        "",
+        "Status: blocked with evidence-backed public-source review; no surveillance table downloaded.",
+        "",
+        "## Best available candidate",
+        "",
+        "- `ecdc_surveillance_atlas_hantavirus`: public Atlas page exposes CSV export UI text, but this run did not capture the downloadable file, headers, terms, or stable endpoint.",
+        "",
+        "## Attempted sources",
+        "",
+        "- `ecdc_surveillance_atlas_hantavirus`: accessible without credentials; likely structured CSV export exists; still blocked pending actual export capture.",
+        "- `cdc_nndss_hcps`: CDC public pages and NNDSS routes reached; only HTML summary content and a PDF form were confirmed, not a hantavirus-specific downloadable dataset.",
+        "- `china_cdc_hfrs_monthly_bulletins`: inspected English China CDC pages did not expose HFRS bulletins or downloadable surveillance tables.",
+        "",
+        "## Why join/Rt stays blocked",
+        "",
+        "- No real surveillance table was downloaded during this task.",
+        "- ECDC export schema, terms, and temporal granularity remain uncaptured.",
+        "- CDC did not yield a verified downloadable HCPS dataset from inspected public routes.",
+        "- China CDC did not yield a verified public HFRS bulletin table from inspected no-credential routes.",
+        "",
+        "## Guardrails",
+        "",
+        "- this artifact records source access evidence only and does not ingest case data",
+        "- no human case map, Rt estimate, or surveillance join is executed from this artifact",
+        "- all downstream analyses remain blocked until a provenance-complete surveillance table is captured",
+        "",
+    ]) + "\n", encoding="utf-8")
 
 
 def main() -> int:
@@ -225,6 +341,7 @@ def main() -> int:
         *[f"- {guardrail}" for guardrail in NO_ANALYSIS_GUARDRAILS],
         "",
     ]) + "\n", encoding="utf-8")
+    _write_blocked_evidence(generated_at_utc)
     print(json.dumps({"status": payload["status"], "source_count": len(rows), "access_verified_count": verified_count}, sort_keys=True))
     return 0 if payload["validation_passed"] else 1
 

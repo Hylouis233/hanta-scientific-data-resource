@@ -1,6 +1,6 @@
 # Hanta advanced analysis gate
 
-Status: blocked for formal scientific Rt estimation; limited descriptive time-series summaries and coarse aggregate human-case mapping now allowed.
+Status: blocked for all formal advanced gates. The most realistic next formal gate to advance is `formal_environmental_suitability_or_risk`, but it remains blocked.
 
 ## Currently allowed
 
@@ -16,10 +16,26 @@ Status: blocked for formal scientific Rt estimation; limited descriptive time-se
 - `host_abundance_inference`: blocked_until_sampling_bias_and_abundance_model_scope_are_approved
 - `host_switch_inference`: blocked_until_sequence_bodies_phylogenetic_design_and_taxonomy_review_exist
 - `human_case_maps`: partially_unblocked_for_coarse_aggregate_descriptive_mapping_from_provenance_complete_cdc_annual_state_and_ecdc_country_month_surveillance_tables_only
-- `risk_maps`: blocked_until_human_risk_or_formal_suitability_target_and_full_covariate_design_are_scoped
+- `risk_maps`: blocked_until_environmental_covariates_and_target_outcome_are_scoped
 - `rt_estimation`: formal_rt_blocked_no_disease_specific_interval_protocol_and_monthly_reported_count_justification
 - `spillover_inference`: blocked_descriptive_join_qc_only_alias_harmonization_documented_but_no_supported_joint_host_human_environment_inference
 - `surveillance_join`: blocked_descriptive_country_month_join_qc_only_alias_harmonization_documented_no_approved_inferential_join
+
+## Newly chosen next formal gate
+
+Selected next planning target: `formal_environmental_suitability_or_risk`
+
+Why this gate is most realistic next:
+
+- It already has the strongest self-service/public evidence base in the repository.
+- Its remaining blockers are mostly final-input and validation-design blockers rather than a missing core scientific assumption.
+- This selection is for planning priority only and does not pass the gate.
+
+## Why the other three candidates are less realistic next
+
+- `formal_rt`: still lacks a defensible disease-specific interval protocol matched to the timing semantics of the current surveillance series.
+- `global_cross_study_host_abundance`: still lacks a harmonized multi-study effort-bearing abundance frame and approved pooled model scope.
+- `host_switch_phylogeny`: still lacks audited multi-host sequence coverage and an approved host-transition phylogenetic workflow.
 
 ## Prerequisite gates now defined
 
@@ -29,10 +45,6 @@ Status: blocked for formal scientific Rt estimation; limited descriptive time-se
 - `rt_analysis_scope`: descriptive_growth_proxy_scope_only_formal_rt_blocked
 - `rt_time_series`: descriptive_growth_proxy_only_formal_rt_blocked
 - `sequence_body_download_plan`: sequence_bodies_ingested_alignment_and_phylogeny_design_blocked
-
-## Rt/time-series decision
-
-The ECDC monthly country dataset supports descriptive growth proxies only. Formal Rt estimation remains blocked until a disease-specific interval protocol and method justification exist and are consistent with the timing semantics of the reported-case series.
 
 ## Minimum gates before proceeding
 
@@ -45,5 +57,4 @@ The ECDC monthly country dataset supports descriptive growth proxies only. Forma
 
 ## Decision
 
-Advanced analyses remain blocked in this repository state except for coarse aggregate descriptive human-case mapping from provenance-complete public surveillance tables and descriptive non-Rt monthly growth proxies. Formal Rt estimation, surveillance/spillover joins, risk or suitability models, global abundance inference, and host-switch inference remain blocked pending their separate data, QC, and design gates.
-
+Advanced analyses remain blocked in this repository state except for coarse aggregate descriptive human-case mapping and descriptive non-Rt growth proxies. The next formal gate to advance in planning is environmental suitability/risk because it is the nearest self-service/public protocol-completion path, but the formal gate remains blocked until full inputs, final target definition, and bias-aware spatial validation are actually completed.

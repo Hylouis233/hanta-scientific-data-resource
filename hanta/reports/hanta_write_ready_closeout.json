@@ -8,36 +8,134 @@
     "host_switch_inference",
     "surveillance_join"
   ],
+  "closeout_summary": [
+    {
+      "advanced_gate_status": "blocked_pending_granule_endpoint_validation_and_ingestion_protocol",
+      "closeout_state": "metadata/listing-only",
+      "evidence_summary": "Public catalog and LAADS directory listing captured; not_ingested; public listing verified, exact selected-tile granule download still requires endpoint validation",
+      "lane": "MODIS",
+      "manuscript_boundary": "Describe public self-service catalog/listing provenance only; do not imply covariate ingestion or vegetation analysis.",
+      "source_label": "MODIS MOD13Q1 v061 NDVI/EVI"
+    },
+    {
+      "advanced_gate_status": "blocked_pending_product_selection_and_approved_raster_download",
+      "closeout_state": "metadata/listing-only",
+      "evidence_summary": "Public REST/catalog metadata and CC BY 4.0 license endpoint captured for The spatial distribution of population in 2020, China; raster download intentionally deferred",
+      "lane": "WorldPop",
+      "manuscript_boundary": "Describe candidate exposure covariate provenance only; no population raster ingested.",
+      "source_label": "WorldPop gridded population"
+    },
+    {
+      "advanced_gate_status": "blocked_for_advanced_join_or_rt_until_terms_and_harmonization_complete",
+      "closeout_state": "downloaded",
+      "evidence_summary": "Public CSV export captured with country/month fields; public ECDC legal/IP terms evidence captured; suppression, case-definition, and geography harmonization remain pending",
+      "lane": "ECDC",
+      "manuscript_boundary": "Can support provenance narrative and coarse aggregate surveillance description only.",
+      "source_label": "ECDC Surveillance Atlas hantavirus exports"
+    },
+    {
+      "advanced_gate_status": "blocked_for_rt_and_fine_grained_surveillance_join",
+      "closeout_state": "downloaded",
+      "evidence_summary": "Public annual state-level CSV export captured with citation footer; no verified subannual series",
+      "lane": "CDC WONDER",
+      "manuscript_boundary": "Can support coarse annual surveillance provenance only.",
+      "source_label": "CDC/NNDSS hantavirus pulmonary syndrome reporting products"
+    },
+    {
+      "advanced_gate_status": "blocked_for_host_abundance_or_risk_inference_without_additional gates",
+      "closeout_state": "downloaded",
+      "evidence_summary": "Official occurrence archive closed with DOI 10.15468/dl.t7u3zm; 740758 raw rows and 533900 descriptive mapping candidates",
+      "lane": "GBIF",
+      "manuscript_boundary": "Use for host occurrence provenance and descriptive availability only; not human disease outcomes.",
+      "source_label": "GBIF official occurrence archive"
+    },
+    {
+      "advanced_gate_status": "blocked_pending_taxonomy_provenance_audit_and_phylogenetic_design",
+      "closeout_state": "downloaded",
+      "evidence_summary": "Public GenBank sequence bodies downloaded for Hantaan alignment-readiness evidence: 24 records across 8 complete S/M/L triplets and 2 host labels; host-switch inference remains disallowed",
+      "lane": "GenBank/Hantaan",
+      "manuscript_boundary": "Use for public sequence-body provenance and alignment-readiness only; no host-switch, reassortment, or spillover inference.",
+      "source_label": "NCBI Virus and GenBank Hantaviridae/Hantaan sequence provenance"
+    },
+    {
+      "advanced_gate_status": "blocked_for_cross_study_abundance_or_spatial_modeling",
+      "closeout_state": "downloaded",
+      "evidence_summary": "Public files downloaded and screened for two ScienceBase releases; coordinate and license semantics remain incomplete",
+      "lane": "USGS host trapping",
+      "manuscript_boundary": "Can describe within-study trapping-file availability only; no abundance surface inference.",
+      "source_label": "USGS Picayune and deltamethrin small-mammal trapping releases"
+    },
+    {
+      "advanced_gate_status": "blocked_no_verified_self_service_table",
+      "closeout_state": "blocked",
+      "evidence_summary": "Inspected public English routes did not expose a verified machine-readable or bulletin HFRS table",
+      "lane": "China HFRS",
+      "manuscript_boundary": "Report as unresolved public-source gap only.",
+      "source_label": "China CDC monthly notifiable disease HFRS bulletins"
+    },
+    {
+      "advanced_gate_status": "blocked_pending_public_package_metadata_capture",
+      "closeout_state": "blocked",
+      "evidence_summary": "Public search route reached, but package-level metadata required for reuse were not captured",
+      "lane": "EDI/LTER",
+      "manuscript_boundary": "Report as search-identified but not provenance-complete.",
+      "source_label": "EDI/LTER small mammal trapping datasets"
+    }
+  ],
   "data_layers": [
     {
-      "evidence": "DOI 10.15468/dl.t7u3zm; 740758 archive rows; 533900 descriptive mapping candidates",
-      "layer": "GBIF official occurrence archive",
-      "manuscript_use": "data provenance, occurrence QC, descriptive record availability",
-      "status": "closed_real_data_layer"
+      "evidence": "Public catalog and LAADS directory listing captured; not_ingested; public listing verified, exact selected-tile granule download still requires endpoint validation",
+      "layer": "MODIS",
+      "manuscript_use": "Describe public self-service catalog/listing provenance only; do not imply covariate ingestion or vegetation analysis.",
+      "status": "metadata/listing-only"
     },
     {
-      "evidence": "24 source records; 12 usable accession metadata candidates; no sequence bodies downloaded",
-      "layer": "GenBank accession metadata",
-      "manuscript_use": "metadata availability and accession triage only",
-      "status": "closed_metadata_layer"
+      "evidence": "Public REST/catalog metadata and CC BY 4.0 license endpoint captured for The spatial distribution of population in 2020, China; raster download intentionally deferred",
+      "layer": "WorldPop",
+      "manuscript_use": "Describe candidate exposure covariate provenance only; no population raster ingested.",
+      "status": "metadata/listing-only"
     },
     {
-      "evidence": "human surveillance, environmental covariates, sequence body, Rt scope, and cross-source join gates are present",
-      "layer": "Advanced-analysis prerequisite gates",
-      "manuscript_use": "limitations and future work",
-      "status": "closed_planning_layer"
+      "evidence": "Public CSV export captured with country/month fields; public ECDC legal/IP terms evidence captured; suppression, case-definition, and geography harmonization remain pending",
+      "layer": "ECDC",
+      "manuscript_use": "Can support provenance narrative and coarse aggregate surveillance description only.",
+      "status": "downloaded"
     },
     {
-      "evidence": "13 candidate sources reviewed; 12 route-confirmed or access-verified",
-      "layer": "Source-specific access verification",
-      "manuscript_use": "future data acquisition readiness",
-      "status": "closed_planning_layer"
+      "evidence": "Public annual state-level CSV export captured with citation footer; no verified subannual series",
+      "layer": "CDC WONDER",
+      "manuscript_use": "Can support coarse annual surveillance provenance only.",
+      "status": "downloaded"
     },
     {
-      "evidence": "static covariate inventory, MODIS plan, ECDC export plan, NCBI/Entrez plan, host trapping screening plan",
-      "layer": "Remaining planning layers",
-      "manuscript_use": "future implementation protocol references",
-      "status": "closed_planning_layer"
+      "evidence": "Official occurrence archive closed with DOI 10.15468/dl.t7u3zm; 740758 raw rows and 533900 descriptive mapping candidates",
+      "layer": "GBIF",
+      "manuscript_use": "Use for host occurrence provenance and descriptive availability only; not human disease outcomes.",
+      "status": "downloaded"
+    },
+    {
+      "evidence": "Public GenBank sequence bodies downloaded for Hantaan alignment-readiness evidence: 24 records across 8 complete S/M/L triplets and 2 host labels; host-switch inference remains disallowed",
+      "layer": "GenBank/Hantaan",
+      "manuscript_use": "Use for public sequence-body provenance and alignment-readiness only; no host-switch, reassortment, or spillover inference.",
+      "status": "downloaded"
+    },
+    {
+      "evidence": "Public files downloaded and screened for two ScienceBase releases; coordinate and license semantics remain incomplete",
+      "layer": "USGS host trapping",
+      "manuscript_use": "Can describe within-study trapping-file availability only; no abundance surface inference.",
+      "status": "downloaded"
+    },
+    {
+      "evidence": "Inspected public English routes did not expose a verified machine-readable or bulletin HFRS table",
+      "layer": "China HFRS",
+      "manuscript_use": "Report as unresolved public-source gap only.",
+      "status": "blocked"
+    },
+    {
+      "evidence": "Public search route reached, but package-level metadata required for reuse were not captured",
+      "layer": "EDI/LTER",
+      "manuscript_use": "Report as search-identified but not provenance-complete.",
+      "status": "blocked"
     }
   ],
   "figures": [
@@ -90,23 +188,31 @@
       "status": "planning_scaffold_only"
     }
   ],
-  "generated_at_utc": "2026-05-30T07:33:57.880344+00:00",
+  "generated_at_utc": "2026-05-31T08:18:07.548776+00:00",
   "guardrails": [
     "no risk maps, host abundance inference, human case maps, Rt estimation, spillover inference, host-switch inference, or surveillance joins are executed",
     "available figures are descriptive record-availability or planning scaffolds only",
-    "manuscript text must not claim causal, predictive, transmission, or intervention effects"
+    "manuscript text must not claim causal, predictive, transmission, or intervention effects",
+    "formal advanced gates remain blocked wherever provenance, downloadability, temporal granularity, field schema, or license/terms support is incomplete"
+  ],
+  "provenance_narrative": [
+    "The public/self-service closeout preserved a source-by-source provenance boundary rather than a merged analytic dataset. MODIS MOD13Q1 was documented through public Earthdata catalog and LAADS directory listings, establishing discoverability of the vegetation-index product while leaving actual granule-byte acquisition, tile selection, QA masking, reprojection, and temporal aggregation outside the completed scope.",
+    "WorldPop was similarly closed at the metadata stage: public REST/catalog endpoints, a concrete China 2020 product page, and the CC BY 4.0 licence endpoint were captured, but no large population raster was downloaded. This supports a manuscript statement that exposure-covariate acquisition is reproducible in principle while keeping human-exposure modeling out of scope.",
+    "For human surveillance provenance, two public aggregate routes were documented separately. ECDC Surveillance Atlas exports were captured as real country/month CSV output, and public ECDC legal/IP terms evidence was captured for baseline reuse framing; suppression handling, case-definition review, and geography harmonization remain outstanding. CDC WONDER hantavirus exports were also captured, but only at annual state/territory granularity, so they support coarse surveillance provenance rather than Rt estimation or fine-grained temporal joins.",
+    "GBIF provides the strongest downloaded public occurrence layer in the closeout package. The manuscript-ready boundary is an official occurrence archive with DOI-backed provenance, documented row counts, and a descriptive candidate subset for host-record availability summaries. These records remain host-occurrence evidence only and are not to be presented as human case data, host abundance, or modeled risk.",
+    "GenBank/NCBI provenance now includes public sequence-body evidence for a bounded Hantaan alignment-readiness set. The downloaded FASTA and GenBank records cover S, M, and L segments across complete triplets and multiple submitter-provided host labels, but the manuscript boundary remains sequence acquisition and alignment readiness only; taxonomy/provenance audit, phylogenetic design, and uncertainty propagation are still required before any host-switch, reassortment, or spillover claim.",
+    "USGS host-trapping closeout artifacts document that public ScienceBase release files were downloaded and screened at the file/schema level for two small-mammal capture studies. Those files can be cited as examples of accessible trapping-effort data sources, but unresolved coordinate and license semantics prevent cross-study abundance modeling or any broad ecological inference. Taken together, these source-specific provenance artifacts support a manuscript section on reproducible public data acquisition while preserving explicit non-authorization of advanced integrated analyses."
   ],
   "recommended_manuscript_sections": [
-    "Data provenance and source-gating workflow",
+    "Public/self-service acquisition closeout summary",
+    "Source-specific provenance narrative",
     "GBIF occurrence archive acquisition and row-level QC",
-    "Candidate occurrence subset and descriptive record-availability mapping",
     "GenBank accession metadata triage",
-    "Advanced-analysis gates and limitations",
-    "Future data acquisition protocols"
+    "Advanced-analysis gates and limitations"
   ],
-  "schema_version": "0.1.0",
-  "stage": "writing_ready_metadata_and_planning_only",
+  "schema_version": "0.2.0",
+  "stage": "workstream1_public_self_service_closeout",
   "status": "hanta_write_ready_closeout_complete",
   "validation_passed": true,
-  "writing_claim_boundary": "The manuscript can describe a reproducible Hanta data-provenance and descriptive mapping pipeline; it cannot claim risk prediction, transmission dynamics, host abundance, spillover, host-switch, or surveillance integration."
+  "writing_claim_boundary": "The manuscript can describe a reproducible Hanta public/self-service data-provenance and descriptive availability pipeline; it cannot claim risk prediction, transmission dynamics, host abundance, spillover, host-switch, or surveillance integration."
 }

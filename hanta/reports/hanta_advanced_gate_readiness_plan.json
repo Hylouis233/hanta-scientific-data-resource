@@ -1,20 +1,56 @@
 {
   "evaluation_metric_name": "advanced_gate_readiness_plan_present",
+  "generated_at_utc": "2026-05-31T08:15:53.502901+00:00",
+  "schema_version": "0.2.0",
+  "status": "readiness_plan_only_no_advanced_gate_passed",
+  "validation_passed": true,
+  "advanced_model_gate_passed": false,
+  "selected_most_realistic_next_gate": {
+    "gate_id": "formal_environmental_suitability_or_risk",
+    "selection_status": "selected_for_next_protocol_planning_only_gate_remains_blocked",
+    "why_most_realistic_next": [
+      "This candidate already has the strongest self-service evidence base: public covariate file intake manifests, a target/background declaration, pilot covariate extraction QC, and bias-review placeholders already exist.",
+      "Its remaining blockers are mostly protocol-completion and full-package materialization steps that are compatible with self-service public sources.",
+      "By contrast, formal Rt still lacks a defensible disease-specific interval protocol, host abundance still lacks cross-study effort-bearing trapping coverage, and host-switch phylogeny still lacks audited multi-host sequence coverage and an approved transition-inference design."
+    ],
+    "comparative_ranking": [
+      {
+        "rank": 1,
+        "gate_id": "formal_environmental_suitability_or_risk",
+        "realism_rating": "highest",
+        "reason": "Public/self-service covariates and a bounded suitability-only target path already exist; the next gap is a formalized full-input manifest and validation protocol rather than a missing scientific primitive."
+      },
+      {
+        "rank": 2,
+        "gate_id": "host_switch_phylogeny",
+        "realism_rating": "moderate",
+        "reason": "Public sequence-body download is self-service, and some multi-host expansion evidence exists, but the repository still lacks an audited multi-host manifest and approved host-transition phylogenetic design."
+      },
+      {
+        "rank": 3,
+        "gate_id": "global_cross_study_host_abundance",
+        "realism_rating": "low_to_moderate",
+        "reason": "Two public trapping datasets were screened, but they only support bounded within-study diagnostics and do not yet create a cross-study abundance frame with harmonized effort."
+      },
+      {
+        "rank": 4,
+        "gate_id": "formal_rt",
+        "realism_rating": "lowest",
+        "reason": "The core missing dependency is a disease-specific serial/generation-interval protocol compatible with the monthly surveillance semantics; current public evidence reviewed in-repo does not supply it."
+      }
+    ]
+  },
+  "required_artifacts": [
+    "data/metadata/environmental_covariate_file_manifest.json",
+    "data/metadata/human_surveillance_intake_manifest.json",
+    "data/metadata/sequence_body_download_manifest.json",
+    "data/metadata/host_trapping_file_screening_manifest.json",
+    "reports/hanta_advanced_bias_review.json",
+    "reports/hanta_advanced_qc_summary.json"
+  ],
   "external_acquisition_checklist_artifacts": [
     "data/metadata/hanta_advanced_gate_blocker_acquisition_checklist.json",
     "reports/hanta_advanced_gate_blocker_acquisition_checklist.md"
-  ],
-  "fail_criteria": [
-    "placeholder or planning-only data are used as analysis inputs",
-    "join keys, CRS, dates, case definition, effort, sequence body, or provenance are missing",
-    "bias review finds high_unmitigated risk",
-    "any claim is stronger than the supporting data and design"
-  ],
-  "generated_at_utc": "2026-05-29T18:37:57.339804+00:00",
-  "guardrails": [
-    "this readiness plan does not make advanced gates pass",
-    "real data must be ingested, DVC-tracked, schema-validated, and bias-reviewed before any advanced module can execute",
-    "planning completeness is not scientific evidence or model readiness"
   ],
   "lower_scope_evidence": {
     "environmental_suitability_pilot": "passed_for_model_readiness_qc_only_not_formal_suitability_or_risk",
@@ -23,27 +59,186 @@
     "rt_time_series": "passed_for_descriptive_growth_proxy_only_not_formal_rt",
     "surveillance_join_qc": "passed_for_descriptive_country_month_join_qc_only_not_inferential_join"
   },
+  "candidate_gate_comparison": [
+    {
+      "gate_id": "formal_environmental_suitability_or_risk",
+      "current_status": "selected_next_but_formal_gate_still_blocked",
+      "existing_evidence_artifacts": [
+        "data/metadata/environmental_covariate_file_manifest.json",
+        "data/metadata/environmental_target_background_design.json",
+        "reports/environmental_suitability_pilot_qc.md",
+        "reports/hanta_environmental_covariate_gate_review.md"
+      ],
+      "self_service_evidence_addition_in_repo": "environmental_covariate_file_manifest includes public WorldClim, Natural Earth, ESA WorldCover sample tile, MODIS listing evidence, and WorldPop metadata evidence",
+      "exact_required_external_inputs": [
+        "Full DVC-tracked environmental covariate package for the final study frame, with file-level provenance for every retained raster/vector layer.",
+        "Approved target definition: either suitability-only host occurrence target with accessible-area/background specification, or a separate validated human/animal risk outcome table.",
+        "Final spatial validation design and sampling-bias mitigation protocol for the full analysis frame."
+      ],
+      "required_schema_fields": [
+        "source_id",
+        "variable_name",
+        "version",
+        "download_date",
+        "crs",
+        "resolution",
+        "temporal_coverage_start",
+        "temporal_coverage_end",
+        "spatial_extent",
+        "license_or_terms",
+        "missingness_policy"
+      ],
+      "qc_checks": [
+        "CRS alignment across retained layers",
+        "resolution harmonization to the final analysis grid",
+        "nodata and extraction missingness audit after raster extraction",
+        "accessible-area/background sensitivity analysis",
+        "spatial block cross-validation split definition",
+        "sampling-bias review for GBIF-derived presence records"
+      ],
+      "validation_design": {
+        "allowed_claim_boundary": "suitability only unless a separate risk outcome table is approved",
+        "minimum_holdout_strategy": "spatial block validation rather than random row split",
+        "sensitivity_requirements": [
+          "background/accessibility mask sensitivity",
+          "covariate-set sensitivity",
+          "presence thinning or bias-control sensitivity if GBIF spatial clustering is material"
+        ]
+      },
+      "current_blockers": [
+        "Current environmental table is a pilot sample rather than the final full covariate package.",
+        "Background design is declared but not yet materialized as an approved accessible-area implementation.",
+        "No approved formal target exists for human risk, and suitability-only remains the only potentially supportable near-term target.",
+        "Final spatial validation and bias-mitigation protocol are not yet locked."
+      ]
+    },
+    {
+      "gate_id": "formal_rt",
+      "current_status": "blocked",
+      "existing_evidence_artifacts": [
+        "reports/rt_time_series_gate.md",
+        "data/metadata/rt_time_series_gate.json",
+        "data/metadata/rt_analysis_scope_gate.json"
+      ],
+      "exact_required_external_inputs": [
+        "Disease-specific serial/generation-interval protocol applicable to the exact hantavirus syndrome under analysis.",
+        "Subannual incidence time series with timing semantics that justify Rt estimation.",
+        "Reporting-delay/right-truncation protocol and sensitivity plan matched to that incidence source."
+      ],
+      "required_schema_fields": [
+        "disease_scope",
+        "case_time_series_source",
+        "case_definition",
+        "time_unit",
+        "reporting_delay_policy",
+        "serial_interval_source",
+        "right_truncation_policy",
+        "estimation_method"
+      ],
+      "qc_checks": [
+        "subannual time resolution",
+        "nonnegative incidence",
+        "date continuity",
+        "minimum count sufficiency",
+        "interval sensitivity"
+      ],
+      "validation_design": {
+        "minimum_requirement": "formal Rt remains disallowed until interval assumptions are disease-specific and justified against reported-count timing semantics"
+      },
+      "current_blockers": [
+        "No disease-specific serial/generation-interval protocol is present.",
+        "Monthly ECDC reported counts are only justified for descriptive growth proxies, not formal Rt.",
+        "CDC WONDER data are annual and unusable for Rt."
+      ]
+    },
+    {
+      "gate_id": "global_cross_study_host_abundance",
+      "current_status": "blocked",
+      "existing_evidence_artifacts": [
+        "data/metadata/host_trapping_file_screening_manifest.json",
+        "reports/host_trapping_screening_plan.md",
+        "reports/hanta_host_trapping_gate_review.md"
+      ],
+      "exact_required_external_inputs": [
+        "Multi-study trapping datasets with explicit trap effort or trap-night fields, count/capture outcomes, locations/admin areas, dates, and usable terms.",
+        "Cross-study taxonomy/species standardization and duplicate-event review inputs.",
+        "Approved abundance/detection protocol addressing effort heterogeneity and study-design differences."
+      ],
+      "required_schema_fields": [
+        "source_id",
+        "species",
+        "event_date",
+        "trap_effort",
+        "count_or_capture",
+        "coordinate_or_admin_area",
+        "license_or_terms"
+      ],
+      "qc_checks": [
+        "effort completeness",
+        "count-effort join",
+        "date/location completeness",
+        "species standardization",
+        "duplicate event review"
+      ],
+      "validation_design": {
+        "minimum_requirement": "cross-study abundance inference requires explicit effort harmonization and representativeness review before any pooled model"
+      },
+      "current_blockers": [
+        "Existing public sources support bounded within-study diagnostics only.",
+        "Cross-study harmonized effort/count frame is not yet assembled.",
+        "No approved global abundance model scope exists."
+      ]
+    },
+    {
+      "gate_id": "host_switch_phylogeny",
+      "current_status": "blocked",
+      "existing_evidence_artifacts": [
+        "data/metadata/sequence_body_download_manifest.json",
+        "reports/hantaan_expanded_phylogeny_qc.md",
+        "reports/hantaan_minimal_phylogeny_qc.md"
+      ],
+      "self_service_evidence_addition_in_repo": "public sequence_body_download_manifest now contains 12 downloaded sequence bodies across Sin Nombre, Puumala, and Seoul virus records, but this still does not satisfy host-switch design requirements",
+      "exact_required_external_inputs": [
+        "DVC-tracked multi-host sequence bodies and flatfile metadata spanning broader host taxa and geography than the current bounded set.",
+        "Taxonomy-audit inputs for host labels and isolate provenance, including duplicate, lab-strain, and reassortment screening.",
+        "Prespecified segment-specific alignment/tree workflow with uncertainty propagation for host-trait transition inference."
+      ],
+      "required_schema_fields": [
+        "accession",
+        "segment",
+        "virus_species",
+        "host_species",
+        "country",
+        "collection_date",
+        "sequence_length",
+        "download_date",
+        "license_or_terms",
+        "quality_exclusion_reason"
+      ],
+      "qc_checks": [
+        "sequence length",
+        "segment identity",
+        "host/date/location completeness",
+        "duplicate isolate review",
+        "alignment quality",
+        "tree uncertainty"
+      ],
+      "validation_design": {
+        "minimum_requirement": "host-switch inference needs segment-specific phylogenies with uncertainty propagation and audited host metadata; accession inventory alone is insufficient"
+      },
+      "current_blockers": [
+        "Current evidence is still bounded QC/readiness rather than an approved inference design.",
+        "Host labels remain submitter-provided and unaudited.",
+        "No approved host-transition phylogenetic workflow exists in-repo."
+      ]
+    }
+  ],
   "modules": [
     {
-      "bias_review_required": [
-        "spatial sampling bias",
-        "background selection",
-        "spatial autocorrelation",
-        "modifiable areal unit sensitivity"
-      ],
-      "claim_boundary": "suitability only unless a valid risk outcome is approved",
-      "current_status": "blocked_pending_real_data",
-      "fail_criteria": "metadata-only covariates, missing target/background design, unreviewed spatial bias, or risk language without outcome",
-      "gate_id": "environmental_covariates_schema",
-      "minimum_pass_criteria": "real covariates and target/background design exist; bias risk is not high_unmitigated; QC summaries pass predeclared thresholds",
       "module_id": "environmental_suitability_or_risk_map",
-      "qc_checks": [
-        "CRS alignment",
-        "resolution harmonization",
-        "covariate missingness",
-        "spatial block split definition",
-        "background sensitivity"
-      ],
+      "gate_id": "formal_environmental_suitability_or_risk",
+      "current_status": "selected_next_but_blocked_pending_full_inputs",
+      "claim_boundary": "suitability only unless a valid risk outcome is approved",
       "required_data_artifacts": [
         "DVC-tracked environmental covariate files with file-level metadata",
         "approved target outcome table or explicit suitability-only target definition",
@@ -61,192 +256,30 @@
         "spatial_extent",
         "license_or_terms",
         "missingness_policy"
-      ]
-    },
-    {
-      "bias_review_required": [
-        "survey design representativeness",
-        "detection heterogeneity",
-        "location disclosure",
-        "effort completeness"
       ],
-      "claim_boundary": "no abundance inference without effort-screened trapping data",
-      "current_status": "blocked_pending_real_data",
-      "fail_criteria": "GBIF occurrence density only, missing effort, missing counts, or unverifiable survey design",
-      "gate_id": "host_trapping_screening",
-      "minimum_pass_criteria": "effort and count fields exist for retained records; location/date are adequate; bias risk is mitigated or explicitly bounded",
-      "module_id": "host_abundance_model",
       "qc_checks": [
-        "effort completeness",
-        "count-effort join",
-        "date/location completeness",
-        "species standardization",
-        "duplicate event review"
+        "CRS alignment",
+        "resolution harmonization",
+        "covariate missingness",
+        "spatial block split definition",
+        "background sensitivity"
       ],
-      "required_data_artifacts": [
-        "DVC-tracked host trapping files",
-        "trap effort/trap-night table",
-        "species count or capture table",
-        "location/date table"
-      ],
-      "required_schema_fields": [
-        "source_id",
-        "species",
-        "event_date",
-        "trap_effort",
-        "count_or_capture",
-        "coordinate_or_admin_area",
-        "license_or_terms"
-      ]
-    },
-    {
       "bias_review_required": [
-        "case-definition comparability",
-        "reporting completeness",
-        "privacy suppression",
-        "denominator/exposure choice"
+        "spatial sampling bias",
+        "background selection",
+        "spatial autocorrelation",
+        "modifiable areal unit sensitivity"
       ],
-      "claim_boundary": "aggregate case mapping only, not individual risk",
-      "current_status": "partially_unblocked_for_coarse_aggregate_descriptive_mapping_only",
-      "qc_checks": [
-        "case count numeric validation",
-        "date interval validation",
-        "admin-name harmonization",
-        "suppressed-cell preservation"
-      ],
-      "required_data_artifacts": [
-        "DVC-tracked public surveillance table",
-        "case definition/provenance note",
-        "privacy suppression policy"
-      ],
-      "required_schema_fields": [
-        "source_id",
-        "source_url_or_citation",
-        "access_date",
-        "case_definition",
-        "syndrome",
-        "reporting_period_start",
-        "reporting_period_end",
-        "admin_level",
-        "admin_name",
-        "case_count",
-        "privacy_suppression_rule",
-        "license_or_terms"
-      ]
-    },
-    {
-      "bias_review_required": [
-        "reporting delay",
-        "right truncation",
-        "case definition stability",
-        "minimum count sufficiency"
-      ],
-      "claim_boundary": "formal Rt only after transmission-specific assumptions pass",
-      "current_status": "blocked_pending_real_data",
-      "fail_criteria": "annual-only counts, descriptive growth proxy, missing interval, or unstable reporting definition",
-      "gate_id": "rt_analysis_scope",
-      "minimum_pass_criteria": "disease-specific subannual incidence and interval assumptions pass QC and sensitivity protocol",
-      "module_id": "rt_estimation",
-      "qc_checks": [
-        "subannual time resolution",
-        "nonnegative incidence",
-        "date continuity",
-        "minimum count threshold",
-        "interval sensitivity"
-      ],
-      "required_data_artifacts": [
-        "DVC-tracked incidence time series",
-        "serial/generation interval source",
-        "reporting-delay and censoring protocol"
-      ],
-      "required_schema_fields": [
-        "disease_scope",
-        "case_time_series_source",
-        "case_definition",
-        "time_unit",
-        "reporting_delay_policy",
-        "serial_interval_source",
-        "right_truncation_policy",
-        "estimation_method"
-      ]
-    },
-    {
-      "bias_review_required": [
-        "post-hoc join avoidance",
-        "spatial/temporal alignment",
-        "sampling bias",
-        "duplication/missingness"
-      ],
-      "claim_boundary": "association/design only unless causal design is approved",
-      "current_status": "blocked_pending_real_data",
-      "fail_criteria": "post-hoc exploratory join, missing keys, non-overlapping time/space, or high_unmitigated bias",
-      "gate_id": "cross_source_join_bias_review",
-      "minimum_pass_criteria": "join protocol is pre-specified; unmatched/missingness are quantified; high bias is mitigated or module skipped",
-      "module_id": "spillover_or_surveillance_join",
-      "qc_checks": [
-        "join cardinality",
-        "unmatched records",
-        "temporal overlap",
-        "spatial unit consistency",
-        "bias-risk rating"
-      ],
-      "required_data_artifacts": [
-        "approved left/right source tables",
-        "pre-specified spatial join keys",
-        "pre-specified temporal windows",
-        "bias review report"
-      ],
-      "required_schema_fields": [
-        "left_source_id",
-        "right_source_id",
-        "join_key",
-        "spatial_alignment_rule",
-        "temporal_alignment_rule",
-        "duplication_policy",
-        "missingness_policy",
-        "bias_risk_rating",
-        "approved_use"
-      ]
-    },
-    {
-      "bias_review_required": [
-        "submitter metadata reliability",
-        "sampling imbalance",
-        "segment/reassortment uncertainty",
-        "lab strain exclusion"
-      ],
-      "claim_boundary": "host-switch inference only after sequence-body phylogeny gates pass",
-      "current_status": "blocked_pending_real_data",
-      "fail_criteria": "metadata-only accessions, missing sequence bodies, ambiguous hosts, or no phylogenetic uncertainty propagation",
-      "gate_id": "sequence_body_download_plan",
-      "minimum_pass_criteria": "sequence bodies and metadata pass segment-specific QC; phylogenetic design and uncertainty plan are approved",
-      "module_id": "host_switch_phylogenetic_inference",
-      "qc_checks": [
-        "sequence length",
-        "segment identity",
-        "host/date/location completeness",
-        "duplicate isolate review",
-        "alignment quality",
-        "tree uncertainty"
-      ],
-      "required_data_artifacts": [
-        "DVC-tracked sequence bodies",
-        "GenBank flatfile metadata",
-        "taxonomy review",
-        "alignment and tree design"
-      ],
-      "required_schema_fields": [
-        "accession",
-        "segment",
-        "virus_species",
-        "host_species",
-        "country",
-        "collection_date",
-        "sequence_length",
-        "download_date",
-        "license_or_terms",
-        "quality_exclusion_reason"
-      ]
+      "minimum_pass_criteria": "real covariates and target/background design exist; bias risk is not high_unmitigated; QC summaries pass predeclared thresholds",
+      "fail_criteria": "metadata-only covariates, missing target/background design, unreviewed spatial bias, or risk language without outcome",
+      "validation_design": {
+        "split_rule": "spatially blocked holdout",
+        "required_bias_sensitivity": [
+          "background sensitivity",
+          "sampling-bias sensitivity"
+        ],
+        "prohibited_shortcut": "random row split used as sole validation"
+      }
     }
   ],
   "pass_criteria": [
@@ -257,15 +290,16 @@
     "bias review is completed with bias_risk_rating not high_unmitigated for executable modules",
     "module-specific QC passes before model execution"
   ],
-  "required_artifacts": [
-    "data/metadata/environmental_covariate_file_manifest.json",
-    "data/metadata/human_surveillance_intake_manifest.json",
-    "data/metadata/sequence_body_download_manifest.json",
-    "data/metadata/host_trapping_file_screening_manifest.json",
-    "reports/hanta_advanced_bias_review.json",
-    "reports/hanta_advanced_qc_summary.json"
+  "fail_criteria": [
+    "placeholder or planning-only data are used as analysis inputs",
+    "join keys, CRS, dates, case definition, effort, sequence body, or provenance are missing",
+    "bias review finds high_unmitigated risk",
+    "any claim is stronger than the supporting data and design"
   ],
-  "schema_version": "0.1.0",
-  "status": "readiness_plan_only_no_advanced_gate_passed",
-  "validation_passed": true
+  "guardrails": [
+    "this readiness plan does not make advanced gates pass",
+    "formal gate selection for next planning is not gate passage",
+    "real data must be ingested, DVC-tracked, schema-validated, and bias-reviewed before any advanced module can execute",
+    "planning completeness is not scientific evidence or model readiness"
+  ]
 }

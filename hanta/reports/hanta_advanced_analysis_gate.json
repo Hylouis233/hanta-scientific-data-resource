@@ -16,7 +16,16 @@
     "coarse aggregate descriptive human-case mapping from provenance-complete CDC annual state and ECDC country-month surveillance tables only",
     "descriptive country-month hantavirus growth proxy summaries from the ECDC surveillance slice under explicit non-Rt guardrails"
   ],
-  "generated_at_utc": "2026-05-30T07:33:57.743716+00:00",
+  "formal_gate_next_priority": {
+    "gate_id": "formal_environmental_suitability_or_risk",
+    "status": "selected_for_next_protocol_planning_only_formal_gate_still_blocked",
+    "why_most_realistic_next": [
+      "Existing in-repo public/self-service evidence is strongest for environmental suitability planning.",
+      "Remaining blockers are primarily final target/background and validation design completion rather than a missing scientific primitive.",
+      "Other candidate gates remain blocked by deeper evidence gaps: interval protocol for Rt, cross-study effort harmonization for abundance, and audited multi-host phylogenetic design for host-switch inference."
+    ]
+  },
+  "generated_at_utc": "2026-05-31T08:15:53.502901+00:00",
   "guardrails": [
     "do not convert record availability maps into risk maps",
     "do not infer host abundance from GBIF occurrences without a sampling-bias model and approved scope",
@@ -24,7 +33,8 @@
     "do not join GBIF, GenBank, human surveillance, or environmental covariates in this gate",
     "do not fit cross-source surveillance/host/environment models until a non-causal target/outcome, complete aligned covariates, and explicit bias controls are approved",
     "do not label descriptive monthly growth proxies as formal Rt or EpiEstim outputs",
-    "do not perform formal Rt estimation without a disease-specific interval protocol and method justification tied to reported-count timing"
+    "do not perform formal Rt estimation without a disease-specific interval protocol and method justification tied to reported-count timing",
+    "selecting a most realistic next formal gate does not pass that gate"
   ],
   "minimum_gates": [
     "approved scoped transition beyond metadata/provenance mode",
@@ -33,6 +43,10 @@
     "sequence-body download plan and separate phylogenetic/host-switch design before genome inference",
     "disease-specific transmission analysis scope before any Rt estimation",
     "pre-specified join keys and bias review before cross-source joins"
+  ],
+  "next_protocol_artifacts": [
+    "reports/hanta_advanced_gate_readiness_plan.md",
+    "reports/hanta_advanced_gate_readiness_plan.json"
   ],
   "prerequisite_gates": {
     "cross_source_join_bias_review": {
@@ -98,7 +112,7 @@
       "validation_passed": true
     }
   },
-  "schema_version": "0.2.0",
+  "schema_version": "0.3.0",
   "status": "advanced_analysis_gate_blocked",
   "validation_passed": true
 }

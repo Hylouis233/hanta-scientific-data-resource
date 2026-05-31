@@ -1,5 +1,5 @@
 outs:
-- md5: 8fcaffd1586c914a0afcebfc0e9e2994
-  size: 10280
+- md5: 07069782106e7c5ee7e817c299df3091
+  size: 13583
   hash: md5
   path: environmental_covariate_file_manifest.json

@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-30T18:09:17.144653+00:00",
+  "generated_at_utc": "2026-05-31T03:30:43.092803+00:00",
   "guardrails": [
     "metadata endpoints only; no large WorldPop raster downloaded",
     "public/self-service evidence does not authorize risk-map claims",

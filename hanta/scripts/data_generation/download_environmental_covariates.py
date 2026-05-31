@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import csv
 import json
 import urllib.request
 import zipfile
@@ -61,6 +62,25 @@ SOURCES = [
         "download_type": "file",
     },
     {
+        "source_id": "modis_mod13q1_v061_public_listing_sample",
+        "url": "https://ladsweb.modaps.eosdis.nasa.gov/archive/allData/61/MOD13Q1/2000/049.csv",
+        "variable_group": "vegetation_index_catalog_listing",
+        "version": "061",
+        "resolution": "250 m",
+        "temporal_coverage": "2000-02-18 16-day composite directory listing sample",
+        "license_or_terms": "NASA EOSDIS public data with citation guidance; catalog/listing evidence only",
+        "download_type": "file",
+        "catalog_metadata": {
+            "product": "MOD13Q1",
+            "collection": "061",
+            "doi": "10.5067/MODIS/MOD13Q1.061",
+            "cmr_collection_url": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=MOD13Q1&version=061",
+            "laads_archive_root_listing": "https://ladsweb.modaps.eosdis.nasa.gov/archive/allData/61/MOD13Q1.csv",
+            "laads_sample_day_listing": "https://ladsweb.modaps.eosdis.nasa.gov/archive/allData/61/MOD13Q1/2000/049.csv",
+            "granule_bytes_status": "not_ingested; public listing verified, exact selected-tile granule download still requires endpoint validation",
+        },
+    },
+    {
         "source_id": "worldpop_population_chn_2020_public_metadata",
         "url": "https://hub.worldpop.org/data/licence.txt",
         "variable_group": "human_population_metadata_only",
@@ -101,6 +121,7 @@ RAW_DIR = ROOT / "data/raw/environmental_covariates/self_service_public"
 MANIFEST = ROOT / "data/metadata/environmental_covariate_file_manifest.json"
 REPORT = ROOT / "reports/environmental_covariate_file_qc.md"
 SUMMARY = ROOT / "reports/worldpop_public_metadata_evidence.json"
+MODIS_SUMMARY = ROOT / "reports/modis_public_listing_evidence.json"
 
 
 def _download(url: str, path: Path) -> None:
@@ -136,6 +157,24 @@ def _write_text(path: Path, text: str) -> None:
     path.write_text(text, encoding="utf-8")
 
 
+def _summarize_modis_listing(path: Path) -> dict[str, Any]:
+    with path.open(encoding="utf-8", newline="") as handle:
+        rows = list(csv.DictReader(handle))
+    hdf_rows = [row for row in rows if row.get("name", "").endswith(".hdf")]
+    return {
+        "listing_row_count": len(rows),
+        "hdf_granule_count": len(hdf_rows),
+        "sample_granules": [
+            {
+                "name": row.get("name", ""),
+                "size": int(row.get("size", "0") or 0),
+                "download_url": row.get("downloadsLink", ""),
+            }
+            for row in hdf_rows[:5]
+        ],
+    }
+
+
 def _record_from_source(source: dict[str, Any], path: Path) -> dict[str, Any]:
     if source.get("skip_download"):
         members = source.get("members_override", [])
@@ -152,7 +191,7 @@ def _record_from_source(source: dict[str, Any], path: Path) -> dict[str, Any]:
 
     _download(source["url"], path)
     members = _members_for_record(path, source["download_type"])
-    return {
+    record = {
         **source,
         "archive_path": str(path),
         "archive_size": path.stat().st_size,
@@ -162,6 +201,11 @@ def _record_from_source(source: dict[str, Any], path: Path) -> dict[str, Any]:
         "missingness_policy": "evaluate nodata or geometry completeness after downstream extraction",
         "validation_passed": path.stat().st_size > 0 and len(members) > 0,
     }
+    if source["source_id"].startswith("modis_"):
+        record["listing_summary"] = _summarize_modis_listing(path)
+        record["validation_passed"] = record["validation_passed"] and record["listing_summary"]["hdf_granule_count"] > 0
+        record["missingness_policy"] = "catalog listing only; inspect QA, nodata, and selected granule bytes only after explicit tile/time selection"
+    return record
 
 
 def main() -> int:
@@ -187,6 +231,7 @@ def main() -> int:
         ],
     }
     worldpop_records = [record for record in records if record["source_id"].startswith("worldpop_")]
+    modis_records = [record for record in records if record["source_id"].startswith("modis_")]
     _write_text(MANIFEST, json.dumps(payload, indent=2, sort_keys=True) + "\n")
     _write_text(SUMMARY, json.dumps({
         "generated_at_utc": generated_at_utc,
@@ -199,6 +244,18 @@ def main() -> int:
             "WorldPop use remains limited to future human exposure covariate consideration after explicit approval",
         ],
         "validation_passed": len(worldpop_records) > 0 and all(record["validation_passed"] for record in worldpop_records),
+    }, indent=2, sort_keys=True) + "\n")
+    _write_text(MODIS_SUMMARY, json.dumps({
+        "generated_at_utc": generated_at_utc,
+        "status": "modis_mod13q1_public_listing_captured_without_credentials",
+        "record_count": len(modis_records),
+        "records": modis_records,
+        "guardrails": [
+            "catalog and directory listing evidence only; no MODIS granule bytes ingested",
+            "listing evidence does not authorize vegetation-index modeling, risk maps, suitability models, or surveillance joins",
+            "selected tiles, QA masks, reprojection, and temporal aggregation must be specified before granule ingestion",
+        ],
+        "validation_passed": len(modis_records) > 0 and all(record["validation_passed"] for record in modis_records),
     }, indent=2, sort_keys=True) + "\n")
     _write_text(REPORT, "\n".join([
         "# Environmental covariate file QC",

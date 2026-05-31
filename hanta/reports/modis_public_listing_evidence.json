@@ -1,0 +1,75 @@
+{
+  "generated_at_utc": "2026-05-31T03:30:43.092803+00:00",
+  "guardrails": [
+    "catalog and directory listing evidence only; no MODIS granule bytes ingested",
+    "listing evidence does not authorize vegetation-index modeling, risk maps, suitability models, or surveillance joins",
+    "selected tiles, QA masks, reprojection, and temporal aggregation must be specified before granule ingestion"
+  ],
+  "record_count": 1,
+  "records": [
+    {
+      "archive_path": "/home/lh/d/autoresearch/hanta/data/raw/environmental_covariates/self_service_public/049.csv",
+      "archive_size": 64477,
+      "catalog_metadata": {
+        "cmr_collection_url": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=MOD13Q1&version=061",
+        "collection": "061",
+        "doi": "10.5067/MODIS/MOD13Q1.061",
+        "granule_bytes_status": "not_ingested; public listing verified, exact selected-tile granule download still requires endpoint validation",
+        "laads_archive_root_listing": "https://ladsweb.modaps.eosdis.nasa.gov/archive/allData/61/MOD13Q1.csv",
+        "laads_sample_day_listing": "https://ladsweb.modaps.eosdis.nasa.gov/archive/allData/61/MOD13Q1/2000/049.csv",
+        "product": "MOD13Q1"
+      },
+      "crs": "confirm_from_file_metadata_before_modeling",
+      "download_type": "file",
+      "license_or_terms": "NASA EOSDIS public data with citation guidance; catalog/listing evidence only",
+      "listing_summary": {
+        "hdf_granule_count": 294,
+        "listing_row_count": 294,
+        "sample_granules": [
+          {
+            "download_url": "https://ladsweb.modaps.eosdis.nasa.gov/archive/allData/61/MOD13Q1/2000/049/MOD13Q1.A2000049.h00v08.061.2020041152316.hdf",
+            "name": "MOD13Q1.A2000049.h00v08.061.2020041152316.hdf",
+            "size": 5183284
+          },
+          {
+            "download_url": "https://ladsweb.modaps.eosdis.nasa.gov/archive/allData/61/MOD13Q1/2000/049/MOD13Q1.A2000049.h00v09.061.2020041152634.hdf",
+            "name": "MOD13Q1.A2000049.h00v09.061.2020041152634.hdf",
+            "size": 5193099
+          },
+          {
+            "download_url": "https://ladsweb.modaps.eosdis.nasa.gov/archive/allData/61/MOD13Q1/2000/049/MOD13Q1.A2000049.h00v10.061.2020041151934.hdf",
+            "name": "MOD13Q1.A2000049.h00v10.061.2020041151934.hdf",
+            "size": 5486173
+          },
+          {
+            "download_url": "https://ladsweb.modaps.eosdis.nasa.gov/archive/allData/61/MOD13Q1/2000/049/MOD13Q1.A2000049.h01v07.061.2020041152427.hdf",
+            "name": "MOD13Q1.A2000049.h01v07.061.2020041152427.hdf",
+            "size": 5186516
+          },
+          {
+            "download_url": "https://ladsweb.modaps.eosdis.nasa.gov/archive/allData/61/MOD13Q1/2000/049/MOD13Q1.A2000049.h01v08.061.2020041152302.hdf",
+            "name": "MOD13Q1.A2000049.h01v08.061.2020041152302.hdf",
+            "size": 5185485
+          }
+        ]
+      },
+      "member_count": 1,
+      "members": [
+        {
+          "name": "049.csv",
+          "size": 64477
+        }
+      ],
+      "missingness_policy": "catalog listing only; inspect QA, nodata, and selected granule bytes only after explicit tile/time selection",
+      "resolution": "250 m",
+      "source_id": "modis_mod13q1_v061_public_listing_sample",
+      "temporal_coverage": "2000-02-18 16-day composite directory listing sample",
+      "url": "https://ladsweb.modaps.eosdis.nasa.gov/archive/allData/61/MOD13Q1/2000/049.csv",
+      "validation_passed": true,
+      "variable_group": "vegetation_index_catalog_listing",
+      "version": "061"
+    }
+  ],
+  "status": "modis_mod13q1_public_listing_captured_without_credentials",
+  "validation_passed": true
+}

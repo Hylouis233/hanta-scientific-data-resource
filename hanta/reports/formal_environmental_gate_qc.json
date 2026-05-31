@@ -1,0 +1,72 @@
+{
+  "advanced_model_gate_passed": false,
+  "blocking_thresholds": [],
+  "formal_environmental_input_gate_passed": true,
+  "generated_at_utc": "2026-05-31T17:30:38.559623+00:00",
+  "guardrails": [
+    "Phase 1 prepares input/QC artifacts only and does not fit a suitability model.",
+    "The target remains GBIF host-occurrence suitability, not human infection risk, host abundance, spillover, Rt, or causality.",
+    "No risk map or disease forecast is produced or authorized.",
+    "Formal model claims remain blocked until a separate model gate is run and reviewed."
+  ],
+  "next_step": "eligible_for_separate_bounded_host_occurrence_model_gate",
+  "schema_version": "0.1.0",
+  "status": "formal_environmental_phase1_input_gate_passed_model_still_blocked",
+  "threshold_rows": [
+    {
+      "metric": "presence_rows",
+      "observed": 125,
+      "passed": true,
+      "threshold": ">=100"
+    },
+    {
+      "metric": "coordinate_completeness",
+      "observed": 1.0,
+      "passed": true,
+      "threshold": ">=0.98"
+    },
+    {
+      "metric": "coordinate_uncertainty_documented",
+      "observed": 1.0,
+      "passed": true,
+      "threshold": ">=0.95"
+    },
+    {
+      "metric": "covariate_missingness_max",
+      "observed": 0.0,
+      "passed": true,
+      "threshold": "<=0.05"
+    },
+    {
+      "metric": "duplicate_coordinate_fraction",
+      "observed": 0.728,
+      "passed": true,
+      "threshold": "document_only_for_phase1"
+    },
+    {
+      "metric": "background_replicates",
+      "observed": 5,
+      "passed": true,
+      "threshold": ">=3"
+    },
+    {
+      "metric": "spatial_folds",
+      "observed": 5,
+      "passed": true,
+      "threshold": ">=5"
+    },
+    {
+      "metric": "validation_fold_presence_min",
+      "observed": 25,
+      "passed": true,
+      "threshold": ">=10"
+    },
+    {
+      "metric": "validation_fold_background_min",
+      "observed": 246,
+      "passed": true,
+      "threshold": ">0"
+    }
+  ],
+  "validation_passed": true
+}

@@ -1,0 +1,19 @@
+{
+  "background_replicates": 5,
+  "background_rows": 6250,
+  "coordinate_completeness": 1.0,
+  "coordinate_uncertainty_documented_fraction": 1.0,
+  "duplicate_coordinate_fraction": 0.728,
+  "generated_at_utc": "2026-05-31T17:30:38.559623+00:00",
+  "guardrails": [
+    "Phase 1 prepares input/QC artifacts only and does not fit a suitability model.",
+    "The target remains GBIF host-occurrence suitability, not human infection risk, host abundance, spillover, Rt, or causality.",
+    "No risk map or disease forecast is produced or authorized.",
+    "Formal model claims remain blocked until a separate model gate is run and reviewed."
+  ],
+  "modeling_input_table_path": "data/processed/environmental_suitability/formal_gate_presence_background_rows.csv",
+  "presence_rows": 125,
+  "schema_version": "0.1.0",
+  "status": "formal_environmental_modeling_input_table_complete",
+  "validation_passed": true
+}

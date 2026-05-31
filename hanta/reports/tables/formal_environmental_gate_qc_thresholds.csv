@@ -1,0 +1,10 @@
+metric,threshold,observed,passed
+presence_rows,>=100,125,True
+coordinate_completeness,>=0.98,1.0,True
+coordinate_uncertainty_documented,>=0.95,1.0,True
+covariate_missingness_max,<=0.05,0.0,True
+duplicate_coordinate_fraction,document_only_for_phase1,0.728,True
+background_replicates,>=3,5,True
+spatial_folds,>=5,5,True
+validation_fold_presence_min,>=10,25,True
+validation_fold_background_min,>0,246,True

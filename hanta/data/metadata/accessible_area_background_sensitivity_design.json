@@ -1,0 +1,27 @@
+{
+  "accessible_area_id": "M_apodemus_agrarius_china_gbif_250km_landmask_v1",
+  "background_design_ids": [
+    "bg_bias_window_accessible_area_rep1_10x",
+    "bg_bias_window_accessible_area_rep2_10x"
+  ],
+  "background_replicates": 2,
+  "background_rows": 2500,
+  "background_rows_per_replicate": {
+    "1": 1250,
+    "2": 1250
+  },
+  "background_table_path": "data/processed/environmental_suitability/accessible_area_background_sensitivity_points.csv",
+  "generated_at_utc": "2026-05-31T17:30:38.559623+00:00",
+  "guardrails": [
+    "Phase 1 prepares input/QC artifacts only and does not fit a suitability model.",
+    "The target remains GBIF host-occurrence suitability, not human infection risk, host abundance, spillover, Rt, or causality.",
+    "No risk map or disease forecast is produced or authorized.",
+    "Formal model claims remain blocked until a separate model gate is run and reviewed."
+  ],
+  "random_seed": 20260601,
+  "sampling_design": "bias-window sampling-effort proxy inside accessible-area mask",
+  "schema_version": "0.1.0",
+  "status": "background_sensitivity_points_generated_model_still_blocked",
+  "target_species_scope": "Apodemus agrarius",
+  "validation_passed": true
+}

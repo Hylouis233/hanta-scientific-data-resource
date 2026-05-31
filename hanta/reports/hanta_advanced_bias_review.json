@@ -1,14 +1,14 @@
 {
   "blocked_reviews": {
     "bounded_non_causal_cross_source_model": "blocked_no_aligned_target_outcome_full_covariate_layer_or_bias_control_design",
-    "environmental_suitability_or_risk_map": "formal_suitability_or_human_risk_mapping_still_blocked_near_term_host_occurrence_gate_protocol_defined_but_not_executed",
+    "environmental_suitability_or_risk_map": "formal_suitability_or_human_risk_mapping_still_blocked_accessible_area_mask_materialized_but_background_validation_and_model_qc_not_executed",
     "host_abundance_model": "blocked_no_trap_effort_or_count_files_screened",
     "host_switch_phylogenetic_inference": "blocked_sequence_qc_can_run_but_alignment_design_and_host_switch_gate_fail",
     "human_case_mapping": "blocked_no_provenance_complete_surveillance_table",
     "rt_estimation": "blocked_no_subannual_incidence_time_series_or_interval_protocol",
     "spillover_or_surveillance_join": "blocked_descriptive_join_qc_only_alias_harmonization_documented_but_no_inferential_spillover_support"
   },
-  "generated_at_utc": "2026-05-31T12:50:06.448441+00:00",
+  "generated_at_utc": "2026-05-31T13:09:47.872817+00:00",
   "guardrails": [
     "evidence passes are limited to existing real GBIF occurrence and GenBank metadata layers",
     "advanced model gates remain blocked until their required real data and QC artifacts exist",
@@ -16,6 +16,17 @@
     "GenBank metadata accessions are not sequence-body phylogenetic evidence"
   ],
   "passed_reviews": {
+    "environmental_accessible_area_mask_design": {
+      "bias_risk_rating": "bounded_accessible_area_scaffold_only",
+      "decision": "pass_for_accessible_area_materialization_not_modeling",
+      "remaining_biases": [
+        "host-range or regional biogeographic support layer review",
+        "duplicate thinning before final modeling table generation",
+        "bias-aware and uniform background replicate generation inside this mask",
+        "covariate extraction manifest with row-level joins",
+        "spatial block fold assignment and QC"
+      ]
+    },
     "environmental_covariate_file_intake": {
       "bias_risk_rating": "bounded_file_intake_only",
       "decision": "pass_for_covariate_file_presence_not_modeling",

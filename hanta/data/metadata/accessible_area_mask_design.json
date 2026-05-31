@@ -1,0 +1,42 @@
+{
+  "accessible_area_id": "M_apodemus_agrarius_china_gbif_250km_landmask_v1",
+  "accessible_area_km2": 2310821.094,
+  "bounds": [
+    96.8598917897012,
+    22.948109995728252,
+    131.8036342102988,
+    50.014849467920115
+  ],
+  "buffer_distance_km": 250,
+  "buffer_justification": "Operational near-term M scaffold around vetted single-species GBIF presences, clipped to land; ecological host-range support is still required before formal modeling.",
+  "coordinate_uncertainty_documented_fraction": 1.0,
+  "country_counts": {
+    "CN": 125
+  },
+  "crs": "EPSG:4326",
+  "dataset_count": 6,
+  "duplicate_coordinate_fraction_rounded_5dp": 0.728,
+  "generated_at_utc": "2026-05-31T13:09:47.872817+00:00",
+  "guardrails": [
+    "This materializes only the accessible-area mask prerequisite for the GBIF host-occurrence suitability gate.",
+    "No background points are generated here.",
+    "No suitability model, risk map, host abundance inference, spillover inference, Rt estimate, or human-risk target is produced or authorized.",
+    "Formal environmental modeling remains blocked until background generation, covariate extraction, spatial block validation, and QC thresholds pass."
+  ],
+  "land_mask_source": "data/raw/environmental_covariates/self_service_public/ne_10m_land.zip",
+  "mask_geojson_path": "data/metadata/accessible_area_mask_apodemus_agrarius_china.geojson",
+  "presence_country_scope": "CN",
+  "presence_rows": 125,
+  "presence_source": "data/processed/gbif_rodent_occurrences/candidate_occurrences.tsv.gz",
+  "remaining_requirements": [
+    "host-range or regional biogeographic support layer review",
+    "duplicate thinning before final modeling table generation",
+    "bias-aware and uniform background replicate generation inside this mask",
+    "covariate extraction manifest with row-level joins",
+    "spatial block fold assignment and QC"
+  ],
+  "schema_version": "0.1.0",
+  "status": "accessible_area_mask_materialized_model_still_blocked",
+  "target_species": "Apodemus agrarius",
+  "validation_passed": true
+}

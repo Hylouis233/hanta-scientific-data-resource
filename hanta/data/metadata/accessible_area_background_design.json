@@ -1,0 +1,40 @@
+{
+  "accessible_area_id": "M_apodemus_agrarius_china_gbif_250km_landmask_v1",
+  "background_design_ids": [
+    "bg_uniform_accessible_area_rep1_10x",
+    "bg_uniform_accessible_area_rep2_10x",
+    "bg_uniform_accessible_area_rep3_10x"
+  ],
+  "background_per_presence": 10,
+  "background_replicates": 3,
+  "background_rows": 3750,
+  "background_rows_per_replicate": {
+    "1": 1250,
+    "2": 1250,
+    "3": 1250
+  },
+  "background_table_path": "data/processed/environmental_suitability/accessible_area_background_points.csv",
+  "generated_at_utc": "2026-05-31T14:23:58.005270+00:00",
+  "guardrails": [
+    "Background rows are generated only inside the materialized accessible-area mask.",
+    "These rows replace the global-pilot background design for gate preparation but do not fit a model.",
+    "No suitability model, risk map, host abundance inference, spillover inference, Rt estimate, or human-risk target is produced or authorized.",
+    "Formal environmental modeling remains blocked until sensitivity backgrounds, covariate extraction, spatial block validation, and QC thresholds pass."
+  ],
+  "presence_country_scope": "CN",
+  "presence_rows": 125,
+  "random_seed": 20260531,
+  "remaining_requirements": [
+    "bias-aware target-group or sampling-effort background sensitivity set",
+    "alternative buffer-width accessible-area sensitivity set",
+    "covariate extraction manifest with row-level joins for presence and background rows",
+    "spatial block fold assignment and per-fold presence/background QC",
+    "duplicate thinning before final modeling table generation"
+  ],
+  "sampling_design": "uniform random background inside the approved accessible-area mask only",
+  "schema_version": "0.1.0",
+  "sensitivity_design_status": "uniform replicates generated; bias-aware and buffer-width sensitivity designs remain required before formal gate passage",
+  "status": "accessible_area_background_points_generated_model_still_blocked",
+  "target_species_scope": "Apodemus agrarius",
+  "validation_passed": true
+}

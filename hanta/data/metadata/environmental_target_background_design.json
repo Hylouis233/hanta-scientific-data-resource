@@ -1,19 +1,117 @@
 {
-  "allowed_target": "GBIF candidate host occurrence presence/background suitability only after explicit approval",
-  "background_design": "spatial background must be generated within an approved accessible-area mask and sensitivity-tested; not generated in this gate",
-  "blocked_targets": [
-    "human infection risk",
-    "host abundance",
-    "spillover risk",
-    "Rt",
-    "causal intervention effect"
-  ],
-  "generated_at_utc": "2026-05-30T17:19:51.254810+00:00",
+  "background_and_accessible_area_protocol": {
+    "accessible_area_definition": "Define an explicit accessible area (M) before background generation using host-range-informed ecoregion or biogeographic masks plus a documented dispersal buffer around vetted GBIF presences.",
+    "background_generation": {
+      "design": "Sample background points only inside the approved accessible-area mask and outside excluded nodata cells.",
+      "hard_blocks": [
+        "no global pseudo-background",
+        "no background sampling outside the approved accessible area",
+        "no use of human surveillance counts or human population surfaces as the target definition"
+      ],
+      "points_per_presence_guidance": "target 5x to 20x as many background points as presences, capped by accessible-area size and raster resolution",
+      "replicates": 3,
+      "sensitivity_sets": [
+        "uniform background within accessible area",
+        "bias-aware background using a documented sampling-effort proxy or target-group background",
+        "buffer-width sensitivity using at least two alternative accessible-area extents"
+      ]
+    },
+    "required_accessible_area_inputs": [
+      "retained GBIF presence coordinates after QC and duplicate thinning review",
+      "host range or regional biogeographic support layer used to bound M",
+      "documented buffer distance or ecological justification for the accessible-area extent",
+      "land/sea mask and CRS-aligned model extent"
+    ]
+  },
+  "covariate_extraction_manifest_requirements": {
+    "required_fields": [
+      "source_id",
+      "variable_name",
+      "version",
+      "download_date",
+      "crs",
+      "resolution",
+      "temporal_coverage_start",
+      "temporal_coverage_end",
+      "spatial_extent",
+      "license_or_terms",
+      "missingness_policy",
+      "transform_or_units",
+      "nodata_value",
+      "resampling_rule",
+      "extraction_geometry",
+      "extraction_date",
+      "accessible_area_id",
+      "background_design_id",
+      "fold_assignment_rule"
+    ],
+    "required_row_level_join_keys": [
+      "record_id",
+      "gbifID_or_background_id",
+      "label",
+      "decimalLongitude",
+      "decimalLatitude"
+    ],
+    "requirements": [
+      "Every extracted covariate layer must declare CRS, resolution, nodata, and resampling policy.",
+      "The manifest must identify the accessible area and background design used to create each extracted table.",
+      "Extraction outputs must preserve a join key back to each GBIF presence or generated background point.",
+      "Temporal mismatch between occurrence dates and static climatology must be disclosed in the manifest notes."
+    ]
+  },
+  "generated_at_utc": "2026-05-31T12:50:06.448441+00:00",
   "guardrails": [
-    "target/background design declaration is not model execution",
-    "WorldClim covariates alone do not define risk"
+    "This protocol defines a near-term formal gate only and does not fit a suitability model.",
+    "This artifact does not authorize or produce a formal risk map.",
+    "Any passed future gate must still be labeled host-occurrence suitability unless a separate human-risk target gate is approved.",
+    "WorldClim or other environmental covariates alone do not define risk.",
+    "Do not pool disparate host systems across continents without an explicit justification review.",
+    "Do not claim gate passage in this artifact."
   ],
-  "schema_version": "0.1.0",
-  "status": "target_background_design_declared_for_future_modeling",
+  "pass_fail_qc_thresholds": {
+    "background_replicate_count_minimum": 3,
+    "coordinate_completeness_minimum": 0.98,
+    "coordinate_uncertainty_documented_minimum": 0.95,
+    "covariate_missingness_maximum_per_variable": 0.05,
+    "duplicate_coordinate_fraction_maximum_after_thinning": 0.1,
+    "fail_rule": "Fail if any threshold is missed, if accessible area/background are undocumented, if folds are not spatially disjoint, or if target semantics drift toward human risk or abundance.",
+    "pass_rule": "Near-term formal gate planning can be marked ready only if target semantics, accessible area, background design, covariate extraction manifest, and spatial block validation plan are all predeclared and all QC thresholds are met on the prepared modeling table.",
+    "presence_row_minimum": 100,
+    "spatial_fold_count_minimum": 5,
+    "validation_fold_presence_minimum": 10
+  },
+  "recommended_target": {
+    "not_allowed_targets": [
+      "human infection risk",
+      "host abundance",
+      "spillover risk",
+      "Rt",
+      "causal intervention effect"
+    ],
+    "presence_source": "GBIF candidate host occurrence records that pass row-level QC and taxonomic screening",
+    "recommended_species_scope": "single host species or tightly justified reservoir complex per regional model; avoid pooled cross-continental reservoir systems in the near-term formal gate",
+    "response_semantics": "host occurrence suitability only; not human infection risk, not host abundance, and not spillover probability",
+    "response_unit": "host occurrence record versus accessible-area background point",
+    "target_name": "GBIF host-occurrence suitability",
+    "target_type": "presence_background_suitability"
+  },
+  "schema_version": "0.2.0",
+  "spatial_validation_protocol": {
+    "design": "Use spatially disjoint folds built from presence and background data within the accessible area, with fold construction documented before model fitting.",
+    "minimum_plan": {
+      "holdout_rule": "each validation fold must contain both presences and background rows after blocking",
+      "leakage_guardrail": "duplicate or near-duplicate coordinates cannot be split across train and validation folds",
+      "outer_folds": 5,
+      "repeats": 1
+    },
+    "reporting_requirements": [
+      "fold geometry description or block-generation rule",
+      "per-fold presence/background counts",
+      "distance or block-size rationale tied to spatial autocorrelation risk",
+      "sensitivity note if alternative block sizes materially change discrimination"
+    ],
+    "strategy": "Spatial block cross-validation only for the near-term formal gate."
+  },
+  "status": "near_term_formal_environmental_gate_protocol_defined_model_still_blocked",
   "validation_passed": true
 }

@@ -8,10 +8,11 @@ from pathlib import Path
 from typing import Any
 
 
-PLAN_JSON = Path("reports/hanta_advanced_gate_readiness_plan.json")
-PLAN_MD = Path("reports/hanta_advanced_gate_readiness_plan.md")
-MATRIX_CSV = Path("reports/tables/hanta_advanced_gate_readiness_matrix.csv")
-FIELDS_CSV = Path("reports/tables/hanta_advanced_required_fields.csv")
+ROOT = Path(__file__).resolve().parents[2]
+PLAN_JSON = ROOT / "reports/hanta_advanced_gate_readiness_plan.json"
+PLAN_MD = ROOT / "reports/hanta_advanced_gate_readiness_plan.md"
+MATRIX_CSV = ROOT / "reports/tables/hanta_advanced_gate_readiness_matrix.csv"
+FIELDS_CSV = ROOT / "reports/tables/hanta_advanced_required_fields.csv"
 
 
 MODULES = [
@@ -20,13 +21,14 @@ MODULES = [
         "gate_id": "environmental_covariates_schema",
         "required_data_artifacts": [
             "DVC-tracked environmental covariate files with file-level metadata",
-            "approved target outcome table or explicit suitability-only target definition",
-            "background/negative sampling design document",
+            "near-term formal host-occurrence suitability target definition",
+            "accessible-area and background design protocol",
+            "spatial block validation plan",
         ],
         "required_schema_fields": ["source_id", "variable_name", "version", "download_date", "crs", "resolution", "temporal_coverage_start", "temporal_coverage_end", "spatial_extent", "license_or_terms", "missingness_policy"],
         "bias_review_required": ["spatial sampling bias", "background selection", "spatial autocorrelation", "modifiable areal unit sensitivity"],
         "qc_checks": ["CRS alignment", "resolution harmonization", "covariate missingness", "spatial block split definition", "background sensitivity"],
-        "minimum_pass_criteria": "real covariates and target/background design exist; bias risk is not high_unmitigated; QC summaries pass predeclared thresholds",
+        "minimum_pass_criteria": "real covariates and a concrete GBIF host-occurrence suitability target/background protocol exist; bias risk is not high_unmitigated; spatial block validation and covariate extraction QC thresholds are predeclared and passed",
         "fail_criteria": "metadata-only covariates, missing target/background design, unreviewed spatial bias, or risk language without outcome",
         "current_status": "blocked_pending_real_data",
         "claim_boundary": "suitability only unless a valid risk outcome is approved",
@@ -153,6 +155,8 @@ def main() -> int:
         "guardrails": GUARDRAILS,
         "validation_passed": True,
     }
+    PLAN_JSON.parent.mkdir(parents=True, exist_ok=True)
+    PLAN_MD.parent.mkdir(parents=True, exist_ok=True)
     PLAN_JSON.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     PLAN_MD.write_text("\n".join([
         "# Hanta advanced gate readiness plan",

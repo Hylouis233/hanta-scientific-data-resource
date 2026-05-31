@@ -188,7 +188,7 @@
       "status": "planning_scaffold_only"
     }
   ],
-  "generated_at_utc": "2026-05-31T08:18:07.548776+00:00",
+  "generated_at_utc": "2026-05-31T12:50:06.556937+00:00",
   "guardrails": [
     "no risk maps, host abundance inference, human case maps, Rt estimation, spillover inference, host-switch inference, or surveillance joins are executed",
     "available figures are descriptive record-availability or planning scaffolds only",

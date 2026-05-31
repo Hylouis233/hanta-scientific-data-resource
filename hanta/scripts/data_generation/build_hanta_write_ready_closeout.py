@@ -16,6 +16,7 @@ CLOSEOUT_JSON = ROOT / "reports/hanta_write_ready_closeout.json"
 CLOSEOUT_MD = ROOT / "reports/hanta_write_ready_closeout.md"
 CLOSEOUT_TABLE_CSV = ROOT / "reports/tables/hanta_workstream1_closeout_summary.csv"
 FIGURE_TABLE_CSV = ROOT / "reports/tables/hanta_write_ready_figures.csv"
+MANUSCRIPT_SKELETON_MD = ROOT / "manuscripts/hanta_generated_manuscript_skeleton.md"
 
 NO_ANALYSIS_GUARDRAILS = [
     "no risk maps, host abundance inference, human case maps, Rt estimation, spillover inference, host-switch inference, or surveillance joins are executed",
@@ -216,6 +217,77 @@ def _build_provenance_narrative() -> list[str]:
     ]
 
 
+def _build_abstract(summary_rows: list[dict[str, str]]) -> list[str]:
+    downloaded_count = sum(row["closeout_state"] == "downloaded" for row in summary_rows)
+    metadata_only_count = sum(row["closeout_state"] == "metadata/listing-only" for row in summary_rows)
+    blocked_count = sum(row["closeout_state"] == "blocked" for row in summary_rows)
+    return [
+        "This generated manuscript skeleton summarizes the current Hanta closeout as a public/self-service data-provenance exercise rather than a scientific inference study.",
+        f"Across {len(summary_rows)} reviewed source lanes, {downloaded_count} were closed with downloaded public artifacts, {metadata_only_count} remained at metadata/listing-only status, and {blocked_count} remained blocked for self-service reuse.",
+        "The present record supports a reproducible description of source discovery, download boundaries, and descriptive availability checks for GBIF host occurrences, GenBank/NCBI sequence provenance, aggregate surveillance exports, and selected environmental or trapping-data routes.",
+        "It does not support claims about disease risk, transmission dynamics, Rt, host-switching, spillover, causal relationships, or integrated surveillance-ecology modeling.",
+    ]
+
+
+def _build_next_gate_roadmap(summary_rows: list[dict[str, str]]) -> list[str]:
+    status_by_lane = {row["lane"]: row for row in summary_rows}
+    return [
+        f"Resolve MODIS granule-endpoint validation and ingestion protocol before any vegetation covariate extraction ({status_by_lane['MODIS']['advanced_gate_status']}).",
+        f"Select and approve a concrete WorldPop raster product before any population covariate use ({status_by_lane['WorldPop']['advanced_gate_status']}).",
+        f"Complete ECDC suppression, case-definition, and geography harmonization review before any surveillance joins or time-series interpretation ({status_by_lane['ECDC']['advanced_gate_status']}).",
+        f"Keep CDC WONDER limited to coarse annual provenance unless a verified finer-grained public series is captured ({status_by_lane['CDC WONDER']['advanced_gate_status']}).",
+        f"Treat GBIF as descriptive host-occurrence evidence only until separate gates clear abundance or spatial modeling ({status_by_lane['GBIF']['advanced_gate_status']}).",
+        f"Finish taxonomy/provenance audit and explicit phylogenetic design review before any sequence-derived comparative claims ({status_by_lane['GenBank/Hantaan']['advanced_gate_status']}).",
+        f"Close coordinate and license semantics for host-trapping files before any cross-study ecological synthesis ({status_by_lane['USGS host trapping']['advanced_gate_status']}).",
+        f"Carry unresolved public-source gaps forward explicitly for China HFRS and EDI/LTER without backfilling unsupported data ({status_by_lane['China HFRS']['advanced_gate_status']}; {status_by_lane['EDI/LTER']['advanced_gate_status']}).",
+    ]
+
+
+def _build_manuscript_skeleton(summary_rows: list[dict[str, str]], provenance_narrative: list[str]) -> list[str]:
+    abstract_lines = _build_abstract(summary_rows)
+    roadmap_lines = _build_next_gate_roadmap(summary_rows)
+    return [
+        "# Generated Hanta manuscript skeleton",
+        "",
+        "Status: generated from current closeout artifacts; writing scaffold only, with explicit claim boundaries.",
+        "",
+        "## Abstract",
+        "",
+        *abstract_lines,
+        "",
+        "## Data provenance",
+        "",
+        *provenance_narrative,
+        "",
+        "## Public/self-service acquisition results",
+        "",
+        "| Lane | Source | Current result | Evidence summary | Allowed manuscript use |",
+        "| --- | --- | --- | --- | --- |",
+        *[
+            f"| {row['lane']} | {row['source_label']} | {row['closeout_state']} | {row['evidence_summary']} | {row['manuscript_boundary']} |"
+            for row in summary_rows
+        ],
+        "",
+        "## Guardrails/limitations",
+        "",
+        *[f"- {item}" for item in NO_ANALYSIS_GUARDRAILS],
+        *[f"- blocked analysis category: `{item}`" for item in BLOCKED_ANALYSES],
+        "- unresolved lanes should be described as acquisition gaps or deferred gates, not as negative scientific results.",
+        "- planning-scaffold figures may be cited only as placeholders for future work and not as evidentiary results.",
+        "",
+        "## Next-gate roadmap",
+        "",
+        *[f"- {item}" for item in roadmap_lines],
+        "",
+        "## Drafting notes",
+        "",
+        "- Preserve source-by-source boundaries instead of implying a merged analytic cohort.",
+        "- When describing downloaded materials, distinguish downloaded data from metadata/listing-only evidence.",
+        "- Avoid outcome, mechanism, and forecasting language unless later gates explicitly authorize it.",
+        "",
+    ]
+
+
 def main() -> int:
     generated_at_utc = datetime.now(timezone.utc).isoformat()
     summary_rows = _build_summary_rows()
@@ -278,7 +350,8 @@ def main() -> int:
         *[f"- {item}" for item in NO_ANALYSIS_GUARDRAILS],
         "",
     ])
-    print(json.dumps({"status": payload["status"], "summary_row_count": len(summary_rows), "figure_count": len(FIGURES), "blocked_analysis_count": len(BLOCKED_ANALYSES)}, sort_keys=True))
+    _write_md(MANUSCRIPT_SKELETON_MD, _build_manuscript_skeleton(summary_rows, provenance_narrative))
+    print(json.dumps({"status": payload["status"], "summary_row_count": len(summary_rows), "figure_count": len(FIGURES), "blocked_analysis_count": len(BLOCKED_ANALYSES), "manuscript_skeleton": str(MANUSCRIPT_SKELETON_MD.relative_to(ROOT))}, sort_keys=True))
     return 0 if payload["validation_passed"] else 1
 
 

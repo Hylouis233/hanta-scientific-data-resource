@@ -114,7 +114,7 @@ def main() -> int:
     static_covariate_inventory = _load_json(reports / "static_environmental_covariate_inventory.json")
     static_covariate_inventory_present = static_covariate_inventory.get("validation_passed") is True and static_covariate_inventory.get("status") == "static_covariate_inventory_complete" and (reports / "static_environmental_covariate_inventory.md").exists() and (tables / "static_environmental_covariate_inventory.csv").exists()
     modis_access_plan = _load_json(reports / "modis_access_plan.json")
-    modis_access_plan_present = modis_access_plan.get("validation_passed") is True and modis_access_plan.get("status") == "modis_access_plan_complete" and (reports / "modis_access_plan.md").exists() and (project_root / "data" / "metadata" / "modis_tile_earthdata_plan.json").exists()
+    modis_access_plan_present = modis_access_plan.get("validation_passed") is True and modis_access_plan.get("status") in {"modis_access_plan_complete", "modis_public_catalog_and_listing_verified_no_credentials"} and (reports / "modis_access_plan.md").exists() and (project_root / "data" / "metadata" / "modis_tile_earthdata_plan.json").exists()
     ecdc_surveillance_export_plan = _load_json(reports / "ecdc_surveillance_export_plan.json")
     ecdc_surveillance_export_plan_present = ecdc_surveillance_export_plan.get("validation_passed") is True and ecdc_surveillance_export_plan.get("status") in {"ecdc_surveillance_export_plan_complete", "public_export_captured_terms_incomplete"} and (reports / "ecdc_surveillance_export_plan.md").exists() and (project_root / "data" / "metadata" / "ecdc_atlas_export_protocol.json").exists()
     ncbi_sequence_body_export_plan = _load_json(reports / "ncbi_entrez_sequence_body_export_plan.json")

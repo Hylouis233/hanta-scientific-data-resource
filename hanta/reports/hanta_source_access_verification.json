@@ -1,6 +1,6 @@
 {
   "access_verified_count": 8,
-  "generated_at_utc": "2026-05-30T17:19:51.148918+00:00",
+  "generated_at_utc": "2026-05-31T03:22:02.406618+00:00",
   "guardrails": [
     "source access verification does not ingest analysis datasets",
     "source access verification does not execute risk maps, abundance inference, human case maps, Rt, spillover, host-switch, or surveillance joins",
@@ -172,24 +172,25 @@
       "url": "https://www.worldclim.org/data/worldclim21.html"
     },
     {
-      "access_status": "access_verified_requires_earthdata_workflow",
+      "access_status": "access_verified_public_catalog_and_listing_no_credentials",
       "analysis_readiness": "covariate_inventory_ready",
       "category": "environmental_covariate",
-      "caveat": "vegetation proxy only; does not measure rodents or cases",
+      "caveat": "public metadata/catalog and archive listings are directly reachable without credentials in this environment, but actual granule retrieval may still depend on endpoint behavior and should be validated tile-by-tile before analysis",
       "could_unlock": [
         "risk_maps",
         "host_abundance_inference",
         "spillover_inference"
       ],
-      "expected_format": "HDF-EOS2 granules or cloud-enabled assets",
+      "expected_format": "catalog metadata plus HDF-EOS2 granule listings; direct granule download should be validated tile-by-tile before use",
       "guardrails_preserved": true,
       "missing_or_pending_fields": [
         "tile_list",
         "QA_filter",
         "reprojection_rule",
-        "temporal_aggregation_rule"
+        "temporal_aggregation_rule",
+        "granule_download_behavior_for_selected_tiles"
       ],
-      "next_action": "define tiles, Earthdata auth route, QA mask, and seasonal summary rules",
+      "next_action": "define tiles, QA mask, and seasonal summary rules, then validate the exact no-credential or authenticated granule endpoint needed for chosen tiles before ingestion",
       "not_sufficient_for": [
         "host_abundance_without_trapping_effort_or_bias_model"
       ],
@@ -200,13 +201,14 @@
         "resolution",
         "temporal_coverage_start",
         "temporal_coverage_end",
-        "license_or_terms"
+        "license_or_terms",
+        "public_listing_route"
       ],
-      "required_follow_up": "define QA filtering, temporal aggregation, MODIS sinusoidal reprojection, and NASA Earthdata access method",
-      "retrieval_route": "NASA Earthdata/LP DAAC catalog, CMR, or cloud access",
+      "required_follow_up": "define QA filtering, temporal aggregation, MODIS sinusoidal reprojection, and choose direct public listing or authenticated Earthdata granule route as needed",
+      "retrieval_route": "LP DAAC and Earthdata catalog pages, CMR collection metadata, and LAADS public directory CSV listings",
       "source_id": "modis_mod13q1_v061",
       "source_name": "MODIS MOD13Q1 v061 NDVI/EVI",
-      "status": "confirmed_public_source_requires_earthdata_route",
+      "status": "confirmed_public_source_self_service_catalog_and_listing_verified",
       "supports_gates": [
         "environmental_covariates_schema"
       ],

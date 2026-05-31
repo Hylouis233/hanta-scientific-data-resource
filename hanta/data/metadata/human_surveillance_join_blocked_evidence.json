@@ -61,7 +61,7 @@
     "surveillance joins still need case-definition, reportability, suppression, and geography harmonization review",
     "China CDC English public pages did not expose a verified HFRS bulletin table"
   ],
-  "generated_at_utc": "2026-05-30T17:19:51.148918+00:00",
+  "generated_at_utc": "2026-05-31T03:22:02.406618+00:00",
   "generated_from": "public no-credential CDC WONDER, ECDC Atlas, and official web inspection performed in current environment",
   "guardrails": [
     "this artifact records source access evidence only and does not ingest case data",

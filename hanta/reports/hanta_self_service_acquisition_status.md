@@ -15,7 +15,7 @@ Ready or already evidenced for continued automation:
 
 ## B. Registration-only
 
-- MODIS MOD13Q1 via NASA Earthdata login
+- MODIS MOD13Q1 public catalog and archive listings without credentials; granule-byte retrieval still needs endpoint validation for chosen tiles
 
 ## C. Permission/email-gated deferred
 

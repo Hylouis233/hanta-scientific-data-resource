@@ -18,7 +18,7 @@ Status: public-source acquisition plan updated; no advanced analyses executed.
 - `china_cdc_hfrs_monthly_bulletins` (high): high_value_candidate_needs_access_verification
 - `cdc_nndss_hcps` (medium): confirmed_public_csv_export_captured_annual_only
 - `worldclim_2_1` (high): confirmed_public_source
-- `modis_mod13q1_v061` (high): confirmed_public_source_requires_earthdata_route
+- `modis_mod13q1_v061` (high): confirmed_public_source_self_service_catalog_and_listing_verified
 - `esa_worldcover_2021` (high): confirmed_public_source
 - `copernicus_dem_glo30` (high): confirmed_public_source
 - `worldpop_population` (medium_high): confirmed_public_portal_needs_license_endpoint_check

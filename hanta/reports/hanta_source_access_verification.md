@@ -10,7 +10,7 @@ Verified or route-confirmed sources: 8 / 13.
 - `china_cdc_hfrs_monthly_bulletins`: candidate_not_access_verified — not_ready
 - `cdc_nndss_hcps`: public_csv_export_captured_annual_only — annual_state_mapping_only
 - `worldclim_2_1`: access_verified_static_download_source — covariate_inventory_ready
-- `modis_mod13q1_v061`: access_verified_requires_earthdata_workflow — covariate_inventory_ready
+- `modis_mod13q1_v061`: access_verified_public_catalog_and_listing_no_credentials — covariate_inventory_ready
 - `esa_worldcover_2021`: access_verified_static_download_source — covariate_inventory_ready
 - `copernicus_dem_glo30`: access_verified_static_download_source — covariate_inventory_ready
 - `worldpop_population`: access_verified_portal_api_needs_product_selection — exposure_covariate_planning_only

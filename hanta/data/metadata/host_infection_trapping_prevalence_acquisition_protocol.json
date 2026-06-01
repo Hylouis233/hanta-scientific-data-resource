@@ -1,0 +1,27 @@
+{
+  "data_dictionary_path": "reports/tables/host_infection_trapping_data_dictionary.csv",
+  "field_gap_matrix_path": "reports/tables/host_infection_trapping_field_gap_matrix.csv",
+  "generated_at_utc": "2026-06-01T13:03:50.101772+00:00",
+  "inventory_path": "reports/host_infection_trapping_prevalence_inventory.json",
+  "minimum_required_fields": [
+    "study_id",
+    "site_id",
+    "decimalLongitude",
+    "decimalLatitude",
+    "coordinate_uncertainty",
+    "sampling_date",
+    "species",
+    "taxonomy_authority",
+    "trap_nights",
+    "captures",
+    "tested_count",
+    "positive_count",
+    "assay_type",
+    "study_protocol",
+    "license_or_terms"
+  ],
+  "schema_version": "0.1.0",
+  "status": "host_infection_trapping_prevalence_acquisition_protocol_ready",
+  "target_outcome": "rodent host infection/test positivity and/or capture counts with effort by site/time/species",
+  "validation_passed": true
+}

@@ -1,0 +1,16 @@
+field,definition,required_for_gate
+study_id,"Stable identifier for publication, dataset, or requested study package.",yes
+site_id,Stable sampling site identifier within a study.,yes
+decimalLongitude,Site longitude in WGS84 decimal degrees.,yes
+decimalLatitude,Site latitude in WGS84 decimal degrees.,yes
+coordinate_uncertainty,Spatial uncertainty in meters or equivalent documented precision.,yes
+sampling_date,Sampling date or interval start/end; at least month/year preferred.,yes
+species,Captured/tested host species label.,yes
+taxonomy_authority,Authority or reference used for host taxonomy harmonization.,yes
+trap_nights,Trap effort denominator for captures at site/time/species or study stratum.,yes
+captures,Number of captured individuals for the stratum.,yes
+tested_count,Number of individuals tested for hantavirus infection or antibodies.,yes
+positive_count,Number of tested individuals positive by the stated assay.,yes
+assay_type,"Diagnostic assay type and target, e.g. PCR, ELISA, IFA, antigen/antibody.",yes
+study_protocol,Short protocol or citation describing trap design and testing workflow.,yes
+license_or_terms,"Reuse license, data-sharing terms, or author-granted permission scope.",yes

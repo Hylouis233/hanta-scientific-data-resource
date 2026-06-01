@@ -1,0 +1,71 @@
+{
+  "decision": "do_not_pass_gate",
+  "diagnostic_figure_path": "reports/figures/formal_host_occurrence_background_sensitivity_diagnostics.svg",
+  "generated_at_utc": "2026-06-01T07:30:21.398640+00:00",
+  "guardrails": [
+    "Background sensitivity comparisons are diagnostics only and do not override the primary failed model gate.",
+    "A successful uniform-only contrast would not be sufficient for risk or suitability gate passage if bias-window diagnostics fail.",
+    "No risk map, human-risk, abundance, spillover, Rt, or causal claim is authorized."
+  ],
+  "metrics_table_path": "reports/tables/formal_host_occurrence_background_sensitivity_model_metrics.csv",
+  "robust_gate_support": false,
+  "schema_version": "0.1.0",
+  "status": "background_sensitivity_model_comparison_complete_gate_still_blocked",
+  "summary": [
+    {
+      "background_design": "uniform",
+      "feature_set": "base",
+      "gate_like_passed": false,
+      "max_brier_score": 0.298717,
+      "mean_auc": 0.424804,
+      "mean_brier_score": 0.261904,
+      "min_auc": 0.288621
+    },
+    {
+      "background_design": "uniform",
+      "feature_set": "expanded",
+      "gate_like_passed": false,
+      "max_brier_score": 0.363788,
+      "mean_auc": 0.412848,
+      "mean_brier_score": 0.278855,
+      "min_auc": 0.249935
+    },
+    {
+      "background_design": "bias_window",
+      "feature_set": "base",
+      "gate_like_passed": false,
+      "max_brier_score": 0.270235,
+      "mean_auc": 0.500939,
+      "mean_brier_score": 0.244207,
+      "min_auc": 0.292493
+    },
+    {
+      "background_design": "bias_window",
+      "feature_set": "expanded",
+      "gate_like_passed": false,
+      "max_brier_score": 0.304656,
+      "mean_auc": 0.491137,
+      "mean_brier_score": 0.242747,
+      "min_auc": 0.307527
+    },
+    {
+      "background_design": "combined",
+      "feature_set": "base",
+      "gate_like_passed": false,
+      "max_brier_score": 0.277607,
+      "mean_auc": 0.458299,
+      "mean_brier_score": 0.252709,
+      "min_auc": 0.290357
+    },
+    {
+      "background_design": "combined",
+      "feature_set": "expanded",
+      "gate_like_passed": false,
+      "max_brier_score": 0.350585,
+      "mean_auc": 0.440809,
+      "mean_brier_score": 0.261416,
+      "min_auc": 0.26813
+    }
+  ],
+  "validation_passed": true
+}

@@ -1,0 +1,37 @@
+{
+  "added_features": [
+    "bio2_mean_diurnal_range",
+    "bio4_temperature_seasonality",
+    "bio5_max_temperature_warmest_month",
+    "bio6_min_temperature_coldest_month",
+    "bio15_precipitation_seasonality"
+  ],
+  "all_features": [
+    "bio1_mean_annual_temperature",
+    "bio12_annual_precipitation",
+    "elevation",
+    "bio2_mean_diurnal_range",
+    "bio4_temperature_seasonality",
+    "bio5_max_temperature_warmest_month",
+    "bio6_min_temperature_coldest_month",
+    "bio15_precipitation_seasonality"
+  ],
+  "base_covariate_table_path": "data/processed/environmental_suitability/formal_gate_covariate_table.csv",
+  "expanded_covariate_table_path": "data/processed/environmental_suitability/formal_gate_covariate_table_expanded.csv",
+  "generated_at_utc": "2026-06-01T07:30:21.398640+00:00",
+  "guardrails": [
+    "Expanded covariates come only from already downloaded WorldClim files.",
+    "WorldClim covariates support host-occurrence suitability diagnostics only, not human risk mapping.",
+    "MODIS, WorldPop, and human surveillance data are not used in this host-occurrence target."
+  ],
+  "missing_by_added_feature": {
+    "bio15_precipitation_seasonality": 0.0,
+    "bio2_mean_diurnal_range": 0.0,
+    "bio4_temperature_seasonality": 0.0,
+    "bio5_max_temperature_warmest_month": 0.0,
+    "bio6_min_temperature_coldest_month": 0.0
+  },
+  "schema_version": "0.1.0",
+  "status": "formal_environmental_covariate_expansion_complete",
+  "validation_passed": true
+}

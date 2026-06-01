@@ -1,14 +1,14 @@
 {
   "blocked_reviews": {
     "bounded_non_causal_cross_source_model": "blocked_no_aligned_target_outcome_full_covariate_layer_or_bias_control_design",
-    "environmental_suitability_or_risk_map": "human_risk_mapping_still_blocked_bounded_host_occurrence_suitability_only",
+    "environmental_suitability_or_risk_map": "human_risk_and_formal_suitability_mapping_still_blocked_after_model_failure_diagnostics",
     "host_abundance_model": "blocked_no_trap_effort_or_count_files_screened",
     "host_switch_phylogenetic_inference": "blocked_sequence_qc_can_run_but_alignment_design_and_host_switch_gate_fail",
     "human_case_mapping": "blocked_no_provenance_complete_surveillance_table",
     "rt_estimation": "blocked_no_subannual_incidence_time_series_or_interval_protocol",
     "spillover_or_surveillance_join": "blocked_descriptive_join_qc_only_alias_harmonization_documented_but_no_inferential_spillover_support"
   },
-  "generated_at_utc": "2026-06-01T02:48:00.345145+00:00",
+  "generated_at_utc": "2026-06-01T07:30:21.398640+00:00",
   "guardrails": [
     "evidence passes are limited to existing real GBIF occurrence and GenBank metadata layers",
     "advanced model gates remain blocked until their required real data and QC artifacts exist",
@@ -73,6 +73,16 @@
         "global background is not approved accessible-area background",
         "spatial sampling bias is not corrected",
         "no spatial cross-validation or model fit"
+      ]
+    },
+    "formal_host_occurrence_failure_and_sensitivity_diagnostics": {
+      "bias_risk_rating": "diagnostic_only_gate_still_blocked",
+      "decision": "do_not_pass_model_gate_after_failure_diagnostics_and_background_sensitivity",
+      "remaining_biases": [
+        "weak spatial-CV discrimination",
+        "background-design sensitivity",
+        "GBIF sampling bias",
+        "no human outcome target"
       ]
     },
     "formal_host_occurrence_suitability_model_qc": {

@@ -1,13 +1,11 @@
 # Environmental formal gate decision
 
-Status: formal_host_occurrence_suitability_gate_blocked_after_model_qc.
+Status: formal_host_occurrence_suitability_gate_blocked_after_failure_and_sensitivity_diagnostics.
 
 Formal host-occurrence suitability gate passed: false
 Advanced model gate passed: false
 
-## Allowed claims
-
-- None beyond blocked/model-QC reporting.
+Failure diagnostics and background-sensitivity comparisons were completed. They do not support automatic gate passage.
 
 ## Disallowed claims
 

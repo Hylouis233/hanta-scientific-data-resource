@@ -1,0 +1,6 @@
+fold,train_rows,validation_rows,validation_presences,validation_background,auc,brier_score,log_loss,auc_below_random,brier_above_threshold
+1,6104,271,25,246,0.53252,0.276307,0.748294,False,True
+2,5447,928,25,903,0.514972,0.226005,0.64473,False,False
+3,4755,1620,25,1595,0.290357,0.275859,0.742028,True,True
+4,4853,1522,25,1497,0.449218,0.277607,0.748215,True,True
+5,4341,2034,25,2009,0.50443,0.207767,0.593438,False,False

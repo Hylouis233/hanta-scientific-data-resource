@@ -1,0 +1,46 @@
+{
+  "advanced_model_gate_passed": false,
+  "coefficient_summary": {
+    "bio12_annual_precipitation": {
+      "max": 0.137625,
+      "mean": -0.201632,
+      "min": -0.445017
+    },
+    "bio1_mean_annual_temperature": {
+      "max": 0.737178,
+      "mean": 0.426512,
+      "min": 0.109532
+    },
+    "elevation": {
+      "max": 0.438487,
+      "mean": 0.135379,
+      "min": -0.199351
+    }
+  },
+  "diagnostic_figure_path": "reports/figures/formal_host_occurrence_suitability_diagnostics.svg",
+  "feature_names": [
+    "bio1_mean_annual_temperature",
+    "bio12_annual_precipitation",
+    "elevation"
+  ],
+  "fold_count": 5,
+  "fold_metrics_path": "reports/tables/formal_host_occurrence_suitability_fold_metrics.csv",
+  "generated_at_utc": "2026-06-01T02:48:00.345145+00:00",
+  "guardrails": [
+    "Model target is GBIF host-occurrence suitability only.",
+    "Predictions are row-level suitability scores for the modeling table, not geographic risk maps.",
+    "No human infection risk, host abundance, spillover probability, Rt, forecast, or causal/intervention claim is authorized.",
+    "A passed model gate does not authorize disease-risk mapping or surveillance-ecology joins."
+  ],
+  "max_brier_score": 0.277607,
+  "mean_auc": 0.458299,
+  "mean_brier_score": 0.252709,
+  "min_auc": 0.290357,
+  "model_gate_passed": false,
+  "model_type": "regularized logistic regression with standardized covariates",
+  "prediction_table_path": "results/environmental_suitability/formal_host_occurrence_suitability_predictions.csv",
+  "schema_version": "0.1.0",
+  "status": "bounded_host_occurrence_suitability_model_qc_failed",
+  "target": "GBIF host-occurrence suitability",
+  "validation_passed": true
+}

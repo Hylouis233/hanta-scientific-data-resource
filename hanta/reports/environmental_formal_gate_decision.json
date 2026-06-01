@@ -1,0 +1,23 @@
+{
+  "advanced_model_gate_passed": false,
+  "allowed_claims": [],
+  "disallowed_claims": [
+    "risk map",
+    "human infection risk",
+    "host abundance",
+    "spillover probability",
+    "Rt",
+    "causal/intervention inference"
+  ],
+  "formal_host_occurrence_suitability_gate_passed": false,
+  "generated_at_utc": "2026-06-01T02:48:00.345145+00:00",
+  "guardrails": [
+    "Model target is GBIF host-occurrence suitability only.",
+    "Predictions are row-level suitability scores for the modeling table, not geographic risk maps.",
+    "No human infection risk, host abundance, spillover probability, Rt, forecast, or causal/intervention claim is authorized.",
+    "A passed model gate does not authorize disease-risk mapping or surveillance-ecology joins."
+  ],
+  "schema_version": "0.1.0",
+  "status": "formal_host_occurrence_suitability_gate_blocked_after_model_qc",
+  "validation_passed": true
+}

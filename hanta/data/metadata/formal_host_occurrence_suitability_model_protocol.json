@@ -1,0 +1,40 @@
+{
+  "allowed_outputs": [
+    "fold diagnostics",
+    "row-level held-out suitability scores",
+    "discrimination metric",
+    "Brier score",
+    "coefficient summary"
+  ],
+  "disallowed_outputs": [
+    "risk map",
+    "human infection risk",
+    "host abundance",
+    "spillover probability",
+    "Rt",
+    "causal/intervention inference"
+  ],
+  "features": [
+    "bio1_mean_annual_temperature",
+    "bio12_annual_precipitation",
+    "elevation"
+  ],
+  "generated_at_utc": "2026-06-01T02:48:00.345145+00:00",
+  "guardrails": [
+    "Model target is GBIF host-occurrence suitability only.",
+    "Predictions are row-level suitability scores for the modeling table, not geographic risk maps.",
+    "No human infection risk, host abundance, spillover probability, Rt, forecast, or causal/intervention claim is authorized.",
+    "A passed model gate does not authorize disease-risk mapping or surveillance-ecology joins."
+  ],
+  "inputs": {
+    "covariate_table": "data/processed/environmental_suitability/formal_gate_covariate_table.csv",
+    "fold_assignments": "data/processed/environmental_suitability/spatial_block_fold_assignments.csv",
+    "phase1_qc": "reports/formal_environmental_gate_qc.json"
+  },
+  "model_type": "regularized logistic regression with standardized covariates",
+  "schema_version": "0.1.0",
+  "status": "formal_host_occurrence_suitability_protocol_ready",
+  "target": "GBIF host-occurrence suitability",
+  "validation": "fixed 5-fold spatial block cross-validation from Phase 1",
+  "validation_passed": true
+}

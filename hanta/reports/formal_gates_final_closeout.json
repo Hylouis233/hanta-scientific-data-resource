@@ -1,0 +1,63 @@
+{
+  "all_advanced_model_claims_blocked": true,
+  "gates": [
+    {
+      "allowed_claim": "bounded workflow attempted and blocked after QC",
+      "disallowed_claims": "risk map; human infection risk; host abundance; spillover probability; Rt; causal inference",
+      "evidence_completed": "Phase 1 inputs passed; Phase 2 regularized logistic model attempted; failure diagnostics, expanded WorldClim covariates, and background-sensitivity comparisons completed",
+      "final_status": "formal_host_occurrence_suitability_gate_blocked_after_failure_and_sensitivity_diagnostics",
+      "gate": "environmental_host_occurrence_suitability",
+      "unblocker": "Better host-range-supported target/background design, additional ecologically justified covariates, stronger non-duplicated occurrence data, and stable spatial-CV diagnostics",
+      "why_blocked": "Primary model QC failed (mean AUC 0.458299, mean Brier 0.252709); background/covariate sensitivity robust_gate_support=False"
+    },
+    {
+      "allowed_claim": "public surveillance provenance captured",
+      "disallowed_claims": "human risk map; outbreak forecast; surveillance-ecology inference",
+      "evidence_completed": "ECDC and CDC WONDER public aggregate provenance captured; human-case map gate only descriptive availability",
+      "final_status": "blocked_no_valid_human_outcome_or_surveillance_ecology_join",
+      "gate": "human_risk_map",
+      "unblocker": "Licensed/public harmonized human case outcome with documented case definitions and join protocol",
+      "why_blocked": "No harmonized human outcome with case-definition, suppression, geography, and temporal alignment suitable for risk modeling"
+    },
+    {
+      "allowed_claim": "\u5f53\u524d Rt \u662f descriptive growth proxy\uff0c\u4e0d\u662f\u6b63\u5f0f EpiEstim\uff0c\u4e5f\u4e0d\u6784\u6210\u5e72\u9884\u56e0\u679c\u5206\u6790\u3002",
+      "disallowed_claims": "formal Rt estimate; intervention causal analysis; transmission inference",
+      "evidence_completed": "Rt scope gate present with status descriptive_growth_proxy_scope_only_formal_rt_blocked; descriptive growth proxy boundary documented",
+      "final_status": "blocked_no_interval_protocol_or_valid_incidence_series",
+      "gate": "formal_rt",
+      "unblocker": "Approved serial/generation interval protocol plus harmonized subannual incidence and reporting-delay assumptions",
+      "why_blocked": "No disease-specific serial/generation interval protocol and no consistent subannual incidence series fit for formal EpiEstim"
+    },
+    {
+      "allowed_claim": "public trapping-file availability documented",
+      "disallowed_claims": "host abundance surface; host density; cross-study ecological inference",
+      "evidence_completed": "USGS host trapping files screened; host trapping source count 2",
+      "final_status": "blocked_no_effort_harmonized_cross_study_trapping_frame",
+      "gate": "host_abundance",
+      "unblocker": "Effort-harmonized trapping frame with trap nights, site coordinates, species taxonomy, and detection model design",
+      "why_blocked": "Trap nights, site semantics, count/detection design, and comparable cross-study protocols are not harmonized"
+    },
+    {
+      "allowed_claim": "sequence-body acquisition and alignment-readiness evidence",
+      "disallowed_claims": "host-switch inference; spillover; reassortment conclusion",
+      "evidence_completed": "Hantaan sequence-body readiness: 24 records, 8 S/M/L triplets, multi-host expansion=True",
+      "final_status": "blocked_alignment_ready_but_no_host_switch_inference_permitted",
+      "gate": "host_switch_phylogeny",
+      "unblocker": "Prespecified taxonomy/provenance audit, segment alignments, phylogenetic model, contamination review, and sampling adequacy criteria",
+      "why_blocked": "Taxonomy/provenance audit, segment-specific alignment, tree design, reassortment safeguards, and sampling adequacy review are incomplete"
+    },
+    {
+      "allowed_claim": "public aggregate surveillance provenance and descriptive availability",
+      "disallowed_claims": "surveillance-ecology inference; spillover model; integrated risk model",
+      "evidence_completed": "Surveillance join QC gate present; descriptive join supported=True",
+      "final_status": "blocked_public_exports_captured_but_harmonization_and_target_outcome_missing",
+      "gate": "surveillance_join",
+      "unblocker": "Predeclared harmonized surveillance target and licensed geography/time join protocol",
+      "why_blocked": "Suppression handling, case-definition review, geography harmonization, temporal alignment, and valid target-outcome approval remain incomplete"
+    }
+  ],
+  "generated_at_utc": "2026-06-01T08:59:52.194722+00:00",
+  "schema_version": "0.1.0",
+  "status": "formal_blocked_gates_final_closeout_complete",
+  "validation_passed": true
+}

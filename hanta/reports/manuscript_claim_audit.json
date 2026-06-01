@@ -1,0 +1,31 @@
+{
+  "allowed_claims": [
+    "Public/self-service data provenance was captured source-by-source.",
+    "GBIF host-occurrence archive processing and candidate subsets were documented.",
+    "Environmental Phase 1 input gate was completed with accessible-area background, covariate extraction, spatial folds, and QC.",
+    "A bounded Phase 2 host-occurrence suitability model was attempted and failed model QC.",
+    "Failure diagnostics, expanded WorldClim covariates, and background-sensitivity comparisons were completed.",
+    "Formal advanced gates and their unblockers were documented."
+  ],
+  "conditional_claims": [],
+  "disallowed_claims": [
+    "human infection risk",
+    "disease risk map",
+    "outbreak prediction or forecasting",
+    "formal Rt estimation",
+    "host abundance or density",
+    "spillover inference",
+    "host-switch inference",
+    "surveillance-ecology join inference",
+    "causal/intervention effect"
+  ],
+  "generated_at_utc": "2026-06-01T08:59:52.194722+00:00",
+  "required_language": [
+    "\u5f53\u524d Rt \u662f descriptive growth proxy\uff0c\u4e0d\u662f\u6b63\u5f0f EpiEstim\uff0c\u4e5f\u4e0d\u6784\u6210\u5e72\u9884\u56e0\u679c\u5206\u6790\u3002",
+    "GBIF host occurrences are not human cases, host abundance, or infection risk.",
+    "The environmental model gate was attempted and remains blocked after QC."
+  ],
+  "schema_version": "0.1.0",
+  "status": "manuscript_claim_audit_complete",
+  "validation_passed": true
+}

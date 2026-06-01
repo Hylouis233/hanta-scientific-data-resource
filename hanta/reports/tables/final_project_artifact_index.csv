@@ -1,0 +1,9 @@
+artifact_path,artifact_type,source_data,evidentiary,allowed_use,disallowed_interpretation
+reports/hanta_write_ready_closeout.md,source closeout,source provenance,yes,public/self-service acquisition narrative,advanced inference
+reports/formal_environmental_gate_qc.md,Phase 1 gate QC,GBIF + WorldClim + background design,yes,input gate completion,model or risk claim
+reports/formal_host_occurrence_suitability_model_qc.md,Phase 2 model QC,formal covariate table + spatial folds,yes,attempted bounded model and failed QC,gate passage or risk
+reports/formal_host_occurrence_suitability_failure_diagnostics.md,failure diagnostics,Phase 2 predictions and fold metrics,yes,explain model failure,post-hoc gate passage
+reports/formal_host_occurrence_background_sensitivity_model_qc.md,background sensitivity diagnostics,uniform/bias-window backgrounds,yes,robustness failure,risk or suitability map
+reports/formal_gates_final_closeout.md,blocked gate closeout,all gate reports,yes,final blocker matrix,scientific inference
+reports/manuscript_claim_audit.md,claim audit,all closeout artifacts,yes,allowed/disallowed manuscript claims,unsupported claims
+manuscripts/hanta_generated_manuscript_skeleton.md,manuscript scaffold,closeout and gate artifacts,yes,ResearchOps manuscript drafting,final scientific conclusion

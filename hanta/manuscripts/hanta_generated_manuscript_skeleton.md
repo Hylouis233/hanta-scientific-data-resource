@@ -1,67 +1,85 @@
-# Generated Hanta manuscript skeleton
+# Hanta public-data ResearchOps and formal gate evaluation manuscript scaffold
 
-Status: generated from current closeout artifacts; writing scaffold only, with explicit claim boundaries.
+Status: final generated scaffold for writing; provenance/workflow claims only, with environmental model gate honestly blocked after QC.
 
 ## Abstract
 
-This generated manuscript skeleton summarizes the current Hanta closeout as a public/self-service data-provenance exercise rather than a scientific inference study.
-Across 9 reviewed source lanes, 5 were closed with downloaded public artifacts, 2 remained at metadata/listing-only status, and 2 remained blocked for self-service reuse.
-The present record supports a reproducible description of source discovery, download boundaries, and descriptive availability checks for GBIF host occurrences, GenBank/NCBI sequence provenance, aggregate surveillance exports, and selected environmental or trapping-data routes.
-It does not support claims about disease risk, transmission dynamics, Rt, host-switching, spillover, causal relationships, or integrated surveillance-ecology modeling.
+This manuscript scaffold frames the Hanta workspace as a public/self-service data ResearchOps and formal gate evaluation study rather than a disease-risk inference study.
+The source closeout reviewed 9 acquisition lanes and preserved downloaded, metadata/listing-only, and blocked-source boundaries.
+The environmental workflow advanced through accessible-area design, background generation, covariate extraction, spatial block validation, and a bounded host-occurrence suitability model attempt.
+The bounded model did not pass QC (mean AUC 0.458299; mean Brier score 0.252709), and background/covariate sensitivity diagnostics did not provide robust gate support.
+Accordingly, the manuscript may claim reproducible provenance, gate execution, and documented blockers, but not human risk, Rt, host abundance, spillover, host-switch, or causal conclusions.
 
-## Data provenance
+## Introduction
 
-The public/self-service closeout preserved a source-by-source provenance boundary rather than a merged analytic dataset. MODIS MOD13Q1 was documented through public Earthdata catalog and LAADS directory listings, establishing discoverability of the vegetation-index product while leaving actual granule-byte acquisition, tile selection, QA masking, reprojection, and temporal aggregation outside the completed scope.
-WorldPop was similarly closed at the metadata stage: public REST/catalog endpoints, a concrete China 2020 product page, and the CC BY 4.0 licence endpoint were captured, but no large population raster was downloaded. This supports a manuscript statement that exposure-covariate acquisition is reproducible in principle while keeping human-exposure modeling out of scope.
-For human surveillance provenance, two public aggregate routes were documented separately. ECDC Surveillance Atlas exports were captured as real country/month CSV output, and public ECDC legal/IP terms evidence was captured for baseline reuse framing; suppression handling, case-definition review, and geography harmonization remain outstanding. CDC WONDER hantavirus exports were also captured, but only at annual state/territory granularity, so they support coarse surveillance provenance rather than Rt estimation or fine-grained temporal joins.
-GBIF provides the strongest downloaded public occurrence layer in the closeout package. The manuscript-ready boundary is an official occurrence archive with DOI-backed provenance, documented row counts, and a descriptive candidate subset for host-record availability summaries. These records remain host-occurrence evidence only and are not to be presented as human case data, host abundance, or modeled risk.
-GenBank/NCBI provenance now includes public sequence-body evidence for a bounded Hantaan alignment-readiness set. The downloaded FASTA and GenBank records cover S, M, and L segments across complete triplets and multiple submitter-provided host labels, but the manuscript boundary remains sequence acquisition and alignment readiness only; taxonomy/provenance audit, phylogenetic design, and uncertainty propagation are still required before any host-switch, reassortment, or spillover claim.
-USGS host-trapping closeout artifacts document that public ScienceBase release files were downloaded and screened at the file/schema level for two small-mammal capture studies. Those files can be cited as examples of accessible trapping-effort data sources, but unresolved coordinate and license semantics prevent cross-study abundance modeling or any broad ecological inference. Taken together, these source-specific provenance artifacts support a manuscript section on reproducible public data acquisition while preserving explicit non-authorization of advanced integrated analyses.
+The project asks how far a Hanta research workflow can progress using real public/self-service data while preserving strict scientific guardrails.
+The intended contribution is a reproducible ResearchOps closeout and formal gate evaluation, not a biological or epidemiological conclusion about hantavirus risk.
 
-## Public/self-service acquisition results
+## Data provenance and acquisition
 
-| Lane | Source | Current result | Evidence summary | Allowed manuscript use |
-| --- | --- | --- | --- | --- |
-| MODIS | MODIS MOD13Q1 v061 NDVI/EVI | metadata/listing-only | Public catalog and LAADS directory listing captured; not_ingested; public listing verified, exact selected-tile granule download still requires endpoint validation | Describe public self-service catalog/listing provenance only; do not imply covariate ingestion or vegetation analysis. |
-| WorldPop | WorldPop gridded population | metadata/listing-only | Public REST/catalog metadata and CC BY 4.0 license endpoint captured for The spatial distribution of population in 2020, China; raster download intentionally deferred | Describe candidate exposure covariate provenance only; no population raster ingested. |
-| ECDC | ECDC Surveillance Atlas hantavirus exports | downloaded | Public CSV export captured with country/month fields; public ECDC legal/IP terms evidence captured; suppression, case-definition, and geography harmonization remain pending | Can support provenance narrative and coarse aggregate surveillance description only. |
-| CDC WONDER | CDC/NNDSS hantavirus pulmonary syndrome reporting products | downloaded | Public annual state-level CSV export captured with citation footer; no verified subannual series | Can support coarse annual surveillance provenance only. |
-| GBIF | GBIF official occurrence archive | downloaded | Official occurrence archive closed with DOI 10.15468/dl.t7u3zm; 740758 raw rows and 533900 descriptive mapping candidates | Use for host occurrence provenance and descriptive availability only; not human disease outcomes. |
-| GenBank/Hantaan | NCBI Virus and GenBank Hantaviridae/Hantaan sequence provenance | downloaded | Public GenBank sequence bodies downloaded for Hantaan alignment-readiness evidence: 24 records across 8 complete S/M/L triplets and 2 host labels; host-switch inference remains disallowed | Use for public sequence-body provenance and alignment-readiness only; no host-switch, reassortment, or spillover inference. |
-| USGS host trapping | USGS Picayune and deltamethrin small-mammal trapping releases | downloaded | Public files downloaded and screened for two ScienceBase releases; coordinate and license semantics remain incomplete | Can describe within-study trapping-file availability only; no abundance surface inference. |
-| China HFRS | China CDC monthly notifiable disease HFRS bulletins | blocked | Inspected public English routes did not expose a verified machine-readable or bulletin HFRS table | Report as unresolved public-source gap only. |
-| EDI/LTER | EDI/LTER small mammal trapping datasets | blocked | Public search route reached, but package-level metadata required for reuse were not captured | Report as search-identified but not provenance-complete. |
+Public/self-service evidence was kept source-specific. GBIF host-occurrence records, GenBank/NCBI sequence-body evidence, ECDC/CDC aggregate surveillance exports, USGS trapping-file availability, MODIS listing evidence, WorldPop metadata, and environmental covariate files are described only within their provenance boundaries.
 
-## Guardrails/limitations
+## Environmental host-occurrence suitability workflow
 
-- no risk maps, host abundance inference, human case maps, Rt estimation, spillover inference, host-switch inference, or surveillance joins are executed
-- available figures are descriptive record-availability or planning scaffolds only
-- manuscript text must not claim causal, predictive, transmission, or intervention effects
-- formal advanced gates remain blocked wherever provenance, downloadability, temporal granularity, field schema, or license/terms support is incomplete
-- blocked analysis category: `risk_maps`
-- blocked analysis category: `host_abundance_inference`
-- blocked analysis category: `human_case_maps`
-- blocked analysis category: `rt_estimation`
-- blocked analysis category: `spillover_inference`
-- blocked analysis category: `host_switch_inference`
-- blocked analysis category: `surveillance_join`
-- unresolved lanes should be described as acquisition gaps or deferred gates, not as negative scientific results.
-- planning-scaffold figures may be cited only as placeholders for future work and not as evidentiary results.
+Phase 1 completed the input gate for GBIF host-occurrence suitability: accessible-area materialization, uniform and sensitivity backgrounds, covariate extraction, spatial folds, and QC thresholds were generated.
+Phase 2 ran a bounded regularized logistic model under spatial block validation, then failure diagnostics, expanded WorldClim covariates, and background-sensitivity comparisons.
+The final model decision remains blocked: robust_gate_support=False and formal_host_occurrence_suitability_gate_passed=false.
 
-## Next-gate roadmap
+## Formal gate results
 
-- Resolve MODIS granule-endpoint validation and ingestion protocol before any vegetation covariate extraction (blocked_pending_granule_endpoint_validation_and_ingestion_protocol).
-- Select and approve a concrete WorldPop raster product before any population covariate use (blocked_pending_product_selection_and_approved_raster_download).
-- Complete ECDC suppression, case-definition, and geography harmonization review before any surveillance joins or time-series interpretation (blocked_for_advanced_join_or_rt_until_terms_and_harmonization_complete).
-- Keep CDC WONDER limited to coarse annual provenance unless a verified finer-grained public series is captured (blocked_for_rt_and_fine_grained_surveillance_join).
-- Treat GBIF as descriptive host-occurrence evidence only until separate gates clear abundance or spatial modeling (blocked_for_host_abundance_or_risk_inference_without_additional gates).
-- Finish taxonomy/provenance audit and explicit phylogenetic design review before any sequence-derived comparative claims (blocked_pending_taxonomy_provenance_audit_and_phylogenetic_design).
-- Close coordinate and license semantics for host-trapping files before any cross-study ecological synthesis (blocked_for_cross_study_abundance_or_spatial_modeling).
-- Carry unresolved public-source gaps forward explicitly for China HFRS and EDI/LTER without backfilling unsupported data (blocked_no_verified_self_service_table; blocked_pending_public_package_metadata_capture).
+| Gate | Final status | Allowed use |
+| --- | --- | --- |
+| environmental_host_occurrence_suitability | formal_host_occurrence_suitability_gate_blocked_after_failure_and_sensitivity_diagnostics | bounded workflow attempted and blocked after QC |
+| human_risk_map | blocked_no_valid_human_outcome_or_surveillance_ecology_join | public surveillance provenance captured |
+| formal_rt | blocked_no_interval_protocol_or_valid_incidence_series | 当前 Rt 是 descriptive growth proxy，不是正式 EpiEstim，也不构成干预因果分析。 |
+| host_abundance | blocked_no_effort_harmonized_cross_study_trapping_frame | public trapping-file availability documented |
+| host_switch_phylogeny | blocked_alignment_ready_but_no_host_switch_inference_permitted | sequence-body acquisition and alignment-readiness evidence |
+| surveillance_join | blocked_public_exports_captured_but_harmonization_and_target_outcome_missing | public aggregate surveillance provenance and descriptive availability |
 
-## Drafting notes
+## Blocked gates and external dependencies
 
-- Preserve source-by-source boundaries instead of implying a merged analytic cohort.
-- When describing downloaded materials, distinguish downloaded data from metadata/listing-only evidence.
-- Avoid outcome, mechanism, and forecasting language unless later gates explicitly authorize it.
+- environmental_host_occurrence_suitability: Primary model QC failed (mean AUC 0.458299, mean Brier 0.252709); background/covariate sensitivity robust_gate_support=False Unblocker: Better host-range-supported target/background design, additional ecologically justified covariates, stronger non-duplicated occurrence data, and stable spatial-CV diagnostics
+- human_risk_map: No harmonized human outcome with case-definition, suppression, geography, and temporal alignment suitable for risk modeling Unblocker: Licensed/public harmonized human case outcome with documented case definitions and join protocol
+- formal_rt: No disease-specific serial/generation interval protocol and no consistent subannual incidence series fit for formal EpiEstim Unblocker: Approved serial/generation interval protocol plus harmonized subannual incidence and reporting-delay assumptions
+- host_abundance: Trap nights, site semantics, count/detection design, and comparable cross-study protocols are not harmonized Unblocker: Effort-harmonized trapping frame with trap nights, site coordinates, species taxonomy, and detection model design
+- host_switch_phylogeny: Taxonomy/provenance audit, segment-specific alignment, tree design, reassortment safeguards, and sampling adequacy review are incomplete Unblocker: Prespecified taxonomy/provenance audit, segment alignments, phylogenetic model, contamination review, and sampling adequacy criteria
+- surveillance_join: Suppression handling, case-definition review, geography harmonization, temporal alignment, and valid target-outcome approval remain incomplete Unblocker: Predeclared harmonized surveillance target and licensed geography/time join protocol
+
+## Reproducibility evaluation
+
+The fixed evaluation entrypoint is `bash evaluation/evaluate.sh configs/experiment.yaml`; current locked checks pass while advanced scientific claims remain blocked.
+
+## Limitations and claim audit
+
+Allowed claims:
+- Public/self-service data provenance was captured source-by-source.
+- GBIF host-occurrence archive processing and candidate subsets were documented.
+- Environmental Phase 1 input gate was completed with accessible-area background, covariate extraction, spatial folds, and QC.
+- A bounded Phase 2 host-occurrence suitability model was attempted and failed model QC.
+- Failure diagnostics, expanded WorldClim covariates, and background-sensitivity comparisons were completed.
+- Formal advanced gates and their unblockers were documented.
+
+Disallowed claims:
+- human infection risk
+- disease risk map
+- outbreak prediction or forecasting
+- formal Rt estimation
+- host abundance or density
+- spillover inference
+- host-switch inference
+- surveillance-ecology join inference
+- causal/intervention effect
+
+Required boundary language:
+- 当前 Rt 是 descriptive growth proxy，不是正式 EpiEstim，也不构成干预因果分析。
+- GBIF host occurrences are not human cases, host abundance, or infection risk.
+- The environmental model gate was attempted and remains blocked after QC.
+
+## Data/code availability
+
+Data and report boundaries are represented by DVC-tracked directories and generated provenance reports. Credentials and local configuration are not part of the repository.
+
+## Future work
+
+Future scientific inference would require new validated target outcomes, harmonized surveillance data, effort-standardized trapping data, taxonomy/provenance-audited sequence analyses, and predeclared modeling protocols.
 

@@ -1,0 +1,42 @@
+{
+  "commands": [
+    {
+      "command": "python scripts/data_generation/build_scientific_data_resource_index.py",
+      "passed": true,
+      "returncode": 0,
+      "stderr_tail": [],
+      "stdout_tail": [
+        "{\"data_record_count\": 5, \"field_dictionary_rows\": 19, \"validation_passed\": true}"
+      ]
+    },
+    {
+      "command": "python scripts/data_generation/build_scientific_data_descriptor_package.py",
+      "passed": true,
+      "returncode": 0,
+      "stderr_tail": [],
+      "stdout_tail": [
+        "{\"descriptor\": \"manuscripts/hanta_scientific_data_descriptor.md\", \"records\": 5, \"validation_passed\": true}"
+      ]
+    },
+    {
+      "command": "python scripts/data_generation/audit_scientific_data_descriptor_readiness.py",
+      "passed": true,
+      "returncode": 0,
+      "stderr_tail": [],
+      "stdout_tail": [
+        "{\"failed_checks\": 0, \"validation_passed\": true}"
+      ]
+    },
+    {
+      "command": "bash evaluation/evaluate.sh configs/experiment.yaml",
+      "passed": true,
+      "returncode": 0,
+      "stderr_tail": [],
+      "stdout_tail": []
+    }
+  ],
+  "generated_at_utc": "2026-06-02T03:10:08.616176+00:00",
+  "schema_version": "0.1.0",
+  "status": "scientific_data_reproducibility_smoke_test_passed",
+  "validation_passed": true
+}

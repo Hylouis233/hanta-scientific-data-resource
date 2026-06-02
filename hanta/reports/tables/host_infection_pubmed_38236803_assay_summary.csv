@@ -1,0 +1,4 @@
+assay,tested_count,positive_count,prevalence,wilson_95ci_lower,wilson_95ci_upper
+qPCR,738,167,0.226287,0.197561,0.257848
+ELISA,738,51,0.069106,0.05295,0.089724
+any,738,203,0.275068,0.244078,0.308387

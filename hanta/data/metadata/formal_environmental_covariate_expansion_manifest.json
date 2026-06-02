@@ -18,7 +18,7 @@
   ],
   "base_covariate_table_path": "data/processed/environmental_suitability/formal_gate_covariate_table.csv",
   "expanded_covariate_table_path": "data/processed/environmental_suitability/formal_gate_covariate_table_expanded.csv",
-  "generated_at_utc": "2026-06-01T07:30:21.398640+00:00",
+  "generated_at_utc": "2026-06-01T16:27:43.042756+00:00",
   "guardrails": [
     "Expanded covariates come only from already downloaded WorldClim files.",
     "WorldClim covariates support host-occurrence suitability diagnostics only, not human risk mapping.",

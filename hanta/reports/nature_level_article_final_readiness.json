@@ -1,0 +1,46 @@
+{
+  "article_path": "manuscripts/hanta_nature_style_article_draft.md",
+  "checks": [
+    {
+      "check": "complete article draft",
+      "evidence": "3009 words; 0 failed checks",
+      "passed": true
+    },
+    {
+      "check": "claim audit",
+      "evidence": "0 failed checks",
+      "passed": true
+    },
+    {
+      "check": "figure MiniMax audit",
+      "evidence": "10/10 accepted",
+      "passed": true
+    },
+    {
+      "check": "caption lock",
+      "evidence": "6 figure groups",
+      "passed": true
+    },
+    {
+      "check": "submission package",
+      "evidence": "nature_submission_package_complete",
+      "passed": true
+    },
+    {
+      "check": "local peer-review simulation",
+      "evidence": "locally_submission_ready_as_researchops_resource_article_not_peer_review_acceptance",
+      "passed": true
+    },
+    {
+      "check": "fixed evaluation",
+      "evidence": "all_checks_passed=true",
+      "passed": true
+    }
+  ],
+  "generated_at_utc": "2026-06-01T17:53:04.632884+00:00",
+  "remaining_external_dependency": "Actual Nature editorial review and acceptance can only occur outside this local repository workflow.",
+  "schema_version": "0.1.0",
+  "scope": "Local Nature-level readiness package for a ResearchOps/Resource-style manuscript; this is not external journal acceptance.",
+  "status": "nature_level_article_local_readiness_complete",
+  "validation_passed": true
+}

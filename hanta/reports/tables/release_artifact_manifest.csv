@@ -1,0 +1,17 @@
+artifact,category,purpose,public_ok,reviewer_priority,exists
+manuscripts/hanta_scientific_data_descriptor.md,manuscript,Scientific Data / Nature Portfolio Data Descriptor manuscript,yes,start_here,true
+reports/scientific_data_resource_index.md,reviewer_navigation,Reviewer-facing resource landing page,yes,start_here,true
+reports/tables/scientific_data_data_records_table.csv,data_records,Five data record groups and reuse boundaries,yes,high,true
+reports/tables/scientific_data_field_dictionary.csv,data_records,Field/artifact dictionary for reviewer reuse,yes,high,true
+reports/scientific_data_technical_validation.md,technical_validation,"Evaluation, gate, table, figure, privacy validation",yes,high,true
+reports/scientific_data_usage_notes.md,usage_notes,Recommended uses and explicit non-uses,yes,high,true
+reports/scientific_data_reproducibility_smoke_test.md,reproducibility,Minimal reproducibility command evidence,yes,high,true
+reports/scientific_data_submission_checklist.md,submission,Submission checklist with 11/11 complete,yes,medium,true
+reports/tables/scientific_data_editorial_fit_matrix.csv,submission,Editorial fit/risk matrix,yes,medium,true
+reports/manuscript_figure_minimax_audit.md,figures,MiniMax M3 review evidence for 10/10 figures,yes,medium,true
+reports/manuscript_figure_caption_lock.md,figures,Caption-level allowed/disallowed interpretations,yes,medium,true
+reports/nature_manuscript_final_claim_audit.md,claim_audit,Final claim-boundary audit with zero failed checks,yes,medium,true
+reports/current_metrics.json,evaluation,Fixed evaluation metrics; all_checks_passed=true,yes,medium,true
+data/raw.dvc,dvc_pointer,DVC pointer for raw data boundary,yes,supporting,true
+data/processed.dvc,dvc_pointer,DVC pointer for processed data boundary,yes,supporting,true
+scripts/data_generation/,code,"Generation, audit, descriptor and release scripts",yes,supporting,true

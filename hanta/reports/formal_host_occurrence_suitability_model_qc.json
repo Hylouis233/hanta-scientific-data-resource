@@ -25,7 +25,7 @@
   ],
   "fold_count": 5,
   "fold_metrics_path": "reports/tables/formal_host_occurrence_suitability_fold_metrics.csv",
-  "generated_at_utc": "2026-06-01T02:48:00.345145+00:00",
+  "generated_at_utc": "2026-06-01T16:43:20.363987+00:00",
   "guardrails": [
     "Model target is GBIF host-occurrence suitability only.",
     "Predictions are row-level suitability scores for the modeling table, not geographic risk maps.",

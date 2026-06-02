@@ -1,0 +1,40 @@
+{
+  "accepted_count": 3,
+  "generated_at_utc": "2026-06-01T14:56:49.294761+00:00",
+  "guardrails": [
+    "Figure acceptance applies only to visual/statistical presentation quality, not to biological causal inference.",
+    "All figures remain non-spatial within-study prevalence summaries from one public supplementary table.",
+    "Error bars should be described in captions as Wilson 95% confidence intervals."
+  ],
+  "review_count": 3,
+  "review_model": "MiniMax M3 vision review via MCP",
+  "reviews": [
+    {
+      "figure": "reports/figures/host_infection_pubmed_38236803_site_prevalence.png",
+      "publication_ready": true,
+      "round_1_actions": "Combined site and county labels into one line; sorted by qPCR-positive fraction; added light row shading; extended x-axis below zero to reveal zero-positivity points; simplified x-axis label.",
+      "round_1_verdict": "reject_minor_revisions_required",
+      "round_2_remaining_issues": "none",
+      "round_2_verdict": "accept"
+    },
+    {
+      "figure": "reports/figures/host_infection_pubmed_38236803_species_prevalence.png",
+      "publication_ready": true,
+      "round_1_actions": "Removed redundant family labels from y-axis; sorted by qPCR-positive fraction; used darker colorblind-safe point color; added row shading; simplified axis and title wording.",
+      "round_1_verdict": "accept_with_minor_revisions",
+      "round_2_remaining_issues": "caption should define error bars as Wilson 95% CI",
+      "round_2_verdict": "accept"
+    },
+    {
+      "figure": "reports/figures/host_infection_pubmed_38236803_assay_comparison.png",
+      "publication_ready": true,
+      "round_1_actions": "Changed any to Any; ordered ELISA, qPCR, Any; simplified y-axis label; switched to Okabe-Ito colorblind-safe palette; reduced bar width.",
+      "round_1_verdict": "accept_with_minor_revisions",
+      "round_2_remaining_issues": "caption should define error bars as Wilson 95% CI and Any as unique positives by either assay",
+      "round_2_verdict": "accept"
+    }
+  ],
+  "schema_version": "0.1.0",
+  "status": "minimax_m3_figure_review_accepted_after_revision",
+  "validation_passed": true
+}

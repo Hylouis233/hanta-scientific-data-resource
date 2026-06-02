@@ -1,0 +1,13 @@
+{
+  "author_contributions": "[Placeholder] Authors designed the ResearchOps workflow, implemented data acquisition and validation scripts, generated figures and audits, and wrote the Data Descriptor.",
+  "code_availability": "All generation, validation, descriptor, audit and packaging scripts are stored under scripts/. The fixed project evaluation entrypoint is bash evaluation/evaluate.sh configs/experiment.yaml.",
+  "competing_interests": "The authors declare no competing interests. [Placeholder for author confirmation.]",
+  "data_availability": "Data records and generated reports are represented in DVC-bounded raw/processed directories and reviewer-facing manifests. The local deposition package is available at release/scientific_data_submission_package/ pending external repository deposition DOI. Credentials, local-only DVC configuration, private coordinates and sensitive individual-level human health data are not included.",
+  "ethics_privacy": "The resource uses public/self-service source data, aggregate surveillance records and a public supplementary animal trapping/testing table. It does not request personal identifiers or sensitive individual-level human health data. Coordinates excluded by source authors for private-land protection were not reconstructed or inferred.",
+  "generated_at_utc": "2026-06-02T05:04:42.013947+00:00",
+  "materials_correspondence": "Correspondence and material requests should be addressed to [corresponding author placeholder].",
+  "schema_version": "0.1.0",
+  "status": "scientific_data_submission_text_complete",
+  "title": "A claim-bounded public-data ResearchOps resource for hantavirus formal gate evaluation",
+  "validation_passed": true
+}

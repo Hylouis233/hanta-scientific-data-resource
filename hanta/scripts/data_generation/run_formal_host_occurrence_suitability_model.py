@@ -28,6 +28,7 @@ MODEL_QC_JSON = ROOT / "reports/formal_host_occurrence_suitability_model_qc.json
 MODEL_QC_MD = ROOT / "reports/formal_host_occurrence_suitability_model_qc.md"
 FOLD_METRICS_CSV = ROOT / "reports/tables/formal_host_occurrence_suitability_fold_metrics.csv"
 DIAGNOSTIC_FIGURE = ROOT / "reports/figures/formal_host_occurrence_suitability_diagnostics.svg"
+DIAGNOSTIC_FIGURE_PNG = ROOT / "reports/figures/formal_host_occurrence_suitability_diagnostics.png"
 DECISION_JSON = ROOT / "reports/environmental_formal_gate_decision.json"
 DECISION_MD = ROOT / "reports/environmental_formal_gate_decision.md"
 BIAS_REVIEW = ROOT / "reports/hanta_advanced_bias_review.json"
@@ -156,21 +157,29 @@ def _fit_spatial_cv(rows: list[dict[str, str]]) -> tuple[list[dict[str, Any]], l
 def _write_diagnostic_figure(fold_metrics: list[dict[str, Any]]) -> None:
     DIAGNOSTIC_FIGURE.parent.mkdir(parents=True, exist_ok=True)
     folds = [str(row["fold"]) for row in fold_metrics]
-    aucs = [float(row["auc"]) for row in fold_metrics if row["auc"] != ""]
-    briers = [float(row["brier_score"]) for row in fold_metrics]
-    fig, axes = plt.subplots(1, 2, figsize=(8, 3))
-    axes[0].bar(folds, [float(row["auc"]) if row["auc"] != "" else 0 for row in fold_metrics], color="#4C78A8")
+    auc_values = [float(row["auc"]) if row["auc"] != "" else np.nan for row in fold_metrics]
+    brier_values = [float(row["brier_score"]) for row in fold_metrics]
+    fig, axes = plt.subplots(1, 2, figsize=(7.4, 3.2), constrained_layout=True)
+    colors = ["#D55E00" if value < 0.5 else "#0072B2" for value in auc_values]
+    axes[0].bar(folds, auc_values, color=colors, width=0.62)
+    axes[0].axhline(0.5, color="#333333", linestyle="--", linewidth=1)
     axes[0].set_ylim(0, 1)
-    axes[0].set_title("Fold AUC")
+    axes[0].set_title("AUC by spatial fold")
     axes[0].set_xlabel("Spatial fold")
     axes[0].set_ylabel("AUC")
-    axes[1].bar(folds, briers, color="#F58518")
-    axes[1].set_title("Fold Brier score")
+    axes[0].grid(axis="y", color="#e5e5e5", linewidth=0.6)
+    brier_colors = ["#D55E00" if value > 0.25 else "#0072B2" for value in brier_values]
+    axes[1].bar(folds, brier_values, color=brier_colors, width=0.62)
+    axes[1].axhline(0.25, color="#333333", linestyle="--", linewidth=1)
+    axes[1].set_ylim(0, max(0.35, max(brier_values) * 1.2))
+    axes[1].set_title("Brier score by spatial fold")
     axes[1].set_xlabel("Spatial fold")
-    axes[1].set_ylabel("Brier")
-    fig.suptitle("Host-occurrence suitability diagnostics only")
-    fig.tight_layout()
+    axes[1].set_ylabel("Brier score")
+    axes[1].grid(axis="y", color="#e5e5e5", linewidth=0.6)
+    for ax in axes:
+        ax.spines[["top", "right"]].set_visible(False)
     fig.savefig(DIAGNOSTIC_FIGURE, format="svg")
+    fig.savefig(DIAGNOSTIC_FIGURE_PNG, format="png", dpi=300)
     plt.close(fig)
 
 

@@ -35,6 +35,7 @@ SENSITIVITY_JSON = ROOT / "reports/formal_host_occurrence_background_sensitivity
 SENSITIVITY_MD = ROOT / "reports/formal_host_occurrence_background_sensitivity_model_qc.md"
 SENSITIVITY_TABLE = ROOT / "reports/tables/formal_host_occurrence_background_sensitivity_model_metrics.csv"
 SENSITIVITY_FIGURE = ROOT / "reports/figures/formal_host_occurrence_background_sensitivity_diagnostics.svg"
+SENSITIVITY_FIGURE_PNG = ROOT / "reports/figures/formal_host_occurrence_background_sensitivity_diagnostics.png"
 MODEL_QC_JSON = ROOT / "reports/formal_host_occurrence_suitability_model_qc.json"
 DECISION_JSON = ROOT / "reports/environmental_formal_gate_decision.json"
 DECISION_MD = ROOT / "reports/environmental_formal_gate_decision.md"
@@ -276,16 +277,30 @@ def _write_sensitivity_outputs(generated_at_utc: str, rows: list[dict[str, str]]
                 "gate_like_passed": result["gate_like_passed"],
             })
     _write_csv(SENSITIVITY_TABLE, all_metrics, list(all_metrics[0]))
-    fig, ax = plt.subplots(figsize=(8, 4))
+    fig, axes = plt.subplots(1, 2, figsize=(8.4, 3.6), constrained_layout=True)
     labels = [f"{row['background_design']}\n{row['feature_set']}" for row in summaries]
-    ax.bar(labels, [row["mean_auc"] for row in summaries], color="#4C78A8")
-    ax.axhline(0.5, color="black", linestyle="--", linewidth=1)
-    ax.set_ylim(0, 1)
-    ax.set_ylabel("Mean spatial-CV AUC")
-    ax.set_title("Background/covariate sensitivity diagnostics only")
-    fig.tight_layout()
+    x = np.arange(len(summaries))
+    auc_values = [row["mean_auc"] for row in summaries]
+    brier_values = [row["max_brier_score"] for row in summaries]
+    axes[0].bar(x, auc_values, color="#0072B2", width=0.62)
+    axes[0].axhline(0.5, color="#333333", linestyle="--", linewidth=1)
+    axes[0].set_ylim(0, 1)
+    axes[0].set_xticks(x, labels, rotation=30, ha="right")
+    axes[0].set_ylabel("Mean spatial-CV AUC")
+    axes[0].set_title("Discrimination")
+    axes[0].grid(axis="y", color="#e5e5e5", linewidth=0.6)
+    axes[1].bar(x, brier_values, color="#D55E00", width=0.62)
+    axes[1].axhline(0.25, color="#333333", linestyle="--", linewidth=1)
+    axes[1].set_ylim(0, max(0.4, max(brier_values) * 1.18))
+    axes[1].set_xticks(x, labels, rotation=30, ha="right")
+    axes[1].set_ylabel("Maximum fold Brier score")
+    axes[1].set_title("Calibration error")
+    axes[1].grid(axis="y", color="#e5e5e5", linewidth=0.6)
+    for ax in axes:
+        ax.spines[["top", "right"]].set_visible(False)
     SENSITIVITY_FIGURE.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(SENSITIVITY_FIGURE, format="svg")
+    fig.savefig(SENSITIVITY_FIGURE_PNG, format="png", dpi=300)
     plt.close(fig)
     robust_pass = all(row["gate_like_passed"] for row in summaries)
     payload = {

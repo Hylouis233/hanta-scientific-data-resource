@@ -1,0 +1,30 @@
+{
+  "article_path": "manuscripts/hanta_nature_style_article_draft.md",
+  "article_type": "Analysis / Resource-style methodological article",
+  "broad_interest": [
+    "Reusable framework for claim-bounded public-data infectious-disease research.",
+    "Complete worked example across occurrence records, environmental covariates, surveillance exports and trapping/testing literature.",
+    "Demonstrates that negative or blocked model gates can be publishable when they prevent unsupported inference."
+  ],
+  "editorial_pitch": "The manuscript converts a common failure mode in infectious-disease data science\u2014moving from public source discovery to unsupported risk claims\u2014into a reproducible gate-based workflow with audited figures, locked captions and explicit unblockers.",
+  "figure_groups": 6,
+  "generated_at_utc": "2026-06-01T17:48:17.255972+00:00",
+  "main_claims": [
+    "Public data support a reproducible ResearchOps and formal gate evaluation manuscript for hantavirus.",
+    "The environmental host-occurrence model was fully attempted and honestly blocked after QC.",
+    "A public supplementary trapping/testing table supports non-spatial within-study positivity summaries only.",
+    "All canonical figures passed MiniMax M3 visual audit and are caption-locked to prevent over-interpretation."
+  ],
+  "non_claims": [
+    "No human infection risk map or model is claimed.",
+    "No formal Rt estimate is claimed; \u5f53\u524d Rt \u662f descriptive growth proxy\uff0c\u4e0d\u662f\u6b63\u5f0f EpiEstim\uff0c\u4e5f\u4e0d\u6784\u6210\u5e72\u9884\u56e0\u679c\u5206\u6790\u3002",
+    "No host abundance, spillover, host-switch, forecasting, surveillance-ecology join or causal claim is made."
+  ],
+  "one_sentence_summary": "A reproducible hantavirus ResearchOps workspace shows how public data can support provenance, figure-ready summaries and formal blocked-gate decisions without overclaiming disease-risk inference.",
+  "schema_version": "0.1.0",
+  "short_title": "Claim-bounded hantavirus ResearchOps",
+  "status": "nature_submission_package_complete",
+  "suggested_editor_note": "This should be evaluated as a methodological ResearchOps/Resource contribution, not as a discovery paper claiming a new hantavirus ecological or epidemiological mechanism.",
+  "title": "A public-data ResearchOps and formal gate evaluation framework for hantavirus manuscript readiness",
+  "validation_passed": true
+}

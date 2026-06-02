@@ -20,7 +20,7 @@
   "environmental_formal_gate_protocol_defined": true,
   "environmental_formal_input_gate_passed": true,
   "environmental_formal_phase1_qc_present": true,
-  "environmental_model_gate_status": "formal_host_occurrence_suitability_gate_blocked_after_failure_and_sensitivity_diagnostics",
+  "environmental_model_gate_status": "formal_host_occurrence_suitability_gate_blocked_after_model_qc",
   "environmental_modeling_input_table_present": true,
   "environmental_spatial_block_validation_present": true,
   "environmental_suitability_pilot_table_passed": true,
@@ -30,7 +30,7 @@
   "formal_host_occurrence_failure_diagnostics_present": true,
   "formal_host_occurrence_suitability_gate_passed": false,
   "formal_host_occurrence_suitability_model_qc_present": true,
-  "generated_at_utc": "2026-06-01T07:30:21.398640+00:00",
+  "generated_at_utc": "2026-06-01T16:43:20.363987+00:00",
   "guardrails": [
     "evidence passes are limited to existing real GBIF occurrence and GenBank metadata layers",
     "advanced model gates remain blocked until their required real data and QC artifacts exist",

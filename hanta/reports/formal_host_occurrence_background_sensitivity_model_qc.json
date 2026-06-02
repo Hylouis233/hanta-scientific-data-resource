@@ -1,7 +1,7 @@
 {
   "decision": "do_not_pass_gate",
   "diagnostic_figure_path": "reports/figures/formal_host_occurrence_background_sensitivity_diagnostics.svg",
-  "generated_at_utc": "2026-06-01T07:30:21.398640+00:00",
+  "generated_at_utc": "2026-06-01T16:27:43.042756+00:00",
   "guardrails": [
     "Background sensitivity comparisons are diagnostics only and do not override the primary failed model gate.",
     "A successful uniform-only contrast would not be sufficient for risk or suitability gate passage if bias-window diagnostics fail.",

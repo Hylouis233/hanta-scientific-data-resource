@@ -1,0 +1,77 @@
+{
+  "check_count": 11,
+  "checks": [
+    {
+      "artifact": "manuscripts/hanta_scientific_data_descriptor.md",
+      "evidence": "Scientific Data structure present",
+      "requirement": "Data Descriptor manuscript",
+      "status": "complete"
+    },
+    {
+      "artifact": "reports/tables/scientific_data_data_records_table.csv",
+      "evidence": "5 record groups",
+      "requirement": "Data Records",
+      "status": "complete"
+    },
+    {
+      "artifact": "reports/tables/scientific_data_field_dictionary.csv",
+      "evidence": "19 field/artifact rows",
+      "requirement": "Field dictionary",
+      "status": "complete"
+    },
+    {
+      "artifact": "reports/scientific_data_technical_validation.md",
+      "evidence": "evaluation, gate QC, host table audit, figure review",
+      "requirement": "Technical Validation",
+      "status": "complete"
+    },
+    {
+      "artifact": "reports/scientific_data_usage_notes.md",
+      "evidence": "recommended uses and non-uses",
+      "requirement": "Usage Notes",
+      "status": "complete"
+    },
+    {
+      "artifact": "reports/scientific_data_resource_index.md",
+      "evidence": "reviewer-facing landing page",
+      "requirement": "Resource index",
+      "status": "complete"
+    },
+    {
+      "artifact": "reports/scientific_data_reproducibility_smoke_test.md",
+      "evidence": "4/4 commands passed",
+      "requirement": "Reproducibility smoke test",
+      "status": "complete"
+    },
+    {
+      "artifact": "reports/manuscript_figure_minimax_audit.md",
+      "evidence": "10/10 MiniMax accepted",
+      "requirement": "Figure quality",
+      "status": "complete"
+    },
+    {
+      "artifact": "reports/manuscript_figure_caption_lock.md",
+      "evidence": "6 figure groups",
+      "requirement": "Caption claim lock",
+      "status": "complete"
+    },
+    {
+      "artifact": "reports/nature_manuscript_final_claim_audit.md",
+      "evidence": "0 failed checks",
+      "requirement": "Claim audit",
+      "status": "complete"
+    },
+    {
+      "artifact": "reports/current_metrics.json",
+      "evidence": "all_checks_passed=true",
+      "requirement": "Fixed evaluation",
+      "status": "complete"
+    }
+  ],
+  "complete_count": 11,
+  "fit_matrix": "reports/tables/scientific_data_editorial_fit_matrix.csv",
+  "generated_at_utc": "2026-06-02T03:12:56.517743+00:00",
+  "schema_version": "0.1.0",
+  "status": "scientific_data_submission_checklist_complete",
+  "validation_passed": true
+}

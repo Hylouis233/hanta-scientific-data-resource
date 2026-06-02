@@ -1,0 +1,113 @@
+# Scientific Data local deposition package manifest
+
+Status: local_scientific_data_deposition_package_complete.
+
+Package directory: `release/scientific_data_submission_package`
+Artifacts: 102
+Missing: 0
+
+| Package path | Category | Bytes | Public OK | SHA256 |
+| --- | --- | ---: | --- | --- |
+| `manuscripts/hanta_scientific_data_descriptor.md` | core_artifact | 12096 | yes | `984494f0d7fb1a721dbd538590454b1ff7e518b12760c57c9f9a9caf65923608` |
+| `manuscripts/hanta_nature_style_article_draft.md` | core_artifact | 24473 | yes | `b324bc8aae6a7c897ee7404c05f00aa688568c947ec31f6dd1fa1d71a32afeec` |
+| `reports/scientific_data_resource_index.md` | core_artifact | 3033 | yes | `53b27398e931f0ced72b5603e21691c78ff9731866c5554f05b8af3d63a34619` |
+| `reports/tables/scientific_data_data_records_table.csv` | core_artifact | 2046 | yes | `dc9264d55d1cadaf2a5210fd2aedb4e432a285bee912bc1e3afa9d7c2bfdcfaf` |
+| `reports/tables/scientific_data_field_dictionary.csv` | core_artifact | 3350 | yes | `abdbe9a312a8f35539b412b3b750fe4ce480d61f1c3cd8a25d6699019c1eb707` |
+| `reports/scientific_data_technical_validation.md` | core_artifact | 792 | yes | `e509712ccc208a9d39b49512954b493d2240040d347ba6164ea8591a45b9a1c3` |
+| `reports/scientific_data_usage_notes.md` | core_artifact | 1087 | yes | `809b18bd60448c81c4a41022078bd9931fe17826911be5b7047b4b2f030236a1` |
+| `reports/scientific_data_reproducibility_smoke_test.md` | core_artifact | 928 | yes | `36ad51fe4bfdae5065c80186cf5dfd752764f8d25b700d4c1a2f1147849b64c0` |
+| `reports/scientific_data_submission_checklist.md` | core_artifact | 1482 | yes | `9f9f544f7a2dba031157693a88ac52e037c943b8c6a7092a1e673b3a597f7ef3` |
+| `reports/tables/scientific_data_editorial_fit_matrix.csv` | core_artifact | 1164 | yes | `86766bb25a2e40e4b7da65874efe629b14e786865378f0b1534cd17cf29b6792` |
+| `reports/scientific_data_descriptor_final_readiness.md` | core_artifact | 2270 | yes | `ff5e93a34296a04bf8d9394c25a21380a6c0c483a6b138d88e7a63dca87d0c73` |
+| `reports/scientific_data_resource_reuse_final_closeout.md` | core_artifact | 703 | yes | `fc236dd52c1212eeb15e7f9fcfe9d48de8b746ab1a7afeba3aef60530bf2dd9f` |
+| `reports/submission_release_candidate_readiness.md` | core_artifact | 790 | yes | `e947c82132c37c701c94faa721ecd738483c264c58c7dd0c0ea075fbdc08c391` |
+| `reports/reviewer_navigation_guide.md` | core_artifact | 1806 | yes | `98e0799f672395b1ca8d83a25db01cc878f4e81e705def9293cad838a4054d79` |
+| `reports/release_artifact_manifest.md` | core_artifact | 2289 | yes | `c22488748d37783cec29c097179d909e25b5c136d3441cc91d514474c60ebf7c` |
+| `reports/final_secret_privacy_audit.md` | core_artifact | 670 | yes | `1c285cf794e7e685faf21d80595feaaa920dc0f304bf0c9e202e95e9d06c5a9e` |
+| `reports/manuscript_figure_minimax_audit.md` | core_artifact | 1959 | yes | `76142e485d0dd5c2f1431fd883e55a0f4354839f30d2b4e5a07649eeec5bea80` |
+| `reports/manuscript_figure_caption_lock.md` | core_artifact | 4829 | yes | `bee0ea34ae7c93c1a2ac81063316dcf62070e0e1e6eb0c703e93db12e2403060` |
+| `reports/nature_manuscript_final_claim_audit.md` | core_artifact | 1937 | yes | `241b25371fb979bca9ba09f6bf76469b3ca86a338f15aa2b46662cdbaa9824e4` |
+| `reports/current_metrics.json` | core_artifact | 8668 | yes | `6533b41bcb3a02a29df54c1bf5a393a8d676f0a668768d3c2a49a09471d3b156` |
+| `data/raw.dvc` | core_artifact | 105 | yes | `c16ed958629e8f73a0cf421dc195af5d8bd0911782c72733adcaf2a3966cda80` |
+| `data/processed.dvc` | core_artifact | 110 | yes | `474b98808948cc0fb0ff793429d22d9b74dbb684a288a76d3e6bd65e8e1a475d` |
+| `configs/experiment.yaml` | core_artifact | 166 | yes | `bfc25627e7c054c2708f250dde9f3ce866bcc5c620ce01475143b6ea3c913b3e` |
+| `evaluation/evaluate.sh` | core_artifact | 251 | yes | `5b575e5ac25ca6c62cbb174a5bee2a1d2c570cc4c0477253748a219e09be8a2f` |
+| `evaluation/run_protocol.py` | core_artifact | 40007 | yes | `8d0e15889a2a6e56a7047cf9f159f5e217a0adc44db70be8899e54ed3e616139` |
+| `reports/figures/gbif_species_record_counts.svg` | figure | 3152 | yes | `0f110e71ba8e9eddbbadf9a0dc8c75b3ec7fbbe7580fa63f64e04f13186db10e` |
+| `reports/figures/gbif_top_country_record_counts.svg` | figure | 8190 | yes | `14b579276bba8e3bd2618ffb06f0ab50e06023e4bd0fe9536db985ec1494cfd2` |
+| `reports/figures/host_infection_pubmed_38236803_assay_comparison.svg` | figure | 33841 | yes | `7862c704410e746280daca706adfbb599675ca15aaa8713f5ed4db423488275a` |
+| `reports/figures/host_infection_pubmed_38236803_site_prevalence.svg` | figure | 81039 | yes | `7722588112e9c960e8427dd39ca5bb947f89944cf1956a3a7235e8697c6e39c2` |
+| `reports/figures/host_infection_pubmed_38236803_species_prevalence.svg` | figure | 60829 | yes | `a2ed69f3ad7d3cf0513ac3df99799b3fa75747c543acec42fb7f5be9353825ea` |
+| `reports/figures/formal_host_occurrence_suitability_diagnostics.svg` | figure | 39477 | yes | `639555d284e25dc73c06fb50a19923bac2e7ebe846d88c9f8a6aa19967e860d4` |
+| `reports/figures/formal_host_occurrence_background_sensitivity_diagnostics.svg` | figure | 56443 | yes | `a1188b712c005ff48813054872548265d7e939ce3549db387a280b447e637de0` |
+| `reports/figures/gbif_descriptive_suitability_covariates.svg` | figure | 488152 | yes | `1ae36be87152bc608e6e012e41ab6ef29d60a3ca1ce7a8cdf1375b2f5ef50306` |
+| `reports/figures/human_case_map_gate_descriptive_availability_panel.svg` | figure | 167896 | yes | `18dd27ac229518698e4193762ce2f80f7cb34f45177cf1b7761e63c0a1443ff3` |
+| `reports/figures/gbif_country_record_availability_choropleth_prototype.svg` | figure | 45589 | yes | `c1f1fbf0cf4157217e8696a150cadd1bc58c3df5cfb6860bf2ed1a4622101f41` |
+| `scripts/data_generation/audit_high_priority_host_infection_supplements.py` | script | 9849 | yes | `b64ec6b0b9b861e8358ec89c8081e1d11ea8536697253138ccd15f517e78cdac` |
+| `scripts/data_generation/audit_host_infection_literature_fulltext.py` | script | 11933 | yes | `8c295d3de7cdd54be69498ab3bc7d9205464fd1e1ab17312410f8823f0c0addb` |
+| `scripts/data_generation/audit_local_deposition_package.py` | script | 3459 | yes | `2110a57bab4c00d6f82d9327816e98ec4c35457dfa7e899f96f3336c3079cf03` |
+| `scripts/data_generation/audit_nature_style_article_completeness.py` | script | 4889 | yes | `7005dd55ddb7ea0ad711ed8b836ddf64c38af6d5781cb44b55afee0f8f75a0ce` |
+| `scripts/data_generation/audit_scientific_data_descriptor_readiness.py` | script | 5925 | yes | `0444c992c54e7230137751be82c7c666511fa733c6f1738d61f8e835766c3661` |
+| `scripts/data_generation/build_accessible_area_background_points.py` | script | 9787 | yes | `0706c9db6086e60b7c633310b56d81f68ddd9b6b8eef84c6d1e8af9f695cb9fb` |
+| `scripts/data_generation/build_accessible_area_mask.py` | script | 9711 | yes | `2fb6a7d438545c6b03507e7d918ad1caed79c0eca00176e39db65be4624a4182` |
+| `scripts/data_generation/build_case_dataset.py` | script | 288 | yes | `ce909bf34028e8e9c6d2bea0cdaf17ba9c4ba1378a2e4dd11d927cfcc3f78fc8` |
+| `scripts/data_generation/build_ecdc_hantavirus_country_month_slice.py` | script | 14429 | yes | `8813074ad0d1cb6dc1becdd53a36c1e6217bc524a07bd951658d7871105e26bd` |
+| `scripts/data_generation/build_environmental_suitability_pilot_table.py` | script | 7507 | yes | `f5d1851d43f0adbea9dfc50334a8c3c08757acf14377e7cc18c18fc8fc9b6e3e` |
+| `scripts/data_generation/build_external_data_acquisition_plan.py` | script | 12451 | yes | `8b600e9a027b1a8f986d591c84c081144c841d53ec71ccdd17541f09bcf0c3ab` |
+| `scripts/data_generation/build_final_researchops_closeout.py` | script | 20101 | yes | `f8009be1ab19940a4d5676c8948b30636b2d8f13a59bc62eddc9a4e3ba4335bf` |
+| `scripts/data_generation/build_gbif_candidate_subset.py` | script | 6438 | yes | `e2863edea97a3efb199a654ac848bd29523decefaa36453a58ba039a22cb9fea` |
+| `scripts/data_generation/build_gbif_choropleth_prototype.py` | script | 7833 | yes | `4f05f10ea2d26b7f2cfae4920340ecb24f39d308c43ecdbc4086d821f21de6a9` |
+| `scripts/data_generation/build_gbif_descriptive_map_closeout.py` | script | 5655 | yes | `adc4531d971350d1691f9c81e07e18c5377205b0058d1013caae343737f09050` |
+| `scripts/data_generation/build_gbif_descriptive_mapping_package.py` | script | 9417 | yes | `80970f195a400143cfb2479eee4fc38ed659ec3a327de562b4f33a676cd7632f` |
+| `scripts/data_generation/build_gbif_mapping_readiness.py` | script | 8506 | yes | `1ac7dcd2a75ea62a298d961ea336b5819dcfc9d3268ab71919f22f1097df08f0` |
+| `scripts/data_generation/build_gbif_occurrence_qc.py` | script | 8500 | yes | `e9480bad27c231bdb2148511f24c861e59d34ce054696b69d681f3928cdda4bd` |
+| `scripts/data_generation/build_hanta_advanced_analysis_gate.py` | script | 13387 | yes | `bb889f83254df57a192e633c17f3d132c5a799f8ed9ce8b987f2db0633876ab8` |
+| `scripts/data_generation/build_hanta_advanced_gate_evidence.py` | script | 8181 | yes | `6c6ef0620aeb30e9ddb0a987ae249dd5abd83983c17b6b00ccdcef2006d27d12` |
+| `scripts/data_generation/build_hanta_advanced_gate_readiness_plan.py` | script | 12711 | yes | `e008c3c3ef40a73ec6c38c3a8af2b438df12146940709386fc642d86d2986e68` |
+| `scripts/data_generation/build_hanta_advanced_models_publication_figures_plan.py` | script | 10717 | yes | `64f70741accb77a2bb75a38bd4449c2033466de7a8986aa523ec5e9543c1064a` |
+| `scripts/data_generation/build_hanta_data_acquisition_plan.py` | script | 14573 | yes | `73b94cb928519f9130df9334aa818d3c9c69fd7fa083e547777fe029e997a5b6` |
+| `scripts/data_generation/build_hanta_real_data_closeout.py` | script | 5043 | yes | `521391ccdcdfc89046398f67032ad308a565f3bb56de0468806f4146db8698ed` |
+| `scripts/data_generation/build_hanta_remaining_planning_layers.py` | script | 17503 | yes | `d130db55f0929a676920468397ba7b124ca8ca88b3063ce2a0a5e797f72e73a9` |
+| `scripts/data_generation/build_hanta_rt_time_series_gate.py` | script | 22602 | yes | `dbbcbfb39d03f900632f6882aa13aadd3b26abcec46b2be4864e5414d3ef92a6` |
+| `scripts/data_generation/build_hanta_source_access_verification.py` | script | 22293 | yes | `04c50db90cbd90faae2872420d2dbe76a8d6c1f0373ed0d94975b52249b7e2de` |
+| `scripts/data_generation/build_hanta_write_ready_closeout.py` | script | 22091 | yes | `370fbf56700258a0f4b121213eae8281c1f22eae7740a17d7985a676842387ab` |
+| `scripts/data_generation/build_host_infection_trapping_prevalence_package.py` | script | 11555 | yes | `36e82cd81380a2bf0b8e409c7eb71898abdf0eb21efb2875f4e10e01046bc08b` |
+| `scripts/data_generation/build_host_infection_within_study_prevalence_audit.py` | script | 13918 | yes | `47a7fa1da32562165c597e85a8b978a3e9e811da96c371f4396f5867658df0e2` |
+| `scripts/data_generation/build_host_occurrence_dataset.py` | script | 290 | yes | `66a52ae8e14d3122a558438086d1bc8cf5ea331461a56c6e08894ecc3d0eacf1` |
+| `scripts/data_generation/build_human_case_map_gate.py` | script | 18657 | yes | `2ac15045f8f34dae912f854e6c6d53567123e72ab03603cf8678d4ec43224ae3` |
+| `scripts/data_generation/build_local_scientific_data_deposition_package.py` | script | 6593 | yes | `2f60f324be4c1a79eeacc596ee07e0ef6df9489dde6b1829d15a6fa26d6c448c` |
+| `scripts/data_generation/build_manuscript_figure_caption_lock.py` | script | 9467 | yes | `cdda3d542b91012dfd30c8340fa8438c78a7c10a97b766fce9801030eaec2f40` |
+| `scripts/data_generation/build_manuscript_figure_inventory.py` | script | 3072 | yes | `522258aed16dfa404d02e69706e3dd2fd2fe557b5f2a3161d54df5ff24b41841` |
+| `scripts/data_generation/build_nature_level_article_final_readiness.py` | script | 3946 | yes | `bd54dd18aca0cd436098cd8a30d587a562e1b012dd42e636844c992b13affa4d` |
+| `scripts/data_generation/build_nature_manuscript_final_claim_audit.py` | script | 5202 | yes | `a041aac072784eaf7835f583238b79429afc11df00f8dd3408532ef4b7111ac3` |
+| `scripts/data_generation/build_nature_submission_package.py` | script | 4692 | yes | `c34a2fb53730a6a7437747d76405a30c001e5e75ec9043075c72151ceef7b9f2` |
+| `scripts/data_generation/build_release_artifact_manifest.py` | script | 5479 | yes | `180ec4d217c130283159143769ec09610d4e728d9a8ea154e6f805afe4a84bc4` |
+| `scripts/data_generation/build_reviewer_navigation_and_release_readiness.py` | script | 5785 | yes | `03b368984c793796c2e6dfc9f9be3e497cabadc97442684e9d7b6e8fa1c8e276` |
+| `scripts/data_generation/build_scientific_data_descriptor_package.py` | script | 13807 | yes | `79c96afe8ee50df36364393d038cf909e90fc59ebb733a8833746f3283cd4d69` |
+| `scripts/data_generation/build_scientific_data_resource_index.py` | script | 8578 | yes | `9bcf72df4de585f28c6586fc899e1f8c91b80bdf6dfa9fa0e21968aa276fd6ed` |
+| `scripts/data_generation/build_scientific_data_submission_checklist.py` | script | 7530 | yes | `c8e0245736b9d3a23fa6edc8a6a6fe3ae980c1497fd898ebbb8b03d85909d070` |
+| `scripts/data_generation/build_scientific_data_submission_text.py` | script | 5244 | yes | `c0748545886d03d5317184aaa84e0732d53aacfa2d93b9471a1f762ba8650c34` |
+| `scripts/data_generation/build_surveillance_join_qc_gate.py` | script | 29506 | yes | `70358a3ac7c6cc3bc1a58878deb3adb464094f24838e63b3be8c83ff83c561d4` |
+| `scripts/data_generation/complete_environmental_phase1_inputs.py` | script | 29848 | yes | `ffc1c98df6ef98bf4c12cff2d1cdb6892b1fea3805ccdb3a926c8013f3bbda92` |
+| `scripts/data_generation/diagnose_and_improve_phase2_model.py` | script | 20152 | yes | `0ced1e086c569280d0afe53def6d6902a45332ad465b43e4ecfaf3c89090f057` |
+| `scripts/data_generation/document_host_infection_figure_review.py` | script | 4545 | yes | `a8d96a1fd3078f2382502e4ae154954f3f150a3a7f144d7d9cf6bb9adcf93e18` |
+| `scripts/data_generation/document_manuscript_figure_minimax_audit.py` | script | 5468 | yes | `ad6e5b4376ed35e8e183349dffae9a4897045ed20a03fb8c422b24b443e26bad` |
+| `scripts/data_generation/download_environmental_covariates.py` | script | 13642 | yes | `899d8aa9f7253d2391708eac019fa1e6ec85ccddd86fa495155d170b28f26593` |
+| `scripts/data_generation/download_host_trapping_sources.py` | script | 6180 | yes | `6a8b64d52f50f38072f6f88028e26640d0b403195fc7b6b24a0ae7027589ffb9` |
+| `scripts/data_generation/request_gbif_download.py` | script | 5905 | yes | `77062d9388352e6c21de21a0b687b4daa6f2f36e1863410502b031c9b8645816` |
+| `scripts/data_generation/review_environmental_covariate_gate.py` | script | 11254 | yes | `004a2d22fe4b1768183d65025cbd5ddacb78dcfabcfe7c9bfcc4f802f422cd29` |
+| `scripts/data_generation/review_host_trapping_gate.py` | script | 4790 | yes | `07dbba2038598cf324e08106543f92543605a4c843d3b1170735cf650f1e2b97` |
+| `scripts/data_generation/review_host_trapping_study_design.py` | script | 9806 | yes | `f5a7d800dbc242cada6af12c22153a7f4113e38aac8f7a4e64e2a139457c837c` |
+| `scripts/data_generation/run_final_secret_privacy_audit.py` | script | 4284 | yes | `fe7bae6f349b2c0f094afe3b4493f45707339f6bdca757af0d593dce84adbfc0` |
+| `scripts/data_generation/run_formal_host_occurrence_suitability_model.py` | script | 15696 | yes | `db7f5a40a5dff2470683e26483e7648a9c0dd280292246cb751fe5156909d889` |
+| `scripts/data_generation/run_scientific_data_reproducibility_smoke_test.py` | script | 2492 | yes | `14c792f7417606f7751021bd4920539a61adea48774c97e4623eb0e2998e4d13` |
+| `scripts/data_generation/simulate_nature_peer_review.py` | script | 5748 | yes | `cce2c3b66d7ff93994881087fc04d4df90d324de67fe3a36a1f0741df119d1ab` |
+| `scripts/data_generation/update_nature_manuscript_scaffold.py` | script | 10106 | yes | `10c2bab57d6c6e065be1b4d02239da5b7f092023dddb87bd4f30beec2f45eae3` |
+| `scripts/data_generation/validate_sources.py` | script | 299 | yes | `3172467fc04c219c664629bd8afad0552955e7c0c34bbcef3d16821c8670c9d4` |
+| `scripts/data_generation/write_full_nature_style_article.py` | script | 21576 | yes | `9dbd294adfa4718cb81f81d49ce4eb59126631f0d892aeb7c874d66cdc59d7e4` |
+| `scripts/visualization/plot_environment_effects.py` | script | 2955 | yes | `43d6535dad28bf50fcf1c499c4595e6cefde932c5cc1bd41e3aa5e83a64f000b` |
+| `scripts/visualization/plot_host_network.py` | script | 261 | yes | `134e52d0fb923e9207e124dee1729b144742d76823e95f6e559fede218c9be0a` |
+| `scripts/visualization/plot_risk_maps.py` | script | 263 | yes | `c38c8650728dc15018258483979141d573d05d66c371be7e96fbd856b60f6dac` |
+| `scripts/visualization/plot_segment_phylogenies.py` | script | 262 | yes | `e8969b3bb59a7a59abe1ef464e83e17d5426497f213db26a938e7c3fce5a1af0` |
+| `README.md` | package_readme | 524 | yes | `e03b766245ce520efe0457626c79bdfb28e1a4bac64284e7a04ca7774b66cab2` |
+

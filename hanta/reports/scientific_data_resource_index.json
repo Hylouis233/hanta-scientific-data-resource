@@ -1,0 +1,10 @@
+{
+  "data_record_count": 5,
+  "data_records_table": "reports/tables/scientific_data_data_records_table.csv",
+  "field_dictionary": "reports/tables/scientific_data_field_dictionary.csv",
+  "field_dictionary_rows": 19,
+  "generated_at_utc": "2026-06-02T03:10:08.649781+00:00",
+  "schema_version": "0.1.0",
+  "status": "scientific_data_resource_index_complete",
+  "validation_passed": true
+}

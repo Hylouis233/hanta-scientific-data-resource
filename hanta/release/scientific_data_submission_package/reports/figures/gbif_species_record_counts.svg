@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="248" viewBox="0 0 980 248">
+<rect width="100%" height="100%" fill="white"/>
+<text x="250" y="59" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" font-style="italic">Rattus norvegicus</text>
+<rect x="260" y="42" width="464" height="24" fill="#0072B2"/>
+<text x="732" y="59" font-family="Arial, Helvetica, sans-serif" font-size="11">215,272</text>
+<text x="250" y="91" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" font-style="italic">Peromyscus maniculatus</text>
+<rect x="260" y="74" width="346" height="24" fill="#0072B2"/>
+<text x="614" y="91" font-family="Arial, Helvetica, sans-serif" font-size="11">160,529</text>
+<text x="250" y="123" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" font-style="italic">Myodes glareolus</text>
+<rect x="260" y="106" width="313" height="24" fill="#0072B2"/>
+<text x="581" y="123" font-family="Arial, Helvetica, sans-serif" font-size="11">145,325</text>
+<text x="250" y="155" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" font-style="italic">Apodemus agrarius</text>
+<rect x="260" y="138" width="23" height="24" fill="#0072B2"/>
+<text x="291" y="155" font-family="Arial, Helvetica, sans-serif" font-size="11">10,813</text>
+<text x="250" y="187" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" font-style="italic">Oligoryzomys longicaudatus</text>
+<rect x="260" y="170" width="4" height="24" fill="#0072B2"/>
+<text x="272" y="187" font-family="Arial, Helvetica, sans-serif" font-size="11">1,961</text>
+<line x1="260" x2="800" y1="206" y2="206" stroke="#333" stroke-width="1"/>
+<line x1="260" x2="260" y1="206" y2="211" stroke="#333" stroke-width="1"/>
+<text x="260" y="226" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10">0</text>
+<line x1="368" x2="368" y1="206" y2="211" stroke="#333" stroke-width="1"/>
+<text x="368" y="226" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10">50,000</text>
+<line x1="476" x2="476" y1="206" y2="211" stroke="#333" stroke-width="1"/>
+<text x="476" y="226" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10">100,000</text>
+<line x1="584" x2="584" y1="206" y2="211" stroke="#333" stroke-width="1"/>
+<text x="584" y="226" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10">150,000</text>
+<line x1="692" x2="692" y1="206" y2="211" stroke="#333" stroke-width="1"/>
+<text x="692" y="226" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10">200,000</text>
+<line x1="800" x2="800" y1="206" y2="211" stroke="#333" stroke-width="1"/>
+<text x="800" y="226" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10">250,000</text>
+<text x="530.0" y="244" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11">Number of occurrence records</text>
+<desc>GBIF candidate host occurrence records by species. Descriptive GBIF occurrence record counts only; not host abundance or infection risk.</desc>
+</svg>

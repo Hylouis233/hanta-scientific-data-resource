@@ -1,0 +1,29 @@
+check_type,check,passed,evidence
+required_section,## Background & Summary,True,present
+required_section,## Methods,True,present
+required_section,## Data Records,True,present
+required_section,## Technical Validation,True,present
+required_section,## Usage Notes,True,present
+required_section,## Code availability,True,present
+required_section,## Data availability,True,present
+required_phrase,Scientific Data,True,present
+required_phrase,Data Descriptor,True,present
+required_phrase,DVC,True,present
+required_phrase,MiniMax M3,True,present
+required_phrase,Wilson 95% confidence intervals,True,present
+required_phrase,mean AUC 0.458299,True,present
+required_phrase,mean Brier score 0.252709,True,present
+disallowed_unqualified_claim,human infection risk model,True,not_found_unqualified
+disallowed_unqualified_claim,validated risk map,True,not_found_unqualified
+disallowed_unqualified_claim,formal Rt estimate,True,not_found_unqualified
+disallowed_unqualified_claim,host abundance estimate,True,not_found_unqualified
+disallowed_unqualified_claim,spillover risk,True,not_found_unqualified
+disallowed_unqualified_claim,host-switch inference,True,not_found_unqualified
+disallowed_unqualified_claim,causal effect,True,not_found_unqualified
+artifact,submission fit audit,True,scientific_data_submission_fit_complete
+artifact,data records table,True,reports/tables/scientific_data_data_records_table.csv
+artifact,usage notes,True,reports/scientific_data_usage_notes.md
+artifact,technical validation,True,reports/scientific_data_technical_validation.md
+artifact,MiniMax figures,True,10/10 accepted
+artifact,claim audit,True,0 failed checks
+artifact,fixed evaluation,True,all_checks_passed=true

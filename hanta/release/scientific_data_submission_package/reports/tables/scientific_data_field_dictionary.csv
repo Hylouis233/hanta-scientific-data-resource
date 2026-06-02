@@ -1,0 +1,20 @@
+record_group,field_or_artifact,definition,unit_or_values,missing_or_boundary
+GBIF host-occurrence provenance and mapping readiness,species,Scientific name string for candidate host occurrence summaries,taxon name,GBIF record taxonomy only; not abundance
+GBIF host-occurrence provenance and mapping readiness,countryCode,GBIF country or area code used for record-availability summaries,ISO-like code or source code,record location availability only; not risk
+GBIF host-occurrence provenance and mapping readiness,mapping_ready_rows,Count of occurrence rows retained as mapping-ready after QC,row count,sampling effort not standardized
+Environmental formal gate inputs and diagnostics,record_id,"Internal row identifier linking covariates, labels and spatial folds",string,internal reproducibility key only
+Environmental formal gate inputs and diagnostics,label,Presence/background class for bounded GBIF host-occurrence suitability modeling,presence; background,not human cases or host abundance
+Environmental formal gate inputs and diagnostics,spatial_fold,Spatial block fold used for model validation,1-5,fold validation only; not geographic risk
+Environmental formal gate inputs and diagnostics,auc,Fold-level discrimination metric for model QC,0-1,diagnostic metric; failed gate remains blocked
+Environmental formal gate inputs and diagnostics,brier_score,Fold-level probabilistic calibration/error metric,0-1 lower is better,diagnostic metric; not risk validation
+Public host infection/trapping within-study table,ELISA_positive,Public table binary ELISA seropositivity indicator,0; 1,within-study assay only
+Public host infection/trapping within-study table,qPCR_positive,Public table binary RT-qPCR detection indicator,0; 1,within-study assay only
+Public host infection/trapping within-study table,site_id,Public within-study site code from supplement,integer-like code,not reusable spatial locality; GPS coordinates excluded
+Public host infection/trapping within-study table,sampling_date,Capture/testing date parsed from public supplement,date,single-study temporal scope only
+Public host infection/trapping within-study table,full_species,Genus and species label from public supplement,taxon label,source taxonomy only; no cross-study harmonization
+Public aggregate surveillance availability/count panels,case_count,Public aggregate numeric case count where available,integer or blank,not incidence-comparable; suppressed/non-numeric flagged
+Public aggregate surveillance availability/count panels,is_suppressed_or_non_numeric,Flag for surveillance entries that cannot be treated as numeric counts,true; false,not imputed
+Public aggregate surveillance availability/count panels,reporting_year/month,Temporal reporting period for aggregate surveillance rows,year or month,not a formal Rt-ready incidence series
+Figure quality and caption-lock audit records,final_verdict,MiniMax M3 figure-quality verdict after review/revision,accept,visual quality does not validate scientific claims
+Figure quality and caption-lock audit records,allowed_interpretation,Caption-locked interpretation scope for a figure group,free text,must be read with disallowed interpretation
+Figure quality and caption-lock audit records,disallowed_interpretation,Caption-locked claims that the figure must not support,free text,prevents overclaiming

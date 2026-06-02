@@ -1,0 +1,30 @@
+{
+  "checks": [
+    {
+      "check": "Data Descriptor structure",
+      "passed": true
+    },
+    {
+      "check": "Data Records table",
+      "passed": true
+    },
+    {
+      "check": "Usage Notes",
+      "passed": true
+    },
+    {
+      "check": "Technical Validation",
+      "passed": true
+    },
+    {
+      "check": "Claim boundaries",
+      "passed": true
+    }
+  ],
+  "descriptor_path": "manuscripts/hanta_scientific_data_descriptor.md",
+  "generated_at_utc": "2026-06-02T03:10:08.689698+00:00",
+  "schema_version": "0.1.0",
+  "status": "scientific_data_submission_fit_complete",
+  "target_journal_family": "Scientific Data / Nature Portfolio data-resource style",
+  "validation_passed": true
+}

@@ -1,0 +1,42 @@
+{
+  "best_candidate": {
+    "coordinates_blocked_signal": true,
+    "coordinates_public_signal": false,
+    "doi": "10.1371/journal.pone.0296718",
+    "gate_readiness_status": "public_supplement_promising_but_coordinates_excluded",
+    "next_action": "manually inspect/download public S1 Table XLSX and determine whether site IDs without private coordinates can support non-spatial prevalence summaries; do not claim spatial suitability unless coordinates are legally available",
+    "pmcid": "10796054",
+    "pmid": "38236803",
+    "public_table_signal": true,
+    "required_field_signal_count": 9,
+    "study_id": "pubmed_38236803",
+    "title": "Distribution and prevalence of Sin Nombre hantavirus in rodent species in eastern New Mexico."
+  },
+  "generated_at_utc": "2026-06-01T14:21:35.424847+00:00",
+  "guardrails": [
+    "This audit inspects public full-text and supplement signals only; it does not download or ingest supplementary XLSX data.",
+    "The best candidate reports rodent capture data and assay results, but GPS coordinates are described as excluded for private-land protection.",
+    "Coordinate exclusion blocks spatial host infection suitability unless legal site coordinates or approved spatial surrogates are available.",
+    "No host abundance, host infection suitability, spillover, human risk, Rt, or causal claim is authorized by this readiness audit."
+  ],
+  "high_priority_count": 1,
+  "public_data_ingested": false,
+  "readiness_rows": [
+    {
+      "coordinates_blocked_signal": true,
+      "coordinates_public_signal": false,
+      "doi": "10.1371/journal.pone.0296718",
+      "gate_readiness_status": "public_supplement_promising_but_coordinates_excluded",
+      "next_action": "manually inspect/download public S1 Table XLSX and determine whether site IDs without private coordinates can support non-spatial prevalence summaries; do not claim spatial suitability unless coordinates are legally available",
+      "pmcid": "10796054",
+      "pmid": "38236803",
+      "public_table_signal": true,
+      "required_field_signal_count": 9,
+      "study_id": "pubmed_38236803",
+      "title": "Distribution and prevalence of Sin Nombre hantavirus in rodent species in eastern New Mexico."
+    }
+  ],
+  "schema_version": "0.1.0",
+  "status": "host_infection_high_priority_supplement_readiness_complete",
+  "validation_passed": true
+}

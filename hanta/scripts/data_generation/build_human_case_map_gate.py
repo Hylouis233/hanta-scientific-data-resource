@@ -147,7 +147,13 @@ def color_for_value(value: float, vmax: float) -> tuple:
     return cmap(min(max(scaled, 0), 1))
 
 
-def draw_tile_grid(ax, grid, values, labels, title, subtitle, vmax, missing_codes=None):
+def text_color_for_value(value: float, vmax: float, missing: bool = False) -> str:
+    if missing or vmax <= 0:
+        return "#0b2239"
+    return "white" if value / vmax >= 0.55 else "#0b2239"
+
+
+def draw_tile_grid(ax, grid, values, labels, title, subtitle, vmax, missing_codes=None, add_legend=False):
     missing_codes = missing_codes or set()
     nrows = len(grid)
     ncols = max(len(row) for row in grid)
@@ -161,13 +167,23 @@ def draw_tile_grid(ax, grid, values, labels, title, subtitle, vmax, missing_code
             y = nrows - r - 1
             value = values.get(code)
             face = "#d9d9d9" if code in missing_codes else color_for_value(value or 0, vmax)
+            text_color = text_color_for_value(value or 0, vmax, code in missing_codes)
             rect = Rectangle((c, y), 0.95, 0.95, facecolor=face, edgecolor="white", linewidth=1.5)
             ax.add_patch(rect)
-            ax.text(c + 0.08, y + 0.67, code, fontsize=8, fontweight="bold", color="#0b2239")
+            ax.text(c + 0.08, y + 0.67, code, fontsize=8, fontweight="bold", color=text_color)
             label = labels.get(code, "")
-            ax.text(c + 0.08, y + 0.22, label, fontsize=7, color="#0b2239")
+            ax.text(c + 0.08, y + 0.22, label, fontsize=7, color=text_color)
     ax.text(0, nrows + 0.9, title, fontsize=13, fontweight="bold", color="#0b2239")
     ax.text(0, nrows + 0.45, subtitle, fontsize=9, color="#44546a")
+    if add_legend:
+        legend_x = ncols - 4.4
+        legend_y = nrows + 0.45
+        for i, frac in enumerate([0.0, 0.33, 0.66, 1.0]):
+            value = frac * vmax
+            ax.add_patch(Rectangle((legend_x + i * 0.45, legend_y), 0.4, 0.18, facecolor=color_for_value(value, vmax), edgecolor="#ffffff", linewidth=0.5))
+        ax.add_patch(Rectangle((legend_x + 2.05, legend_y), 0.4, 0.18, facecolor="#d9d9d9", edgecolor="#ffffff", linewidth=0.5))
+        ax.text(legend_x, legend_y - 0.15, f"0 to {int(vmax):,} cases", fontsize=7, color="#44546a", va="top")
+        ax.text(legend_x + 2.05, legend_y - 0.15, "suppressed/NR", fontsize=7, color="#44546a", va="top")
 
 
 def build_figure(cdc_rows, ecdc_rows) -> None:
@@ -192,24 +208,26 @@ def build_figure(cdc_rows, ecdc_rows) -> None:
         US_GRID_ORDER,
         cdc_values,
         cdc_labels,
-        "A. CDC WONDER annual hantavirus pulmonary syndrome counts by U.S. state, 2023",
-        "Non-geographic tile map from public annual state counts. Gray tiles indicate Not Reportable or unavailable/non-numeric entries.",
+        "A. U.S. annual HPS case counts by state, 2023",
+        "Non-geographic tile map from public annual state counts; gray tiles indicate non-numeric or unavailable entries.",
         cdc_vmax,
         cdc_missing,
+        True,
     )
     draw_tile_grid(
         axes[1],
         EUROPE_GRID_ORDER,
         ecdc_values,
         ecdc_labels,
-        "B. ECDC annual hantavirus country totals summed from numeric monthly rows, 2023",
-        "Non-geographic tile map from public country-month surveillance rows. Gray tiles indicate years with only suppressed/non-numeric monthly entries in the retained slice.",
+        "B. ECDC annual hantavirus country totals, 2023",
+        "Numeric monthly rows summed by country; gray tiles indicate only suppressed or non-numeric retained rows.",
         ecdc_vmax,
         ecdc_missing,
+        True,
     )
 
     fig.suptitle(
-        "Human hantavirus case mapping gate: descriptive availability/count panels",
+        "Human hantavirus case data availability and summary counts",
         fontsize=16,
         fontweight="bold",
         color="#0b2239",
@@ -224,6 +242,7 @@ def build_figure(cdc_rows, ecdc_rows) -> None:
     )
     FIGURE_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(FIGURE_OUTPUT, format="svg", bbox_inches="tight")
+    fig.savefig(FIGURE_OUTPUT.with_suffix(".png"), format="png", dpi=300, bbox_inches="tight")
     plt.close(fig)
 
 

@@ -1,0 +1,180 @@
+{
+  "check_count": 28,
+  "checks": [
+    {
+      "check": "## Background & Summary",
+      "check_type": "required_section",
+      "evidence": "present",
+      "passed": true
+    },
+    {
+      "check": "## Methods",
+      "check_type": "required_section",
+      "evidence": "present",
+      "passed": true
+    },
+    {
+      "check": "## Data Records",
+      "check_type": "required_section",
+      "evidence": "present",
+      "passed": true
+    },
+    {
+      "check": "## Technical Validation",
+      "check_type": "required_section",
+      "evidence": "present",
+      "passed": true
+    },
+    {
+      "check": "## Usage Notes",
+      "check_type": "required_section",
+      "evidence": "present",
+      "passed": true
+    },
+    {
+      "check": "## Code availability",
+      "check_type": "required_section",
+      "evidence": "present",
+      "passed": true
+    },
+    {
+      "check": "## Data availability",
+      "check_type": "required_section",
+      "evidence": "present",
+      "passed": true
+    },
+    {
+      "check": "Scientific Data",
+      "check_type": "required_phrase",
+      "evidence": "present",
+      "passed": true
+    },
+    {
+      "check": "Data Descriptor",
+      "check_type": "required_phrase",
+      "evidence": "present",
+      "passed": true
+    },
+    {
+      "check": "DVC",
+      "check_type": "required_phrase",
+      "evidence": "present",
+      "passed": true
+    },
+    {
+      "check": "MiniMax M3",
+      "check_type": "required_phrase",
+      "evidence": "present",
+      "passed": true
+    },
+    {
+      "check": "Wilson 95% confidence intervals",
+      "check_type": "required_phrase",
+      "evidence": "present",
+      "passed": true
+    },
+    {
+      "check": "mean AUC 0.458299",
+      "check_type": "required_phrase",
+      "evidence": "present",
+      "passed": true
+    },
+    {
+      "check": "mean Brier score 0.252709",
+      "check_type": "required_phrase",
+      "evidence": "present",
+      "passed": true
+    },
+    {
+      "check": "human infection risk model",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "passed": true
+    },
+    {
+      "check": "validated risk map",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "passed": true
+    },
+    {
+      "check": "formal Rt estimate",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "passed": true
+    },
+    {
+      "check": "host abundance estimate",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "passed": true
+    },
+    {
+      "check": "spillover risk",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "passed": true
+    },
+    {
+      "check": "host-switch inference",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "passed": true
+    },
+    {
+      "check": "causal effect",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "passed": true
+    },
+    {
+      "check": "submission fit audit",
+      "check_type": "artifact",
+      "evidence": "scientific_data_submission_fit_complete",
+      "passed": true
+    },
+    {
+      "check": "data records table",
+      "check_type": "artifact",
+      "evidence": "reports/tables/scientific_data_data_records_table.csv",
+      "passed": true
+    },
+    {
+      "check": "usage notes",
+      "check_type": "artifact",
+      "evidence": "reports/scientific_data_usage_notes.md",
+      "passed": true
+    },
+    {
+      "check": "technical validation",
+      "check_type": "artifact",
+      "evidence": "reports/scientific_data_technical_validation.md",
+      "passed": true
+    },
+    {
+      "check": "MiniMax figures",
+      "check_type": "artifact",
+      "evidence": "10/10 accepted",
+      "passed": true
+    },
+    {
+      "check": "claim audit",
+      "check_type": "artifact",
+      "evidence": "0 failed checks",
+      "passed": true
+    },
+    {
+      "check": "fixed evaluation",
+      "check_type": "artifact",
+      "evidence": "all_checks_passed=true",
+      "passed": true
+    }
+  ],
+  "descriptor_path": "manuscripts/hanta_scientific_data_descriptor.md",
+  "failed_checks": [],
+  "generated_at_utc": "2026-06-02T03:10:08.730751+00:00",
+  "schema_version": "0.1.0",
+  "status": "scientific_data_descriptor_final_readiness_complete",
+  "target": "Scientific Data / Nature Portfolio Data Descriptor-style submission",
+  "validation_passed": true
+}

@@ -1,0 +1,8 @@
+editorial_dimension,fit_status,evidence,risk
+Reusable data resource,strong,"5 record groups spanning provenance, gate inputs, public table audit, surveillance availability, and figure/caption audit",resource value must be framed as ResearchOps rather than discovery
+Data Records clarity,strong,Data Records table plus resource index,large DVC directories require reviewer access outside manuscript text
+Field definitions,strong,19-row field dictionary,some source-specific schemas remain summarized rather than exhaustive
+Technical Validation,strong,"fixed evaluation, model QC, table audit, MiniMax review, claim audit","validation demonstrates boundaries, not biological discovery"
+Usage Notes,strong,recommended uses/non-uses explicitly listed,users may still want risk maps; non-use language must remain visible
+Ethics/privacy,strong,"no credentials, no sensitive human individual data, no private coordinates reconstructed",public supplement source should remain cited and bounded
+Nature Portfolio scope,good,Data Descriptor/Resource framing aligns better than discovery framing,editor may request external repository DOI or data deposition packaging

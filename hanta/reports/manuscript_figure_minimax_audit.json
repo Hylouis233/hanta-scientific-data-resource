@@ -1,0 +1,97 @@
+{
+  "accepted_count": 10,
+  "figure_count": 10,
+  "generated_at_utc": "2026-06-01T16:51:33.943597+00:00",
+  "guardrails": [
+    "MiniMax acceptance is a figure-quality audit, not validation of biological causal claims.",
+    "Blocked or supplementary-only figures must not be promoted to main Nature-level claims without further regeneration and review.",
+    "All accepted figures retain their original scientific scope and guardrails."
+  ],
+  "not_accepted_for_main_manuscript": [],
+  "review_model": "MiniMax M3 vision review via MCP",
+  "rows": [
+    {
+      "figure_id": "formal_host_occurrence_background_sensitivity_diagnostics",
+      "final_verdict": "accept",
+      "publication_tier": "supplementary_diagnostic",
+      "remaining_issue": "minor label polish only; accepted as publication-ready",
+      "rounds": 3,
+      "scientifically_honest": true
+    },
+    {
+      "figure_id": "formal_host_occurrence_suitability_diagnostics",
+      "final_verdict": "accept",
+      "publication_tier": "supplementary_diagnostic",
+      "remaining_issue": "caption should define threshold color coding and failed-gate interpretation",
+      "rounds": 4,
+      "scientifically_honest": true
+    },
+    {
+      "figure_id": "gbif_country_record_availability_choropleth_prototype",
+      "final_verdict": "accept",
+      "publication_tier": "supplementary_descriptive",
+      "remaining_issue": "caption or supplement should provide color-scale/code lookup",
+      "rounds": 2,
+      "scientifically_honest": true
+    },
+    {
+      "figure_id": "gbif_descriptive_suitability_covariates",
+      "final_verdict": "accept",
+      "publication_tier": "supplementary_descriptive",
+      "remaining_issue": "none",
+      "rounds": 2,
+      "scientifically_honest": true
+    },
+    {
+      "figure_id": "gbif_species_record_counts",
+      "final_verdict": "accept",
+      "publication_tier": "main_or_supplementary_descriptive",
+      "remaining_issue": "none",
+      "rounds": 4,
+      "scientifically_honest": true
+    },
+    {
+      "figure_id": "gbif_top_country_record_counts",
+      "final_verdict": "accept",
+      "publication_tier": "main_or_supplementary_descriptive",
+      "remaining_issue": "none",
+      "rounds": 4,
+      "scientifically_honest": true
+    },
+    {
+      "figure_id": "host_infection_pubmed_38236803_assay_comparison",
+      "final_verdict": "accept",
+      "publication_tier": "main_or_supplementary_prevalence",
+      "remaining_issue": "caption should define Wilson 95% CI and Any as unique positives",
+      "rounds": 2,
+      "scientifically_honest": true
+    },
+    {
+      "figure_id": "host_infection_pubmed_38236803_site_prevalence",
+      "final_verdict": "accept",
+      "publication_tier": "main_or_supplementary_prevalence",
+      "remaining_issue": "caption should define Wilson 95% CI",
+      "rounds": 2,
+      "scientifically_honest": true
+    },
+    {
+      "figure_id": "host_infection_pubmed_38236803_species_prevalence",
+      "final_verdict": "accept",
+      "publication_tier": "main_or_supplementary_prevalence",
+      "remaining_issue": "caption should define Wilson 95% CI",
+      "rounds": 2,
+      "scientifically_honest": true
+    },
+    {
+      "figure_id": "human_case_map_gate_descriptive_availability_panel",
+      "final_verdict": "accept",
+      "publication_tier": "supplementary_descriptive",
+      "remaining_issue": "optional abbreviation/legend-bin polish only; MiniMax accepted as publication-ready",
+      "rounds": 4,
+      "scientifically_honest": true
+    }
+  ],
+  "schema_version": "0.1.0",
+  "status": "manuscript_figure_minimax_audit_complete",
+  "validation_passed": true
+}

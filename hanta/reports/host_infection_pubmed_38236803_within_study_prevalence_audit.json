@@ -1,0 +1,31 @@
+{
+  "ELISA_positive_count": 51,
+  "any_positive_count": 203,
+  "county_count": 8,
+  "figures": [
+    "reports/figures/host_infection_pubmed_38236803_site_prevalence.svg",
+    "reports/figures/host_infection_pubmed_38236803_species_prevalence.svg",
+    "reports/figures/host_infection_pubmed_38236803_assay_comparison.svg",
+    "reports/figures/host_infection_pubmed_38236803_site_prevalence.png",
+    "reports/figures/host_infection_pubmed_38236803_species_prevalence.png",
+    "reports/figures/host_infection_pubmed_38236803_assay_comparison.png"
+  ],
+  "generated_at_utc": "2026-06-01T14:54:37.143332+00:00",
+  "guardrails": [
+    "This is a non-spatial within-study prevalence audit of a public supplementary table.",
+    "GPS coordinates are not present in the public table and were excluded by the source authors for private-land protection.",
+    "Site numbers are treated as within-study public codes only, not geospatial coordinates or reusable occurrence localities.",
+    "No host abundance, spatial suitability, spillover, human risk, Rt, forecasting, or causal inference is claimed."
+  ],
+  "processed_table_path": "data/processed/host_infection_trapping_prevalence/pubmed_38236803_s1_table_curated.csv",
+  "qPCR_positive_count": 167,
+  "raw_xlsx_path": "data/raw/host_infection_trapping_prevalence/pubmed_38236803_s1_table.xlsx",
+  "sample_count": 738,
+  "schema_version": "0.1.0",
+  "site_count": 20,
+  "source_url": "https://journals.plos.org/plosone/article/file?type=supplementary&id=10.1371/journal.pone.0296718.s002",
+  "species_count": 27,
+  "status": "within_study_prevalence_table_audit_complete",
+  "study_id": "pubmed_38236803",
+  "validation_passed": true
+}

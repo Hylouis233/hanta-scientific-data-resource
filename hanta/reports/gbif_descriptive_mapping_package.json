@@ -5,7 +5,7 @@
     "species_record_counts": "reports/figures/gbif_species_record_counts.svg",
     "top_country_record_counts": "reports/figures/gbif_top_country_record_counts.svg"
   },
-  "generated_at_utc": "2026-05-29T08:36:17.142340+00:00",
+  "generated_at_utc": "2026-06-01T16:39:33.844627+00:00",
   "guardrails": [
     "figures describe GBIF record availability, not host abundance or infection risk",
     "no choropleth risk map, point risk map, model, or surveillance join is produced",

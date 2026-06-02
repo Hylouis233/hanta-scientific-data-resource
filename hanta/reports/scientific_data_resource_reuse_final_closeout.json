@@ -1,0 +1,13 @@
+{
+  "descriptor": "manuscripts/hanta_scientific_data_descriptor.md",
+  "editorial_fit_matrix": "reports/tables/scientific_data_editorial_fit_matrix.csv",
+  "field_dictionary": "reports/tables/scientific_data_field_dictionary.csv",
+  "generated_at_utc": "2026-06-02T03:12:56.517743+00:00",
+  "remaining_external_dependency": "External data repository deposition DOI and journal editorial decision, if required by the selected submission venue.",
+  "resource_index": "reports/scientific_data_resource_index.md",
+  "schema_version": "0.1.0",
+  "smoke_test": "reports/scientific_data_reproducibility_smoke_test.md",
+  "status": "scientific_data_resource_reuse_package_complete",
+  "submission_checklist": "reports/scientific_data_submission_checklist.md",
+  "validation_passed": true
+}

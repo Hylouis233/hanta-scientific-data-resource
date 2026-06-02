@@ -1,0 +1,43 @@
+{
+  "final_local_decision": "locally_submission_ready_as_researchops_resource_article_not_peer_review_acceptance",
+  "generated_at_utc": "2026-06-01T17:50:56.779306+00:00",
+  "reviews": [
+    {
+      "blocking_concerns": [
+        "The manuscript must make its article type explicit because it is not a traditional discovery paper.",
+        "The title and summary should foreground the methodological contribution rather than hantavirus biology.",
+        "The submission must avoid any implication that MiniMax visual acceptance validates scientific claims."
+      ],
+      "decision_before_revision": "major_revision_before_external_review",
+      "required_revision": "Add an upfront article-positioning paragraph and tighten the discussion around ResearchOps as the primary contribution.",
+      "reviewer": "editorial_screen"
+    },
+    {
+      "blocking_concerns": [
+        "Formal gates are convincing but need a concise explanation of why failed gates are publishable evidence.",
+        "The host infection table audit should reiterate that site codes are not spatial localities."
+      ],
+      "decision_before_revision": "minor_revision",
+      "required_revision": "Add method-level rationale for failed-gate reporting and restate spatial blocker language in Results and Methods.",
+      "reviewer": "methods_reviewer"
+    },
+    {
+      "blocking_concerns": [
+        "The manuscript should explicitly state that surveillance tiles are not incidence-comparable across countries.",
+        "Rt language must remain boundary-only."
+      ],
+      "decision_before_revision": "minor_revision",
+      "required_revision": "Strengthen surveillance limitation language and retain the Chinese Rt boundary statement.",
+      "reviewer": "epidemiology_reviewer"
+    }
+  ],
+  "revision_actions": [
+    "Added article-positioning section for editors and reviewers.",
+    "Added failed-gate-as-evidence rationale.",
+    "Strengthened surveillance non-comparability language.",
+    "Restated that public site codes are not reusable spatial localities."
+  ],
+  "schema_version": "0.1.0",
+  "status": "nature_editorial_peer_review_simulation_complete_no_blocking_issues_after_revision",
+  "validation_passed": true
+}

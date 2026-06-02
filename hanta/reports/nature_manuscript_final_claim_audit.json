@@ -1,0 +1,114 @@
+{
+  "check_count": 17,
+  "checks": [
+    {
+      "check": "public/self-service data ResearchOps",
+      "check_type": "required_boundary_language",
+      "evidence": "present",
+      "status": "pass"
+    },
+    {
+      "check": "formal gate evaluation",
+      "check_type": "required_boundary_language",
+      "evidence": "present",
+      "status": "pass"
+    },
+    {
+      "check": "formal_host_occurrence_suitability_gate_passed=false",
+      "check_type": "required_boundary_language",
+      "evidence": "present",
+      "status": "pass"
+    },
+    {
+      "check": "non-spatial within-study positivity summaries",
+      "check_type": "required_boundary_language",
+      "evidence": "present",
+      "status": "pass"
+    },
+    {
+      "check": "All canonical figures passed MiniMax M3 visual audit",
+      "check_type": "required_boundary_language",
+      "evidence": "present",
+      "status": "pass"
+    },
+    {
+      "check": "\u5f53\u524d Rt \u662f descriptive growth proxy\uff0c\u4e0d\u662f\u6b63\u5f0f EpiEstim\uff0c\u4e5f\u4e0d\u6784\u6210\u5e72\u9884\u56e0\u679c\u5206\u6790\u3002",
+      "check_type": "required_boundary_language",
+      "evidence": "present",
+      "status": "pass"
+    },
+    {
+      "check": "we predict outbreak",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "status": "pass"
+    },
+    {
+      "check": "predicts outbreak",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "status": "pass"
+    },
+    {
+      "check": "risk map",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "status": "pass"
+    },
+    {
+      "check": "human infection risk model",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "status": "pass"
+    },
+    {
+      "check": "formal Rt estimate",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "status": "pass"
+    },
+    {
+      "check": "host abundance estimate",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "status": "pass"
+    },
+    {
+      "check": "spillover risk",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "status": "pass"
+    },
+    {
+      "check": "host-switch inference",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "status": "pass"
+    },
+    {
+      "check": "causal effect",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "status": "pass"
+    },
+    {
+      "check": "all canonical figures accepted by MiniMax M3",
+      "check_type": "figure_quality_gate",
+      "evidence": "10/10 accepted",
+      "status": "pass"
+    },
+    {
+      "check": "all figure groups have locked allowed/disallowed interpretations",
+      "check_type": "caption_lock_gate",
+      "evidence": "6 figure groups",
+      "status": "pass"
+    }
+  ],
+  "claim_scope": "Nature-style ResearchOps manuscript scaffold with public-data provenance, figure readiness, and formal blocked-gate honesty; not a biological risk-inference manuscript.",
+  "failed_checks": [],
+  "generated_at_utc": "2026-06-01T17:50:56.869603+00:00",
+  "manuscript_path": "manuscripts/hanta_generated_manuscript_skeleton.md",
+  "schema_version": "0.1.0",
+  "status": "nature_manuscript_final_claim_audit_passed",
+  "validation_passed": true
+}

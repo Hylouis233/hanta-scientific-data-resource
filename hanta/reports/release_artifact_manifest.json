@@ -1,0 +1,138 @@
+{
+  "artifact_count": 16,
+  "artifacts": [
+    {
+      "artifact": "manuscripts/hanta_scientific_data_descriptor.md",
+      "category": "manuscript",
+      "exists": "true",
+      "public_ok": "yes",
+      "purpose": "Scientific Data / Nature Portfolio Data Descriptor manuscript",
+      "reviewer_priority": "start_here"
+    },
+    {
+      "artifact": "reports/scientific_data_resource_index.md",
+      "category": "reviewer_navigation",
+      "exists": "true",
+      "public_ok": "yes",
+      "purpose": "Reviewer-facing resource landing page",
+      "reviewer_priority": "start_here"
+    },
+    {
+      "artifact": "reports/tables/scientific_data_data_records_table.csv",
+      "category": "data_records",
+      "exists": "true",
+      "public_ok": "yes",
+      "purpose": "Five data record groups and reuse boundaries",
+      "reviewer_priority": "high"
+    },
+    {
+      "artifact": "reports/tables/scientific_data_field_dictionary.csv",
+      "category": "data_records",
+      "exists": "true",
+      "public_ok": "yes",
+      "purpose": "Field/artifact dictionary for reviewer reuse",
+      "reviewer_priority": "high"
+    },
+    {
+      "artifact": "reports/scientific_data_technical_validation.md",
+      "category": "technical_validation",
+      "exists": "true",
+      "public_ok": "yes",
+      "purpose": "Evaluation, gate, table, figure, privacy validation",
+      "reviewer_priority": "high"
+    },
+    {
+      "artifact": "reports/scientific_data_usage_notes.md",
+      "category": "usage_notes",
+      "exists": "true",
+      "public_ok": "yes",
+      "purpose": "Recommended uses and explicit non-uses",
+      "reviewer_priority": "high"
+    },
+    {
+      "artifact": "reports/scientific_data_reproducibility_smoke_test.md",
+      "category": "reproducibility",
+      "exists": "true",
+      "public_ok": "yes",
+      "purpose": "Minimal reproducibility command evidence",
+      "reviewer_priority": "high"
+    },
+    {
+      "artifact": "reports/scientific_data_submission_checklist.md",
+      "category": "submission",
+      "exists": "true",
+      "public_ok": "yes",
+      "purpose": "Submission checklist with 11/11 complete",
+      "reviewer_priority": "medium"
+    },
+    {
+      "artifact": "reports/tables/scientific_data_editorial_fit_matrix.csv",
+      "category": "submission",
+      "exists": "true",
+      "public_ok": "yes",
+      "purpose": "Editorial fit/risk matrix",
+      "reviewer_priority": "medium"
+    },
+    {
+      "artifact": "reports/manuscript_figure_minimax_audit.md",
+      "category": "figures",
+      "exists": "true",
+      "public_ok": "yes",
+      "purpose": "MiniMax M3 review evidence for 10/10 figures",
+      "reviewer_priority": "medium"
+    },
+    {
+      "artifact": "reports/manuscript_figure_caption_lock.md",
+      "category": "figures",
+      "exists": "true",
+      "public_ok": "yes",
+      "purpose": "Caption-level allowed/disallowed interpretations",
+      "reviewer_priority": "medium"
+    },
+    {
+      "artifact": "reports/nature_manuscript_final_claim_audit.md",
+      "category": "claim_audit",
+      "exists": "true",
+      "public_ok": "yes",
+      "purpose": "Final claim-boundary audit with zero failed checks",
+      "reviewer_priority": "medium"
+    },
+    {
+      "artifact": "reports/current_metrics.json",
+      "category": "evaluation",
+      "exists": "true",
+      "public_ok": "yes",
+      "purpose": "Fixed evaluation metrics; all_checks_passed=true",
+      "reviewer_priority": "medium"
+    },
+    {
+      "artifact": "data/raw.dvc",
+      "category": "dvc_pointer",
+      "exists": "true",
+      "public_ok": "yes",
+      "purpose": "DVC pointer for raw data boundary",
+      "reviewer_priority": "supporting"
+    },
+    {
+      "artifact": "data/processed.dvc",
+      "category": "dvc_pointer",
+      "exists": "true",
+      "public_ok": "yes",
+      "purpose": "DVC pointer for processed data boundary",
+      "reviewer_priority": "supporting"
+    },
+    {
+      "artifact": "scripts/data_generation/",
+      "category": "code",
+      "exists": "true",
+      "public_ok": "yes",
+      "purpose": "Generation, audit, descriptor and release scripts",
+      "reviewer_priority": "supporting"
+    }
+  ],
+  "generated_at_utc": "2026-06-02T04:46:27.064282+00:00",
+  "missing_artifacts": [],
+  "schema_version": "0.1.0",
+  "status": "release_artifact_manifest_complete",
+  "validation_passed": true
+}

@@ -6,7 +6,7 @@
     "path": "/home/lh/d/autoresearch/hanta/reports/figures/human_case_map_gate_descriptive_availability_panel.svg",
     "type": "non_geographic_tile_map"
   },
-  "generated_at_utc": "2026-05-30T06:52:34.749118+00:00",
+  "generated_at_utc": "2026-06-01T16:49:24.116759+00:00",
   "guardrails": [
     "No licensed boundary geometry was fetched, cached, or committed.",
     "Outputs are descriptive public aggregate availability/count products only.",

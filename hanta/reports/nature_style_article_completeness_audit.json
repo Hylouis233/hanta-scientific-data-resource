@@ -1,0 +1,181 @@
+{
+  "article_path": "manuscripts/hanta_nature_style_article_draft.md",
+  "article_scope": "Complete Nature-style article draft for public-data ResearchOps and formal gate evaluation; not an accepted Nature publication and not a biological risk-inference article.",
+  "check_count": 28,
+  "checks": [
+    {
+      "check": "## Summary",
+      "check_type": "required_section",
+      "evidence": "present",
+      "status": "pass"
+    },
+    {
+      "check": "## Introduction",
+      "check_type": "required_section",
+      "evidence": "present",
+      "status": "pass"
+    },
+    {
+      "check": "## Results",
+      "check_type": "required_section",
+      "evidence": "present",
+      "status": "pass"
+    },
+    {
+      "check": "## Figure legends",
+      "check_type": "required_section",
+      "evidence": "present",
+      "status": "pass"
+    },
+    {
+      "check": "## Discussion",
+      "check_type": "required_section",
+      "evidence": "present",
+      "status": "pass"
+    },
+    {
+      "check": "## Methods",
+      "check_type": "required_section",
+      "evidence": "present",
+      "status": "pass"
+    },
+    {
+      "check": "## Data availability",
+      "check_type": "required_section",
+      "evidence": "present",
+      "status": "pass"
+    },
+    {
+      "check": "## Code availability",
+      "check_type": "required_section",
+      "evidence": "present",
+      "status": "pass"
+    },
+    {
+      "check": "## Ethics and privacy statement",
+      "check_type": "required_section",
+      "evidence": "present",
+      "status": "pass"
+    },
+    {
+      "check": "## Limitations",
+      "check_type": "required_section",
+      "evidence": "present",
+      "status": "pass"
+    },
+    {
+      "check": "mean AUC 0.458299",
+      "check_type": "required_phrase",
+      "evidence": "present",
+      "status": "pass"
+    },
+    {
+      "check": "mean Brier score 0.252709",
+      "check_type": "required_phrase",
+      "evidence": "present",
+      "status": "pass"
+    },
+    {
+      "check": "Wilson 95% confidence intervals",
+      "check_type": "required_phrase",
+      "evidence": "present",
+      "status": "pass"
+    },
+    {
+      "check": "MiniMax M3",
+      "check_type": "required_phrase",
+      "evidence": "present",
+      "status": "pass"
+    },
+    {
+      "check": "formal_host_occurrence_suitability_gate_passed=false",
+      "check_type": "required_phrase",
+      "evidence": "present",
+      "status": "pass"
+    },
+    {
+      "check": "non-spatial within-study positivity summaries",
+      "check_type": "required_phrase",
+      "evidence": "present",
+      "status": "pass"
+    },
+    {
+      "check": "not support human infection risk",
+      "check_type": "required_phrase",
+      "evidence": "present",
+      "status": "pass"
+    },
+    {
+      "check": "\u5f53\u524d Rt \u662f descriptive growth proxy\uff0c\u4e0d\u662f\u6b63\u5f0f EpiEstim\uff0c\u4e5f\u4e0d\u6784\u6210\u5e72\u9884\u56e0\u679c\u5206\u6790\u3002",
+      "check_type": "required_phrase",
+      "evidence": "present",
+      "status": "pass"
+    },
+    {
+      "check": "word_count_at_least_2500",
+      "check_type": "draft_depth",
+      "evidence": "3009",
+      "status": "pass"
+    },
+    {
+      "check": "we predict outbreak",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "status": "pass"
+    },
+    {
+      "check": "predicts outbreak",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "status": "pass"
+    },
+    {
+      "check": "validated risk map",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "status": "pass"
+    },
+    {
+      "check": "human infection risk model",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "status": "pass"
+    },
+    {
+      "check": "formal Rt estimate",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "status": "pass"
+    },
+    {
+      "check": "host abundance estimate",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "status": "pass"
+    },
+    {
+      "check": "spillover risk",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "status": "pass"
+    },
+    {
+      "check": "host-switch inference",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "status": "pass"
+    },
+    {
+      "check": "causal effect",
+      "check_type": "disallowed_unqualified_claim",
+      "evidence": "not_found_unqualified",
+      "status": "pass"
+    }
+  ],
+  "failed_checks": [],
+  "generated_at_utc": "2026-06-01T17:50:56.827619+00:00",
+  "schema_version": "0.1.0",
+  "status": "nature_style_article_completeness_audit_passed",
+  "validation_passed": true,
+  "word_count": 3009
+}

@@ -1,0 +1,79 @@
+{
+  "figure_count": 10,
+  "figures": [
+    {
+      "audit_image_path": "reports/figures/formal_host_occurrence_background_sensitivity_diagnostics.png",
+      "audit_status": "pending_minimax_m3_review",
+      "figure_id": "formal_host_occurrence_background_sensitivity_diagnostics",
+      "figure_path": "reports/figures/formal_host_occurrence_background_sensitivity_diagnostics.svg",
+      "format": "svg"
+    },
+    {
+      "audit_image_path": "reports/figures/formal_host_occurrence_suitability_diagnostics.png",
+      "audit_status": "pending_minimax_m3_review",
+      "figure_id": "formal_host_occurrence_suitability_diagnostics",
+      "figure_path": "reports/figures/formal_host_occurrence_suitability_diagnostics.svg",
+      "format": "svg"
+    },
+    {
+      "audit_image_path": "reports/figures/gbif_country_record_availability_choropleth_prototype.audit.png",
+      "audit_status": "pending_minimax_m3_review",
+      "figure_id": "gbif_country_record_availability_choropleth_prototype",
+      "figure_path": "reports/figures/gbif_country_record_availability_choropleth_prototype.svg",
+      "format": "svg"
+    },
+    {
+      "audit_image_path": "reports/figures/gbif_descriptive_suitability_covariates.png",
+      "audit_status": "pending_minimax_m3_review",
+      "figure_id": "gbif_descriptive_suitability_covariates",
+      "figure_path": "reports/figures/gbif_descriptive_suitability_covariates.svg",
+      "format": "svg"
+    },
+    {
+      "audit_image_path": "reports/figures/gbif_species_record_counts.audit.png",
+      "audit_status": "pending_minimax_m3_review",
+      "figure_id": "gbif_species_record_counts",
+      "figure_path": "reports/figures/gbif_species_record_counts.svg",
+      "format": "svg"
+    },
+    {
+      "audit_image_path": "reports/figures/gbif_top_country_record_counts.audit.png",
+      "audit_status": "pending_minimax_m3_review",
+      "figure_id": "gbif_top_country_record_counts",
+      "figure_path": "reports/figures/gbif_top_country_record_counts.svg",
+      "format": "svg"
+    },
+    {
+      "audit_image_path": "reports/figures/host_infection_pubmed_38236803_assay_comparison.png",
+      "audit_status": "pending_minimax_m3_review",
+      "figure_id": "host_infection_pubmed_38236803_assay_comparison",
+      "figure_path": "reports/figures/host_infection_pubmed_38236803_assay_comparison.svg",
+      "format": "svg"
+    },
+    {
+      "audit_image_path": "reports/figures/host_infection_pubmed_38236803_site_prevalence.png",
+      "audit_status": "pending_minimax_m3_review",
+      "figure_id": "host_infection_pubmed_38236803_site_prevalence",
+      "figure_path": "reports/figures/host_infection_pubmed_38236803_site_prevalence.svg",
+      "format": "svg"
+    },
+    {
+      "audit_image_path": "reports/figures/host_infection_pubmed_38236803_species_prevalence.png",
+      "audit_status": "pending_minimax_m3_review",
+      "figure_id": "host_infection_pubmed_38236803_species_prevalence",
+      "figure_path": "reports/figures/host_infection_pubmed_38236803_species_prevalence.svg",
+      "format": "svg"
+    },
+    {
+      "audit_image_path": "reports/figures/human_case_map_gate_descriptive_availability_panel.png",
+      "audit_status": "pending_minimax_m3_review",
+      "figure_id": "human_case_map_gate_descriptive_availability_panel",
+      "figure_path": "reports/figures/human_case_map_gate_descriptive_availability_panel.svg",
+      "format": "svg"
+    }
+  ],
+  "generated_at_utc": "2026-06-01T16:49:24.234667+00:00",
+  "schema_version": "0.1.0",
+  "status": "manuscript_figure_inventory_complete",
+  "validation_passed": true
+}

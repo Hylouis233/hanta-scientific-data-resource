@@ -1,11 +1,6 @@
 {
   "advanced_model_gate_passed": false,
   "allowed_claims": [],
-  "diagnostic_artifacts": [
-    "reports/formal_host_occurrence_suitability_failure_diagnostics.json",
-    "data/metadata/formal_environmental_covariate_expansion_manifest.json",
-    "reports/formal_host_occurrence_background_sensitivity_model_qc.json"
-  ],
   "disallowed_claims": [
     "risk map",
     "human infection risk",
@@ -15,7 +10,7 @@
     "causal/intervention inference"
   ],
   "formal_host_occurrence_suitability_gate_passed": false,
-  "generated_at_utc": "2026-06-01T07:30:21.398640+00:00",
+  "generated_at_utc": "2026-06-01T16:43:20.363987+00:00",
   "guardrails": [
     "Model target is GBIF host-occurrence suitability only.",
     "Predictions are row-level suitability scores for the modeling table, not geographic risk maps.",
@@ -23,6 +18,6 @@
     "A passed model gate does not authorize disease-risk mapping or surveillance-ecology joins."
   ],
   "schema_version": "0.1.0",
-  "status": "formal_host_occurrence_suitability_gate_blocked_after_failure_and_sensitivity_diagnostics",
+  "status": "formal_host_occurrence_suitability_gate_blocked_after_model_qc",
   "validation_passed": true
 }

@@ -1,0 +1,45 @@
+{
+  "checks": [
+    {
+      "check": "release artifact manifest",
+      "evidence": "16 artifacts",
+      "passed": true
+    },
+    {
+      "check": "secret/privacy audit",
+      "evidence": "0 secret hits",
+      "passed": true
+    },
+    {
+      "check": "resource reuse closeout",
+      "evidence": "scientific_data_resource_reuse_package_complete",
+      "passed": true
+    },
+    {
+      "check": "smoke test",
+      "evidence": "scientific_data_reproducibility_smoke_test_passed",
+      "passed": true
+    },
+    {
+      "check": "submission checklist",
+      "evidence": "11/11 complete",
+      "passed": true
+    },
+    {
+      "check": "reviewer guide",
+      "evidence": "reports/reviewer_navigation_guide.md",
+      "passed": true
+    },
+    {
+      "check": "fixed evaluation",
+      "evidence": "all_checks_passed=true",
+      "passed": true
+    }
+  ],
+  "generated_at_utc": "2026-06-02T04:52:17.689911+00:00",
+  "remaining_external_dependency": "External data repository deposition DOI and journal editorial decision, if required by the selected venue.",
+  "schema_version": "0.1.0",
+  "status": "submission_release_candidate_ready",
+  "target": "Scientific Data / Nature Portfolio Data Descriptor-style release candidate",
+  "validation_passed": true
+}

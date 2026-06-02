@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import csv
+import html
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -34,26 +35,68 @@ def _write_csv(path: Path, rows: list[dict[str, Any]], fieldnames: list[str]) ->
         writer.writerows(rows)
 
 
-def _bar_svg(rows: list[tuple[str, int]], title: str, path: Path) -> None:
-    width = 900
+COUNTRY_NAMES = {
+    "US": "United States", "DE": "Germany", "FR": "France", "CN": "China", "GB": "United Kingdom",
+    "FI": "Finland", "SE": "Sweden", "RU": "Russia", "CA": "Canada", "JP": "Japan", "PL": "Poland",
+    "NL": "Netherlands", "BE": "Belgium", "CH": "Switzerland", "ES": "Spain", "IT": "Italy", "AT": "Austria",
+    "IE": "Ireland", "UA": "Ukraine", "PT": "Portugal", "HU": "Hungary", "RO": "Romania", "GR": "Greece",
+    "SK": "Slovakia", "SI": "Slovenia", "HR": "Croatia", "RS": "Serbia", "EE": "Estonia", "LV": "Latvia",
+    "LT": "Lithuania", "TR": "Turkey", "IN": "India", "ZA": "South Africa", "NZ": "New Zealand",
+    "IS": "Iceland", "NO": "Norway", "DK": "Denmark", "CZ": "Czechia", "KR": "South Korea", "CL": "Chile", "AU": "Australia",
+    "BR": "Brazil", "MX": "Mexico", "AR": "Argentina", "unknown": "Unknown", "ZZ": "Unknown",
+}
+
+
+def _display_label(label: str) -> str:
+    return COUNTRY_NAMES.get(label, label)
+
+
+def _nice_ticks(max_value: int) -> list[int]:
+    if max_value <= 250_000:
+        step = 50_000
+    elif max_value <= 500_000:
+        step = 100_000
+    else:
+        step = 200_000
+    return list(range(0, ((max_value + step - 1) // step + 1) * step, step))
+
+
+def _bar_svg(rows: list[tuple[str, int]], title: str, path: Path, x_label: str) -> None:
+    width = 980
     bar_height = 24
-    label_width = 230
-    height = 70 + len(rows) * (bar_height + 8)
+    label_width = 260
+    plot_width = width - label_width - 180
+    top = 42
+    axis_height = 46
+    height = top + len(rows) * (bar_height + 8) + axis_height
     max_value = max((value for _, value in rows), default=1)
+    ticks = _nice_ticks(max_value)
+    axis_max = max(ticks)
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
         '<rect width="100%" height="100%" fill="white"/>',
-        f'<text x="20" y="30" font-family="sans-serif" font-size="20" font-weight="700">{title}</text>',
     ]
-    y = 60
+    y = top
     for label, value in rows:
-        bar_width = int((width - label_width - 100) * value / max_value)
+        bar_width = int(plot_width * value / axis_max)
+        safe_label = html.escape(_display_label(label))
+        label_style = 'font-style="italic"' if " " in label and label not in COUNTRY_NAMES else ""
         parts.extend([
-            f'<text x="20" y="{y + 17}" font-family="sans-serif" font-size="13">{label}</text>',
-            f'<rect x="{label_width}" y="{y}" width="{bar_width}" height="{bar_height}" fill="#4C78A8"/>',
-            f'<text x="{label_width + bar_width + 8}" y="{y + 17}" font-family="sans-serif" font-size="13">{value}</text>',
+            f'<text x="{label_width - 10}" y="{y + 17}" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" {label_style}>{safe_label}</text>',
+            f'<rect x="{label_width}" y="{y}" width="{bar_width}" height="{bar_height}" fill="#0072B2"/>',
+            f'<text x="{label_width + bar_width + 8}" y="{y + 17}" font-family="Arial, Helvetica, sans-serif" font-size="11">{value:,}</text>',
         ])
         y += bar_height + 8
+    axis_y = y + 4
+    parts.append(f'<line x1="{label_width}" x2="{label_width + plot_width}" y1="{axis_y}" y2="{axis_y}" stroke="#333" stroke-width="1"/>')
+    for tick in ticks:
+        x = label_width + int(plot_width * tick / axis_max)
+        parts.extend([
+            f'<line x1="{x}" x2="{x}" y1="{axis_y}" y2="{axis_y + 5}" stroke="#333" stroke-width="1"/>',
+            f'<text x="{x}" y="{axis_y + 20}" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10">{tick:,}</text>',
+        ])
+    parts.append(f'<text x="{label_width + plot_width / 2}" y="{axis_y + 38}" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11">{html.escape(x_label)}</text>')
+    parts.append(f'<desc>{html.escape(title)}. Descriptive GBIF occurrence record counts only; not host abundance or infection risk.</desc>')
     parts.append("</svg>")
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text("\n".join(parts) + "\n", encoding="utf-8")
@@ -94,8 +137,8 @@ def main() -> int:
     top_country_csv = Path("data/processed/gbif_rodent_occurrences/mapping_readiness/top_country_mapping_summary.csv")
     top_species_country_csv = Path("data/processed/gbif_rodent_occurrences/mapping_readiness/top_species_country_mapping_summary.csv")
 
-    _bar_svg(species_ranked, "GBIF candidate host occurrence records by species", species_svg)
-    _bar_svg(country_ranked[:25], "Top GBIF candidate host occurrence records by country", country_svg)
+    _bar_svg(species_ranked, "GBIF candidate host occurrence records by species", species_svg, "Number of occurrence records")
+    _bar_svg(country_ranked[:25], "Top GBIF candidate host occurrence records by country", country_svg, "Number of occurrence records")
     _write_csv(top_country_csv, top_country_rows, ["countryCode", "mapping_ready_rows"])
     _write_csv(top_species_country_csv, top_species_country, ["species", "countryCode", "mapping_ready_rows"])
 

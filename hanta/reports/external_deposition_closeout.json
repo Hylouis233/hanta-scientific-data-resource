@@ -1,0 +1,11 @@
+{
+  "status": "external_deposition_staging_complete",
+  "repository_url": "https://github.com/Hylouis233/hanta-scientific-data-resource",
+  "repository_visibility": "public",
+  "release_url": "https://github.com/Hylouis233/hanta-scientific-data-resource/releases/tag/scientific-data-local-v0.1.0",
+  "archive_path": "release/scientific_data_submission_package.tar.gz",
+  "sha256_path": "release/scientific_data_submission_package.tar.gz.sha256",
+  "sha256": "4cc1fee017b215c1e74528ad61b316d5b6d70a65bad93357fd4dbf547937e84e",
+  "doi_minted": false,
+  "doi_note": "Link the public repository/release to Zenodo, Figshare, OSF, or an institutional repository to mint a DOI, then update manuscript availability text."
+}
